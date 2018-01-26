@@ -1,0 +1,404 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Test Framework Design for Regression | Complete Think</title>
+  <meta name="author" content="Rick Hwang">
+  
+  <meta name="description" content="Stages in Software Testing 提到過去因為需要自動化 Regression Test，然後設計、開發 Test Framework 的經驗。
+最近也有人在問我怎麼做這件事情，重新整理一下這段經歷的分享。
+Test Framework 的經驗提到幾個點：
+
+工作流程與組織角色
+">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Test Framework Design for Regression"/>
+  <meta property="og:site_name" content="Complete Think"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/true" title="Complete Think" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <!--
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  -->
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-71839551-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1554905741423841',
+        xfbml      : true,
+        version    : 'v2.2'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+</head>
+
+
+<body>
+
+  
+<nav id="main-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand active" href="/">Complete Think</a>
+	  	
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  	
+		  		
+		  			<li><a href="/archives" title="All the articles."><i class="fa fa-archive"></i>Archives</a></li>
+		  		
+		  	
+		  		
+					<li class='dropdown'>
+						<a aria-expanded='false' class='dropdown-toggle' data-toggle='dropdown' href='#' role='button'><i class="fa fa-folder"></i>Categories <span class='caret'/></span></a>
+		            	<ul class='dropdown-menu' role='menu'>
+		            	
+						
+							<li><a href="/categories/AWS/">AWS <sup>53</sup></a></li>
+						
+							<li><a href="/categories/AWS/AWS-Certified/">AWS Certified <sup>4</sup></a></li>
+						
+							<li><a href="/categories/About/">About <sup>5</sup></a></li>
+						
+							<li><a href="/categories/Blog/">Blog <sup>4</sup></a></li>
+						
+							<li><a href="/categories/ComputerScience/">ComputerScience <sup>1</sup></a></li>
+						
+							<li><a href="/categories/Container/">Container <sup>9</sup></a></li>
+						
+							<li><a href="/categories/DevOps/">DevOps <sup>15</sup></a></li>
+						
+							<li><a href="/categories/Embedded/">Embedded <sup>1</sup></a></li>
+						
+							<li><a href="/categories/GCP/">GCP <sup>6</sup></a></li>
+						
+							<li><a href="/categories/Linux/">Linux <sup>9</sup></a></li>
+						
+							<li><a href="/categories/Misc/">Misc <sup>3</sup></a></li>
+						
+							<li><a href="/categories/News/">News <sup>3</sup></a></li>
+						
+							<li><a href="/categories/OS-X/">OS X <sup>3</sup></a></li>
+						
+							<li><a href="/categories/Redmine/">Redmine <sup>4</sup></a></li>
+						
+							<li><a href="/categories/Software-Engineering/">Software Engineering <sup>4</sup></a></li>
+						
+							<li><a href="/categories/Tools/">Tools <sup>1</sup></a></li>
+						
+							<li><a href="/categories/經營管理/">經營管理 <sup>20</sup></a></li>
+						
+							<li><a href="/categories/軟體測試/">軟體測試 <sup>5</sup></a></li>
+						
+						</ul>
+					</li>
+		  		
+		  	
+		</ul>
+
+		<!-- @ricka: menu in right -->	
+	    <ul class='nav navbar-nav navbar-right'>
+			
+			  <li><a href="http://www.gtcafe.com" title="GTCafe Studio" target="_blank"> <i class="fa fa-coffee"></i>GTCafe Studio</a></li>
+			
+			  <li><a href="http://rickmidi.blogspot.com/" title="喝咖啡 聊音樂" target="_blank"> <i class="fa fa-coffee"></i>喝咖啡 聊音樂</a></li>
+			
+			  <li><a href="https://www.blogger.com/profile/09975688593247211189" title="About me." target="_blank"> <i class="fa fa-user"></i>About</a></li>
+			
+	    </ul>
+	    <!-- @ricka end -->	
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content" style="background-color: white;">
+       
+	
+		<!-- @rick, header of article -->
+		<!-- original
+		<div class="page-header">
+			<h1> Test Framework Design for Regression</h1>
+		</div>
+		-->
+
+		<div class="panel article_title">
+			<div class="panel-heading">
+    		<h1> Test Framework Design for Regression</h1>
+  		</div>
+		</div>
+
+	
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	
+
+		<!-- content -->
+		<div class="mypage">
+
+			<!-- Facebook in front of page -->
+			<div
+			  class="fb-like"
+			  data-share="true"
+			  data-width="450"
+			  data-show-faces="true">
+			</div>
+
+			<hr />
+
+		    <p><a href="/2017/03/18/SQA/Stages-In-Software-Testing/">Stages in Software Testing</a> 提到過去因為需要自動化 Regression Test，然後設計、開發 Test Framework 的經驗。</p>
+<p>最近也有人在問我怎麼做這件事情，重新整理一下這段經歷的分享。</p>
+<p>Test Framework 的經驗提到幾個點：</p>
+<ul>
+<li>工作流程與組織角色</li>
+<li>Framework 自身的測試</li>
+<li>部署與配置</li>
+</ul>
+<a id="more"></a>
+<h1 id="工作流程與組織"><a href="#工作流程與組織" class="headerlink" title="工作流程與組織"></a>工作流程與組織</h1><ul>
+<li>寫 Test Case 的人，這個 Test Case 本身的設計、開發、與測試</li>
+<li>跑 Test Case 的人，如何一次跑大量的 Test Cases，或者是一次更改所有 Test Cases 的參數、</li>
+<li>開發、維護 Test Framework and Test Libraries 的人：包含 Framework 自測、報表產生器、資源管理、環境建置等</li>
+</ul>
+<h2 id="自動化"><a href="#自動化" class="headerlink" title="自動化"></a>自動化</h2><h2 id="單一自動化-寫-Test-Case-的人"><a href="#單一自動化-寫-Test-Case-的人" class="headerlink" title="單一自動化: 寫 Test Case 的人"></a>單一自動化: 寫 Test Case 的人</h2><h2 id="Design-Test-Framework-for-Regression"><a href="#Design-Test-Framework-for-Regression" class="headerlink" title="Design Test Framework for Regression"></a>Design Test Framework for Regression</h2><p>單一的自動化測試難度不高，但是如果大量且要能夠團隊合作的 Test Framework 複雜度就很高，我設計過的 Test Framework 考慮以下：</p>
+<ul>
+<li>環境建置準備: 把環境弄到最乾淨，以 AWS 來說就是起一個乾淨的 Instance</li>
+<li>測試資料準備：每個 test case 都會有個別的測試資料，用來製造測試情境</li>
+<li>待測程式的部署或者安裝：從 build machine or S3 抓下最新的 build，安裝好後，把 test case 需要用的設定檔設定好</li>
+<li>單一 Test case 的開發流程與流程控制: tester 寫 test case 如何在自己的環境開發與測試</li>
+<li>Test Suite 的管理與結構: 如何跑整個 test suites，test suites 本身的設定檔</li>
+<li>Runner 的設計：<ul>
+<li>跑單一 testcase,</li>
+<li>跟跑數個 suites 的設定檔, 然後可以個別指定設定檔, 或者 overwrite 每個 testcase 的設定檔</li>
+</ul>
+</li>
+<li>測試排程控制 (分散式)：<ul>
+<li>如何同時跑多個 test case?</li>
+<li>排隊或者平行？</li>
+<li>test case runtime 在哪一台機器跑？</li>
+<li>如果 test case 跑太久怎麼辦？這裡我設計了 <code>duration</code> 機制，也就是 tester 必須指定每個 test case 最長的執行時間，超過 test runner 就會把 thread 砍掉，並且執行 cleanup，把環境還原，把測試標記失敗。</li>
+</ul>
+</li>
+<li>模擬程式的設計：有些測試程式需要製造一些特殊條件，像是 disk 滿了、CPU 80%、memory 沒了之類的 …<ul>
+<li>我設計由 Framework 提供這些功能，tester 只要透過參數就可以達到想要的功能即可。</li>
+</ul>
+</li>
+<li>額外的測試條件 Callback: 跑大量 test suite 時，可以同時跑其他的東西製造測試情境</li>
+<li>測試結果的 Log 與報表<ul>
+<li>Log 分成給 tester 看得、Framework Library Design 看的，還有 Framework Developer 看得。</li>
+<li>每個 testcase 都有 owner, 報表每天會自動寄給 owner</li>
+</ul>
+</li>
+<li>Rerun 機制<ul>
+<li>每次跑大量的 test suites 產生報表的同時，會同時產生另一個 runner 的設定檔，只要 reviewer 看過覺得需要重跑，按下 rerun 就可以自動化重跑</li>
+</ul>
+</li>
+<li>資源監視<ul>
+<li>待側機器的資源狀況，主要有 CPU / Memory / Disk 狀況</li>
+</ul>
+</li>
+<li>Test “Test Framework”：整個 Test Framework 自己的 Unit Test 以及 Libraries 都是透過自己測自己的方式實作，也就是自己的 Libraries 也會產生測試報表，每次加功能之前，都會用自己測自己 (當時我還不知道那叫 TDD)。這樣的想法是以前學 Java 時，聽學校老師說 Java Compiler 用什麼寫？當然是用 Java 寫囉！當時還不懂，後來就懂了。</li>
+</ul>
+<p>下面是以前我設計 Test Framework for Regression 時規劃的流程與設計 (System Level Design)，摘錄一些當時簡報的圖檔與心得：</p>
+<p><img src="/images/SQA/Regression/Test-Case-Procedure.png" alt="程序的設計，有 Framework Level 和 User Level"></p>
+<p>測試程序的設計，有 Framework Level 和 User Level。Framework Level 根產品的特殊性有關係，產品相關的共用程序都封裝在 Framework 層，User Level 則是給 SQA 開發 Test Case 使用。</p>
+<p>中間有一些 function，像是 Raise CPU, Memory Up，是由 Framework 控制。Tester 在開發 Test Case 時，只要指定參數就可以了。</p>
+<p><img src="/images/SQA/Regression/Test-Cases-Management.png" alt="Test Case 的目錄結構設計，參考 Java package 概念。"></p>
+<p>Test Cases / Test Suites 的目錄結構設計，參考 Java package 概念。而且 Suites 和 Test case 的設定檔具有繼承、annotation、branch 概念。branch 概念就是說屬於特定版本的設定，可以建立新的 設定檔，附加版本號碼，Framework 只要找到這樣的檔案，就會自動 overwrite 相關設定。</p>
+<blockquote>
+<ul>
+<li>類似 Branch 的概念，在 Ansible 裡也有。</li>
+<li>這裡我實作了一個簡單的 parser，parse 每個 testcase 設定檔的相關需求，包含繼承、annotation、branch 等概念，實作內容包含基本的 syntax check、abstract structure tree (AST) 等，如果 syntax error 會吐出 error code, 同時指出哪一行錯誤。最後在 runtime 變成一個 data model 給 test runner 使用。在 <a href="/2015/02/14/ComputerScience/Talk-About-Parser/">Talk about compiler and parser</a> 有簡單的描述。</li>
+</ul>
+</blockquote>
+<p><img src="/images/SQA/Regression/Test-Flow.png" alt=""></p>
+<p>這張圖是更大的測試流程圖，包含準備、自動更新 Firmware、Sequence / Parallel 的 Test Case 執行程序、以及 Log and Report。</p>
+<p><img src="/images/SQA/Regression/ER_Report.png" alt=""></p>
+<p>這是執行後給 Testcase owner 的測試報告，列出 owner 每個 test case 的執行結果與 Log.</p>
+<p><img src="/images/SQA/Regression/FP004.png" alt=""></p>
+<p>這張圖是測試資源的管理，Framework 會依據資源狀況，自動分配 Job。用 <a href="https://www.zkoss.org/" target="_blank" rel="noopener">ZK</a> 實作的。</p>
+<blockquote>
+<p>我在 <a href="/2014/05/09/SQA/Problems_In-Software-Autotest/">軟體自動化測試常見的問題</a> 中問題到的描述，就是這段實作過程的經歷。</p>
+</blockquote>
+<p>這一整套 Test Framework 是設計給一個團隊使用，裡面包含了協作、資源系統、報告、教育訓練、完整的文件手冊、範例程式碼、設計文件 … 等，當時一直想把他商品化，可惜並沒有機會。 (老了，要開始提當年勇了 XD)</p>
+<h1 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h1><p>測試應該是整個開發週期最長的時間，因為他需要把所有路徑都走過，把所有狀況都模擬過。</p>
+<p>我的腦海裡常常有這樣的畫面：一個戰場上的戰士，還沒上戰場之前，有過嚴格的訓練，上戰場前就已經是傷痕累累，已經是經百戰。測試，就是上戰場前的準備。寧可多測，也不要隨意 Release。軟體的問題通常會是非線性的關係，覆水將難收，已經上戰場了，才來磨槍，只會死得更慘。</p>
+<blockquote>
+<p>我從不相信『臨陣磨槍，不亮也光』這種屁話。</p>
+</blockquote>
+<p>用吉他來說，測試就是一種練習，把每個音階、和弦、技巧練熟悉，一首歌練一百次算很少、一千次算可以上台表演。軟體也是，Release 之前能夠經過千錘百鍊，才會有品質。</p>
+<blockquote>
+<p>有朋友問，為什麼要分這麼多 Stage？測試有那麼複雜？實際上就是那麼複雜。這篇文章，對我來講應該只是目錄，每個 Stage 有時間我再獨立說明其中的原委以及我自身經歷的故事。</p>
+</blockquote>
+<h1 id="延伸閱讀-站內"><a href="#延伸閱讀-站內" class="headerlink" title="延伸閱讀 (站內)"></a>延伸閱讀 (站內)</h1><ul>
+<li><a href="/2017/03/18/SQA/Stages-In-Software-Testing/">Stages in Software Testing</a></li>
+<li><a href="/2015/10/11/SQA/How-To-Be-An-SQA/">自動化帶來的問題</a></li>
+<li><a href="/2015/08/20/SQA/Three-Kinds-Of-SQA/">『自動化 XXX』的陷阱</a></li>
+</ul>
+<p>–</p>
+<h1 id="延伸閱讀-站內-1"><a href="#延伸閱讀-站內-1" class="headerlink" title="延伸閱讀 (站內)"></a>延伸閱讀 (站內)</h1><ul>
+<li><a href="/2017/03/18/SQA/Stages-In-Software-Testing/">Stages in Software Testing</a></li>
+<li><a href="/2017/03/11/Management/Requirements-Management/">需求管理 (Requirement Management)</a></li>
+<li><a href="/2014/05/09/SQA/Problems_In-Software-Autotest/">軟體自動化測試常見的問題</a></li>
+<li><a href="/2015/10/11/SQA/How-To-Be-An-SQA/">How to be an SQA?</a></li>
+<li><a href="/2015/08/20/SQA/Three-Kinds-Of-SQA/">三種 QA</a></li>
+<li><a href="/2015/01/06/Management/協同合作系統建制與導入-以-Redmine-為例/">協同合作系統建制與導入 - 以 Redmine 為例</a></li>
+<li><a href="/2015/02/11/SoftwareEngineering/Version-Control/">Version Control</a></li>
+<li><a href="/2017/02/11/AWS/Resource-Provisioning-and-DevOps/">Resource Provisioning and DevOps</a></li>
+<li><p><a href="/2017/06/21/AWS/Stategies-System-Monitor_and_CloudWatch/">淺談系統監控與 CloudWatch 的應用</a></p>
+</li>
+<li><p><a href="/2017/09/14/SoftwareEngineering/Software-Development-Lifecycle/">Software Development Lifecycle</a></p>
+</li>
+<li><a href="/2017/12/03/SQA/Regression-Test-Is-Tough/">從 iOS 無限黑屏事件，淺談軟體測試階段 - 回歸測試 Regression Test</a></li>
+</ul>
+<h1 id="參考資料-站外"><a href="#參考資料-站外" class="headerlink" title="參考資料 (站外)"></a>參考資料 (站外)</h1><ul>
+<li><a href="http://teddy-chen-tw.blogspot.tw/2010/05/600-bugs.html" target="_blank" rel="noopener">600 多個 bugs 要怎麼修？</a></li>
+<li><a href="http://www.ithome.com.tw/voice/85554" target="_blank" rel="noopener">QA、QC，傻傻分不清楚！</a></li>
+<li><a href="http://imsardine.simplbug.com/note/test/roles.html" target="_blank" rel="noopener">Testing / Roles - SWE, SET, TE</a></li>
+<li><a href="http://www.researchmfg.com/2010/07/evt-dvt-pvt/" target="_blank" rel="noopener">開發新產品有三個驗證階段(EVT/DVT/PVT)</a></li>
+</ul>
+
+
+		    <hr />
+			<!-- Facebook in bend of page -->
+			<div
+			  class="fb-like"
+			  data-share="true"
+			  data-width="450"
+			  data-show-faces="true">
+			</div>
+
+		</div>
+
+
+		<div>
+		  	<center>
+				
+<div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+	    	</center>
+		</div>
+
+
+	<!-- comment -->
+	
+
+
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+
+	
+	
+
+</div><!-- row -->
+
+    </div>
+  </div>
+
+
+<div class="container-narrow">
+    <footer> <p>
+  &copy; 2018 Rick Hwang
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme base on <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+
+<div id="gotop">
+  <!--
+  
+    <i class="fa fa-coffee"></i> <a href="http://www.gtcafe.com" title="GTCafe Studio" target="_blank"]);">GTCafe Studio</a><br />
+  
+    <i class="fa fa-coffee"></i> <a href="http://rickmidi.blogspot.com/" title="喝咖啡 聊音樂" target="_blank"]);">喝咖啡 聊音樂</a><br />
+  
+    <i class="fa fa-user"></i> <a href="https://www.blogger.com/profile/09975688593247211189" title="About me." target="_blank"]);">About</a><br />
+  
+  -->
+
+<a href="#"><span>▲</span></a>
+</div>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+</html>

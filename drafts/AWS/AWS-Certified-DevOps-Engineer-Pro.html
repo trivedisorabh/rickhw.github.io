@@ -1,0 +1,389 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>AWS Certified DevOps Engineer Pro - 考試心得 | Complete Think</title>
+  <meta name="author" content="Rick Hwang">
+  
+  <meta name="description" content="整理 AWS Certified DevOps Engineer Pro 考試心得。
+
+考試資訊
+官方考試資訊：AWS Certified DevOps Engineer - Professional
+考試範圍：BluePrint
+考題：80 題
+作答時間：170 分 (2 小時 50 分)
+考試費">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="AWS Certified DevOps Engineer Pro - 考試心得"/>
+  <meta property="og:site_name" content="Complete Think"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/true" title="Complete Think" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <!--
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  -->
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-71839551-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1554905741423841',
+        xfbml      : true,
+        version    : 'v2.2'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+</head>
+
+
+<body>
+
+  
+<nav id="main-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand active" href="/">Complete Think</a>
+	  	
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  	
+		  		
+		  			<li><a href="/archives" title="All the articles."><i class="fa fa-archive"></i>Archives</a></li>
+		  		
+		  	
+		  		
+					<li class='dropdown'>
+						<a aria-expanded='false' class='dropdown-toggle' data-toggle='dropdown' href='#' role='button'><i class="fa fa-folder"></i>Categories <span class='caret'/></span></a>
+		            	<ul class='dropdown-menu' role='menu'>
+		            	
+						
+							<li><a href="/categories/AWS/">AWS <sup>53</sup></a></li>
+						
+							<li><a href="/categories/AWS/AWS-Certified/">AWS Certified <sup>4</sup></a></li>
+						
+							<li><a href="/categories/About/">About <sup>5</sup></a></li>
+						
+							<li><a href="/categories/Blog/">Blog <sup>4</sup></a></li>
+						
+							<li><a href="/categories/ComputerScience/">ComputerScience <sup>1</sup></a></li>
+						
+							<li><a href="/categories/Container/">Container <sup>9</sup></a></li>
+						
+							<li><a href="/categories/DevOps/">DevOps <sup>15</sup></a></li>
+						
+							<li><a href="/categories/Embedded/">Embedded <sup>1</sup></a></li>
+						
+							<li><a href="/categories/GCP/">GCP <sup>6</sup></a></li>
+						
+							<li><a href="/categories/Linux/">Linux <sup>9</sup></a></li>
+						
+							<li><a href="/categories/Misc/">Misc <sup>3</sup></a></li>
+						
+							<li><a href="/categories/News/">News <sup>3</sup></a></li>
+						
+							<li><a href="/categories/OS-X/">OS X <sup>3</sup></a></li>
+						
+							<li><a href="/categories/Redmine/">Redmine <sup>4</sup></a></li>
+						
+							<li><a href="/categories/Software-Engineering/">Software Engineering <sup>4</sup></a></li>
+						
+							<li><a href="/categories/Tools/">Tools <sup>1</sup></a></li>
+						
+							<li><a href="/categories/經營管理/">經營管理 <sup>20</sup></a></li>
+						
+							<li><a href="/categories/軟體測試/">軟體測試 <sup>5</sup></a></li>
+						
+						</ul>
+					</li>
+		  		
+		  	
+		</ul>
+
+		<!-- @ricka: menu in right -->	
+	    <ul class='nav navbar-nav navbar-right'>
+			
+			  <li><a href="http://www.gtcafe.com" title="GTCafe Studio" target="_blank"> <i class="fa fa-coffee"></i>GTCafe Studio</a></li>
+			
+			  <li><a href="http://rickmidi.blogspot.com/" title="喝咖啡 聊音樂" target="_blank"> <i class="fa fa-coffee"></i>喝咖啡 聊音樂</a></li>
+			
+			  <li><a href="https://www.blogger.com/profile/09975688593247211189" title="About me." target="_blank"> <i class="fa fa-user"></i>About</a></li>
+			
+	    </ul>
+	    <!-- @ricka end -->	
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content" style="background-color: white;">
+       
+	
+		<!-- @rick, header of article -->
+		<!-- original
+		<div class="page-header">
+			<h1> AWS Certified DevOps Engineer Pro - 考試心得</h1>
+		</div>
+		-->
+
+		<div class="panel article_title">
+			<div class="panel-heading">
+    		<h1> AWS Certified DevOps Engineer Pro - 考試心得</h1>
+  		</div>
+		</div>
+
+	
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	
+
+		<!-- content -->
+		<div class="mypage">
+
+			<!-- Facebook in front of page -->
+			<div
+			  class="fb-like"
+			  data-share="true"
+			  data-width="450"
+			  data-show-faces="true">
+			</div>
+
+			<hr />
+
+		    <p>整理 <a href="https://aws.amazon.com/certification/certified-devops-engineer-professional/?nc1=h_ls" target="_blank" rel="noopener">AWS Certified DevOps Engineer Pro</a> 考試心得。</p>
+<a id="more"></a>
+<h1 id="考試資訊"><a href="#考試資訊" class="headerlink" title="考試資訊"></a>考試資訊</h1><ul>
+<li>官方考試資訊：<a href="https://aws.amazon.com/certification/certified-devops-engineer-professional/?nc1=h_ls" target="_blank" rel="noopener">AWS Certified DevOps Engineer - Professional</a></li>
+<li>考試範圍：<a href="https://d0.awsstatic.com/training-and-certification/docs/AWS_certified_devops_engineer_professional_blueprint.pdf" target="_blank" rel="noopener">BluePrint</a></li>
+<li>考題：80 題</li>
+<li>作答時間：170 分 (2 小時 50 分)</li>
+<li>考試費用：300 USD，練習考試為 40 USD</li>
+</ul>
+<p>整體來說，都比 Associate Level 多一倍，平均每題大概只有兩分鐘的時間作答，而且題目都很長，英文閱讀不好會很慘。</p>
+<h2 id="考試項目"><a href="#考試項目" class="headerlink" title="考試項目"></a>考試項目</h2><p>以下是根據 Domain 整理對應 AWS Services</p>
+<ul>
+<li>Domain 1: Continuous Delivery and Process Automation 55% == 44<ul>
+<li>CI/CD</li>
+<li>Deployment Methodologies: A/B test, Blue-Green, Canary, Rolling Deployment</li>
+<li>CloudFormation</li>
+<li>Elastic Beanstalk (eb, PaaS)</li>
+<li>OpsWorks (Chef)</li>
+<li>AWS CLI, SDK, API</li>
+</ul>
+</li>
+<li>Domain 2: Monitoring, Metrics, and Logging 20% == 16<ul>
+<li>CloudWatch</li>
+<li>CloudWatch Log</li>
+</ul>
+</li>
+<li>Domain 3: Security, Governance, and Validation 10% == 8<ul>
+<li>Cloudtrail</li>
+<li>IAM</li>
+</ul>
+</li>
+<li>Domain 4: High Availability and Elasticity 15% == 12<ul>
+<li>AutoScaling</li>
+<li>VPC</li>
+</ul>
+</li>
+</ul>
+<h2 id="Whitepapers"><a href="#Whitepapers" class="headerlink" title="Whitepapers"></a>Whitepapers</h2><h2 id="其他-DevOps-Toolchain"><a href="#其他-DevOps-Toolchain" class="headerlink" title="其他 DevOps Toolchain"></a>其他 DevOps Toolchain</h2><ul>
+<li>AWS ECS / ECR</li>
+<li>AWS CodeDeploy, CodeBuild, CodePipeline, CodeCommit</li>
+<li>Jenkins</li>
+<li>Configuration Management: Ansible / Chef / Puppet / Salt</li>
+<li>Container: Docker / Kubernates (k8s)</li>
+<li>SCM / VSC: gitlab / github / bitbucket</li>
+<li>Log: fluentd, logstash, telegraf</li>
+</ul>
+<h2 id="學習資源"><a href="#學習資源" class="headerlink" title="學習資源"></a>學習資源</h2><ul>
+<li><a href="http://acloud.guru" target="_blank" rel="noopener">A Cloud Guru</a>: CloudFormation 這兩大部分，提供了很不錯的入門說明。</li>
+<li><a href="https://cloudonaut.io/" target="_blank" rel="noopener">cloudonaut Launchpad for Amazon Web Services</a>: 我在找 CloudFormation 資料時，發現這家公司: <a href="https://widdix.net/" target="_blank" rel="noopener">widdix</a>，以及他們在 <a href="https://github.com/widdix" target="_blank" rel="noopener">github</a> 上的資料。有很多 CloudFormation 的資料可以參考。同時他們兩個人也是 <a href="https://www.manning.com/books/amazon-web-services-in-action?a_bid=cc17df85&amp;a_aid=mwittig" target="_blank" rel="noopener">AMAZON WEB SERVICES IN ACTION</a> 這本書的作者。是學習 CloudFormation 很好的參考資料。</li>
+<li>Youtube</li>
+<li>AWS Courses:<ul>
+<li><a href="https://aws.amazon.com/training/course-descriptions/sysops/" target="_blank" rel="noopener">Systems Operations on AWS</a></li>
+<li><a href="https://aws.amazon.com/training/course-descriptions/developing/" target="_blank" rel="noopener">Developing on AWS</a></li>
+<li><a href="https://aws.amazon.com/training/course-descriptions/devops-engineering/" target="_blank" rel="noopener">DevOps Engineering on AWS</a></li>
+<li><a href="https://aws.amazon.com/training/course-descriptions/advanced-architecting/" target="_blank" rel="noopener">Advanced Architecting on AWS</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="建議閱讀"><a href="#建議閱讀" class="headerlink" title="建議閱讀"></a>建議閱讀</h2><h1 id="考試心得"><a href="#考試心得" class="headerlink" title="考試心得"></a>考試心得</h1><h2 id="如何準備練習"><a href="#如何準備練習" class="headerlink" title="如何準備練習"></a>如何準備練習</h2><p>準備 AWS Certification 過程中讓我感覺最難的就是：找到練習的案例。因為考試的範圍很大，但不是每個東西工作上的用得到。所以就要想一些例子來練習</p>
+<h2 id="DevOps-Engineer-這個角色的工作是什麼？"><a href="#DevOps-Engineer-這個角色的工作是什麼？" class="headerlink" title="DevOps Engineer 這個角色的工作是什麼？"></a><code>DevOps Engineer</code> 這個角色的工作是什麼？</h2><p><code>DevOps Engineer</code> 這個角色的工作是什麼？</p>
+<ul>
+<li><a href="http://www.indeed.com/q-Devops-Engineer-jobs.html" target="_blank" rel="noopener">http://www.indeed.com/q-Devops-Engineer-jobs.html</a></li>
+<li><a href="https://www.104.com.tw/jobbank/joblist/joblist.cfm?keyword=DevOps&amp;jobsource=n104bank1&amp;ro=0&amp;order=1" target="_blank" rel="noopener">https://www.104.com.tw/jobbank/joblist/joblist.cfm?keyword=DevOps&amp;jobsource=n104bank1&amp;ro=0&amp;order=1</a></li>
+</ul>
+<h2 id="思考：CI-CD-Infra-as-Code"><a href="#思考：CI-CD-Infra-as-Code" class="headerlink" title="思考：CI / CD / Infra as Code"></a>思考：CI / CD / Infra as Code</h2><ul>
+<li>AWS CLI / SDK</li>
+<li>CloudFormation vs OpsWorks vs Beanstalk</li>
+</ul>
+<h2 id="Provision"><a href="#Provision" class="headerlink" title="Provision"></a>Provision</h2><p>Provisioning 是 cloud 普及後出現的階段性任務，簡單說：「開機器」就是 provisioning，但現在一套系統通常不會只有「開一台機器」這麼單純，AWS 上常看到 VPC, SG, Subnet, ELB, S3, ASG, CloudFront, Route53, Redis, SES, SNS, CloudWatch … 等一堆要「準備好」、「串聯」， 然後才是輪到開發出來的應用程式的「部署」。這類的事情都可以自動化。常見的工具 AWS 以 CloudFormation 最完整，不過我覺的適合全新的案子，既有的系統用 cli or sdk 會比較適合。</p>
+<p><a href="https://martinfowler.com/bliki/MicroservicePrerequisites.html" target="_blank" rel="noopener">https://martinfowler.com/bliki/MicroservicePrerequisites.html</a></p>
+<p>重點</p>
+<ul>
+<li>Rapid provisioning</li>
+<li>Basic Monitoring</li>
+<li>Rapid application deployment</li>
+</ul>
+<h2 id="再談專業"><a href="#再談專業" class="headerlink" title="再談專業"></a>再談專業</h2><p>以前唸書時，有同學老是喜歡翹課去打籃球，有次翹課的太嚴重，老師就說了一段故事：</p>
+<pre><code>同學如果你很喜歡打籃球沒關係，那麼你的目標就要抓 Michael Jordan 那樣，如果不是，那麼你至少要做到，哪一年哪一場球、誰進球幾分、犯規幾次、最佳助攻。這樣才是專業，那你就可以不用來上課了。
+</code></pre><p>以前修微處理機 (Micro-processor) 的課，老師第一堂課開宗明義就講，這堂課修完只是入門，只能說對 8051 這塊晶片知道一點皮毛，一塊錢都賺不到。</p>
+<p>幾年前年，有學生私下寫信問我想專職走音樂的路，如何針對用吉他謀生。一開始我想到曾經寫過的這篇『<a href="http://rickmidi.blogspot.com/2015/06/blog-post.html" target="_blank" rel="noopener">十年 … 不過是入門而已 …</a>』，後來我整理了『<a href="http://rickmidi.blogspot.com/2015/06/blog-post.html" target="_blank" rel="noopener">拿音樂當飯吃？</a>』。</p>
+<p>如果要變成 <code>Cloud Engineer</code> 的專家，專業的程度至少應該是這樣的：</p>
+<ul>
+<li>熟悉所有 AWS 的服務，能夠運用這些服務，實際解決任務的需求。</li>
+<li>知道其他類似的雲端服務，像是 Azure、GCP、SoftLayer …</li>
+</ul>
+<h2 id="再聊難易度"><a href="#再聊難易度" class="headerlink" title="再聊難易度"></a>再聊難易度</h2><h1 id="思考本質"><a href="#思考本質" class="headerlink" title="思考本質"></a>思考本質</h1><h1 id="延伸閱讀-站內"><a href="#延伸閱讀-站內" class="headerlink" title="延伸閱讀 (站內)"></a>延伸閱讀 (站內)</h1><ul>
+<li><a href="/2016/08/20/AWS/AWS-Certified-Developer/">AWS Certified Developer - Associate 準備心得</a> (2016/08/20)</li>
+<li><a href="/2016/07/29/AWS/AWS-Certified-SysOps-Administrator/">AWS Certified SysOps Administrator - Associate 準備心得</a> (2016/07/29)</li>
+<li><a href="/2016/04/22/AWS/AWS-Certified-Solutions-Architect_Associate/">AWS Certified Solutions Architect - Associate 考試準備筆記</a> (2016/04/22)</li>
+</ul>
+<h1 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h1><ul>
+<li>[What’s the Value of an AWS Certification?][16]</li>
+<li><a href="https://www.quora.com/How-difficult-are-the-AWS-certifications" target="_blank" rel="noopener">How difficult are the AWS certifications?</a></li>
+</ul>
+
+
+		    <hr />
+			<!-- Facebook in bend of page -->
+			<div
+			  class="fb-like"
+			  data-share="true"
+			  data-width="450"
+			  data-show-faces="true">
+			</div>
+
+		</div>
+
+
+		<div>
+		  	<center>
+				
+<div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+	    	</center>
+		</div>
+
+
+	<!-- comment -->
+	
+
+
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+
+	
+	
+
+</div><!-- row -->
+
+    </div>
+  </div>
+
+
+<div class="container-narrow">
+    <footer> <p>
+  &copy; 2018 Rick Hwang
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme base on <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+
+<div id="gotop">
+  <!--
+  
+    <i class="fa fa-coffee"></i> <a href="http://www.gtcafe.com" title="GTCafe Studio" target="_blank"]);">GTCafe Studio</a><br />
+  
+    <i class="fa fa-coffee"></i> <a href="http://rickmidi.blogspot.com/" title="喝咖啡 聊音樂" target="_blank"]);">喝咖啡 聊音樂</a><br />
+  
+    <i class="fa fa-user"></i> <a href="https://www.blogger.com/profile/09975688593247211189" title="About me." target="_blank"]);">About</a><br />
+  
+  -->
+
+<a href="#"><span>▲</span></a>
+</div>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Concepts of EC2 Storage | Complete Think</title>
+  <meta name="author" content="Rick Hwang">
+  
+  <meta name="description" content="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.htmlhttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/raid-config.htmlhttp://d">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Concepts of EC2 Storage"/>
+  <meta property="og:site_name" content="Complete Think"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/true" title="Complete Think" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <!--
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  -->
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-71839551-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1554905741423841',
+        xfbml      : true,
+        version    : 'v2.2'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+</head>
+
+
+<body>
+
+  
+<nav id="main-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand active" href="/">Complete Think</a>
+	  	
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  	
+		  		
+		  			<li><a href="/archives" title="All the articles."><i class="fa fa-archive"></i>Archives</a></li>
+		  		
+		  	
+		  		
+					<li class='dropdown'>
+						<a aria-expanded='false' class='dropdown-toggle' data-toggle='dropdown' href='#' role='button'><i class="fa fa-folder"></i>Categories <span class='caret'/></span></a>
+		            	<ul class='dropdown-menu' role='menu'>
+		            	
+						
+							<li><a href="/categories/AWS/">AWS <sup>53</sup></a></li>
+						
+							<li><a href="/categories/AWS/AWS-Certified/">AWS Certified <sup>4</sup></a></li>
+						
+							<li><a href="/categories/About/">About <sup>5</sup></a></li>
+						
+							<li><a href="/categories/Blog/">Blog <sup>4</sup></a></li>
+						
+							<li><a href="/categories/ComputerScience/">ComputerScience <sup>1</sup></a></li>
+						
+							<li><a href="/categories/Container/">Container <sup>9</sup></a></li>
+						
+							<li><a href="/categories/DevOps/">DevOps <sup>15</sup></a></li>
+						
+							<li><a href="/categories/Embedded/">Embedded <sup>1</sup></a></li>
+						
+							<li><a href="/categories/GCP/">GCP <sup>6</sup></a></li>
+						
+							<li><a href="/categories/Linux/">Linux <sup>9</sup></a></li>
+						
+							<li><a href="/categories/Misc/">Misc <sup>3</sup></a></li>
+						
+							<li><a href="/categories/News/">News <sup>3</sup></a></li>
+						
+							<li><a href="/categories/OS-X/">OS X <sup>3</sup></a></li>
+						
+							<li><a href="/categories/Redmine/">Redmine <sup>4</sup></a></li>
+						
+							<li><a href="/categories/Software-Engineering/">Software Engineering <sup>4</sup></a></li>
+						
+							<li><a href="/categories/Tools/">Tools <sup>1</sup></a></li>
+						
+							<li><a href="/categories/經營管理/">經營管理 <sup>20</sup></a></li>
+						
+							<li><a href="/categories/軟體測試/">軟體測試 <sup>5</sup></a></li>
+						
+						</ul>
+					</li>
+		  		
+		  	
+		</ul>
+
+		<!-- @ricka: menu in right -->	
+	    <ul class='nav navbar-nav navbar-right'>
+			
+			  <li><a href="http://www.gtcafe.com" title="GTCafe Studio" target="_blank"> <i class="fa fa-coffee"></i>GTCafe Studio</a></li>
+			
+			  <li><a href="http://rickmidi.blogspot.com/" title="喝咖啡 聊音樂" target="_blank"> <i class="fa fa-coffee"></i>喝咖啡 聊音樂</a></li>
+			
+			  <li><a href="https://www.blogger.com/profile/09975688593247211189" title="About me." target="_blank"> <i class="fa fa-user"></i>About</a></li>
+			
+	    </ul>
+	    <!-- @ricka end -->	
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content" style="background-color: white;">
+       
+	
+		<!-- @rick, header of article -->
+		<!-- original
+		<div class="page-header">
+			<h1> Concepts of EC2 Storage</h1>
+		</div>
+		-->
+
+		<div class="panel article_title">
+			<div class="panel-heading">
+    		<h1> Concepts of EC2 Storage</h1>
+  		</div>
+		</div>
+
+	
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	
+
+		<!-- content -->
+		<div class="mypage">
+
+			<!-- Facebook in front of page -->
+			<div
+			  class="fb-like"
+			  data-share="true"
+			  data-width="450"
+			  data-show-faces="true">
+			</div>
+
+			<hr />
+
+		    <p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html" target="_blank" rel="noopener">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html</a><br><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/raid-config.html" target="_blank" rel="noopener">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/raid-config.html</a><br><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html" target="_blank" rel="noopener">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html</a></p>
+<h1 id="名稱"><a href="#名稱" class="headerlink" title="名稱"></a>名稱</h1><ul>
+<li><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html" target="_blank" rel="noopener">EBS</a>: Elastic Block Storage</li>
+<li><a href="https://en.wikipedia.org/wiki/IOPS" target="_blank" rel="noopener">IOPS</a>: Input/Output Operations Per Second</li>
+<li>SSD</li>
+<li><a href="https://en.wikipedia.org/wiki/Gibibyte" target="_blank" rel="noopener">GiB</a>: AWS 文件描述的 GiB 表示 <code>1024^3 = 1,073,741,824</code>，如果是以 <code>1000^3</code> 為計算方式，一般會顯示 <code>GB</code>。 M$ Windows 系統顯示的描述其實是會造成誤導的。</li>
+</ul>
+<h2 id="EBS-Durability-and-availability"><a href="#EBS-Durability-and-availability" class="headerlink" title="EBS Durability and availability"></a>EBS Durability and availability</h2><ul>
+<li>Frequently create snapshot of EBS volumes</li>
+</ul>
+<h1 id="EC2-Storage-Type"><a href="#EC2-Storage-Type" class="headerlink" title="EC2 Storage Type"></a>EC2 Storage Type</h1><ul>
+<li>Instance Store</li>
+<li>EBS</li>
+<li>S3</li>
+<li>Block Device Mapping</li>
+</ul>
+<h1 id="EBS-Volume-Types"><a href="#EBS-Volume-Types" class="headerlink" title="EBS Volume Types"></a>EBS Volume Types</h1><ul>
+<li>General Purpose SSD Volumes</li>
+<li>Provisioned IOPS SSD Volumes</li>
+<li>Magnetic Volumes</li>
+</ul>
+<h2 id="General-Purpose-SSD-Volumes"><a href="#General-Purpose-SSD-Volumes" class="headerlink" title="General Purpose SSD Volumes"></a>General Purpose SSD Volumes</h2><h2 id="Provisioned-IOPS-SSD-Volumes"><a href="#Provisioned-IOPS-SSD-Volumes" class="headerlink" title="Provisioned IOPS SSD Volumes."></a>Provisioned IOPS SSD Volumes.</h2><h1 id="I-O-Credits-and-Burst-Performance"><a href="#I-O-Credits-and-Burst-Performance" class="headerlink" title="I/O Credits and Burst Performance"></a>I/O Credits and Burst Performance</h1><p>GP2 會保留 I/O Credits ，也就是</p>
+<p>通常 OS 開機的時候</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a href="http://codex.wiki/post/163506-857" target="_blank" rel="noopener">磁碟IOPS概念及IOPS的計算</a></li>
+<li><a href="http://blog.cloudharmony.com/2010/06/disk-io-benchmarking-in-cloud.html" target="_blank" rel="noopener">Disk IO Benchmarking in the Cloud</a></li>
+</ul>
+
+
+		    <hr />
+			<!-- Facebook in bend of page -->
+			<div
+			  class="fb-like"
+			  data-share="true"
+			  data-width="450"
+			  data-show-faces="true">
+			</div>
+
+		</div>
+
+
+		<div>
+		  	<center>
+				
+<div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+	    	</center>
+		</div>
+
+
+	<!-- comment -->
+	
+
+
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+
+	
+	
+
+</div><!-- row -->
+
+    </div>
+  </div>
+
+
+<div class="container-narrow">
+    <footer> <p>
+  &copy; 2018 Rick Hwang
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme base on <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+
+<div id="gotop">
+  <!--
+  
+    <i class="fa fa-coffee"></i> <a href="http://www.gtcafe.com" title="GTCafe Studio" target="_blank"]);">GTCafe Studio</a><br />
+  
+    <i class="fa fa-coffee"></i> <a href="http://rickmidi.blogspot.com/" title="喝咖啡 聊音樂" target="_blank"]);">喝咖啡 聊音樂</a><br />
+  
+    <i class="fa fa-user"></i> <a href="https://www.blogger.com/profile/09975688593247211189" title="About me." target="_blank"]);">About</a><br />
+  
+  -->
+
+<a href="#"><span>▲</span></a>
+</div>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+</html>

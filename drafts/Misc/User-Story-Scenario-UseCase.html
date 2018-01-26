@@ -1,0 +1,314 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>User Story / Scenario, Use Case | Complete Think</title>
+  <meta name="author" content="Rick Hwang">
+  
+  <meta name="description" content="User Story特定角色的簡短使用流程. 重點在於 Who, What, Why 三個. 常見的例子結構就是: 
+
+A [type of user] wants to [do something] so that [outcome happens].
+
+
+As a (user type) I w">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="User Story / Scenario, Use Case"/>
+  <meta property="og:site_name" content="Complete Think"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/true" title="Complete Think" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <!--
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  -->
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-71839551-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1554905741423841',
+        xfbml      : true,
+        version    : 'v2.2'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+</head>
+
+
+<body>
+
+  
+<nav id="main-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand active" href="/">Complete Think</a>
+	  	
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  	
+		  		
+		  			<li><a href="/archives" title="All the articles."><i class="fa fa-archive"></i>Archives</a></li>
+		  		
+		  	
+		  		
+					<li class='dropdown'>
+						<a aria-expanded='false' class='dropdown-toggle' data-toggle='dropdown' href='#' role='button'><i class="fa fa-folder"></i>Categories <span class='caret'/></span></a>
+		            	<ul class='dropdown-menu' role='menu'>
+		            	
+						
+							<li><a href="/categories/AWS/">AWS <sup>53</sup></a></li>
+						
+							<li><a href="/categories/AWS/AWS-Certified/">AWS Certified <sup>4</sup></a></li>
+						
+							<li><a href="/categories/About/">About <sup>5</sup></a></li>
+						
+							<li><a href="/categories/Blog/">Blog <sup>4</sup></a></li>
+						
+							<li><a href="/categories/ComputerScience/">ComputerScience <sup>1</sup></a></li>
+						
+							<li><a href="/categories/Container/">Container <sup>9</sup></a></li>
+						
+							<li><a href="/categories/DevOps/">DevOps <sup>15</sup></a></li>
+						
+							<li><a href="/categories/Embedded/">Embedded <sup>1</sup></a></li>
+						
+							<li><a href="/categories/GCP/">GCP <sup>6</sup></a></li>
+						
+							<li><a href="/categories/Linux/">Linux <sup>9</sup></a></li>
+						
+							<li><a href="/categories/Misc/">Misc <sup>3</sup></a></li>
+						
+							<li><a href="/categories/News/">News <sup>3</sup></a></li>
+						
+							<li><a href="/categories/OS-X/">OS X <sup>3</sup></a></li>
+						
+							<li><a href="/categories/Redmine/">Redmine <sup>4</sup></a></li>
+						
+							<li><a href="/categories/Software-Engineering/">Software Engineering <sup>4</sup></a></li>
+						
+							<li><a href="/categories/Tools/">Tools <sup>1</sup></a></li>
+						
+							<li><a href="/categories/經營管理/">經營管理 <sup>20</sup></a></li>
+						
+							<li><a href="/categories/軟體測試/">軟體測試 <sup>5</sup></a></li>
+						
+						</ul>
+					</li>
+		  		
+		  	
+		</ul>
+
+		<!-- @ricka: menu in right -->	
+	    <ul class='nav navbar-nav navbar-right'>
+			
+			  <li><a href="http://www.gtcafe.com" title="GTCafe Studio" target="_blank"> <i class="fa fa-coffee"></i>GTCafe Studio</a></li>
+			
+			  <li><a href="http://rickmidi.blogspot.com/" title="喝咖啡 聊音樂" target="_blank"> <i class="fa fa-coffee"></i>喝咖啡 聊音樂</a></li>
+			
+			  <li><a href="https://www.blogger.com/profile/09975688593247211189" title="About me." target="_blank"> <i class="fa fa-user"></i>About</a></li>
+			
+	    </ul>
+	    <!-- @ricka end -->	
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content" style="background-color: white;">
+       
+	
+		<!-- @rick, header of article -->
+		<!-- original
+		<div class="page-header">
+			<h1> User Story / Scenario, Use Case</h1>
+		</div>
+		-->
+
+		<div class="panel article_title">
+			<div class="panel-heading">
+    		<h1> User Story / Scenario, Use Case</h1>
+  		</div>
+		</div>
+
+	
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	
+
+		<!-- content -->
+		<div class="mypage">
+
+			<!-- Facebook in front of page -->
+			<div
+			  class="fb-like"
+			  data-share="true"
+			  data-width="450"
+			  data-show-faces="true">
+			</div>
+
+			<hr />
+
+		    <h1 id="User-Story"><a href="#User-Story" class="headerlink" title="User Story"></a>User Story</h1><p>特定角色的簡短使用流程. 重點在於 <strong>Who, What, Why</strong> 三個. 常見的例子結構就是: </p>
+<blockquote>
+<p>A [type of user] wants to [do something] so that [outcome happens].</p>
+</blockquote>
+<ol>
+<li>As a (user type) I want to (action/feature) so that (reason)</li>
+<li>As a (user type) I want to (action/feature) because (reason)</li>
+</ol>
+<h2 id="User-Story-的目的"><a href="#User-Story-的目的" class="headerlink" title="User Story 的目的"></a>User Story 的目的</h2><h1 id="User-Scenario"><a href="#User-Scenario" class="headerlink" title="User Scenario"></a>User Scenario</h1><p>類似於 User Story, 著重於流程 (Procedure) 的描述, 如果 User Story 是這樣：</p>
+<blockquote>
+<p>As a (user type) I want to (action/feature) so that (reason)</p>
+</blockquote>
+<p>那麼他的 Scenario 就會是針對 <strong>角色 (Role)</strong> ，執行行為的 <strong>過程程序</strong>，</p>
+<ol>
+<li><h2 id="User-Scenario-的目的"><a href="#User-Scenario-的目的" class="headerlink" title="User Scenario 的目的"></a>User Scenario 的目的</h2></li>
+</ol>
+<h2 id="與-User-Story-的差異"><a href="#與-User-Story-的差異" class="headerlink" title="與 User Story 的差異"></a>與 User Story 的差異</h2><h1 id="Use-Case"><a href="#Use-Case" class="headerlink" title="Use Case"></a>Use Case</h1><p>延伸 User Story, Use Case, 加上真實世界的環境變因.</p>
+<h1 id="Roles-角色"><a href="#Roles-角色" class="headerlink" title="Roles (角色)"></a>Roles (角色)</h1><h1 id="Life-Cycle"><a href="#Life-Cycle" class="headerlink" title="Life Cycle"></a>Life Cycle</h1><h1 id="Software-Test"><a href="#Software-Test" class="headerlink" title="Software Test"></a>Software Test</h1><h1 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h1><ul>
+<li><a href="http://www.quora.com/User-scenarios-user-stories-use-cases-whats-the-difference" target="_blank" rel="noopener">User scenarios, user stories, use cases - what’s the difference?</a></li>
+<li><a href="https://www.newfangled.com/how-to-tell-the-users-story/" target="_blank" rel="noopener">How to Tell the User’s Story</a></li>
+</ul>
+
+
+		    <hr />
+			<!-- Facebook in bend of page -->
+			<div
+			  class="fb-like"
+			  data-share="true"
+			  data-width="450"
+			  data-show-faces="true">
+			</div>
+
+		</div>
+
+
+		<div>
+		  	<center>
+				
+<div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+	    	</center>
+		</div>
+
+
+	<!-- comment -->
+	
+
+
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+
+	
+	
+
+</div><!-- row -->
+
+    </div>
+  </div>
+
+
+<div class="container-narrow">
+    <footer> <p>
+  &copy; 2018 Rick Hwang
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme base on <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+
+<div id="gotop">
+  <!--
+  
+    <i class="fa fa-coffee"></i> <a href="http://www.gtcafe.com" title="GTCafe Studio" target="_blank"]);">GTCafe Studio</a><br />
+  
+    <i class="fa fa-coffee"></i> <a href="http://rickmidi.blogspot.com/" title="喝咖啡 聊音樂" target="_blank"]);">喝咖啡 聊音樂</a><br />
+  
+    <i class="fa fa-user"></i> <a href="https://www.blogger.com/profile/09975688593247211189" title="About me." target="_blank"]);">About</a><br />
+  
+  -->
+
+<a href="#"><span>▲</span></a>
+</div>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Best Practice for Log Analysis on AWS | Complete Think</title>
+  <meta name="author" content="Rick Hwang">
+  
+  <meta name="description" content="不只一次，不管是在社群聚會，還是在跟朋友討論事情，常常會被問到這些問題：
+
+Log 怎麼蒐集？方法？
+Log 怎麼儲存？存多久？
+如果老闆要今年、去年同時間的分析，要怎麼做？
+及時分析要用什麼 Solution？技術？
+成本問題，稽核、審計
+Log 的資料直接用在監控系統該怎麼做？
+
+整理一下這快三">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Best Practice for Log Analysis on AWS"/>
+  <meta property="og:site_name" content="Complete Think"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/true" title="Complete Think" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <!--
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  -->
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-71839551-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1554905741423841',
+        xfbml      : true,
+        version    : 'v2.2'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+</head>
+
+
+<body>
+
+  
+<nav id="main-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand active" href="/">Complete Think</a>
+	  	
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  	
+		  		
+		  			<li><a href="/archives" title="All the articles."><i class="fa fa-archive"></i>Archives</a></li>
+		  		
+		  	
+		  		
+					<li class='dropdown'>
+						<a aria-expanded='false' class='dropdown-toggle' data-toggle='dropdown' href='#' role='button'><i class="fa fa-folder"></i>Categories <span class='caret'/></span></a>
+		            	<ul class='dropdown-menu' role='menu'>
+		            	
+						
+							<li><a href="/categories/AWS/">AWS <sup>53</sup></a></li>
+						
+							<li><a href="/categories/AWS/AWS-Certified/">AWS Certified <sup>4</sup></a></li>
+						
+							<li><a href="/categories/About/">About <sup>5</sup></a></li>
+						
+							<li><a href="/categories/Blog/">Blog <sup>4</sup></a></li>
+						
+							<li><a href="/categories/ComputerScience/">ComputerScience <sup>1</sup></a></li>
+						
+							<li><a href="/categories/Container/">Container <sup>9</sup></a></li>
+						
+							<li><a href="/categories/DevOps/">DevOps <sup>15</sup></a></li>
+						
+							<li><a href="/categories/Embedded/">Embedded <sup>1</sup></a></li>
+						
+							<li><a href="/categories/GCP/">GCP <sup>6</sup></a></li>
+						
+							<li><a href="/categories/Linux/">Linux <sup>9</sup></a></li>
+						
+							<li><a href="/categories/Misc/">Misc <sup>3</sup></a></li>
+						
+							<li><a href="/categories/News/">News <sup>3</sup></a></li>
+						
+							<li><a href="/categories/OS-X/">OS X <sup>3</sup></a></li>
+						
+							<li><a href="/categories/Redmine/">Redmine <sup>4</sup></a></li>
+						
+							<li><a href="/categories/Software-Engineering/">Software Engineering <sup>4</sup></a></li>
+						
+							<li><a href="/categories/Tools/">Tools <sup>1</sup></a></li>
+						
+							<li><a href="/categories/經營管理/">經營管理 <sup>20</sup></a></li>
+						
+							<li><a href="/categories/軟體測試/">軟體測試 <sup>5</sup></a></li>
+						
+						</ul>
+					</li>
+		  		
+		  	
+		</ul>
+
+		<!-- @ricka: menu in right -->	
+	    <ul class='nav navbar-nav navbar-right'>
+			
+			  <li><a href="http://www.gtcafe.com" title="GTCafe Studio" target="_blank"> <i class="fa fa-coffee"></i>GTCafe Studio</a></li>
+			
+			  <li><a href="http://rickmidi.blogspot.com/" title="喝咖啡 聊音樂" target="_blank"> <i class="fa fa-coffee"></i>喝咖啡 聊音樂</a></li>
+			
+			  <li><a href="https://www.blogger.com/profile/09975688593247211189" title="About me." target="_blank"> <i class="fa fa-user"></i>About</a></li>
+			
+	    </ul>
+	    <!-- @ricka end -->	
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content" style="background-color: white;">
+       
+	
+		<!-- @rick, header of article -->
+		<!-- original
+		<div class="page-header">
+			<h1> Best Practice for Log Analysis on AWS</h1>
+		</div>
+		-->
+
+		<div class="panel article_title">
+			<div class="panel-heading">
+    		<h1> Best Practice for Log Analysis on AWS</h1>
+  		</div>
+		</div>
+
+	
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	
+
+		<!-- content -->
+		<div class="mypage">
+
+			<!-- Facebook in front of page -->
+			<div
+			  class="fb-like"
+			  data-share="true"
+			  data-width="450"
+			  data-show-faces="true">
+			</div>
+
+			<hr />
+
+		    <p>不只一次，不管是在社群聚會，還是在跟朋友討論事情，常常會被問到這些問題：</p>
+<ul>
+<li>Log 怎麼蒐集？方法？</li>
+<li>Log 怎麼儲存？存多久？</li>
+<li>如果老闆要今年、去年同時間的分析，要怎麼做？</li>
+<li>及時分析要用什麼 Solution？技術？</li>
+<li>成本問題，稽核、審計</li>
+<li>Log 的資料直接用在監控系統該怎麼做？</li>
+</ul>
+<p>整理一下這快三年來的心得。</p>
+<a id="more"></a>
+<h1 id="本質"><a href="#本質" class="headerlink" title="本質"></a>本質</h1><p>抽象概念、無關技術</p>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>核心本質問題：想從 Log 中獲得什麼價值？商業的價值、工程的價值</p>
+<p>執行面的問題：</p>
+<ul>
+<li>Log 誰提供的？有哪些種類的 Log？</li>
+<li>能調整 Log 資料結構？</li>
+<li>資料量有多大？存哪裡？放多久？</li>
+<li>需要即時報表？即時是多即時？一分、還是一秒？</li>
+<li>公司願意投入多少資源？</li>
+<li>有考慮監控系統的整合？</li>
+</ul>
+<h2 id="抽象程序概念-Procedure-and-Pipeline"><a href="#抽象程序概念-Procedure-and-Pipeline" class="headerlink" title="抽象程序概念 (Procedure and Pipeline)"></a>抽象程序概念 (Procedure and Pipeline)</h2><p>在 <a href="/2017/08/30/DevOps/Automation-or-Process/">『自動化 XXX』的陷阱</a> 一文中，有把抽象程序概念整理出來，如下圖：</p>
+<p><img src="/images/AWS/BestPracticeForLog/Automation-Feedback-Flow.png" alt=""></p>
+<ul>
+<li><code>蒐集 (Collection)</code>: 這段是把資料蒐集起來的過程，最重要的階段，因為往往蒐集了一推沒有結構化的資料，造成後續處理的成本</li>
+<li><code>儲存 (Store)</code>: 蒐集了很多資料，必須要儲存，以備不時之需。要考慮儲存空間、成本、稽核 … 等面向</li>
+<li><code>分析 (Analysis)</code>: 透過分析，淬煉出有商業價值、或者參考價值的資訊，包含 BI/Analytical，技術面可以搭配 ML/AI/Event-Driven。</li>
+<li><code>事件驅動 (Event-Driven)</code>: 把分析的結果 <code>事件化</code>，反映出需求，像是 <code>視覺化 (Visulize)</code>、<code>異常通報 (Alert)</code>、<code>自動化</code> … 等</li>
+</ul>
+<p>這四個主要的概念，可以滿足大部分的 <code>事件模型</code> 架構需求，底下就針對 Log 的實踐方法，以及如何在 AWS 上使用對應的 Solution 做詳細分析。</p>
+<h1 id="實踐-Best-Practice-on-AWS"><a href="#實踐-Best-Practice-on-AWS" class="headerlink" title="實踐 (Best Practice) on AWS"></a>實踐 (Best Practice) on AWS</h1><h2 id="蒐集"><a href="#蒐集" class="headerlink" title="蒐集"></a>蒐集</h2><p>蒐集主要有兩種 Pattern: Push or Pull</p>
+<ul>
+<li>Push: 可以理解成就是 Agent-base 的概念，在需要蒐集 Log 的機器安裝 agent，透過 agent 主動把 Log 搬到目標.</li>
+<li><p>Pull:</p>
+<ul>
+<li>Measurement: 量測相關數據，然後讓資料得以觀測 (Observability)</li>
+<li>Buffering: 通常蒐集的資料會很大，或者來源很多，所以 Buffering 是必要的</li>
+<li>清洗 (ETL): 資料分析仰賴於資料源的結構完整性，所以清洗整理資料是很重要的階段</li>
+<li>儲存 (Store): 蒐集完了當然要找地方放，所以要儲存</li>
+</ul>
+</li>
+</ul>
+<h2 id="儲存"><a href="#儲存" class="headerlink" title="儲存"></a>儲存</h2><p>Solution: Cloud Storage, 像是 AWS S3 + Glacier</p>
+<ul>
+<li>所有 Log 結構化</li>
+<li>符合相關 Compliance, 像是 PCI DSS, SOC2.</li>
+<li>成本考量, 轉換成成本比較低的儲存方式，像是 AWS Glacier</li>
+<li>分析用途</li>
+</ul>
+<p>技術面要做的工作：</p>
+<ul>
+<li>要有搬 Log 的機制, 不管是 VM or Container</li>
+<li>透過 Push 方式:<ul>
+<li>Instance 主動把 Log 打包壓縮，丟到 S3</li>
+<li>Instance 要裝 Agent, 有部署與配置問題</li>
+<li>壓縮會吃 Instance 本身的 Computing Resource, 要注意是否有過多的 Overhead</li>
+<li>Container base 也會有同樣問題</li>
+</ul>
+</li>
+<li>透過 Pull 方式<ul>
+<li>把 Log 先集中放在某個地方, 被動被其他工具 Pu</li>
+</ul>
+</li>
+<li>Queue: Pub/Sub</li>
+<li>資料量很大的時候: 以小時為單位</li>
+</ul>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>即時、批次<br>只要所有 Log 已經放到 S3, 就可以透過 Athena 查詢想要的報表，使用時要注意以下：</p>
+<ul>
+<li>Athena 跟 BigQuery一樣，都用 Scan Size 算成本。</li>
+<li><p>CloudWatch Log: realtime</p>
+</li>
+<li><p>考慮使用 ML？</p>
+</li>
+</ul>
+<h2 id="事件驅動"><a href="#事件驅動" class="headerlink" title="事件驅動"></a>事件驅動</h2><h1 id="Pattern-of-Best-Practice"><a href="#Pattern-of-Best-Practice" class="headerlink" title="Pattern of Best Practice"></a>Pattern of Best Practice</h1><h1 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h1><ul>
+<li><a href="/2017/06/21/AWS/Stategies-System-Monitor_and_CloudWatch/">淺談系統監控與 CloudWatch 的應用 - AWS User Group Taiwan</a></li>
+<li><a href="/2014/05/09/SQA/Problems_In-Software-Autotest/">軟體自動化測試常見的問題</a></li>
+<li><a href="/2017/08/30/DevOps/Automation-or-Process/">[『自動化 XXX』的陷阱]</a></li>
+</ul>
+<h1 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h1><ul>
+<li><a href="https://www.youtube.com/watch?v=Xi_WrinvTnM" target="_blank" rel="noopener">AWS re:invent 2017: Serverless Architectural Patterns and Best Practices (ARC401)</a></li>
+<li><a href="https://www.youtube.com/watch?v=-D4v2uK3YCw&amp;t=2426s" target="_blank" rel="noopener">AWS Summit Series 2016:  Big Data Architectural Patterns and Best Practices on AWS</a></li>
+</ul>
+
+
+		    <hr />
+			<!-- Facebook in bend of page -->
+			<div
+			  class="fb-like"
+			  data-share="true"
+			  data-width="450"
+			  data-show-faces="true">
+			</div>
+
+		</div>
+
+
+		<div>
+		  	<center>
+				
+<div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+	    	</center>
+		</div>
+
+
+	<!-- comment -->
+	
+
+
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+
+	
+	
+
+</div><!-- row -->
+
+    </div>
+  </div>
+
+
+<div class="container-narrow">
+    <footer> <p>
+  &copy; 2018 Rick Hwang
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme base on <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+
+<div id="gotop">
+  <!--
+  
+    <i class="fa fa-coffee"></i> <a href="http://www.gtcafe.com" title="GTCafe Studio" target="_blank"]);">GTCafe Studio</a><br />
+  
+    <i class="fa fa-coffee"></i> <a href="http://rickmidi.blogspot.com/" title="喝咖啡 聊音樂" target="_blank"]);">喝咖啡 聊音樂</a><br />
+  
+    <i class="fa fa-user"></i> <a href="https://www.blogger.com/profile/09975688593247211189" title="About me." target="_blank"]);">About</a><br />
+  
+  -->
+
+<a href="#"><span>▲</span></a>
+</div>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+</html>

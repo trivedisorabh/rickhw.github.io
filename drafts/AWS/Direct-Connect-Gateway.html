@@ -1,0 +1,353 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Direct Connect Gateway | Complete Think</title>
+  <meta name="author" content="Rick Hwang">
+  
+  <meta name="description" content="AWS 總算推出串接 Regional VPC 的解決方案：Direct Connect Gateway
+可以取代 Site to Site VPN，或者 OpenSwan
+
+規劃前注意事項如果是固定的 Infra 架構，也就是有規劃 CIDR，串接 On-Prem 的網路，那麼就要好好規劃整個 N">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Direct Connect Gateway"/>
+  <meta property="og:site_name" content="Complete Think"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/true" title="Complete Think" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <!--
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  -->
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-71839551-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1554905741423841',
+        xfbml      : true,
+        version    : 'v2.2'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+</head>
+
+
+<body>
+
+  
+<nav id="main-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand active" href="/">Complete Think</a>
+	  	
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  	
+		  		
+		  			<li><a href="/archives" title="All the articles."><i class="fa fa-archive"></i>Archives</a></li>
+		  		
+		  	
+		  		
+					<li class='dropdown'>
+						<a aria-expanded='false' class='dropdown-toggle' data-toggle='dropdown' href='#' role='button'><i class="fa fa-folder"></i>Categories <span class='caret'/></span></a>
+		            	<ul class='dropdown-menu' role='menu'>
+		            	
+						
+							<li><a href="/categories/AWS/">AWS <sup>53</sup></a></li>
+						
+							<li><a href="/categories/AWS/AWS-Certified/">AWS Certified <sup>4</sup></a></li>
+						
+							<li><a href="/categories/About/">About <sup>5</sup></a></li>
+						
+							<li><a href="/categories/Blog/">Blog <sup>4</sup></a></li>
+						
+							<li><a href="/categories/ComputerScience/">ComputerScience <sup>1</sup></a></li>
+						
+							<li><a href="/categories/Container/">Container <sup>9</sup></a></li>
+						
+							<li><a href="/categories/DevOps/">DevOps <sup>15</sup></a></li>
+						
+							<li><a href="/categories/Embedded/">Embedded <sup>1</sup></a></li>
+						
+							<li><a href="/categories/GCP/">GCP <sup>6</sup></a></li>
+						
+							<li><a href="/categories/Linux/">Linux <sup>9</sup></a></li>
+						
+							<li><a href="/categories/Misc/">Misc <sup>3</sup></a></li>
+						
+							<li><a href="/categories/News/">News <sup>3</sup></a></li>
+						
+							<li><a href="/categories/OS-X/">OS X <sup>3</sup></a></li>
+						
+							<li><a href="/categories/Redmine/">Redmine <sup>4</sup></a></li>
+						
+							<li><a href="/categories/Software-Engineering/">Software Engineering <sup>4</sup></a></li>
+						
+							<li><a href="/categories/Tools/">Tools <sup>1</sup></a></li>
+						
+							<li><a href="/categories/經營管理/">經營管理 <sup>20</sup></a></li>
+						
+							<li><a href="/categories/軟體測試/">軟體測試 <sup>5</sup></a></li>
+						
+						</ul>
+					</li>
+		  		
+		  	
+		</ul>
+
+		<!-- @ricka: menu in right -->	
+	    <ul class='nav navbar-nav navbar-right'>
+			
+			  <li><a href="http://www.gtcafe.com" title="GTCafe Studio" target="_blank"> <i class="fa fa-coffee"></i>GTCafe Studio</a></li>
+			
+			  <li><a href="http://rickmidi.blogspot.com/" title="喝咖啡 聊音樂" target="_blank"> <i class="fa fa-coffee"></i>喝咖啡 聊音樂</a></li>
+			
+			  <li><a href="https://www.blogger.com/profile/09975688593247211189" title="About me." target="_blank"> <i class="fa fa-user"></i>About</a></li>
+			
+	    </ul>
+	    <!-- @ricka end -->	
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content" style="background-color: white;">
+       
+	
+		<!-- @rick, header of article -->
+		<!-- original
+		<div class="page-header">
+			<h1> Direct Connect Gateway</h1>
+		</div>
+		-->
+
+		<div class="panel article_title">
+			<div class="panel-heading">
+    		<h1> Direct Connect Gateway</h1>
+  		</div>
+		</div>
+
+	
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	
+
+		<!-- content -->
+		<div class="mypage">
+
+			<!-- Facebook in front of page -->
+			<div
+			  class="fb-like"
+			  data-share="true"
+			  data-width="450"
+			  data-show-faces="true">
+			</div>
+
+			<hr />
+
+		    <p>AWS 總算推出串接 Regional VPC 的解決方案：<a href="https://docs.aws.amazon.com/en_us/directconnect/latest/UserGuide/direct-connect-gateways.html" target="_blank" rel="noopener">Direct Connect Gateway</a></p>
+<p>可以取代 Site to Site VPN，或者 <a href="https://www.openswan.org/" target="_blank" rel="noopener">OpenSwan</a></p>
+<a id="more"></a>
+<h2 id="規劃前注意事項"><a href="#規劃前注意事項" class="headerlink" title="規劃前注意事項"></a>規劃前注意事項</h2><p>如果是固定的 Infra 架構，也就是有規劃 CIDR，串接 On-Prem 的網路，那麼就要好好規劃整個 Network Topologies，簡單歸納要考慮以下：</p>
+<ul>
+<li>CIDR Block 的規劃</li>
+<li>每個 Region VPC 的規劃</li>
+<li>Regional 裡是否有多個 VPC，原本的 VPC Peering 是否移除？</li>
+<li>有沒有 Cross Account 的需求？</li>
+<li>有沒有 Throughput 要求？</li>
+</ul>
+<p>更詳細相關參考 <a href="/2017/07/07/AWS/Plan-And-Deisgn-Multiple-VPCs-in-Different-Regions/">Plan and Design Multiple VPCs in Different Regions</a> 的說明。</p>
+<p>如果開發者個人使用，像有些大公司會要求開發者自己開一個 AWS Account，再透過 pay account 管理，那麼只要注意 CIDR 不要碰撞就好。</p>
+<p>以下是我實驗規劃，使用 5 個 Region、 6 個 VPC：</p>
+<ul>
+<li>N. Virginia (us-east-1)<ul>
+<li>VPC CIDR: 172.30.0.0/16 (IPv4)</li>
+</ul>
+</li>
+<li>Oregon (us-west-2)<ul>
+<li>VPC CIDR: 172.31.0.0/16 (IPv4)</li>
+<li>VPC CIDR: 172.36.0.0/16 (IPv6)</li>
+</ul>
+</li>
+<li>Tokyo (ap-northeast-1)<ul>
+<li>VPC CIDR: 172.40.0.0/16 (IPv4)</li>
+</ul>
+</li>
+<li>Ireland (eu-west-1)<ul>
+<li>VPC CIDR: 172.50.0.0/16 (IPv4)</li>
+</ul>
+</li>
+<li>Frankfurt (eu-central-1)<ul>
+<li>VPC CIDR: 172.60.0.0/16 (IPv6)</li>
+</ul>
+</li>
+</ul>
+<h2 id="串接設定"><a href="#串接設定" class="headerlink" title="串接設定"></a>串接設定</h2><p>建立 Direct Connect Gateway</p>
+<p> Direct Connect -&gt; Direct Connect Gateways -&gt; 建立 DCG. 這個 Object 是 global, 所以建好好，在其他 region 也都看得到. 命名不要用 region 取名</p>
+<p>建立 Virtual Private Gateways for each VPC</p>
+<p> 切換到想要關聯 VPC 的 region，在該 region 建立 VGW (Virtual Private Gateway)，Attach to VPC</p>
+<p>Associate to Virtual Private Gateway</p>
+<p>選擇 Region<br>  回到 DCG 畫面，選擇建立</p>
+<p>  等待約 5-20m ，狀態會從 <code>associating</code> 變成 <code>associated</code></p>
+<p>Route Table</p>
+<h2 id="Ping-值"><a href="#Ping-值" class="headerlink" title="Ping 值"></a>Ping 值</h2><h2 id="IPv6"><a href="#IPv6" class="headerlink" title="IPv6"></a>IPv6</h2><h2 id="Price-Model"><a href="#Price-Model" class="headerlink" title="Price Model"></a>Price Model</h2><h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><ul>
+<li>怎麼監控 Regonal 之間的 Throughput？ 現在想到的方法只有透過 VPC Flow Log</li>
+<li>沒有說明的呈現，清單只有呈現 id，卻沒有說明</li>
+</ul>
+<h2 id="比較-GCP-Azure"><a href="#比較-GCP-Azure" class="headerlink" title="比較 GCP / Azure"></a>比較 GCP / Azure</h2><h1 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h1><ul>
+<li>EC2 price by second 之後，做這種 Lab 更大膽了。</li>
+</ul>
+<h1 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h1><ul>
+<li><a href="/2017/07/07/AWS/Plan-And-Deisgn-Multiple-VPCs-in-Different-Regions/">Plan and Design Multiple VPCs in Different Regions</a></li>
+<li><a href="/2016/10/01/AWS-Study-Roadmap/">AWS Study Roadmap</a></li>
+</ul>
+<!-- Internal Links -->
+<h1 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h1><ul>
+<li><a href="https://docs.aws.amazon.com/en_us/directconnect/latest/UserGuide/direct-connect-gateways.html" target="_blank" rel="noopener">Direct Connect Gateway</a></li>
+</ul>
+<!-- Reference Links -->
+<!-- External Links -->
+
+
+		    <hr />
+			<!-- Facebook in bend of page -->
+			<div
+			  class="fb-like"
+			  data-share="true"
+			  data-width="450"
+			  data-show-faces="true">
+			</div>
+
+		</div>
+
+
+		<div>
+		  	<center>
+				
+<div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+	    	</center>
+		</div>
+
+
+	<!-- comment -->
+	
+
+
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+
+	
+	
+
+</div><!-- row -->
+
+    </div>
+  </div>
+
+
+<div class="container-narrow">
+    <footer> <p>
+  &copy; 2018 Rick Hwang
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme base on <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+
+<div id="gotop">
+  <!--
+  
+    <i class="fa fa-coffee"></i> <a href="http://www.gtcafe.com" title="GTCafe Studio" target="_blank"]);">GTCafe Studio</a><br />
+  
+    <i class="fa fa-coffee"></i> <a href="http://rickmidi.blogspot.com/" title="喝咖啡 聊音樂" target="_blank"]);">喝咖啡 聊音樂</a><br />
+  
+    <i class="fa fa-user"></i> <a href="https://www.blogger.com/profile/09975688593247211189" title="About me." target="_blank"]);">About</a><br />
+  
+  -->
+
+<a href="#"><span>▲</span></a>
+</div>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+</html>

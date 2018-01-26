@@ -1,0 +1,313 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>PowerShell 學習筆記 | Complete Think</title>
+  <meta name="author" content="Rick Hwang">
+  
+  <meta name="description" content="先說明，我很討厭 MS / Windows，寫 PowerShell 只是工作需求。。。
+取得系統資訊取得 PowerShell 資訊方法一： Get-Host
+12345678910PS C:\&amp;gt; Get-HostName             : ConsoleHostVersion  ">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="PowerShell 學習筆記"/>
+  <meta property="og:site_name" content="Complete Think"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/true" title="Complete Think" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <!--
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  -->
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-71839551-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1554905741423841',
+        xfbml      : true,
+        version    : 'v2.2'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+</head>
+
+
+<body>
+
+  
+<nav id="main-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand active" href="/">Complete Think</a>
+	  	
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  	
+		  		
+		  			<li><a href="/archives" title="All the articles."><i class="fa fa-archive"></i>Archives</a></li>
+		  		
+		  	
+		  		
+					<li class='dropdown'>
+						<a aria-expanded='false' class='dropdown-toggle' data-toggle='dropdown' href='#' role='button'><i class="fa fa-folder"></i>Categories <span class='caret'/></span></a>
+		            	<ul class='dropdown-menu' role='menu'>
+		            	
+						
+							<li><a href="/categories/AWS/">AWS <sup>53</sup></a></li>
+						
+							<li><a href="/categories/AWS/AWS-Certified/">AWS Certified <sup>4</sup></a></li>
+						
+							<li><a href="/categories/About/">About <sup>5</sup></a></li>
+						
+							<li><a href="/categories/Blog/">Blog <sup>4</sup></a></li>
+						
+							<li><a href="/categories/ComputerScience/">ComputerScience <sup>1</sup></a></li>
+						
+							<li><a href="/categories/Container/">Container <sup>9</sup></a></li>
+						
+							<li><a href="/categories/DevOps/">DevOps <sup>15</sup></a></li>
+						
+							<li><a href="/categories/Embedded/">Embedded <sup>1</sup></a></li>
+						
+							<li><a href="/categories/GCP/">GCP <sup>6</sup></a></li>
+						
+							<li><a href="/categories/Linux/">Linux <sup>9</sup></a></li>
+						
+							<li><a href="/categories/Misc/">Misc <sup>3</sup></a></li>
+						
+							<li><a href="/categories/News/">News <sup>3</sup></a></li>
+						
+							<li><a href="/categories/OS-X/">OS X <sup>3</sup></a></li>
+						
+							<li><a href="/categories/Redmine/">Redmine <sup>4</sup></a></li>
+						
+							<li><a href="/categories/Software-Engineering/">Software Engineering <sup>4</sup></a></li>
+						
+							<li><a href="/categories/Tools/">Tools <sup>1</sup></a></li>
+						
+							<li><a href="/categories/經營管理/">經營管理 <sup>20</sup></a></li>
+						
+							<li><a href="/categories/軟體測試/">軟體測試 <sup>5</sup></a></li>
+						
+						</ul>
+					</li>
+		  		
+		  	
+		</ul>
+
+		<!-- @ricka: menu in right -->	
+	    <ul class='nav navbar-nav navbar-right'>
+			
+			  <li><a href="http://www.gtcafe.com" title="GTCafe Studio" target="_blank"> <i class="fa fa-coffee"></i>GTCafe Studio</a></li>
+			
+			  <li><a href="http://rickmidi.blogspot.com/" title="喝咖啡 聊音樂" target="_blank"> <i class="fa fa-coffee"></i>喝咖啡 聊音樂</a></li>
+			
+			  <li><a href="https://www.blogger.com/profile/09975688593247211189" title="About me." target="_blank"> <i class="fa fa-user"></i>About</a></li>
+			
+	    </ul>
+	    <!-- @ricka end -->	
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content" style="background-color: white;">
+       
+	
+		<!-- @rick, header of article -->
+		<!-- original
+		<div class="page-header">
+			<h1> PowerShell 學習筆記</h1>
+		</div>
+		-->
+
+		<div class="panel article_title">
+			<div class="panel-heading">
+    		<h1> PowerShell 學習筆記</h1>
+  		</div>
+		</div>
+
+	
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	
+
+		<!-- content -->
+		<div class="mypage">
+
+			<!-- Facebook in front of page -->
+			<div
+			  class="fb-like"
+			  data-share="true"
+			  data-width="450"
+			  data-show-faces="true">
+			</div>
+
+			<hr />
+
+		    <p>先說明，我很討厭 MS / Windows，寫 PowerShell 只是工作需求。。。</p>
+<h1 id="取得系統資訊"><a href="#取得系統資訊" class="headerlink" title="取得系統資訊"></a>取得系統資訊</h1><h2 id="取得-PowerShell-資訊"><a href="#取得-PowerShell-資訊" class="headerlink" title="取得 PowerShell 資訊"></a>取得 PowerShell 資訊</h2><p>方法一： <code>Get-Host</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">PS C:\&gt; Get-Host</span><br><span class="line">Name             : ConsoleHost</span><br><span class="line">Version          : 4.0</span><br><span class="line">InstanceId       : e224c451-e24b-4950-a250-020b03a17701</span><br><span class="line">UI               : System.Management.Automation.Internal.Host.InternalHostUserInterface</span><br><span class="line">CurrentCulture   : en-US</span><br><span class="line">CurrentUICulture : en-US</span><br><span class="line">PrivateData      : Microsoft.PowerShell.ConsoleHost+ConsoleColorProxy</span><br><span class="line">IsRunspacePushed : False</span><br><span class="line">Runspace         : System.Management.Automation.Runspaces.LocalRunspace</span><br></pre></td></tr></table></figure>
+<p>方法二：<code>$PSVersionTable.PSVersion</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">PS C:\&gt; $PSVersionTable</span><br><span class="line"></span><br><span class="line">Name                           Value</span><br><span class="line">----                           -----</span><br><span class="line">PSVersion                      4.0</span><br><span class="line">WSManStackVersion              3.0</span><br><span class="line">SerializationVersion           1.1.0.1</span><br><span class="line">CLRVersion                     4.0.30319.34209</span><br><span class="line">BuildVersion                   6.3.9600.17400</span><br><span class="line">PSCompatibleVersions           &#123;1.0, 2.0, 3.0, 4.0&#125;</span><br><span class="line">PSRemotingProtocolVersion      2.2</span><br><span class="line"></span><br><span class="line">PS C:\&gt; $PSVersionTable.PSVersion</span><br><span class="line"></span><br><span class="line">Major  Minor  Build  Revision</span><br><span class="line">-----  -----  -----  --------</span><br><span class="line">4      0      -1     -1</span><br></pre></td></tr></table></figure>
+<h2 id="PowerShell-built-in-variables"><a href="#PowerShell-built-in-variables" class="headerlink" title="PowerShell built-in variables"></a>PowerShell built-in variables</h2><p><code>Get-Help about_automatic_variable</code></p>
+<h2 id="取得物件資訊"><a href="#取得物件資訊" class="headerlink" title="取得物件資訊"></a>取得物件資訊</h2><p><code>$a.GetType();</code></p>
+<h2 id="Object-to-String"><a href="#Object-to-String" class="headerlink" title="Object to String"></a>Object to String</h2><p><code>Out-String -InputObject $obj</code></p>
+<h2 id="OS-Info"><a href="#OS-Info" class="headerlink" title="OS Info"></a>OS Info</h2><h1 id="System-Variable"><a href="#System-Variable" class="headerlink" title="System Variable"></a>System Variable</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$env:JAVA_HOME</span><br><span class="line">Get-Childitem env:</span><br><span class="line">Get-Childitem env: | sort name</span><br><span class="line"></span><br><span class="line"># 取得 Script Runtime 資訊</span><br><span class="line">## SCRIPT_NAME</span><br><span class="line"></span><br><span class="line">$MyInvocation.MyCommand  # return: XXX.ps1</span><br><span class="line"></span><br><span class="line">## Script name without extension</span><br><span class="line">[io.path]::GetFileNameWithoutExtension($MyInvocation.MyCommand)</span><br></pre></td></tr></table></figure>
+<h2 id="取得-runtime-Variable"><a href="#取得-runtime-Variable" class="headerlink" title="取得 runtime Variable"></a>取得 runtime Variable</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-Variable</span><br></pre></td></tr></table></figure>
+<h1 id="取的-Arguments-如果已經指定-CmdletBinding-…"><a href="#取的-Arguments-如果已經指定-CmdletBinding-…" class="headerlink" title="取的 Arguments 如果已經指定 CmdletBinding …."></a>取的 Arguments 如果已經指定 CmdletBinding ….</h1><p>如果 script 沒有用 CmdletBinding, 那麼直接使用 <code>$Args</code> 即可, 如果有使用 <code>CmdletBinding</code>，那麼 <code>$Args</code> 值就會是空的 …. (fuck design or bug ….)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># case 1</span><br><span class="line"># Arguments in A scripts</span><br><span class="line"></span><br><span class="line">$PSBoundParameters</span><br><span class="line"></span><br><span class="line"># case 2</span><br><span class="line"># A include B,</span><br><span class="line"># use arguments of scripts in B.</span><br><span class="line">$PSCmdlet.MyInvocation.BoundParameters.Keys</span><br></pre></td></tr></table></figure>
+<h1 id="增加-Array-element"><a href="#增加-Array-element" class="headerlink" title="增加 Array element"></a>增加 Array element</h1><p>使用物件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$Arguments = New-Object System.Collections.ArrayList</span><br><span class="line">$Arguments.add($value) # work</span><br><span class="line">#$Arguments += $value # not work</span><br></pre></td></tr></table></figure>
+<p>使用物件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$Arguments = @()</span><br><span class="line">#$Arguments.add($value) # not work</span><br><span class="line">$Arguments += $value #  work</span><br></pre></td></tr></table></figure>
+<h2 id="讀取-JSON"><a href="#讀取-JSON" class="headerlink" title="讀取 JSON"></a>讀取 JSON</h2><p>用 key 讀取 map</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$TASK_CONFIG = (Get-Content &quot;package.json&quot; -Raw) | ConvertFrom-Json</span><br><span class="line">$ins = $TASK_CONFIG.list | Select -ExpandProperty &quot;TYO-MWeb9&quot;</span><br><span class="line"></span><br><span class="line"># Iterate dictionary</span><br><span class="line">$actions = $TASK_CONFIG.actions</span><br><span class="line">$actions | Get-Member -Name TYO* | Select Name | Foreach &#123;</span><br><span class="line">	$machineName = $_.Name</span><br><span class="line">	# 用 key 取得 dict value .... so ..... stupit</span><br><span class="line">	$actionList = $actions.&quot;$($machineName)&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Iterate-the-key-in-dict-json"><a href="#Iterate-the-key-in-dict-json" class="headerlink" title="Iterate the key in dict (json)"></a>Iterate the key in dict (json)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$list | Get-Member | Where &#123;$_.MemberType -eq &quot;NoteProperty&quot; &#125; | Select Name  | Foreach &#123;</span><br><span class="line">	$key = $_.Name</span><br><span class="line">	$value = $dict.&quot;$($key)&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="使用-AD-帳號做認證"><a href="#使用-AD-帳號做認證" class="headerlink" title="使用 AD 帳號做認證"></a>使用 AD 帳號做認證</h2><p>在 Function 定義輸入參數:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Function Login &#123;</span><br><span class="line">	[CmdletBinding()]</span><br><span class="line">	param(</span><br><span class="line">		[Parameter(Mandatory=$False,Position=5)]</span><br><span class="line">		[System.Management.Automation.CredentialAttribute()]$Credential</span><br><span class="line"></span><br><span class="line">	)</span><br><span class="line">	Begin &#123;</span><br><span class="line">		$username = $Credential.UserName</span><br><span class="line">		$password = $Credential.GetNetworkCredential().Password</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	... 略 ...</span><br></pre></td></tr></table></figure>
+<h2 id="Create-Object"><a href="#Create-Object" class="headerlink" title="Create Object"></a>Create Object</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$obj = New-Object -TypeName PSObject</span><br><span class="line">Add-Member -InputObject $obj -MemberType NoteProperty -Name Attr1 -Value &quot;test1&quot;</span><br><span class="line">Add-Member -InputObject $obj -MemberType NoteProperty -Name Attr2 -Value &quot;test2&quot;</span><br><span class="line"></span><br><span class="line">$obj | Get-Member</span><br><span class="line"></span><br><span class="line">$obj.attr1</span><br><span class="line">$obj.attr2</span><br></pre></td></tr></table></figure>
+<p>使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$msg = &quot;Enter the username and password that will run the task&quot;</span><br><span class="line">$credential = $Host.UI.PromptForCredential(&quot;Task username and password&quot;,$msg,&quot;$env:userdomain\$env:username&quot;,$env:userdomain)</span><br></pre></td></tr></table></figure></p>
+
+
+		    <hr />
+			<!-- Facebook in bend of page -->
+			<div
+			  class="fb-like"
+			  data-share="true"
+			  data-width="450"
+			  data-show-faces="true">
+			</div>
+
+		</div>
+
+
+		<div>
+		  	<center>
+				
+<div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+	    	</center>
+		</div>
+
+
+	<!-- comment -->
+	
+
+
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+
+	
+	
+
+</div><!-- row -->
+
+    </div>
+  </div>
+
+
+<div class="container-narrow">
+    <footer> <p>
+  &copy; 2018 Rick Hwang
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme base on <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+
+<div id="gotop">
+  <!--
+  
+    <i class="fa fa-coffee"></i> <a href="http://www.gtcafe.com" title="GTCafe Studio" target="_blank"]);">GTCafe Studio</a><br />
+  
+    <i class="fa fa-coffee"></i> <a href="http://rickmidi.blogspot.com/" title="喝咖啡 聊音樂" target="_blank"]);">喝咖啡 聊音樂</a><br />
+  
+    <i class="fa fa-user"></i> <a href="https://www.blogger.com/profile/09975688593247211189" title="About me." target="_blank"]);">About</a><br />
+  
+  -->
+
+<a href="#"><span>▲</span></a>
+</div>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+</html>

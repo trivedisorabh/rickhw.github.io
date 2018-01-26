@@ -1,0 +1,340 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Java Generic Type | Complete Think</title>
+  <meta name="author" content="Rick Hwang">
+  
+  <meta name="description" content="Generic (泛型) 是在資料結構上，某一些類型可以是 泛用類型，或叫做 通用類型，也就是可以不需要特別指定，而這些資料可以應用在 class member field、method、interface、constructor 等。
+泛型最直接的好處就是可以 developer 省去很多檢查和轉">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Java Generic Type"/>
+  <meta property="og:site_name" content="Complete Think"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/true" title="Complete Think" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <!--
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  -->
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-71839551-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1554905741423841',
+        xfbml      : true,
+        version    : 'v2.2'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+</head>
+
+
+<body>
+
+  
+<nav id="main-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand active" href="/">Complete Think</a>
+	  	
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  	
+		  		
+		  			<li><a href="/archives" title="All the articles."><i class="fa fa-archive"></i>Archives</a></li>
+		  		
+		  	
+		  		
+					<li class='dropdown'>
+						<a aria-expanded='false' class='dropdown-toggle' data-toggle='dropdown' href='#' role='button'><i class="fa fa-folder"></i>Categories <span class='caret'/></span></a>
+		            	<ul class='dropdown-menu' role='menu'>
+		            	
+						
+							<li><a href="/categories/AWS/">AWS <sup>53</sup></a></li>
+						
+							<li><a href="/categories/AWS/AWS-Certified/">AWS Certified <sup>4</sup></a></li>
+						
+							<li><a href="/categories/About/">About <sup>5</sup></a></li>
+						
+							<li><a href="/categories/Blog/">Blog <sup>4</sup></a></li>
+						
+							<li><a href="/categories/ComputerScience/">ComputerScience <sup>1</sup></a></li>
+						
+							<li><a href="/categories/Container/">Container <sup>9</sup></a></li>
+						
+							<li><a href="/categories/DevOps/">DevOps <sup>15</sup></a></li>
+						
+							<li><a href="/categories/Embedded/">Embedded <sup>1</sup></a></li>
+						
+							<li><a href="/categories/GCP/">GCP <sup>6</sup></a></li>
+						
+							<li><a href="/categories/Linux/">Linux <sup>9</sup></a></li>
+						
+							<li><a href="/categories/Misc/">Misc <sup>3</sup></a></li>
+						
+							<li><a href="/categories/News/">News <sup>3</sup></a></li>
+						
+							<li><a href="/categories/OS-X/">OS X <sup>3</sup></a></li>
+						
+							<li><a href="/categories/Redmine/">Redmine <sup>4</sup></a></li>
+						
+							<li><a href="/categories/Software-Engineering/">Software Engineering <sup>4</sup></a></li>
+						
+							<li><a href="/categories/Tools/">Tools <sup>1</sup></a></li>
+						
+							<li><a href="/categories/經營管理/">經營管理 <sup>20</sup></a></li>
+						
+							<li><a href="/categories/軟體測試/">軟體測試 <sup>5</sup></a></li>
+						
+						</ul>
+					</li>
+		  		
+		  	
+		</ul>
+
+		<!-- @ricka: menu in right -->	
+	    <ul class='nav navbar-nav navbar-right'>
+			
+			  <li><a href="http://www.gtcafe.com" title="GTCafe Studio" target="_blank"> <i class="fa fa-coffee"></i>GTCafe Studio</a></li>
+			
+			  <li><a href="http://rickmidi.blogspot.com/" title="喝咖啡 聊音樂" target="_blank"> <i class="fa fa-coffee"></i>喝咖啡 聊音樂</a></li>
+			
+			  <li><a href="https://www.blogger.com/profile/09975688593247211189" title="About me." target="_blank"> <i class="fa fa-user"></i>About</a></li>
+			
+	    </ul>
+	    <!-- @ricka end -->	
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content" style="background-color: white;">
+       
+	
+		<!-- @rick, header of article -->
+		<!-- original
+		<div class="page-header">
+			<h1> Java Generic Type</h1>
+		</div>
+		-->
+
+		<div class="panel article_title">
+			<div class="panel-heading">
+    		<h1> Java Generic Type</h1>
+  		</div>
+		</div>
+
+	
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	
+
+		<!-- content -->
+		<div class="mypage">
+
+			<!-- Facebook in front of page -->
+			<div
+			  class="fb-like"
+			  data-share="true"
+			  data-width="450"
+			  data-show-faces="true">
+			</div>
+
+			<hr />
+
+		    <p><code>Generic (泛型)</code> 是在資料結構上，某一些類型可以是 <code>泛用類型</code>，或叫做 <code>通用類型</code>，也就是可以不需要特別指定，而這些資料可以應用在 class member field、method、interface、constructor 等。</p>
+<p>泛型最直接的好處就是可以 developer 省去很多檢查和轉型 (Cast) 的工作，寫出來的 code 更加簡潔。另外帶來的好處，就是因為減少轉型，所以也減少了在 runtime 產生的 <code>ClassCastException</code>，這些錯誤在 Compile time 就可以檢查出來。缺點就是從此 Java Code 裡就出現 HTML … XDDD</p>
+<p>Java 5.0 開始支援泛型，我剛開始只有在用 Collection (Set、List、Map) 常會用到而已，並沒有深入瞭解，最近在 trace code 東西發現使用的其實已經很頻繁，所以整理 study 筆記在這裡。</p>
+<a id="more"></a>
+<h1 id="Example-and-Case"><a href="#Example-and-Case" class="headerlink" title="Example and Case"></a>Example and Case</h1><p>最常見的例子就是 Collection，像是的 Map，以下例子表示此 Map 只接受 <code>String</code> 和 <code>Integer</code> 這兩種類別。如果沒有指定 Type，JDK 5.0 之後 Compile Time 則會提醒要指定類型，訊息: <code>HashMap is a raw type. References to generic type HashMap&lt;K,V&gt; should be parameterized</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// before jdk 5</span><br><span class="line">Map m = new HashMap();  </span><br><span class="line">m.put(&quot;1&quot;, &quot;test&quot;);</span><br><span class="line">int v = (Integer) m.get(&quot;1&quot;); // runtime error, ClassCastException</span><br><span class="line"></span><br><span class="line">// before jdk 7 </span><br><span class="line">Map&lt;String, Integer&gt; m = new HashMap&lt;String, Integer&gt;();</span><br><span class="line"></span><br><span class="line">// since jdk 7: follow is available</span><br><span class="line">// Map&lt;String, Integer&gt; m = new HashMap&lt;&gt;();</span><br><span class="line">m.put(&quot;1&quot;, &quot;test&quot;); // compile error</span><br><span class="line">m.put(&quot;2&quot;, 1234);</span><br><span class="line">Integer v = m.get(&quot;2&quot;);</span><br></pre></td></tr></table></figure>
+<p>底下是一個自訂 Generic 的例子，表示 <code>SocketChannel</code> 這個類別裡包含了泛型 <code>T</code>，使用時就可以透過 <code>&lt;Type&gt;</code> 指定類型。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class SocketChannel&lt;T&gt; &#123;</span><br><span class="line">    // declare a generic type</span><br><span class="line">    private T factory;</span><br><span class="line"></span><br><span class="line">    public T getFactory() &#123;</span><br><span class="line">        return this.factory;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public staic void main(String[] args) &#123;</span><br><span class="line">        // accept ChannelFactory only</span><br><span class="line">        SocketChannel&lt;ChannelFactory&gt; ch = new SocketChannel&lt;ChannelFactory&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Declare"><a href="#Declare" class="headerlink" title="Declare"></a>Declare</h1><p>針對 Class 做修飾，格式 <code>class ClassName&lt;TypeName1, TypeName2, ...&gt;</code>，常見的慣例是 <code>class ClassName&lt;T, E&gt;</code>，這樣表示在 Class 裡面某些地方會使用到一些泛用類型，底下是一些常看到的慣例以及說明：</p>
+<ul>
+<li><code>T</code> 通常表示 <code>Type</code>, <code>E</code> 表示 <code>Element</code>, <code>K</code> 表示 <code>Key</code>, <code>V</code> 表示 <code>Value</code></li>
+<li>Generic type name 可以自行定義，規則同 Java naming rule</li>
+<li>名稱的範圍就是在 class 裡</li>
+<li>可以宣告多個，每個名稱用逗點隔開，有時候會看到這樣的宣告：<code>class SocketChannel&lt;A, B, C, D&gt;</code></li>
+<li>除了一般的類別，泛型也可以在 <code>interface</code> 使用。</li>
+<li>Java 是單一繼承，所以宣告 <code>ClassName&lt;T&gt;</code> 也等同於 <code>ClassName&lt;T extends Object&gt;</code></li>
+</ul>
+<p>這些名稱只是為了避免混淆，所以大部分都會用 <code>T</code>、<code>E</code>、<code>A</code> …  一個大寫字母代表，底下的例子也是可行的，我只是故意取得比較長而已。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class GenericType&lt;TypeA, TypeB&gt; &#123;</span><br><span class="line"></span><br><span class="line">    private TypeA var1;</span><br><span class="line">    private TypeB var2;</span><br><span class="line">            </span><br><span class="line">    public GenericType(TypeA v1, TypeB v2) &#123;</span><br><span class="line">        this.var1 = v1;</span><br><span class="line">        this.var2 = v2;</span><br><span class="line">    &#125;</span><br><span class="line">                            </span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return String.format(&quot;TypeA: %s, TypeB: %s&quot;, var1, var2);</span><br><span class="line">    &#125;</span><br><span class="line">                                            </span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        GenericType&lt;Integer, String&gt; gt = new GenericType&lt;&gt;(1, &quot;orz&quot;);</span><br><span class="line">        System.out.println(gt);     </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Bound-Type"><a href="#Bound-Type" class="headerlink" title="Bound Type"></a>Bound Type</h1><p>Bound Type 是用來限制可使用的型別範圍，使用上就是：</p>
+<ul>
+<li>Upper Bound：<code>&lt;T extends super-class&gt;</code>，表示繼承的子類別都是合法的</li>
+<li>Lower Bound：<code>&lt;T super child-class&gt;</code>，和上述相反，這個父類別都是合法的</li>
+</ul>
+<blockquote>
+<p>實際上在 Eclipse 裡用 Lower Bound 宣告 class 會 compile error.</p>
+</blockquote>
+<h2 id="Upper-Bound-Extends"><a href="#Upper-Bound-Extends" class="headerlink" title="Upper Bound: Extends"></a>Upper Bound: Extends</h2><p>繼承某一個父類別，意思是：</p>
+<ul>
+<li>表示相關的子類別才可以使用</li>
+<li>允許巢狀繼承, 也就是 class 會用到自己, 可以這樣寫: <code>ClassName&lt;A extends ClassName&lt;A, B&gt;&gt;</code></li>
+</ul>
+<p>底下的例子是 Class 就宣告 Upper Bound，直接限制可以使用的類別關係：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Vehicle &#123;&#125;                // 運輸工具統稱</span><br><span class="line">class Boat extends Vehicle &#123;&#125;   // 水上船隻</span><br><span class="line">class Car extends Vehicle &#123;&#125;    // 路上的車</span><br><span class="line">class Suv extends Car &#123;&#125;        // 休旅</span><br><span class="line">class Sedan extends Car &#123;&#125;      // 四門車</span><br><span class="line"></span><br><span class="line">public class GenericCar&lt;TypeA extends Car&gt; &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        GenericActor&lt;Suv&gt; t1 = new GenericActor&lt;&gt;();</span><br><span class="line">        GenericActor&lt;Sedan&gt; t2 = new GenericActor&lt;&gt;();</span><br><span class="line">        GenericActor&lt;Boat&gt; t3 = new GenericActor&lt;&gt;(); // compile error</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Wildcard"><a href="#Wildcard" class="headerlink" title="Wildcard"></a>Wildcard</h2><p><code>Wildcard</code> 問號 <code>?</code> 表示通用類別，<code>wildcard</code> 在電腦程式領域的意思，大概就是用一個符號代表一個集合，像是在 DOS 或者 unix command line 常會用 <code>*</code> 代表所有的；Regular Expression 用 <code>.</code> 代表任意一個字元、SQL 則是用 <code>%</code>。</p>
+<p>在 Java 的泛型 <code>&lt;T&gt;</code> 等於 <code>&lt;T extends Object&gt;</code>，也就是說可以代表任意一種型態的意思。泛型可以在宣告物件的時候限制允許的類別，如上一個例子，另外一種就是在建立物件的時候，也可以透過 wildcard 限制繼承的類別，最常用的就是在 collection 的使用，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Car&gt; c1 = new ArrayList&lt;&gt;();</span><br><span class="line">c1.add(new Suv());</span><br><span class="line">Car s = c1.get(0);</span><br><span class="line"></span><br><span class="line">// Upper bound</span><br><span class="line">// allows to get, disallow to set</span><br><span class="line">List&lt;? extends Car&gt; c2 = new ArrayList&lt;&gt;();</span><br><span class="line">c2.add(new Suv()); // cannot set, compile error</span><br><span class="line">Car s2 = c2.get(0);</span><br></pre></td></tr></table></figure>
+<p>但是使用 wildcard 的時候，upper bound 是無法新增的.</p>
+<h1 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h1><p>Java 和 C 一樣，屬於靜態語言 (Static Language)，使用任何變數之前，必須先講清楚這個變數是哪一種資料型態，是整數 (Integer)、字串 (String)、時間 (Date) … 等。如果沒有講清楚，那麼在編譯時期 (Compile Time) 就會出錯。但是有些時候需要 Meta 的描述，或者根本不知道 Type 的時候，這種有 <code>動態</code> 感的 Generic 就派得上用場了。</p>
+<p>寫這段字的時候，我同時在猜想，像 scala, groovy 這種動態語言，差不多都是在 JDK 5.0 之後出現。而 Java 從一個本來是 Strong 且 Static 的語言，變成軟硬通吃，更加圓融且成熟。當然這也可能是我個人一廂情願的想法 XDDD</p>
+<h1 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h1><ul>
+<li><a href="http://openhome.cc/Gossip/Java/Generics.html" target="_blank" rel="noopener">泛型定義與使用</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Generics_in_Java" target="_blank" rel="noopener">Generic in Java</a></li>
+<li><a href="http://technote.cc/programming/java-generics/" target="_blank" rel="noopener">Java Generics 泛型</a></li>
+</ul>
+<h1 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h1><ul>
+<li><a href="http://blog.roodo.com/rocksaying/archives/10890551.html" target="_blank" rel="noopener">從 C++ Template 到 Java Generic，一步一步來</a></li>
+<li><a href="http://openhome.cc/Gossip/Programmer/DynamicStaticLanguage.html" target="_blank" rel="noopener">程式語言的特性本質（一）靜態語言與動態語言的信任抉擇</a></li>
+<li><a href="http://www.lifeparty.idv.tw/blog/archives/2328" target="_blank" rel="noopener">Java 泛型複雜嗎?</a></li>
+<li><a href="https://devender.files.wordpress.com/2008/05/effectivejava.pdf" target="_blank" rel="noopener">Effective Java</a> PECS </li>
+</ul>
+
+
+		    <hr />
+			<!-- Facebook in bend of page -->
+			<div
+			  class="fb-like"
+			  data-share="true"
+			  data-width="450"
+			  data-show-faces="true">
+			</div>
+
+		</div>
+
+
+		<div>
+		  	<center>
+				
+<div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+	    	</center>
+		</div>
+
+
+	<!-- comment -->
+	
+
+
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+
+	
+	
+
+</div><!-- row -->
+
+    </div>
+  </div>
+
+
+<div class="container-narrow">
+    <footer> <p>
+  &copy; 2018 Rick Hwang
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme base on <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+
+<div id="gotop">
+  <!--
+  
+    <i class="fa fa-coffee"></i> <a href="http://www.gtcafe.com" title="GTCafe Studio" target="_blank"]);">GTCafe Studio</a><br />
+  
+    <i class="fa fa-coffee"></i> <a href="http://rickmidi.blogspot.com/" title="喝咖啡 聊音樂" target="_blank"]);">喝咖啡 聊音樂</a><br />
+  
+    <i class="fa fa-user"></i> <a href="https://www.blogger.com/profile/09975688593247211189" title="About me." target="_blank"]);">About</a><br />
+  
+  -->
+
+<a href="#"><span>▲</span></a>
+</div>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+</html>

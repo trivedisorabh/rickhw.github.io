@@ -1,0 +1,358 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Development with Docker | Complete Think</title>
+  <meta name="author" content="Rick Hwang">
+  
+  <meta name="description" content="筆記利用 kops 快速建立 k8s.
+
+準備
+建立 DNS: 在 Route53 新增 獨立 Hosted Zone, 例如 k8s.abc.com
+建立 S3 Bucket, 例如 s3://k8s.abc.com
+設定相關參數:
+
+1234567export KOPS_CLUSTER_NAME">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Development with Docker"/>
+  <meta property="og:site_name" content="Complete Think"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/true" title="Complete Think" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <!--
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  -->
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-71839551-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1554905741423841',
+        xfbml      : true,
+        version    : 'v2.2'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+</head>
+
+
+<body>
+
+  
+<nav id="main-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand active" href="/">Complete Think</a>
+	  	
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  	
+		  		
+		  			<li><a href="/archives" title="All the articles."><i class="fa fa-archive"></i>Archives</a></li>
+		  		
+		  	
+		  		
+					<li class='dropdown'>
+						<a aria-expanded='false' class='dropdown-toggle' data-toggle='dropdown' href='#' role='button'><i class="fa fa-folder"></i>Categories <span class='caret'/></span></a>
+		            	<ul class='dropdown-menu' role='menu'>
+		            	
+						
+							<li><a href="/categories/AWS/">AWS <sup>53</sup></a></li>
+						
+							<li><a href="/categories/AWS/AWS-Certified/">AWS Certified <sup>4</sup></a></li>
+						
+							<li><a href="/categories/About/">About <sup>5</sup></a></li>
+						
+							<li><a href="/categories/Blog/">Blog <sup>4</sup></a></li>
+						
+							<li><a href="/categories/ComputerScience/">ComputerScience <sup>1</sup></a></li>
+						
+							<li><a href="/categories/Container/">Container <sup>9</sup></a></li>
+						
+							<li><a href="/categories/DevOps/">DevOps <sup>15</sup></a></li>
+						
+							<li><a href="/categories/Embedded/">Embedded <sup>1</sup></a></li>
+						
+							<li><a href="/categories/GCP/">GCP <sup>6</sup></a></li>
+						
+							<li><a href="/categories/Linux/">Linux <sup>9</sup></a></li>
+						
+							<li><a href="/categories/Misc/">Misc <sup>3</sup></a></li>
+						
+							<li><a href="/categories/News/">News <sup>3</sup></a></li>
+						
+							<li><a href="/categories/OS-X/">OS X <sup>3</sup></a></li>
+						
+							<li><a href="/categories/Redmine/">Redmine <sup>4</sup></a></li>
+						
+							<li><a href="/categories/Software-Engineering/">Software Engineering <sup>4</sup></a></li>
+						
+							<li><a href="/categories/Tools/">Tools <sup>1</sup></a></li>
+						
+							<li><a href="/categories/經營管理/">經營管理 <sup>20</sup></a></li>
+						
+							<li><a href="/categories/軟體測試/">軟體測試 <sup>5</sup></a></li>
+						
+						</ul>
+					</li>
+		  		
+		  	
+		</ul>
+
+		<!-- @ricka: menu in right -->	
+	    <ul class='nav navbar-nav navbar-right'>
+			
+			  <li><a href="http://www.gtcafe.com" title="GTCafe Studio" target="_blank"> <i class="fa fa-coffee"></i>GTCafe Studio</a></li>
+			
+			  <li><a href="http://rickmidi.blogspot.com/" title="喝咖啡 聊音樂" target="_blank"> <i class="fa fa-coffee"></i>喝咖啡 聊音樂</a></li>
+			
+			  <li><a href="https://www.blogger.com/profile/09975688593247211189" title="About me." target="_blank"> <i class="fa fa-user"></i>About</a></li>
+			
+	    </ul>
+	    <!-- @ricka end -->	
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content" style="background-color: white;">
+       
+	
+		<!-- @rick, header of article -->
+		<!-- original
+		<div class="page-header">
+			<h1> Development with Docker</h1>
+		</div>
+		-->
+
+		<div class="panel article_title">
+			<div class="panel-heading">
+    		<h1> Development with Docker</h1>
+  		</div>
+		</div>
+
+	
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	
+
+		<!-- content -->
+		<div class="mypage">
+
+			<!-- Facebook in front of page -->
+			<div
+			  class="fb-like"
+			  data-share="true"
+			  data-width="450"
+			  data-show-faces="true">
+			</div>
+
+			<hr />
+
+		    <p>筆記利用 kops 快速建立 k8s.</p>
+<a id="more"></a>
+<h2 id="準備"><a href="#準備" class="headerlink" title="準備"></a>準備</h2><ul>
+<li>建立 DNS: 在 Route53 新增 獨立 Hosted Zone, 例如 <code>k8s.abc.com</code></li>
+<li>建立 S3 Bucket, 例如 <code>s3://k8s.abc.com</code></li>
+<li>設定相關參數:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export KOPS_CLUSTER_NAME=k8s.abc.com</span><br><span class="line">export KOPS_STATE_STORE=s3://$&#123;KOPS_CLUSTER_NAME&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 無法使用 profile</span><br><span class="line">export AWS_ACCESS_KEY_ID=ccc</span><br><span class="line">export AWS_SECRET_ACCESS_KEY=xxx</span><br></pre></td></tr></table></figure>
+<h2 id="開始建立"><a href="#開始建立" class="headerlink" title="開始建立"></a>開始建立</h2><p>建立 config</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kops create cluster \</span><br><span class="line">    --zones=us-east-1c \</span><br><span class="line">    kops.gtcafe.com</span><br></pre></td></tr></table></figure>
+<p>輸出的 output</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br></pre></td><td class="code"><pre><span class="line">I0801 21:57:18.483932   17822 create_cluster.go:659] Inferred --cloud=aws from zone &quot;us-east-1c&quot;</span><br><span class="line">I0801 21:57:18.484032   17822 create_cluster.go:845] Using SSH public key: /Users/rick/.ssh/id_rsa.pub</span><br><span class="line">I0801 21:57:20.157478   17822 subnets.go:183] Assigned CIDR 172.20.32.0/19 to subnet us-east-1c</span><br><span class="line">Previewing changes that will be made:</span><br><span class="line"></span><br><span class="line">I0801 21:57:29.427298   17822 executor.go:91] Tasks: 0 done / 63 total; 34 can run</span><br><span class="line">I0801 21:57:30.657292   17822 executor.go:91] Tasks: 34 done / 63 total; 12 can run</span><br><span class="line">I0801 21:57:32.468015   17822 executor.go:91] Tasks: 46 done / 63 total; 15 can run</span><br><span class="line">I0801 21:57:33.702073   17822 executor.go:91] Tasks: 61 done / 63 total; 2 can run</span><br><span class="line">I0801 21:57:33.961164   17822 executor.go:91] Tasks: 63 done / 63 total; 0 can run</span><br><span class="line">Will create resources:</span><br><span class="line">  AutoscalingGroup/master-us-east-1c.masters.kops.gtcafe.com</span><br><span class="line">  	MinSize             	1</span><br><span class="line">  	MaxSize             	1</span><br><span class="line">  	Subnets             	[name:us-east-1c.kops.gtcafe.com]</span><br><span class="line">  	Tags                	&#123;KubernetesCluster: kops.gtcafe.com, k8s.io/role/master: 1, Name: master-us-east-1c.masters.kops.gtcafe.com&#125;</span><br><span class="line">  	LaunchConfiguration 	name:master-us-east-1c.masters.kops.gtcafe.com</span><br><span class="line"></span><br><span class="line">  AutoscalingGroup/nodes.kops.gtcafe.com</span><br><span class="line">  	MinSize             	2</span><br><span class="line">  	MaxSize             	2</span><br><span class="line">  	Subnets             	[name:us-east-1c.kops.gtcafe.com]</span><br><span class="line">  	Tags                	&#123;k8s.io/role/node: 1, Name: nodes.kops.gtcafe.com, KubernetesCluster: kops.gtcafe.com&#125;</span><br><span class="line">  	LaunchConfiguration 	name:nodes.kops.gtcafe.com</span><br><span class="line"></span><br><span class="line">  DHCPOptions/kops.gtcafe.com</span><br><span class="line">  	DomainName          	ec2.internal</span><br><span class="line">  	DomainNameServers   	AmazonProvidedDNS</span><br><span class="line"></span><br><span class="line">  EBSVolume/c.etcd-events.kops.gtcafe.com</span><br><span class="line">  	AvailabilityZone    	us-east-1c</span><br><span class="line">  	VolumeType          	gp2</span><br><span class="line">  	SizeGB              	20</span><br><span class="line">  	Encrypted           	false</span><br><span class="line">  	Tags                	&#123;Name: c.etcd-events.kops.gtcafe.com, KubernetesCluster: kops.gtcafe.com, k8s.io/etcd/events: c/c, k8s.io/role/master: 1&#125;</span><br><span class="line"></span><br><span class="line">  EBSVolume/c.etcd-main.kops.gtcafe.com</span><br><span class="line">  	AvailabilityZone    	us-east-1c</span><br><span class="line">  	VolumeType          	gp2</span><br><span class="line">  	SizeGB              	20</span><br><span class="line">  	Encrypted           	false</span><br><span class="line">  	Tags                	&#123;k8s.io/etcd/main: c/c, k8s.io/role/master: 1, Name: c.etcd-main.kops.gtcafe.com, KubernetesCluster: kops.gtcafe.com&#125;</span><br><span class="line"></span><br><span class="line">  IAMInstanceProfile/masters.kops.gtcafe.com</span><br><span class="line"></span><br><span class="line">  IAMInstanceProfile/nodes.kops.gtcafe.com</span><br><span class="line"></span><br><span class="line">  IAMInstanceProfileRole/masters.kops.gtcafe.com</span><br><span class="line">  	InstanceProfile     	name:masters.kops.gtcafe.com id:masters.kops.gtcafe.com</span><br><span class="line">  	Role                	name:masters.kops.gtcafe.com</span><br><span class="line"></span><br><span class="line">  IAMInstanceProfileRole/nodes.kops.gtcafe.com</span><br><span class="line">  	InstanceProfile     	name:nodes.kops.gtcafe.com id:nodes.kops.gtcafe.com</span><br><span class="line">  	Role                	name:nodes.kops.gtcafe.com</span><br><span class="line"></span><br><span class="line">  IAMRole/masters.kops.gtcafe.com</span><br><span class="line">  	ExportWithID        	masters</span><br><span class="line"></span><br><span class="line">  IAMRole/nodes.kops.gtcafe.com</span><br><span class="line">  	ExportWithID        	nodes</span><br><span class="line"></span><br><span class="line">  IAMRolePolicy/masters.kops.gtcafe.com</span><br><span class="line">  	Role                	name:masters.kops.gtcafe.com</span><br><span class="line"></span><br><span class="line">  IAMRolePolicy/nodes.kops.gtcafe.com</span><br><span class="line">  	Role                	name:nodes.kops.gtcafe.com</span><br><span class="line"></span><br><span class="line">  InternetGateway/kops.gtcafe.com</span><br><span class="line">  	VPC                 	name:kops.gtcafe.com</span><br><span class="line">  	Shared              	false</span><br><span class="line"></span><br><span class="line">  Keypair/kops</span><br><span class="line">  	Subject             	o=system:masters,cn=kops</span><br><span class="line">  	Type                	client</span><br><span class="line"></span><br><span class="line">  Keypair/kube-controller-manager</span><br><span class="line">  	Subject             	cn=system:kube-controller-manager</span><br><span class="line">  	Type                	client</span><br><span class="line"></span><br><span class="line">  Keypair/kube-proxy</span><br><span class="line">  	Subject             	cn=system:kube-proxy</span><br><span class="line">  	Type                	client</span><br><span class="line"></span><br><span class="line">  Keypair/kube-scheduler</span><br><span class="line">  	Subject             	cn=system:kube-scheduler</span><br><span class="line">  	Type                	client</span><br><span class="line"></span><br><span class="line">  Keypair/kubecfg</span><br><span class="line">  	Subject             	o=system:masters,cn=kubecfg</span><br><span class="line">  	Type                	client</span><br><span class="line"></span><br><span class="line">  Keypair/kubelet</span><br><span class="line">  	Subject             	o=system:nodes,cn=kubelet</span><br><span class="line">  	Type                	client</span><br><span class="line"></span><br><span class="line">  Keypair/master</span><br><span class="line">  	Subject             	cn=kubernetes-master</span><br><span class="line">  	Type                	server</span><br><span class="line">  	AlternateNames      	[100.64.0.1, 127.0.0.1, api.internal.kops.gtcafe.com, api.kops.gtcafe.com, kubernetes, kubernetes.default, kubernetes.default.svc, kubernetes.default.svc.cluster.local]</span><br><span class="line"></span><br><span class="line">  LaunchConfiguration/master-us-east-1c.masters.kops.gtcafe.com</span><br><span class="line">  	ImageID             	kope.io/k8s-1.6-debian-jessie-amd64-hvm-ebs-2017-05-02</span><br><span class="line">  	InstanceType        	c4.large</span><br><span class="line">  	SSHKey              	name:kubernetes.kops.gtcafe.com-ae:02:0f:80:9a:87:4c:0c:cd:07:1d:ae:f9:0b:c3:2f id:kubernetes.kops.gtcafe.com-ae:02:0f:80:9a:87:4c:0c:cd:07:1d:ae:f9:0b:c3:2f</span><br><span class="line">  	SecurityGroups      	[name:masters.kops.gtcafe.com]</span><br><span class="line">  	AssociatePublicIP   	true</span><br><span class="line">  	IAMInstanceProfile  	name:masters.kops.gtcafe.com id:masters.kops.gtcafe.com</span><br><span class="line">  	RootVolumeSize      	64</span><br><span class="line">  	RootVolumeType      	gp2</span><br><span class="line">  	SpotPrice</span><br><span class="line"></span><br><span class="line">  LaunchConfiguration/nodes.kops.gtcafe.com</span><br><span class="line">  	ImageID             	kope.io/k8s-1.6-debian-jessie-amd64-hvm-ebs-2017-05-02</span><br><span class="line">  	InstanceType        	t2.medium</span><br><span class="line">  	SSHKey              	name:kubernetes.kops.gtcafe.com-ae:02:0f:80:9a:87:4c:0c:cd:07:1d:ae:f9:0b:c3:2f id:kubernetes.kops.gtcafe.com-ae:02:0f:80:9a:87:4c:0c:cd:07:1d:ae:f9:0b:c3:2f</span><br><span class="line">  	SecurityGroups      	[name:nodes.kops.gtcafe.com]</span><br><span class="line">  	AssociatePublicIP   	true</span><br><span class="line">  	IAMInstanceProfile  	name:nodes.kops.gtcafe.com id:nodes.kops.gtcafe.com</span><br><span class="line">  	RootVolumeSize      	128</span><br><span class="line">  	RootVolumeType      	gp2</span><br><span class="line">  	SpotPrice</span><br><span class="line"></span><br><span class="line">  ManagedFile/kops.gtcafe.com-addons-bootstrap</span><br><span class="line">  	Location            	addons/bootstrap-channel.yaml</span><br><span class="line"></span><br><span class="line">  ManagedFile/kops.gtcafe.com-addons-core.addons.k8s.io</span><br><span class="line">  	Location            	addons/core.addons.k8s.io/v1.4.0.yaml</span><br><span class="line"></span><br><span class="line">  ManagedFile/kops.gtcafe.com-addons-dns-controller.addons.k8s.io-k8s-1.6</span><br><span class="line">  	Location            	addons/dns-controller.addons.k8s.io/k8s-1.6.yaml</span><br><span class="line"></span><br><span class="line">  ManagedFile/kops.gtcafe.com-addons-dns-controller.addons.k8s.io-pre-k8s-1.6</span><br><span class="line">  	Location            	addons/dns-controller.addons.k8s.io/pre-k8s-1.6.yaml</span><br><span class="line"></span><br><span class="line">  ManagedFile/kops.gtcafe.com-addons-kube-dns.addons.k8s.io-k8s-1.6</span><br><span class="line">  	Location            	addons/kube-dns.addons.k8s.io/k8s-1.6.yaml</span><br><span class="line"></span><br><span class="line">  ManagedFile/kops.gtcafe.com-addons-kube-dns.addons.k8s.io-pre-k8s-1.6</span><br><span class="line">  	Location            	addons/kube-dns.addons.k8s.io/pre-k8s-1.6.yaml</span><br><span class="line"></span><br><span class="line">  ManagedFile/kops.gtcafe.com-addons-limit-range.addons.k8s.io</span><br><span class="line">  	Location            	addons/limit-range.addons.k8s.io/v1.5.0.yaml</span><br><span class="line"></span><br><span class="line">  ManagedFile/kops.gtcafe.com-addons-storage-aws.addons.k8s.io</span><br><span class="line">  	Location            	addons/storage-aws.addons.k8s.io/v1.6.0.yaml</span><br><span class="line"></span><br><span class="line">  Route/0.0.0.0/0</span><br><span class="line">  	RouteTable          	name:kops.gtcafe.com</span><br><span class="line">  	CIDR                	0.0.0.0/0</span><br><span class="line">  	InternetGateway     	name:kops.gtcafe.com</span><br><span class="line"></span><br><span class="line">  RouteTable/kops.gtcafe.com</span><br><span class="line">  	VPC                 	name:kops.gtcafe.com</span><br><span class="line"></span><br><span class="line">  RouteTableAssociation/us-east-1c.kops.gtcafe.com</span><br><span class="line">  	RouteTable          	name:kops.gtcafe.com</span><br><span class="line">  	Subnet              	name:us-east-1c.kops.gtcafe.com</span><br><span class="line"></span><br><span class="line">  SSHKey/kubernetes.kops.gtcafe.com-ae:02:0f:80:9a:87:4c:0c:cd:07:1d:ae:f9:0b:c3:2f</span><br><span class="line">  	KeyFingerprint      	19:2c:bd:6d:4f:d9:1b:2f:40:8b:de:b7:6a:98:9a:d6</span><br><span class="line"></span><br><span class="line">  Secret/admin</span><br><span class="line"></span><br><span class="line">  Secret/kube</span><br><span class="line"></span><br><span class="line">  Secret/kube-proxy</span><br><span class="line"></span><br><span class="line">  Secret/kubelet</span><br><span class="line"></span><br><span class="line">  Secret/system:controller_manager</span><br><span class="line"></span><br><span class="line">  Secret/system:dns</span><br><span class="line"></span><br><span class="line">  Secret/system:logging</span><br><span class="line"></span><br><span class="line">  Secret/system:monitoring</span><br><span class="line"></span><br><span class="line">  Secret/system:scheduler</span><br><span class="line"></span><br><span class="line">  SecurityGroup/masters.kops.gtcafe.com</span><br><span class="line">  	Description         	Security group for masters</span><br><span class="line">  	VPC                 	name:kops.gtcafe.com</span><br><span class="line">  	RemoveExtraRules    	[port=22, port=443, port=4001, port=4789, port=179]</span><br><span class="line"></span><br><span class="line">  SecurityGroup/nodes.kops.gtcafe.com</span><br><span class="line">  	Description         	Security group for nodes</span><br><span class="line">  	VPC                 	name:kops.gtcafe.com</span><br><span class="line">  	RemoveExtraRules    	[port=22]</span><br><span class="line"></span><br><span class="line">  SecurityGroupRule/all-master-to-master</span><br><span class="line">  	SecurityGroup       	name:masters.kops.gtcafe.com</span><br><span class="line">  	SourceGroup         	name:masters.kops.gtcafe.com</span><br><span class="line"></span><br><span class="line">  SecurityGroupRule/all-master-to-node</span><br><span class="line">  	SecurityGroup       	name:nodes.kops.gtcafe.com</span><br><span class="line">  	SourceGroup         	name:masters.kops.gtcafe.com</span><br><span class="line"></span><br><span class="line">  SecurityGroupRule/all-node-to-node</span><br><span class="line">  	SecurityGroup       	name:nodes.kops.gtcafe.com</span><br><span class="line">  	SourceGroup         	name:nodes.kops.gtcafe.com</span><br><span class="line"></span><br><span class="line">  SecurityGroupRule/https-external-to-master-0.0.0.0/0</span><br><span class="line">  	SecurityGroup       	name:masters.kops.gtcafe.com</span><br><span class="line">  	CIDR                	0.0.0.0/0</span><br><span class="line">  	Protocol            	tcp</span><br><span class="line">  	FromPort            	443</span><br><span class="line">  	ToPort              	443</span><br><span class="line"></span><br><span class="line">  SecurityGroupRule/master-egress</span><br><span class="line">  	SecurityGroup       	name:masters.kops.gtcafe.com</span><br><span class="line">  	CIDR                	0.0.0.0/0</span><br><span class="line">  	Egress              	true</span><br><span class="line"></span><br><span class="line">  SecurityGroupRule/node-egress</span><br><span class="line">  	SecurityGroup       	name:nodes.kops.gtcafe.com</span><br><span class="line">  	CIDR                	0.0.0.0/0</span><br><span class="line">  	Egress              	true</span><br><span class="line"></span><br><span class="line">  SecurityGroupRule/node-to-master-tcp-1-4000</span><br><span class="line">  	SecurityGroup       	name:masters.kops.gtcafe.com</span><br><span class="line">  	Protocol            	tcp</span><br><span class="line">  	FromPort            	1</span><br><span class="line">  	ToPort              	4000</span><br><span class="line">  	SourceGroup         	name:nodes.kops.gtcafe.com</span><br><span class="line"></span><br><span class="line">  SecurityGroupRule/node-to-master-tcp-4003-65535</span><br><span class="line">  	SecurityGroup       	name:masters.kops.gtcafe.com</span><br><span class="line">  	Protocol            	tcp</span><br><span class="line">  	FromPort            	4003</span><br><span class="line">  	ToPort              	65535</span><br><span class="line">  	SourceGroup         	name:nodes.kops.gtcafe.com</span><br><span class="line"></span><br><span class="line">  SecurityGroupRule/node-to-master-udp-1-65535</span><br><span class="line">  	SecurityGroup       	name:masters.kops.gtcafe.com</span><br><span class="line">  	Protocol            	udp</span><br><span class="line">  	FromPort            	1</span><br><span class="line">  	ToPort              	65535</span><br><span class="line">  	SourceGroup         	name:nodes.kops.gtcafe.com</span><br><span class="line"></span><br><span class="line">  SecurityGroupRule/ssh-external-to-master-0.0.0.0/0</span><br><span class="line">  	SecurityGroup       	name:masters.kops.gtcafe.com</span><br><span class="line">  	CIDR                	0.0.0.0/0</span><br><span class="line">  	Protocol            	tcp</span><br><span class="line">  	FromPort            	22</span><br><span class="line">  	ToPort              	22</span><br><span class="line"></span><br><span class="line">  SecurityGroupRule/ssh-external-to-node-0.0.0.0/0</span><br><span class="line">  	SecurityGroup       	name:nodes.kops.gtcafe.com</span><br><span class="line">  	CIDR                	0.0.0.0/0</span><br><span class="line">  	Protocol            	tcp</span><br><span class="line">  	FromPort            	22</span><br><span class="line">  	ToPort              	22</span><br><span class="line"></span><br><span class="line">  Subnet/us-east-1c.kops.gtcafe.com</span><br><span class="line">  	VPC                 	name:kops.gtcafe.com</span><br><span class="line">  	AvailabilityZone    	us-east-1c</span><br><span class="line">  	CIDR                	172.20.32.0/19</span><br><span class="line">  	Shared              	false</span><br><span class="line">  	Tags                	&#123;KubernetesCluster: kops.gtcafe.com, Name: us-east-1c.kops.gtcafe.com, kubernetes.io/cluster/kops.gtcafe.com: owned&#125;</span><br><span class="line"></span><br><span class="line">  VPC/kops.gtcafe.com</span><br><span class="line">  	CIDR                	172.20.0.0/16</span><br><span class="line">  	EnableDNSHostnames  	true</span><br><span class="line">  	EnableDNSSupport    	true</span><br><span class="line">  	Shared              	false</span><br><span class="line">  	Tags                	&#123;kubernetes.io/cluster/kops.gtcafe.com: owned, KubernetesCluster: kops.gtcafe.com, Name: kops.gtcafe.com&#125;</span><br><span class="line"></span><br><span class="line">  VPCDHCPOptionsAssociation/kops.gtcafe.com</span><br><span class="line">  	VPC                 	name:kops.gtcafe.com</span><br><span class="line">  	DHCPOptions         	name:kops.gtcafe.com</span><br><span class="line"></span><br><span class="line">Must specify --yes to apply changes</span><br><span class="line"></span><br><span class="line">Cluster configuration has been created.</span><br><span class="line"></span><br><span class="line">Suggestions:</span><br><span class="line"> * list clusters with: kops get cluster</span><br><span class="line"> * edit this cluster with: kops edit cluster kops.gtcafe.com</span><br><span class="line"> * edit your node instance group: kops edit ig --name=kops.gtcafe.com nodes</span><br><span class="line"> * edit your master instance group: kops edit ig --name=kops.gtcafe.com master-us-east-1c</span><br><span class="line"></span><br><span class="line">Finally configure your cluster with: kops update cluster kops.gtcafe.com --yes</span><br></pre></td></tr></table></figure>
+<p>這些資訊都會放在 s3 bucket 裡</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kops update cluster kops.gtcafe.com --yes</span><br></pre></td></tr></table></figure>
+<p>Output</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">I0801 22:16:58.279045   17969 executor.go:91] Tasks: 0 <span class="keyword">done</span> / 63 total; 34 can run</span><br><span class="line">I0801 22:17:00.023487   17969 vfs_castore.go:422] Issuing new certificate: <span class="string">"kube-controller-manager"</span></span><br><span class="line">I0801 22:17:00.235282   17969 vfs_castore.go:422] Issuing new certificate: <span class="string">"master"</span></span><br><span class="line">I0801 22:17:00.305239   17969 vfs_castore.go:422] Issuing new certificate: <span class="string">"kube-proxy"</span></span><br><span class="line">I0801 22:17:00.471430   17969 vfs_castore.go:422] Issuing new certificate: <span class="string">"kops"</span></span><br><span class="line">I0801 22:17:00.576009   17969 vfs_castore.go:422] Issuing new certificate: <span class="string">"kubecfg"</span></span><br><span class="line">I0801 22:17:00.672267   17969 vfs_castore.go:422] Issuing new certificate: <span class="string">"kubelet"</span></span><br><span class="line">I0801 22:17:00.675393   17969 vfs_castore.go:422] Issuing new certificate: <span class="string">"kube-scheduler"</span></span><br><span class="line">I0801 22:17:04.558424   17969 executor.go:91] Tasks: 34 <span class="keyword">done</span> / 63 total; 12 can run</span><br><span class="line">I0801 22:17:07.486451   17969 executor.go:91] Tasks: 46 <span class="keyword">done</span> / 63 total; 15 can run</span><br><span class="line">I0801 22:17:10.534117   17969 launchconfiguration.go:327] waiting <span class="keyword">for</span> IAM instance profile <span class="string">"nodes.kops.gtcafe.com"</span> to be ready</span><br><span class="line">I0801 22:17:10.543554   17969 launchconfiguration.go:327] waiting <span class="keyword">for</span> IAM instance profile <span class="string">"masters.kops.gtcafe.com"</span> to be ready</span><br><span class="line">I0801 22:17:21.888351   17969 executor.go:91] Tasks: 61 <span class="keyword">done</span> / 63 total; 2 can run</span><br><span class="line">I0801 22:17:23.187552   17969 executor.go:91] Tasks: 63 <span class="keyword">done</span> / 63 total; 0 can run</span><br><span class="line">I0801 22:17:23.187620   17969 dns.go:152] Pre-creating DNS records</span><br><span class="line">I0801 22:17:26.444729   17969 update_cluster.go:247] Exporting kubecfg <span class="keyword">for</span> cluster</span><br><span class="line">Kops has <span class="built_in">set</span> your kubectl context to kops.gtcafe.com</span><br><span class="line"></span><br><span class="line">Cluster is starting.  It should be ready <span class="keyword">in</span> a few minutes.</span><br><span class="line"></span><br><span class="line">Suggestions:</span><br><span class="line"> * validate cluster: kops validate cluster</span><br><span class="line"> * list nodes: kubectl get nodes --show-labels</span><br><span class="line"> * ssh to the master: ssh -i ~/.ssh/id_rsa admin@api.kops.gtcafe.com</span><br><span class="line">The admin user is specific to Debian. If not using Debian please use the appropriate user based on your OS.</span><br><span class="line"> * <span class="built_in">read</span> about installing addons: https://github.com/kubernetes/kops/blob/master/docs/addons.md</span><br></pre></td></tr></table></figure>
+<p>建立以下資源：</p>
+<ul>
+<li>Route53: <sub.domain><ul>
+<li>api.<sub.domain></sub.domain></li>
+<li>api.internal.<sub.domain></sub.domain></li>
+<li>etcd-c.internal.<sub.domain></sub.domain></li>
+<li>etcd-events-c.internal.<sub.domain></sub.domain></li>
+</ul>
+</sub.domain></li>
+<li>ASG<ul>
+<li>nodes.<sub.domain></sub.domain></li>
+<li>master-<available-zone>.masters.<sub.domain></sub.domain></available-zone></li>
+</ul>
+</li>
+<li>Launch Configurations<ul>
+<li>nodes.<sub.domain>-<timestamp></timestamp></sub.domain></li>
+<li>master-<available-zone>.masters.<sub.domain>-<timestamp></timestamp></sub.domain></available-zone></li>
+</ul>
+</li>
+<li>EC2 Instances launched by ASG<ul>
+<li>master</li>
+<li>nodes x 2</li>
+</ul>
+</li>
+<li>EC2 KeyPair<ul>
+<li>kubernetes.<sub.domain></sub.domain></li>
+</ul>
+</li>
+<li>IAM Roles<ul>
+<li>masters.<sub.domain></sub.domain></li>
+<li>nodes.<sub.domain></sub.domain></li>
+</ul>
+</li>
+<li>IAM Policies<ul>
+<li>masters.<sub.domain></sub.domain></li>
+<li>nodes.<sub.domain></sub.domain></li>
+</ul>
+</li>
+<li>VPC: <sub.domain></sub.domain></li>
+</ul>
+<p>要等一下， Route53 裡面的 Value 會變。</p>
+<p>確認：<code>kops validate cluster</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Using cluster from kubectl context: kops.gtcafe.com</span><br><span class="line"></span><br><span class="line">Validating cluster kops.gtcafe.com</span><br><span class="line"></span><br><span class="line">INSTANCE GROUPS</span><br><span class="line">NAME			ROLE	MACHINETYPE	MIN	MAX	SUBNETS</span><br><span class="line">master-us-east-1c	Master	t2.small	1	1	us-east-1c</span><br><span class="line">nodes			Node	t2.medium	2	2	us-east-1c</span><br><span class="line"></span><br><span class="line">NODE STATUS</span><br><span class="line">NAME				ROLE	READY</span><br><span class="line">ip-172-20-43-152.ec2.internal	node	True</span><br><span class="line">ip-172-20-45-78.ec2.internal	node	True</span><br><span class="line">ip-172-20-46-141.ec2.internal	master	True</span><br><span class="line"></span><br><span class="line">Your cluster kops.gtcafe.com is ready</span><br></pre></td></tr></table></figure>
+<p><code>kubectl get nodes --show-labels</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NAME                            STATUS         AGE       VERSION   LABELS</span><br><span class="line">ip-172-20-43-152.ec2.internal   Ready,node     15m       v1.7.0    beta.kubernetes.io/arch=amd64,beta.kubernetes.io/instance-type=t2.medium,beta.kubernetes.io/os=linux,failure-domain.beta.kubernetes.io/region=us-east-1,failure-domain.beta.kubernetes.io/zone=us-east-1c,kubernetes.io/hostname=ip-172-20-43-152.ec2.internal,kubernetes.io/role=node,node-role.kubernetes.io/node=</span><br><span class="line">ip-172-20-45-78.ec2.internal    Ready,node     16m       v1.7.0    beta.kubernetes.io/arch=amd64,beta.kubernetes.io/instance-type=t2.medium,beta.kubernetes.io/os=linux,failure-domain.beta.kubernetes.io/region=us-east-1,failure-domain.beta.kubernetes.io/zone=us-east-1c,kubernetes.io/hostname=ip-172-20-45-78.ec2.internal,kubernetes.io/role=node,node-role.kubernetes.io/node=</span><br><span class="line">ip-172-20-46-141.ec2.internal   Ready,master   17m       v1.7.0    beta.kubernetes.io/arch=amd64,beta.kubernetes.io/instance-type=t2.small,beta.kubernetes.io/os=linux,failure-domain.beta.kubernetes.io/region=us-east-1,failure-domain.beta.kubernetes.io/zone=us-east-1c,kubernetes.io/hostname=ip-172-20-46-141.ec2.internal,kubernetes.io/role=master,node-role.kubernetes.io/master=</span><br></pre></td></tr></table></figure>
+<h2 id="Destory-Cluster"><a href="#Destory-Cluster" class="headerlink" title="Destory Cluster"></a>Destory Cluster</h2><p><code>kops delete cluster kops.gtcafe.com --yes</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">TYPE			NAME										ID</span><br><span class="line">autoscaling-config	master-us-east-1c.masters.kops.gtcafe.com-20170801141708			master-us-east-1c.masters.kops.gtcafe.com-20170801141708</span><br><span class="line">autoscaling-config	nodes.kops.gtcafe.com-20170801141708						nodes.kops.gtcafe.com-20170801141708</span><br><span class="line">autoscaling-group	master-us-east-1c.masters.kops.gtcafe.com					master-us-east-1c.masters.kops.gtcafe.com</span><br><span class="line">autoscaling-group	nodes.kops.gtcafe.com								nodes.kops.gtcafe.com</span><br><span class="line">dhcp-options		kops.gtcafe.com									dopt-439ac925</span><br><span class="line">iam-instance-profile	masters.kops.gtcafe.com								masters.kops.gtcafe.com</span><br><span class="line">iam-instance-profile	nodes.kops.gtcafe.com								nodes.kops.gtcafe.com</span><br><span class="line">iam-role		masters.kops.gtcafe.com								masters.kops.gtcafe.com</span><br><span class="line">iam-role		nodes.kops.gtcafe.com								nodes.kops.gtcafe.com</span><br><span class="line">instance		master-us-east-1c.masters.kops.gtcafe.com					i-007103c48b932fe37</span><br><span class="line">instance		nodes.kops.gtcafe.com								i-01997861514e462a8</span><br><span class="line">instance		nodes.kops.gtcafe.com								i-0b0928eccf5c2a286</span><br><span class="line">internet-gateway	kops.gtcafe.com									igw-736a4b15</span><br><span class="line">keypair			kubernetes.kops.gtcafe.com-ae:02:0f:80:9a:87:4c:0c:cd:07:1d:ae:f9:0b:c3:2f	kubernetes.kops.gtcafe.com-ae:02:0f:80:9a:87:4c:0c:cd:07:1d:ae:f9:0b:c3:2f</span><br><span class="line">route-table		kops.gtcafe.com									rtb-903138e8</span><br><span class="line">route53-record		api.internal.kops.gtcafe.com.							Z3ODF51E9FC45P/api.internal.kops.gtcafe.com.</span><br><span class="line">route53-record		api.kops.gtcafe.com.								Z3ODF51E9FC45P/api.kops.gtcafe.com.</span><br><span class="line">route53-record		etcd-c.internal.kops.gtcafe.com.						Z3ODF51E9FC45P/etcd-c.internal.kops.gtcafe.com.</span><br><span class="line">route53-record		etcd-events-c.internal.kops.gtcafe.com.						Z3ODF51E9FC45P/etcd-events-c.internal.kops.gtcafe.com.</span><br><span class="line">security-group		masters.kops.gtcafe.com								sg-e1584790</span><br><span class="line">security-group		nodes.kops.gtcafe.com								sg-cb5946ba</span><br><span class="line">subnet			us-east-1c.kops.gtcafe.com							subnet-7222d616</span><br><span class="line">volume			c.etcd-events.kops.gtcafe.com							vol-0f77697226632d029</span><br><span class="line">volume			c.etcd-main.kops.gtcafe.com							vol-05f9972ec16b3b648</span><br><span class="line">vpc			kops.gtcafe.com									vpc-8e83fef7</span><br><span class="line"></span><br><span class="line">route53-record:Z3ODF51E9FC45P/etcd-c.internal.kops.gtcafe.com.	ok</span><br><span class="line">autoscaling-group:nodes.kops.gtcafe.com	ok</span><br><span class="line">instance:i-0b0928eccf5c2a286	ok</span><br><span class="line">autoscaling-group:master-us-east-1c.masters.kops.gtcafe.com	ok</span><br><span class="line">keypair:kubernetes.kops.gtcafe.com-ae:02:0f:80:9a:87:4c:0c:cd:07:1d:ae:f9:0b:c3:2f	ok</span><br><span class="line">iam-instance-profile:masters.kops.gtcafe.com	ok</span><br><span class="line">iam-instance-profile:nodes.kops.gtcafe.com	ok</span><br><span class="line">iam-role:nodes.kops.gtcafe.com	ok</span><br><span class="line">internet-gateway:igw-736a4b15	still has dependencies, will retry</span><br><span class="line">iam-role:masters.kops.gtcafe.com	ok</span><br><span class="line">instance:i-01997861514e462a8	ok</span><br><span class="line">instance:i-007103c48b932fe37	ok</span><br><span class="line">autoscaling-config:master-us-east-1c.masters.kops.gtcafe.com-20170801141708	ok</span><br><span class="line">subnet:subnet-7222d616	still has dependencies, will retry</span><br><span class="line">autoscaling-config:nodes.kops.gtcafe.com-20170801141708	ok</span><br><span class="line">volume:vol-05f9972ec16b3b648	still has dependencies, will retry</span><br><span class="line">volume:vol-0f77697226632d029	still has dependencies, will retry</span><br><span class="line">security-group:sg-e1584790	still has dependencies, will retry</span><br><span class="line">security-group:sg-cb5946ba	still has dependencies, will retry</span><br><span class="line">Not all resources deleted; waiting before reattempting deletion</span><br><span class="line">	dhcp-options:dopt-439ac925</span><br><span class="line">	vpc:vpc-8e83fef7</span><br><span class="line">	security-group:sg-e1584790</span><br><span class="line">	volume:vol-0f77697226632d029</span><br><span class="line">	internet-gateway:igw-736a4b15</span><br><span class="line">	volume:vol-05f9972ec16b3b648</span><br><span class="line">	subnet:subnet-7222d616</span><br><span class="line">	route-table:rtb-903138e8</span><br><span class="line">	security-group:sg-cb5946ba</span><br><span class="line">subnet:subnet-7222d616	still has dependencies, will retry</span><br><span class="line">volume:vol-0f77697226632d029	still has dependencies, will retry</span><br><span class="line">internet-gateway:igw-736a4b15	still has dependencies, will retry</span><br><span class="line">security-group:sg-cb5946ba	still has dependencies, will retry</span><br><span class="line">volume:vol-05f9972ec16b3b648	still has dependencies, will retry</span><br><span class="line">security-group:sg-e1584790	still has dependencies, will retry</span><br><span class="line">Not all resources deleted; waiting before reattempting deletion</span><br><span class="line">	route-table:rtb-903138e8</span><br><span class="line">	security-group:sg-cb5946ba</span><br><span class="line">	dhcp-options:dopt-439ac925</span><br><span class="line">	vpc:vpc-8e83fef7</span><br><span class="line">	volume:vol-05f9972ec16b3b648</span><br><span class="line">	subnet:subnet-7222d616</span><br><span class="line">	security-group:sg-e1584790</span><br><span class="line">	volume:vol-0f77697226632d029</span><br><span class="line">	internet-gateway:igw-736a4b15</span><br><span class="line">subnet:subnet-7222d616	still has dependencies, will retry</span><br><span class="line">volume:vol-05f9972ec16b3b648	still has dependencies, will retry</span><br><span class="line">volume:vol-0f77697226632d029	still has dependencies, will retry</span><br><span class="line">security-group:sg-cb5946ba	still has dependencies, will retry</span><br><span class="line">internet-gateway:igw-736a4b15	still has dependencies, will retry</span><br><span class="line">security-group:sg-e1584790	still has dependencies, will retry</span><br><span class="line">Not all resources deleted; waiting before reattempting deletion</span><br><span class="line">	internet-gateway:igw-736a4b15</span><br><span class="line">	volume:vol-05f9972ec16b3b648</span><br><span class="line">	subnet:subnet-7222d616</span><br><span class="line">	security-group:sg-e1584790</span><br><span class="line">	volume:vol-0f77697226632d029</span><br><span class="line">	route-table:rtb-903138e8</span><br><span class="line">	security-group:sg-cb5946ba</span><br><span class="line">	dhcp-options:dopt-439ac925</span><br><span class="line">	vpc:vpc-8e83fef7</span><br></pre></td></tr></table></figure>
+
+
+		    <hr />
+			<!-- Facebook in bend of page -->
+			<div
+			  class="fb-like"
+			  data-share="true"
+			  data-width="450"
+			  data-show-faces="true">
+			</div>
+
+		</div>
+
+
+		<div>
+		  	<center>
+				
+<div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+	    	</center>
+		</div>
+
+
+	<!-- comment -->
+	
+
+
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+
+	
+	
+
+</div><!-- row -->
+
+    </div>
+  </div>
+
+
+<div class="container-narrow">
+    <footer> <p>
+  &copy; 2018 Rick Hwang
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme base on <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+
+<div id="gotop">
+  <!--
+  
+    <i class="fa fa-coffee"></i> <a href="http://www.gtcafe.com" title="GTCafe Studio" target="_blank"]);">GTCafe Studio</a><br />
+  
+    <i class="fa fa-coffee"></i> <a href="http://rickmidi.blogspot.com/" title="喝咖啡 聊音樂" target="_blank"]);">喝咖啡 聊音樂</a><br />
+  
+    <i class="fa fa-user"></i> <a href="https://www.blogger.com/profile/09975688593247211189" title="About me." target="_blank"]);">About</a><br />
+  
+  -->
+
+<a href="#"><span>▲</span></a>
+</div>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+</html>

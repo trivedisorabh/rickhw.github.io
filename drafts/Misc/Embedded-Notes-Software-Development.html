@@ -1,0 +1,422 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Embedded Systems - Software Development | Complete Think</title>
+  <meta name="author" content="Rick Hwang">
+  
+  <meta name="description" content="這份筆記主要 交大開放式課程: [嵌入式系統設計概論與實作][1] 第三週 筆記，主要介紹嵌入式軟體開發，上課講義參考 Development Environment of Embedded System、II。第一週、第二週的部分可以參考 上次的筆記。
+除了上課的內容，另外我整理一些額外的資訊，像">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Embedded Systems - Software Development"/>
+  <meta property="og:site_name" content="Complete Think"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/true" title="Complete Think" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <!--
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  -->
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-71839551-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1554905741423841',
+        xfbml      : true,
+        version    : 'v2.2'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+</head>
+
+
+<body>
+
+  
+<nav id="main-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand active" href="/">Complete Think</a>
+	  	
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  	
+		  		
+		  			<li><a href="/archives" title="All the articles."><i class="fa fa-archive"></i>Archives</a></li>
+		  		
+		  	
+		  		
+					<li class='dropdown'>
+						<a aria-expanded='false' class='dropdown-toggle' data-toggle='dropdown' href='#' role='button'><i class="fa fa-folder"></i>Categories <span class='caret'/></span></a>
+		            	<ul class='dropdown-menu' role='menu'>
+		            	
+						
+							<li><a href="/categories/AWS/">AWS <sup>53</sup></a></li>
+						
+							<li><a href="/categories/AWS/AWS-Certified/">AWS Certified <sup>4</sup></a></li>
+						
+							<li><a href="/categories/About/">About <sup>5</sup></a></li>
+						
+							<li><a href="/categories/Blog/">Blog <sup>4</sup></a></li>
+						
+							<li><a href="/categories/ComputerScience/">ComputerScience <sup>1</sup></a></li>
+						
+							<li><a href="/categories/Container/">Container <sup>9</sup></a></li>
+						
+							<li><a href="/categories/DevOps/">DevOps <sup>15</sup></a></li>
+						
+							<li><a href="/categories/Embedded/">Embedded <sup>1</sup></a></li>
+						
+							<li><a href="/categories/GCP/">GCP <sup>6</sup></a></li>
+						
+							<li><a href="/categories/Linux/">Linux <sup>9</sup></a></li>
+						
+							<li><a href="/categories/Misc/">Misc <sup>3</sup></a></li>
+						
+							<li><a href="/categories/News/">News <sup>3</sup></a></li>
+						
+							<li><a href="/categories/OS-X/">OS X <sup>3</sup></a></li>
+						
+							<li><a href="/categories/Redmine/">Redmine <sup>4</sup></a></li>
+						
+							<li><a href="/categories/Software-Engineering/">Software Engineering <sup>4</sup></a></li>
+						
+							<li><a href="/categories/Tools/">Tools <sup>1</sup></a></li>
+						
+							<li><a href="/categories/經營管理/">經營管理 <sup>20</sup></a></li>
+						
+							<li><a href="/categories/軟體測試/">軟體測試 <sup>5</sup></a></li>
+						
+						</ul>
+					</li>
+		  		
+		  	
+		</ul>
+
+		<!-- @ricka: menu in right -->	
+	    <ul class='nav navbar-nav navbar-right'>
+			
+			  <li><a href="http://www.gtcafe.com" title="GTCafe Studio" target="_blank"> <i class="fa fa-coffee"></i>GTCafe Studio</a></li>
+			
+			  <li><a href="http://rickmidi.blogspot.com/" title="喝咖啡 聊音樂" target="_blank"> <i class="fa fa-coffee"></i>喝咖啡 聊音樂</a></li>
+			
+			  <li><a href="https://www.blogger.com/profile/09975688593247211189" title="About me." target="_blank"> <i class="fa fa-user"></i>About</a></li>
+			
+	    </ul>
+	    <!-- @ricka end -->	
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content" style="background-color: white;">
+       
+	
+		<!-- @rick, header of article -->
+		<!-- original
+		<div class="page-header">
+			<h1> Embedded Systems - Software Development</h1>
+		</div>
+		-->
+
+		<div class="panel article_title">
+			<div class="panel-heading">
+    		<h1> Embedded Systems - Software Development</h1>
+  		</div>
+		</div>
+
+	
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	
+
+		<!-- content -->
+		<div class="mypage">
+
+			<!-- Facebook in front of page -->
+			<div
+			  class="fb-like"
+			  data-share="true"
+			  data-width="450"
+			  data-show-faces="true">
+			</div>
+
+			<hr />
+
+		    <p>這份筆記主要 <a href="http://ocw.nctu.edu.tw/" target="_blank" rel="noopener">交大開放式課程</a>: [嵌入式系統設計概論與實作][1] <a href="http://ocw.nctu.edu.tw/course_detail_3.php?bgid=9&amp;gid=0&amp;nid=246&amp;v1=b21234163695618f6e83648f5c1ddbc4404e2078#.VM4mblWUfdn" target="_blank" rel="noopener">第三週</a> 筆記，主要介紹嵌入式軟體開發，上課講義參考 <a href="http://ocw.nctu.edu.tw/course/di992/003.pdf" target="_blank" rel="noopener">Development Environment of Embedded System</a>、<a href="http://ocw.nctu.edu.tw/course/di992/004.pdf" target="_blank" rel="noopener">II</a>。第一週、第二週的部分可以參考 <a href="http://rickhw.github.io/2015/01/22/Embedded-Notes/">上次的筆記</a>。</p>
+<p>除了上課的內容，另外我整理一些額外的資訊，像是 Debug in Java Platform using Eclipse</p>
+<p>本文除了是我的上課筆記，另外也是我在工作時，對內部教育訓練的參考文件，所以有些 section 是特別整理的。</p>
+<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><ul>
+<li>編譯流程複習</li>
+<li>Debug in Java Platform using Eclipse</li>
+<li>Introduction to embedded system development environment</li>
+<li>Cross compiler &amp; Assembler &amp; Linker, Configuration, Build and Installation</li>
+</ul>
+<a id="more"></a>
+<p>課程接續上次的主題：</p>
+<ol>
+<li>如何在 host 產生可以在 target 可以執行的程式？</li>
+<li>如何把程式放到 target board?</li>
+<li>如果程式在 target 有問題，要怎麼讓使用者知道？</li>
+</ol>
+<h1 id="Cross-Platform-Development"><a href="#Cross-Platform-Development" class="headerlink" title="Cross Platform Development"></a>Cross Platform Development</h1><ul>
+<li>Cross platform development</li>
+<li>Target board 資源有限：CPU, memory, storage 能力都有限, 所以不建議在 target 開發</li>
+<li>不容易在開發平台找錯誤</li>
+</ul>
+<p>基本的動作:</p>
+<ol>
+<li>在 host 寫出 <code>.c</code>, <code>.h</code> code</li>
+<li>透過 cross compile, 將 code 編譯成可以讓 target 執行的 machine code, 然後包成影像檔 (image) 或可執行檔 (execution)</li>
+</ol>
+<h2 id="Cross-Compiler"><a href="#Cross-Compiler" class="headerlink" title="Cross Compiler"></a>Cross Compiler</h2><ul>
+<li>compiler 編譯 C code, 產生出</li>
+<li>assembler:</li>
+<li>linker: symbal table mapping</li>
+<li>debugger</li>
+<li>tools</li>
+</ul>
+<p>上述總稱 embedded development toolchain (嵌入式工具箱), 一般簡稱 toolchain.</p>
+<h1 id="2-把程式放到-target-board"><a href="#2-把程式放到-target-board" class="headerlink" title="2. 把程式放到 target board"></a>2. 把程式放到 target board</h1><p>有三種方式</p>
+<ol>
+<li>把 IC 放到燒錄機燒錄</li>
+<li>透過 JTAG (IEEE 標準)<ul>
+<li>可以直接透過協定，直接控制硬體</li>
+<li>把編譯好的 binary 傳到板子，透過硬體指令燒寫</li>
+<li>有成本問題, 有 JTAG 比較貴</li>
+</ul>
+</li>
+<li>仰賴軟體的方式燒錄<ul>
+<li>target board 必須要有現成的程式, 透過它來燒寫, 像是 bootloader.</li>
+<li>這個 program 可以驅動基本的周邊介面, 包含 usb, network, i/o, serial port 然後和外界取得溝通.</li>
+</ul>
+</li>
+</ol>
+<p>嵌入式板子通常有: CPU, Memory</p>
+<ul>
+<li>CPU: 開機要只到一個 addressable 的 ROM<ul>
+<li>由設計者來指定開機的位址</li>
+<li>CPU 定址匯流排, 經過解碼電路設計, 可以指定到 ROM 存放程式的位址. 相關課程計算機組織</li>
+</ul>
+</li>
+<li>ROM, EPROM</li>
+<li>Flash 分兩種<ul>
+<li>NOR: 可以定址, 用來存程式的, 讓 CPU 開機來指定</li>
+<li>NAND: 當作大拇哥, 無法被定址</li>
+</ul>
+</li>
+<li>RAM: 關機就不見了</li>
+</ul>
+<h1 id="3-Debug-Program"><a href="#3-Debug-Program" class="headerlink" title="3. Debug Program"></a>3. Debug Program</h1><p>一般的 debug 的方法：</p>
+<ol>
+<li>printf</li>
+<li>透過 debugger: break point, 看 memory, register</li>
+</ol>
+<p>嵌入式的程式是跑在 target,</p>
+<ol>
+<li>告訴 target, output 往哪裡丟, 像是 tty0. 將 printf 倒到.</li>
+<li>透過 JTAG / serial 把資料網外界丟</li>
+<li>在 target board 上跑一個 debugger (在跑 hello 之前), ex: gdb hello<ul>
+<li>debugger 怎麼顯示訊息？</li>
+<li>常見的方法就是將訊息透過 UART/serial port, 傳給 host machine.</li>
+<li>彷彿一般在 local 開發 application 一樣</li>
+</ul>
+</li>
+<li>ICE (in-curile emulator):<ul>
+<li>ICE 和 CPU 有關, 通常和板子要搭配使用</li>
+<li>也有一些 ICE 是稱生 Multi-ICE</li>
+</ul>
+</li>
+<li>IDE: Ingetrated Development Environment<ul>
+<li>Code Editor</li>
+<li>Compiler</li>
+<li>Debugger</li>
+</ul>
+</li>
+</ol>
+<p>嵌入式的開發環境的選擇通常 板子, ICE, IDE 通常要一起考慮.</p>
+<p>第一階段的開發：開發工具提供一個 Emulator (模擬器) 用來做功能驗證.</p>
+<blockquote>
+<p>iOS / Android 在 PC 的 Emulator</p>
+</blockquote>
+<p>這部做完，上 target 不一定對，但這步沒做，上 target 一定錯。</p>
+<p>嵌入式系統開發：</p>
+<ul>
+<li>機構問題</li>
+<li>計算機問題, 控制版</li>
+<li>領域問題</li>
+<li>供電問題</li>
+</ul>
+<h1 id="GNU-Toolchain"><a href="#GNU-Toolchain" class="headerlink" title="GNU Toolchain"></a>GNU Toolchain</h1><p>一組開發工具：</p>
+<ul>
+<li>gcc: a cross-comipler</li>
+<li><a href="http://www.gnu.org/software/binutils/" target="_blank" rel="noopener">binutils</a>: a set of tools for manipulating binaries<ul>
+<li>處理執行檔的工具：組合、銜接、切割</li>
+</ul>
+</li>
+<li>glibc: c-lib, 跑在 target 上的 libraries</li>
+<li>gdb: debugger</li>
+</ul>
+<h1 id="Embedded-Software-Development-Tools"><a href="#Embedded-Software-Development-Tools" class="headerlink" title="Embedded Software Development Tools"></a>Embedded Software Development Tools</h1><ul>
+<li><a href="http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.set.swdev/index.html" target="_blank" rel="noopener">ARM RealView Developer Suite</a></li>
+</ul>
+<ul>
+<li>bootloader 通常不太希望被更改，或者被隨意重燒</li>
+<li>燒壞了就要送回原廠</li>
+<li>可以找 JTAG 重新燒原始的 program</li>
+<li>JTAG 燒 bootlader</li>
+<li>大部份板子不給燒 bootloader</li>
+</ul>
+<h1 id="Bootloader"><a href="#Bootloader" class="headerlink" title="Bootloader"></a>Bootloader</h1><p>在嵌入式系統叫做 bootloader，在 PC 就是 BIOS 或者 UEFI。</p>
+<p>Bootloader 決定作業系統的開機方法，但是在嵌入式系統世界裡，每個板子的 bootloader 都是不一樣的。所以嵌入式系統有一部分的工作都是 bootloader porting。</p>
+<p>bootloader 可以驅動一些基本的裝置，像是 Ethernet、USB，然後可以下載程式，然後更新作業系統、或者自己。</p>
+<h1 id="IPL-Initial-Program-Load"><a href="#IPL-Initial-Program-Load" class="headerlink" title="IPL (Initial Program Load)"></a>IPL (Initial Program Load)</h1><p>可以啟動、載入、執行作業系統的裝置</p>
+<h1 id="MCU-微控制器"><a href="#MCU-微控制器" class="headerlink" title="MCU (微控制器)"></a>MCU (微控制器)</h1><p>微控制器 (MCU)，全名為 Microcontroller Unit，一顆完整的 MCU，會將 CPU、RAM、ROM、I/O 或 A/D 等周邊關於記憶與運算功能整合在一起，簡單來說，MCU 是一個微型電腦。</p>
+<h1 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h1><ul>
+<li>[嵌入式系統設計概論與實作][1] - 交大開放課程</li>
+<li><a href="http://biosengineer.blogspot.tw/2007/12/bios-boot-specification.html" target="_blank" rel="noopener">BIOS Boot Specification</a></li>
+</ul>
+
+
+		    <hr />
+			<!-- Facebook in bend of page -->
+			<div
+			  class="fb-like"
+			  data-share="true"
+			  data-width="450"
+			  data-show-faces="true">
+			</div>
+
+		</div>
+
+
+		<div>
+		  	<center>
+				
+<div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+	    	</center>
+		</div>
+
+
+	<!-- comment -->
+	
+
+
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+
+	
+	
+
+</div><!-- row -->
+
+    </div>
+  </div>
+
+
+<div class="container-narrow">
+    <footer> <p>
+  &copy; 2018 Rick Hwang
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme base on <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+
+<div id="gotop">
+  <!--
+  
+    <i class="fa fa-coffee"></i> <a href="http://www.gtcafe.com" title="GTCafe Studio" target="_blank"]);">GTCafe Studio</a><br />
+  
+    <i class="fa fa-coffee"></i> <a href="http://rickmidi.blogspot.com/" title="喝咖啡 聊音樂" target="_blank"]);">喝咖啡 聊音樂</a><br />
+  
+    <i class="fa fa-user"></i> <a href="https://www.blogger.com/profile/09975688593247211189" title="About me." target="_blank"]);">About</a><br />
+  
+  -->
+
+<a href="#"><span>▲</span></a>
+</div>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+</html>

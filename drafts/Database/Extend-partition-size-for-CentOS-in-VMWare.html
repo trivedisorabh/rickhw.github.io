@@ -1,0 +1,312 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Extend partition size for CentOS in VMWare | Complete Think</title>
+  <meta name="author" content="Rick Hwang">
+  
+  <meta name="description" content="MongoDB needs large disk space to storage database and log. It happened a lots of time in my VMWare machines, and I tried to fix. The symptom is as be">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Extend partition size for CentOS in VMWare"/>
+  <meta property="og:site_name" content="Complete Think"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/true" title="Complete Think" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <!--
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  -->
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-71839551-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1554905741423841',
+        xfbml      : true,
+        version    : 'v2.2'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+</head>
+
+
+<body>
+
+  
+<nav id="main-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand active" href="/">Complete Think</a>
+	  	
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  	
+		  		
+		  			<li><a href="/archives" title="All the articles."><i class="fa fa-archive"></i>Archives</a></li>
+		  		
+		  	
+		  		
+					<li class='dropdown'>
+						<a aria-expanded='false' class='dropdown-toggle' data-toggle='dropdown' href='#' role='button'><i class="fa fa-folder"></i>Categories <span class='caret'/></span></a>
+		            	<ul class='dropdown-menu' role='menu'>
+		            	
+						
+							<li><a href="/categories/AWS/">AWS <sup>53</sup></a></li>
+						
+							<li><a href="/categories/AWS/AWS-Certified/">AWS Certified <sup>4</sup></a></li>
+						
+							<li><a href="/categories/About/">About <sup>5</sup></a></li>
+						
+							<li><a href="/categories/Blog/">Blog <sup>4</sup></a></li>
+						
+							<li><a href="/categories/ComputerScience/">ComputerScience <sup>1</sup></a></li>
+						
+							<li><a href="/categories/Container/">Container <sup>9</sup></a></li>
+						
+							<li><a href="/categories/DevOps/">DevOps <sup>15</sup></a></li>
+						
+							<li><a href="/categories/Embedded/">Embedded <sup>1</sup></a></li>
+						
+							<li><a href="/categories/GCP/">GCP <sup>6</sup></a></li>
+						
+							<li><a href="/categories/Linux/">Linux <sup>9</sup></a></li>
+						
+							<li><a href="/categories/Misc/">Misc <sup>3</sup></a></li>
+						
+							<li><a href="/categories/News/">News <sup>3</sup></a></li>
+						
+							<li><a href="/categories/OS-X/">OS X <sup>3</sup></a></li>
+						
+							<li><a href="/categories/Redmine/">Redmine <sup>4</sup></a></li>
+						
+							<li><a href="/categories/Software-Engineering/">Software Engineering <sup>4</sup></a></li>
+						
+							<li><a href="/categories/Tools/">Tools <sup>1</sup></a></li>
+						
+							<li><a href="/categories/經營管理/">經營管理 <sup>20</sup></a></li>
+						
+							<li><a href="/categories/軟體測試/">軟體測試 <sup>5</sup></a></li>
+						
+						</ul>
+					</li>
+		  		
+		  	
+		</ul>
+
+		<!-- @ricka: menu in right -->	
+	    <ul class='nav navbar-nav navbar-right'>
+			
+			  <li><a href="http://www.gtcafe.com" title="GTCafe Studio" target="_blank"> <i class="fa fa-coffee"></i>GTCafe Studio</a></li>
+			
+			  <li><a href="http://rickmidi.blogspot.com/" title="喝咖啡 聊音樂" target="_blank"> <i class="fa fa-coffee"></i>喝咖啡 聊音樂</a></li>
+			
+			  <li><a href="https://www.blogger.com/profile/09975688593247211189" title="About me." target="_blank"> <i class="fa fa-user"></i>About</a></li>
+			
+	    </ul>
+	    <!-- @ricka end -->	
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content" style="background-color: white;">
+       
+	
+		<!-- @rick, header of article -->
+		<!-- original
+		<div class="page-header">
+			<h1> Extend partition size for CentOS in VMWare</h1>
+		</div>
+		-->
+
+		<div class="panel article_title">
+			<div class="panel-heading">
+    		<h1> Extend partition size for CentOS in VMWare</h1>
+  		</div>
+		</div>
+
+	
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	
+
+		<!-- content -->
+		<div class="mypage">
+
+			<!-- Facebook in front of page -->
+			<div
+			  class="fb-like"
+			  data-share="true"
+			  data-width="450"
+			  data-show-faces="true">
+			</div>
+
+			<hr />
+
+		    <p>MongoDB needs large disk space to storage database and log. It happened a lots of time in my VMWare machines, and I tried to fix. The symptom is as below:</p>
+<figure class="highlight bash"><figcaption><span>start mongod log</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">2014-12-12T11:29:35.942+0800 ***** SERVER RESTARTED *****</span><br><span class="line">2014-12-12T11:29:35.946+0800 [initandlisten] MongoDB starting : pid=1949 port=27017 dbpath=/var/lib/mongo 64-bit host=oplab202.oplink.com.tw</span><br><span class="line">2014-12-12T11:29:35.946+0800 [initandlisten] db version v2.6.3</span><br><span class="line">2014-12-12T11:29:35.946+0800 [initandlisten] git version: 255f67a66f9603c59380b2a389e386910bbb52cb</span><br><span class="line">2014-12-12T11:29:35.946+0800 [initandlisten] build info: Linux build12.nj1.10gen.cc 2.6.32-431.3.1.el6.x86_64 <span class="comment">#1 SMP Fri Jan 3 21:39:27 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49</span></span><br><span class="line">2014-12-12T11:29:35.946+0800 [initandlisten] allocator: tcmalloc</span><br><span class="line">2014-12-12T11:29:35.946+0800 [initandlisten] options: &#123; config: <span class="string">"/etc/mongod.conf"</span>, processManagement: &#123; fork: <span class="literal">true</span>, pidFilePath: <span class="string">"/var/run/mongodb/mongod.pid"</span> &#125;, replication: &#123; replSet: <span class="string">"rs0"</span> &#125;, storage: &#123; dbPath: <span class="string">"/var/lib/mongo"</span> &#125;, systemLog: &#123; destination: <span class="string">"file"</span>, logAppend: <span class="literal">true</span>, path: <span class="string">"/var/log/mongodb/mongod.log"</span> &#125; &#125;</span><br><span class="line">2014-12-12T11:29:35.948+0800 [initandlisten] journal dir=/var/lib/mongo/journal</span><br><span class="line">2014-12-12T11:29:35.948+0800 [initandlisten] recover : no journal files present, no recovery needed</span><br><span class="line">2014-12-12T11:29:35.948+0800 [initandlisten]</span><br><span class="line">2014-12-12T11:29:35.948+0800 [initandlisten] ERROR: Insufficient free space <span class="keyword">for</span> journal files</span><br><span class="line">2014-12-12T11:29:35.948+0800 [initandlisten] Please make at least 3379MB available <span class="keyword">in</span> /var/lib/mongo/journal or use --smallfiles</span><br><span class="line">2014-12-12T11:29:35.948+0800 [initandlisten]</span><br><span class="line">2014-12-12T11:29:35.948+0800 [initandlisten] exception <span class="keyword">in</span> initAndListen: 15926 Insufficient free space <span class="keyword">for</span> journals, terminating</span><br><span class="line">2014-12-12T11:29:35.948+0800 [initandlisten] dbexit:</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>The error shows <code>make at least 3.3GB</code>, check my storage status:</p>
+<figure class="highlight bash"><figcaption><span>df -h</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root@oplab202 11:29:38 mongodb]<span class="comment"># df -h</span></span><br><span class="line">Filesystem            Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/mapper/vg_oplab-lv_root</span><br><span class="line">                       18G   14G  3.3G  81% /</span><br><span class="line">tmpfs                 495M   72K  495M   1% /dev/shm</span><br><span class="line">/dev/sda1             485M   58M  402M  13% /boot</span><br><span class="line">[root@oplab202 11:29:56 mongodb]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+<h1 id="Environment"><a href="#Environment" class="headerlink" title="Environment"></a>Environment</h1><ul>
+<li>CentOS 6.4 64bit</li>
+<li>Storage: 20G -&gt; 40G</li>
+</ul>
+<h1 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h1><ol>
+<li>create a new partition</li>
+<li>specify partition type as <code>8e</code></li>
+<li>reboot</li>
+<li>extend the partition size</li>
+</ol>
+<figure class="highlight bash"><figcaption><span>fdisk -l</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">[root@oplab202 11:32:12 ~]<span class="comment"># fdisk -l</span></span><br><span class="line"></span><br><span class="line">Disk /dev/sda: 42.9 GB, 42949672960 bytes</span><br><span class="line">255 heads, 63 sectors/track, 5221 cylinders</span><br><span class="line">Units = cylinders of 16065 * 512 = 8225280 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disk identifier: 0x0003802e</span><br><span class="line"></span><br><span class="line">   Device Boot      Start         End      Blocks   Id  System</span><br><span class="line">/dev/sda1   *           1          64      512000   83  Linux</span><br><span class="line">Partition 1 does not end on cylinder boundary.</span><br><span class="line">/dev/sda2              64        2611    20458496   8e  Linux LVM</span><br><span class="line"></span><br><span class="line">Disk /dev/mapper/vg_oplab-lv_root: 18.9 GB, 18865979392 bytes</span><br><span class="line">255 heads, 63 sectors/track, 2293 cylinders</span><br><span class="line">Units = cylinders of 16065 * 512 = 8225280 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disk identifier: 0x00000000</span><br><span class="line"></span><br><span class="line">Disk /dev/mapper/vg_oplab-lv_swap: 2080 MB, 2080374784 bytes</span><br><span class="line">255 heads, 63 sectors/track, 252 cylinders</span><br><span class="line">Units = cylinders of 16065 * 512 = 8225280 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disk identifier: 0x00000000</span><br><span class="line"></span><br><span class="line">[root@oplab202 11:32:30 ~]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+<h2 id="pvcreate-dev-sda3"><a href="#pvcreate-dev-sda3" class="headerlink" title="pvcreate /dev/sda3"></a>pvcreate /dev/sda3</h2><figure class="highlight bash"><figcaption><span>pvcreated</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@oplab202 11:37:23 ~]<span class="comment"># pvcreate /dev/sda3</span></span><br><span class="line">  dev_is_mpath: failed to get device <span class="keyword">for</span> 8:3</span><br><span class="line">  Physical volume <span class="string">"/dev/sda3"</span> successfully created</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>vgdisplay</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[root@oplab202 11:39:04 ~]<span class="comment"># vgdisplay</span></span><br><span class="line">  --- Volume group ---</span><br><span class="line">  VG Name               vg_oplab</span><br><span class="line">  System ID             </span><br><span class="line">  Format                lvm2</span><br><span class="line">  Metadata Areas        1</span><br><span class="line">  Metadata Sequence No  3</span><br><span class="line">  VG Access             <span class="built_in">read</span>/write</span><br><span class="line">  VG Status             resizable</span><br><span class="line">  MAX LV                0</span><br><span class="line">  Cur LV                2</span><br><span class="line">  Open LV               2</span><br><span class="line">  Max PV                0</span><br><span class="line">  Cur PV                1</span><br><span class="line">  Act PV                1</span><br><span class="line">  VG Size               19.51 GiB</span><br><span class="line">  PE Size               4.00 MiB</span><br><span class="line">  Total PE              4994</span><br><span class="line">  Alloc PE / Size       4994 / 19.51 GiB</span><br><span class="line">  Free  PE / Size       0 / 0   </span><br><span class="line">  VG UUID               4EPjvq-2mBd-WFPA-eiJm-oeXG-QZl6-h5unOC</span><br></pre></td></tr></table></figure>
+<h1 id="vgextend-vg-oplab-dev-sda3"><a href="#vgextend-vg-oplab-dev-sda3" class="headerlink" title="vgextend vg_oplab /dev/sda3"></a>vgextend vg_oplab /dev/sda3</h1><figure class="highlight bash"><figcaption><span>vgextend vg_oplab</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[root@oplab202 11:39:14 ~]<span class="comment"># vgextend vg_oplab /dev/sda3</span></span><br><span class="line">  Volume group <span class="string">"vg_oplab"</span> successfully extended</span><br><span class="line"></span><br><span class="line">[root@oplab202 11:39:30 ~]<span class="comment"># vgdisplay</span></span><br><span class="line">  --- Volume group ---</span><br><span class="line">  VG Name               vg_oplab</span><br><span class="line">  System ID             </span><br><span class="line">  Format                lvm2</span><br><span class="line">  Metadata Areas        2</span><br><span class="line">  Metadata Sequence No  4</span><br><span class="line">  VG Access             <span class="built_in">read</span>/write</span><br><span class="line">  VG Status             resizable</span><br><span class="line">  MAX LV                0</span><br><span class="line">  Cur LV                2</span><br><span class="line">  Open LV               2</span><br><span class="line">  Max PV                0</span><br><span class="line">  Cur PV                2</span><br><span class="line">  Act PV                2</span><br><span class="line">  VG Size               39.50 GiB</span><br><span class="line">  PE Size               4.00 MiB</span><br><span class="line">  Total PE              10112</span><br><span class="line">  Alloc PE / Size       4994 / 19.51 GiB</span><br><span class="line">  Free  PE / Size       5118 / 19.99 GiB</span><br><span class="line">  VG UUID               4EPjvq-2mBd-WFPA-eiJm-oeXG-QZl6-h5unOC</span><br></pre></td></tr></table></figure>
+<h1 id="lvextend-L-19-99G-dev-vg-oplab-lv-root"><a href="#lvextend-L-19-99G-dev-vg-oplab-lv-root" class="headerlink" title="lvextend -L+19.99G /dev/vg_oplab/lv_root"></a>lvextend -L+19.99G /dev/vg_oplab/lv_root</h1><figure class="highlight bash"><figcaption><span>lvextend -L+19.99G</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@oplab202 11:40:39 ~]<span class="comment"># lvextend -L+19.99G /dev/vg_oplab/lv_root</span></span><br><span class="line">  Rounding size to boundary between physical extents: 19.99 GiB</span><br><span class="line">  Extending logical volume lv_root to 37.56 GiB</span><br><span class="line">  Logical volume lv_root successfully resized</span><br></pre></td></tr></table></figure>
+<h1 id="resize2fs-dev-vg-oplab-lv-root"><a href="#resize2fs-dev-vg-oplab-lv-root" class="headerlink" title="resize2fs /dev/vg_oplab/lv_root"></a>resize2fs /dev/vg_oplab/lv_root</h1><figure class="highlight bash"><figcaption><span>resize2fs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@oplab202 11:44:35 ~]<span class="comment"># resize2fs /dev/vg_oplab/lv_root</span></span><br><span class="line">resize2fs 1.41.12 (17-May-2010)</span><br><span class="line">Filesystem at /dev/vg_oplab/lv_root is mounted on /; on-line resizing required</span><br><span class="line">old desc_blocks = 2, new_desc_blocks = 3</span><br><span class="line">Performing an on-line resize of /dev/vg_oplab/lv_root to 9846784 (4k) blocks.</span><br><span class="line">The filesystem on /dev/vg_oplab/lv_root is now 9846784 blocks long.</span><br><span class="line"></span><br><span class="line">[root@oplab202 11:45:09 ~]<span class="comment"># df -h</span></span><br><span class="line">Filesystem            Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/mapper/vg_oplab-lv_root</span><br><span class="line">                       37G   14G   23G  38% /</span><br><span class="line">tmpfs                 495M   72K  495M   1% /dev/shm</span><br><span class="line">/dev/sda1             485M   58M  402M  13% /boot</span><br><span class="line">[root@oplab202 11:45:11 ~]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a href="http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;cmd=displayKC&amp;externalId=1006371" target="_blank" rel="noopener">http://kb.vmware.com/selfservice/microsites/search.do?language=en_US&amp;cmd=displayKC&amp;externalId=1006371</a></li>
+</ul>
+
+
+		    <hr />
+			<!-- Facebook in bend of page -->
+			<div
+			  class="fb-like"
+			  data-share="true"
+			  data-width="450"
+			  data-show-faces="true">
+			</div>
+
+		</div>
+
+
+		<div>
+		  	<center>
+				
+<div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+	    	</center>
+		</div>
+
+
+	<!-- comment -->
+	
+
+
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+
+	
+	
+
+</div><!-- row -->
+
+    </div>
+  </div>
+
+
+<div class="container-narrow">
+    <footer> <p>
+  &copy; 2018 Rick Hwang
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme base on <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+
+<div id="gotop">
+  <!--
+  
+    <i class="fa fa-coffee"></i> <a href="http://www.gtcafe.com" title="GTCafe Studio" target="_blank"]);">GTCafe Studio</a><br />
+  
+    <i class="fa fa-coffee"></i> <a href="http://rickmidi.blogspot.com/" title="喝咖啡 聊音樂" target="_blank"]);">喝咖啡 聊音樂</a><br />
+  
+    <i class="fa fa-user"></i> <a href="https://www.blogger.com/profile/09975688593247211189" title="About me." target="_blank"]);">About</a><br />
+  
+  -->
+
+<a href="#"><span>▲</span></a>
+</div>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+</html>

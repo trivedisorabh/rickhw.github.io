@@ -1,0 +1,324 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>使用 連結號 (Dash) 當名稱 | Complete Think</title>
+  <meta name="author" content="Rick Hwang">
+  
+  <meta name="description" content="接觸微軟 (M$) 相關的工具程式 (e.g, PowerShell) 發現習慣用 [Dash, -][31] 當名稱的連結符號。
+我寫程式會避免這樣使用，因為在大部分的程式語言裡面，Dash 通常是 運算子 (Operator)，他會被 compiler 檢查出來，即使是 interpreter ">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="使用 連結號 (Dash) 當名稱"/>
+  <meta property="og:site_name" content="Complete Think"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/true" title="Complete Think" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <!--
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  -->
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-71839551-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1554905741423841',
+        xfbml      : true,
+        version    : 'v2.2'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+</head>
+
+
+<body>
+
+  
+<nav id="main-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand active" href="/">Complete Think</a>
+	  	
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  	
+		  		
+		  			<li><a href="/archives" title="All the articles."><i class="fa fa-archive"></i>Archives</a></li>
+		  		
+		  	
+		  		
+					<li class='dropdown'>
+						<a aria-expanded='false' class='dropdown-toggle' data-toggle='dropdown' href='#' role='button'><i class="fa fa-folder"></i>Categories <span class='caret'/></span></a>
+		            	<ul class='dropdown-menu' role='menu'>
+		            	
+						
+							<li><a href="/categories/AWS/">AWS <sup>53</sup></a></li>
+						
+							<li><a href="/categories/AWS/AWS-Certified/">AWS Certified <sup>4</sup></a></li>
+						
+							<li><a href="/categories/About/">About <sup>5</sup></a></li>
+						
+							<li><a href="/categories/Blog/">Blog <sup>4</sup></a></li>
+						
+							<li><a href="/categories/ComputerScience/">ComputerScience <sup>1</sup></a></li>
+						
+							<li><a href="/categories/Container/">Container <sup>9</sup></a></li>
+						
+							<li><a href="/categories/DevOps/">DevOps <sup>15</sup></a></li>
+						
+							<li><a href="/categories/Embedded/">Embedded <sup>1</sup></a></li>
+						
+							<li><a href="/categories/GCP/">GCP <sup>6</sup></a></li>
+						
+							<li><a href="/categories/Linux/">Linux <sup>9</sup></a></li>
+						
+							<li><a href="/categories/Misc/">Misc <sup>3</sup></a></li>
+						
+							<li><a href="/categories/News/">News <sup>3</sup></a></li>
+						
+							<li><a href="/categories/OS-X/">OS X <sup>3</sup></a></li>
+						
+							<li><a href="/categories/Redmine/">Redmine <sup>4</sup></a></li>
+						
+							<li><a href="/categories/Software-Engineering/">Software Engineering <sup>4</sup></a></li>
+						
+							<li><a href="/categories/Tools/">Tools <sup>1</sup></a></li>
+						
+							<li><a href="/categories/經營管理/">經營管理 <sup>20</sup></a></li>
+						
+							<li><a href="/categories/軟體測試/">軟體測試 <sup>5</sup></a></li>
+						
+						</ul>
+					</li>
+		  		
+		  	
+		</ul>
+
+		<!-- @ricka: menu in right -->	
+	    <ul class='nav navbar-nav navbar-right'>
+			
+			  <li><a href="http://www.gtcafe.com" title="GTCafe Studio" target="_blank"> <i class="fa fa-coffee"></i>GTCafe Studio</a></li>
+			
+			  <li><a href="http://rickmidi.blogspot.com/" title="喝咖啡 聊音樂" target="_blank"> <i class="fa fa-coffee"></i>喝咖啡 聊音樂</a></li>
+			
+			  <li><a href="https://www.blogger.com/profile/09975688593247211189" title="About me." target="_blank"> <i class="fa fa-user"></i>About</a></li>
+			
+	    </ul>
+	    <!-- @ricka end -->	
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content" style="background-color: white;">
+       
+	
+		<!-- @rick, header of article -->
+		<!-- original
+		<div class="page-header">
+			<h1> 使用 連結號 (Dash) 當名稱</h1>
+		</div>
+		-->
+
+		<div class="panel article_title">
+			<div class="panel-heading">
+    		<h1> 使用 連結號 (Dash) 當名稱</h1>
+  		</div>
+		</div>
+
+	
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	
+
+		<!-- content -->
+		<div class="mypage">
+
+			<!-- Facebook in front of page -->
+			<div
+			  class="fb-like"
+			  data-share="true"
+			  data-width="450"
+			  data-show-faces="true">
+			</div>
+
+			<hr />
+
+		    <p>接觸微軟 (M$) 相關的工具程式 (e.g, PowerShell) 發現習慣用 <code>[Dash, -][31]</code> 當名稱的連結符號。</p>
+<p>我寫程式會避免這樣使用，因為在大部分的程式語言裡面，<code>Dash</code> 通常是 <code>運算子 (Operator)</code>，他會被 compiler 檢查出來，即使是 interpreter (e.g, PHP, python, perl) 在 runtime 也會出現錯誤。</p>
+<a id="more"></a>
+<h2 id="名稱使用的範圍"><a href="#名稱使用的範圍" class="headerlink" title="名稱使用的範圍"></a>名稱使用的範圍</h2><p>以下的東西通常都會避免出現符號，一般都會使用 <code>underline or underscope, _</code> 連結單字：</p>
+<ul>
+<li>檔名: 實體檔案、Folder 名稱, 有時候檔案名稱在 runtime 會變成變數名稱</li>
+<li>變數: 包含 Class Name, Global Variable, Local Variable</li>
+<li>參數: Argements in Command Line, Parameters in Methods, Functions, 他是另一種變數</li>
+<li>key: dict, map, properties ..<ul>
+<li>json, yaml, properties, xml … etc</li>
+</ul>
+</li>
+<li>URL query string</li>
+<li>Database: DB Name, Column Name</li>
+</ul>
+<p>最近的趨勢是這些會使用 dash 連接名稱：</p>
+<ul>
+<li>檔名: 實體檔案、Folder 名稱</li>
+<li>參數: Argements in Command Line</li>
+<li>key in yaml or json</li>
+</ul>
+<h2 id="實驗：Dash-當成變數"><a href="#實驗：Dash-當成變數" class="headerlink" title="實驗：Dash 當成變數"></a>實驗：Dash 當成變數</h2><p>Bash</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">~$ bash --version</span><br><span class="line">GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin16)</span><br><span class="line">Copyright (C) 2007 Free Software Foundation, Inc.</span><br><span class="line"></span><br><span class="line"> ~$ A=<span class="string">"test"</span>; <span class="built_in">echo</span> <span class="variable">$A</span></span><br><span class="line"><span class="built_in">test</span></span><br><span class="line"></span><br><span class="line"> ~$ A-B=<span class="string">"test"</span>; <span class="built_in">echo</span> <span class="variable">$&#123;A-B&#125;</span></span><br><span class="line">-bash: A-B=<span class="built_in">test</span>: <span class="built_in">command</span> not found</span><br><span class="line"><span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+<p>Node.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">~$ node --version</span><br><span class="line">v6<span class="number">.2</span><span class="number">.2</span></span><br><span class="line"></span><br><span class="line">~$ echo <span class="string">'let a = "test"; console.log(`variable: $&#123;a&#125;`);'</span> | node</span><br><span class="line">variable: test</span><br><span class="line"></span><br><span class="line">~$ echo <span class="string">'let a-b = "test"; console.log(`variable: $&#123;a-b&#125;`);'</span> | node</span><br><span class="line">[stdin]:<span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> a-b = <span class="string">"test"</span>; <span class="built_in">console</span>.log(<span class="string">`variable: <span class="subst">$&#123;a-b&#125;</span>`</span>);</span><br><span class="line">     ^</span><br><span class="line"><span class="built_in">SyntaxError</span>: Unexpected token -</span><br><span class="line">    at <span class="built_in">Object</span>.exports.runInThisContext (vm.js:<span class="number">53</span>:<span class="number">16</span>)</span><br><span class="line">    at <span class="built_in">Object</span>.&lt;anonymous&gt; ([stdin]-wrapper:<span class="number">6</span>:<span class="number">22</span>)</span><br><span class="line">    at Module._compile (<span class="built_in">module</span>.js:<span class="number">541</span>:<span class="number">32</span>)</span><br><span class="line">    at node.js:<span class="number">311</span>:<span class="number">29</span></span><br><span class="line">    at _combinedTickCallback (internal/process/next_tick.js:<span class="number">67</span>:<span class="number">7</span>)</span><br><span class="line">    at process._tickCallback (internal/process/next_tick.js:<span class="number">98</span>:<span class="number">9</span>)</span><br></pre></td></tr></table></figure>
+<p>Python:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">~$ python</span><br><span class="line">Python <span class="number">2.7</span><span class="number">.9</span> (default, Apr  <span class="number">7</span> <span class="number">2015</span>, <span class="number">07</span>:<span class="number">58</span>:<span class="number">25</span>)</span><br><span class="line">[GCC <span class="number">4.2</span><span class="number">.1</span> Compatible Apple LLVM <span class="number">6.0</span> (clang<span class="number">-600.0</span><span class="number">.57</span>)] on darwin</span><br><span class="line">Type <span class="string">"help"</span>, <span class="string">"copyright"</span>, <span class="string">"credits"</span> <span class="keyword">or</span> <span class="string">"license"</span> <span class="keyword">for</span> more information.</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a=<span class="string">"test"</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> a</span><br><span class="line">test</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a-b=<span class="string">"test"</span></span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span></span><br><span class="line">SyntaxError: can<span class="string">'t assign to operator</span></span><br><span class="line"><span class="string">&gt;&gt;&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Perl</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">~$ perl --version</span><br><span class="line"></span><br><span class="line">This is perl <span class="number">5</span>, version <span class="number">18</span>, subversion <span class="number">2</span> (v5.<span class="number">18.2</span>) built <span class="keyword">for</span> darwin-thread-multi-<span class="number">2</span>level</span><br><span class="line">(with <span class="number">2</span> registered patches, see perl -V <span class="keyword">for</span> more detail)</span><br><span class="line"></span><br><span class="line">~$ echo <span class="string">'$a = "test"; print "$a\n";'</span> | perl</span><br><span class="line">test</span><br><span class="line"></span><br><span class="line">~$ echo <span class="string">'$a-b = "test"; print "$a-b\n";'</span> | perl</span><br><span class="line">syntax error at - line <span class="number">1</span>, near <span class="string">"$a-b "</span></span><br><span class="line">Execution of - aborted due to compilation errors.</span><br></pre></td></tr></table></figure>
+<h2 id="可能的問題"><a href="#可能的問題" class="headerlink" title="可能的問題"></a>可能的問題</h2><h1 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h1><ul>
+<li><a href="https://drive.google.com/viewerng/viewer?url=http://www.ibm.com/developerworks/websphere/library/techarticles/0701_lin1/0701_lin1-ltr.pdf" target="_blank" rel="noopener">Using Service Flow Modeler V6 to create Web services for CICS screen-based applications</a></li>
+</ul>
+<h1 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h1><ul>
+<li><a href="https://en.wikipedia.org/wiki/Dash" target="_blank" rel="noopener">Dash</a></li>
+</ul>
+
+
+		    <hr />
+			<!-- Facebook in bend of page -->
+			<div
+			  class="fb-like"
+			  data-share="true"
+			  data-width="450"
+			  data-show-faces="true">
+			</div>
+
+		</div>
+
+
+		<div>
+		  	<center>
+				
+<div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+	    	</center>
+		</div>
+
+
+	<!-- comment -->
+	
+
+
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+
+	
+	
+
+</div><!-- row -->
+
+    </div>
+  </div>
+
+
+<div class="container-narrow">
+    <footer> <p>
+  &copy; 2018 Rick Hwang
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme base on <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+
+<div id="gotop">
+  <!--
+  
+    <i class="fa fa-coffee"></i> <a href="http://www.gtcafe.com" title="GTCafe Studio" target="_blank"]);">GTCafe Studio</a><br />
+  
+    <i class="fa fa-coffee"></i> <a href="http://rickmidi.blogspot.com/" title="喝咖啡 聊音樂" target="_blank"]);">喝咖啡 聊音樂</a><br />
+  
+    <i class="fa fa-user"></i> <a href="https://www.blogger.com/profile/09975688593247211189" title="About me." target="_blank"]);">About</a><br />
+  
+  -->
+
+<a href="#"><span>▲</span></a>
+</div>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Ansible Course QA | Complete Think</title>
+  <meta name="author" content="Rick Hwang">
+  
+  <meta name="description" content="雖然可以不需要去上課，這樣的技術，我以前就寫過類似的東西，也有一些經驗，不過去上課的目的除了技術，很重要的就是走出去看看，看看別人怎麼做同樣的事情。
+以下是我的回覆：
+Q: 當你從事相關的實務工作，涉及「組態管理系統」時，你最討厭的事情是什麼？ 寫下你的痛點 (pain)：抱怨 (complaint">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Ansible Course QA"/>
+  <meta property="og:site_name" content="Complete Think"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <link rel="alternative" href="/true" title="Complete Think" type="application/atom+xml">
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <!--
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  -->
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-71839551-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1554905741423841',
+        xfbml      : true,
+        version    : 'v2.2'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+</head>
+
+
+<body>
+
+  
+<nav id="main-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand active" href="/">Complete Think</a>
+	  	
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  	
+		  		
+		  			<li><a href="/archives" title="All the articles."><i class="fa fa-archive"></i>Archives</a></li>
+		  		
+		  	
+		  		
+					<li class='dropdown'>
+						<a aria-expanded='false' class='dropdown-toggle' data-toggle='dropdown' href='#' role='button'><i class="fa fa-folder"></i>Categories <span class='caret'/></span></a>
+		            	<ul class='dropdown-menu' role='menu'>
+		            	
+						
+							<li><a href="/categories/AWS/">AWS <sup>53</sup></a></li>
+						
+							<li><a href="/categories/AWS/AWS-Certified/">AWS Certified <sup>4</sup></a></li>
+						
+							<li><a href="/categories/About/">About <sup>5</sup></a></li>
+						
+							<li><a href="/categories/Blog/">Blog <sup>4</sup></a></li>
+						
+							<li><a href="/categories/ComputerScience/">ComputerScience <sup>1</sup></a></li>
+						
+							<li><a href="/categories/Container/">Container <sup>9</sup></a></li>
+						
+							<li><a href="/categories/DevOps/">DevOps <sup>15</sup></a></li>
+						
+							<li><a href="/categories/Embedded/">Embedded <sup>1</sup></a></li>
+						
+							<li><a href="/categories/GCP/">GCP <sup>6</sup></a></li>
+						
+							<li><a href="/categories/Linux/">Linux <sup>9</sup></a></li>
+						
+							<li><a href="/categories/Misc/">Misc <sup>3</sup></a></li>
+						
+							<li><a href="/categories/News/">News <sup>3</sup></a></li>
+						
+							<li><a href="/categories/OS-X/">OS X <sup>3</sup></a></li>
+						
+							<li><a href="/categories/Redmine/">Redmine <sup>4</sup></a></li>
+						
+							<li><a href="/categories/Software-Engineering/">Software Engineering <sup>4</sup></a></li>
+						
+							<li><a href="/categories/Tools/">Tools <sup>1</sup></a></li>
+						
+							<li><a href="/categories/經營管理/">經營管理 <sup>20</sup></a></li>
+						
+							<li><a href="/categories/軟體測試/">軟體測試 <sup>5</sup></a></li>
+						
+						</ul>
+					</li>
+		  		
+		  	
+		</ul>
+
+		<!-- @ricka: menu in right -->	
+	    <ul class='nav navbar-nav navbar-right'>
+			
+			  <li><a href="http://www.gtcafe.com" title="GTCafe Studio" target="_blank"> <i class="fa fa-coffee"></i>GTCafe Studio</a></li>
+			
+			  <li><a href="http://rickmidi.blogspot.com/" title="喝咖啡 聊音樂" target="_blank"> <i class="fa fa-coffee"></i>喝咖啡 聊音樂</a></li>
+			
+			  <li><a href="https://www.blogger.com/profile/09975688593247211189" title="About me." target="_blank"> <i class="fa fa-user"></i>About</a></li>
+			
+	    </ul>
+	    <!-- @ricka end -->	
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content" style="background-color: white;">
+       
+	
+		<!-- @rick, header of article -->
+		<!-- original
+		<div class="page-header">
+			<h1> Ansible Course QA</h1>
+		</div>
+		-->
+
+		<div class="panel article_title">
+			<div class="panel-heading">
+    		<h1> Ansible Course QA</h1>
+  		</div>
+		</div>
+
+	
+
+
+
+<div class="row page">
+	<!-- cols -->
+	
+	<div class="col-md-12">
+	
+
+	
+
+		<!-- content -->
+		<div class="mypage">
+
+			<!-- Facebook in front of page -->
+			<div
+			  class="fb-like"
+			  data-share="true"
+			  data-width="450"
+			  data-show-faces="true">
+			</div>
+
+			<hr />
+
+		    <p>雖然可以不需要去上課，這樣的技術，我以前就寫過類似的東西，也有一些經驗，不過去上課的目的除了技術，很重要的就是走出去看看，看看別人怎麼做同樣的事情。</p>
+<p>以下是我的回覆：</p>
+<h2 id="Q-當你從事相關的實務工作，涉及「組態管理系統」時，你最討厭的事情是什麼？-寫下你的痛點-pain-：抱怨-complaints-、恐懼-fears-。"><a href="#Q-當你從事相關的實務工作，涉及「組態管理系統」時，你最討厭的事情是什麼？-寫下你的痛點-pain-：抱怨-complaints-、恐懼-fears-。" class="headerlink" title="Q: 當你從事相關的實務工作，涉及「組態管理系統」時，你最討厭的事情是什麼？ 寫下你的痛點 (pain)：抱怨 (complaints)、恐懼 (fears)。"></a>Q: 當你從事相關的實務工作，涉及「組態管理系統」時，你最討厭的事情是什麼？ 寫下你的痛點 (pain)：抱怨 (complaints)、恐懼 (fears)。</h2><ol>
+<li>開發人員對 “設定檔” 的設計沒概念，系統管理、部署人員可控性差。</li>
+<li>設定檔沒有足夠的彈性，像是臨時性、常態性、等使用場景設計。</li>
+<li>設定檔的設計不夠靈活，沒有繼承概念、註解等。</li>
+<li>設定檔看不出系統 Overview</li>
+<li>設定檔可讀性差，沒有註解說明</li>
+<li>設定檔本身的 Bug 很多，像是設定參數的定義範圍。</li>
+<li>沒有預留測試參數，系統依賴性太高，無法彈性調整。像是 Fake Storage (NFS, AWS S3, File System …)，可測性差。</li>
+<li>要重建特定目的環境時，所有人都跳腳，或者覺得沒必要。然後繼續使用很髒的環境。</li>
+<li>測試環境紊亂，各式各樣的 script 部署沒有標準程序</li>
+<li>上線的環境，大部分都只是能動而已，設定檔沒有『重構』，裡面的資訊，像是名稱、描述都不清楚。<ul>
+<li>測試階段：不知道有哪些設定檔，甚至無法動設定檔，可測性差，無法深度驗證</li>
+<li>因為設定檔紊亂，所以無法與自動化，與其他應用程式接軌困難</li>
+<li>維運階段啥都不能動，啥都不知道能不能動。。。</li>
+</ul>
+</li>
+<li>組態檔格式大亂鬥， properties, json, ini, yaml</li>
+</ol>
+<h2 id="如果有一天，當你學到「能夠解決上述問題的實務技術」後，你最想要做什麼事情？-請列出-具體-想做的幾件事情。"><a href="#如果有一天，當你學到「能夠解決上述問題的實務技術」後，你最想要做什麼事情？-請列出-具體-想做的幾件事情。" class="headerlink" title="如果有一天，當你學到「能夠解決上述問題的實務技術」後，你最想要做什麼事情？ 請列出 具體 想做的幾件事情。"></a>如果有一天，當你學到「能夠解決上述問題的實務技術」後，你最想要做什麼事情？ 請列出 <em>具體</em> 想做的幾件事情。</h2><p>精神：</p>
+<ul>
+<li>自動化他們。</li>
+<li>人管系統，系統管機器。</li>
+</ul>
+<p>制度:</p>
+<ol>
+<li>回去開發系統程式的時候，做可測性、可部署、可維運的東西。</li>
+<li>影響開發團隊 (Dev &amp; Test &amp; Operator)，讓大家知道能設計出能彈性部署的系統架構，落實 Infra as Code、CI、CD 的概念。</li>
+<li>落實快速部署『可測性』的環境，而不是生不出環境可以付現問題。</li>
+<li>部署『 環境』不應該是只有某些人才會，而是開發團隊的 Base Skill，包含 Developer、QA、Operator</li>
+<li>部署環境的成本是可以估算的、可控制的</li>
+</ol>
+<h2 id="Q-當你做了上述事情後，你最想要達成什麼目標？期待自己有什麼轉變、別人有什麼轉變，或是更高的願景⋯⋯"><a href="#Q-當你做了上述事情後，你最想要達成什麼目標？期待自己有什麼轉變、別人有什麼轉變，或是更高的願景⋯⋯" class="headerlink" title="Q: 當你做了上述事情後，你最想要達成什麼目標？期待自己有什麼轉變、別人有什麼轉變，或是更高的願景⋯⋯"></a>Q: 當你做了上述事情後，你最想要達成什麼目標？期待自己有什麼轉變、別人有什麼轉變，或是更高的願景⋯⋯</h2><ul>
+<li>自己：對團隊更有影響力</li>
+<li>配合其他方法 (docker)，快速建立具體而微 prototype，同時也可以應應需求，快速調整系統架構，不用改扣</li>
+<li>遠大的願景：改變台灣軟體開發團隊的觀念，做世界級的軟體。</li>
+</ul>
+
+
+		    <hr />
+			<!-- Facebook in bend of page -->
+			<div
+			  class="fb-like"
+			  data-share="true"
+			  data-width="450"
+			  data-show-faces="true">
+			</div>
+
+		</div>
+
+
+		<div>
+		  	<center>
+				
+<div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+	    	</center>
+		</div>
+
+
+	<!-- comment -->
+	
+
+
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+
+	
+	
+
+</div><!-- row -->
+
+    </div>
+  </div>
+
+
+<div class="container-narrow">
+    <footer> <p>
+  &copy; 2018 Rick Hwang
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme base on <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+</div> <!-- container-narrow -->
+
+<div id="gotop">
+  <!--
+  
+    <i class="fa fa-coffee"></i> <a href="http://www.gtcafe.com" title="GTCafe Studio" target="_blank"]);">GTCafe Studio</a><br />
+  
+    <i class="fa fa-coffee"></i> <a href="http://rickmidi.blogspot.com/" title="喝咖啡 聊音樂" target="_blank"]);">喝咖啡 聊音樂</a><br />
+  
+    <i class="fa fa-user"></i> <a href="https://www.blogger.com/profile/09975688593247211189" title="About me." target="_blank"]);">About</a><br />
+  
+  -->
+
+<a href="#"><span>▲</span></a>
+</div>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+</body>
+</html>

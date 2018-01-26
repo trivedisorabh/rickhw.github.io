@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Complete Think</title>
+  
+  <subtitle>Thinking, Coding, and Learning.</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://rickhw.github.io/"/>
+  <updated>2018-01-26T02:23:45.000Z</updated>
+  <id>http://rickhw.github.io/</id>
+  
+  <author>
+    <name>Rick Hwang</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Study Notes - Overview API Gateway</title>
+    <link href="http://rickhw.github.io/2018/01/24/AWS/Study-Notes-Overview-API-Gateway/"/>
+    <id>http://rickhw.github.io/2018/01/24/AWS/Study-Notes-Overview-API-Gateway/</id>
+    <published>2018-01-24T06:35:00.000Z</published>
+    <updated>2018-01-26T02:23:45.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在研究 API Gateway 相關需求，同時也在評估 Solutions，整理一些想法。&lt;/p&gt;
+&lt;p&gt;另外陸續整理 &lt;a href=&quot;https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Amazon API Gateway&lt;/a&gt; 的心得筆記。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="AWS" scheme="http://rickhw.github.io/categories/AWS/"/>
+    
+    
+      <category term="API Gateway" scheme="http://rickhw.github.io/tags/API-Gateway/"/>
+    
+      <category term="CloudWatch" scheme="http://rickhw.github.io/tags/CloudWatch/"/>
+    
+      <category term="Lambda" scheme="http://rickhw.github.io/tags/Lambda/"/>
+    
+      <category term="Serverless" scheme="http://rickhw.github.io/tags/Serverless/"/>
+    
+      <category term="CloudWatch Logs" scheme="http://rickhw.github.io/tags/CloudWatch-Logs/"/>
+    
+      <category term="Distributed System" scheme="http://rickhw.github.io/tags/Distributed-System/"/>
+    
+      <category term="Microservice" scheme="http://rickhw.github.io/tags/Microservice/"/>
+    
+      <category term="CloudFront" scheme="http://rickhw.github.io/tags/CloudFront/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Slack as RSS Reader</title>
+    <link href="http://rickhw.github.io/2018/01/22/Misc/Slack-as-RSS-Reader/"/>
+    <id>http://rickhw.github.io/2018/01/22/Misc/Slack-as-RSS-Reader/</id>
+    <published>2018-01-22T11:41:58.000Z</published>
+    <updated>2018-01-25T06:48:06.176Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;不自覺地把 Slack 當 RSS Reader 使用很久了。。。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/Misc/Slack_RSS_Reader.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Misc" scheme="http://rickhw.github.io/categories/Misc/"/>
+    
+    
+      <category term="Slack" scheme="http://rickhw.github.io/tags/Slack/"/>
+    
+      <category term="RSS Reader" scheme="http://rickhw.github.io/tags/RSS-Reader/"/>
+    
+      <category term="Telegram" scheme="http://rickhw.github.io/tags/Telegram/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>警急事件 (Emergency Response)</title>
+    <link href="http://rickhw.github.io/2018/01/07/DevOps/Emergency-Response/"/>
+    <id>http://rickhw.github.io/2018/01/07/DevOps/Emergency-Response/</id>
+    <published>2018-01-07T04:43:00.000Z</published>
+    <updated>2018-01-23T04:24:12.989Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://landing.google.com/sre/book.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SRE: Site Reliability Engineering&lt;/a&gt; 有幾個章節，討論關於警急事件的處理、管理、檢討、事件追蹤 … 這些章節討論事件處理的週期，也就是事件的前、中、後要做什麼。書中也從不同專業背景學習類似的想法，像是電影 &lt;a href=&quot;https://zh.wikipedia.org/wiki/%E8%96%A9%E5%88%A9%E6%A9%9F%E9%95%B7%EF%BC%9A%E5%93%88%E5%BE%B7%E9%81%9C%E5%A5%87%E8%B9%9F&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;薩利機長：哈德遜奇蹟&lt;/a&gt; 就是很好的例子。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="DevOps" scheme="http://rickhw.github.io/categories/DevOps/"/>
+    
+    
+      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
+    
+      <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Blog 標題緣由</title>
+    <link href="http://rickhw.github.io/2017/12/29/About/Blog-Subject/"/>
+    <id>http://rickhw.github.io/2017/12/29/About/Blog-Subject/</id>
+    <published>2017-12-29T04:39:00.000Z</published>
+    <updated>2018-01-23T04:24:12.988Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Blog 的標題命名緣由 (先不管文法, 詞性的問題):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Complete: 指的是『完整性』，也可以說是視野、全局。加入主詞、受詞後，產生連結 (Connect)。源自於電影 “征服情海” 的經典台詞：”You complete me”。&lt;/li
+      
+    
+    </summary>
+    
+      <category term="About" scheme="http://rickhw.github.io/categories/About/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>什麼是『監控』？ (What is monitoring )</title>
+    <link href="http://rickhw.github.io/2017/12/22/DevOps/What-is-Monitoring/"/>
+    <id>http://rickhw.github.io/2017/12/22/DevOps/What-is-Monitoring/</id>
+    <published>2017-12-22T14:20:00.000Z</published>
+    <updated>2018-01-23T04:24:12.991Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我很習慣追尋字面上意思的本質問題，『監控』一詞是我這幾年追得很緊的詞，索性就深入分析其意義。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="DevOps" scheme="http://rickhw.github.io/categories/DevOps/"/>
+    
+    
+      <category term="CloudWatch" scheme="http://rickhw.github.io/tags/CloudWatch/"/>
+    
+      <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
+    
+      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
+    
+      <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
+    
+      <category term="Monitoring" scheme="http://rickhw.github.io/tags/Monitoring/"/>
+    
+      <category term="Observability" scheme="http://rickhw.github.io/tags/Observability/"/>
+    
+      <category term="Dashboard" scheme="http://rickhw.github.io/tags/Dashboard/"/>
+    
+      <category term="Console" scheme="http://rickhw.github.io/tags/Console/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>看板導入 - 軟體開發與維運</title>
+    <link href="http://rickhw.github.io/2017/12/21/Management/Introduce-Kanban/"/>
+    <id>http://rickhw.github.io/2017/12/21/Management/Introduce-Kanban/</id>
+    <published>2017-12-21T14:50:30.000Z</published>
+    <updated>2018-01-03T01:41:26.342Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在 &lt;a href=&quot;/2017/09/14/SoftwareEngineering/Software-Development-Lifecycle/&quot;&gt;Software Development Lifecycle&lt;/a&gt; 的整理中，整理了我經歷各種角色之後，把 &lt;code&gt;軟體開發流程 (SDLC)&lt;/code&gt; 做了不同面向的分析，最後抽象化了四個層次:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Plan&lt;/li&gt;
+&lt;li&gt;Execution&lt;/li&gt;
+&lt;li&gt;Acceptance&lt;/li&gt;
+&lt;li&gt;Operation&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;最近我把這個結論應用到看板的規劃，這個規則最近上線開始試跑，跑的過程中，我又有新的想法，這些想法大多來自於過去音樂製作的心得與學習。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Software Engineering" scheme="http://rickhw.github.io/categories/Software-Engineering/"/>
+    
+    
+      <category term="DevOps" scheme="http://rickhw.github.io/tags/DevOps/"/>
+    
+      <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
+    
+      <category term="SDLC" scheme="http://rickhw.github.io/tags/SDLC/"/>
+    
+      <category term="Kanban" scheme="http://rickhw.github.io/tags/Kanban/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>What is Automation?</title>
+    <link href="http://rickhw.github.io/2017/12/21/DevOps/What-is-Automation/"/>
+    <id>http://rickhw.github.io/2017/12/21/DevOps/What-is-Automation/</id>
+    <published>2017-12-21T14:20:00.000Z</published>
+    <updated>2018-01-23T04:24:12.991Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;因為 &lt;a href=&quot;http://www.books.com.tw/products/0010702990&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;系統思考&lt;/a&gt; 這本書，還有最近跟朋友分享了關於『自動化』看法之後，過程中我不斷地想到過去整裡的想法： &lt;a href=&quot;/2017/08/30/DevOps/Automation-or-Process/&quot;&gt;『自動化 XXX』的陷阱&lt;/a&gt;、&lt;a href=&quot;/2017/11/12/DevOps/Gossip-Automation/&quot;&gt;自動化帶來的問題&lt;/a&gt;，我決定把其中段落重新整理出來，也就是『什麼是自動化？』&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="DevOps" scheme="http://rickhw.github.io/categories/DevOps/"/>
+    
+    
+      <category term="CloudWatch" scheme="http://rickhw.github.io/tags/CloudWatch/"/>
+    
+      <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
+    
+      <category term="Process" scheme="http://rickhw.github.io/tags/Process/"/>
+    
+      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
+    
+      <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Slogan in SRE</title>
+    <link href="http://rickhw.github.io/2017/12/12/DevOps/Slogan-in-SRE/"/>
+    <id>http://rickhw.github.io/2017/12/12/DevOps/Slogan-in-SRE/</id>
+    <published>2017-12-12T11:41:58.000Z</published>
+    <updated>2017-12-13T04:27:38.007Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://landing.google.com/sre/book.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SRE: Site Reliability Engineering&lt;/a&gt; 很多章節開頭都有一段很有深意的 &lt;code&gt;標語 (slogan)&lt;/code&gt;，這些話都很簡單，卻也讓人省思。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="DevOps" scheme="http://rickhw.github.io/categories/DevOps/"/>
+    
+    
+      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Transfer Data from S3 to GCP Storage</title>
+    <link href="http://rickhw.github.io/2017/12/10/GCP/Transfer-Data-From-S3-To-Cloud-Storage/"/>
+    <id>http://rickhw.github.io/2017/12/10/GCP/Transfer-Data-From-S3-To-Cloud-Storage/</id>
+    <published>2017-12-10T11:41:58.000Z</published>
+    <updated>2018-01-23T04:24:13.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;整理如何快速把資料從 &lt;a href=&quot;http://docs.aws.amazon.com/AmazonS3/latest/dev/Welcome.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;AWS S3&lt;/a&gt; 傳到 &lt;a href=&quot;https://cloud.google.com/storage/docs/?hl=zh-tw&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Google Cloud Storage&lt;/a&gt; 的步驟。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="GCP" scheme="http://rickhw.github.io/categories/GCP/"/>
+    
+    
+      <category term="S3" scheme="http://rickhw.github.io/tags/S3/"/>
+    
+      <category term="AWS VS GCP" scheme="http://rickhw.github.io/tags/AWS-VS-GCP/"/>
+    
+      <category term="Cloud Storage" scheme="http://rickhw.github.io/tags/Cloud-Storage/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>從 iOS 無限黑屏事件，淺談軟體測試階段 - 回歸測試 Regression Test</title>
+    <link href="http://rickhw.github.io/2017/12/03/SQA/Regression-Test-Is-Tough/"/>
+    <id>http://rickhw.github.io/2017/12/03/SQA/Regression-Test-Is-Tough/</id>
+    <published>2017-12-03T15:08:00.000Z</published>
+    <updated>2017-12-13T04:27:38.022Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;12/02 Apple iOS 11.1.2 爆炸了，無限黑屏轉圈圈，暫解法是把時間改到 11/30 即可。Apple 隨即也 Relase 11.2 緊急 Fix 這個問題。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/SQA/RT-is-Tough/iOS_Crash_20171202.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;來源: &lt;a href=&quot;https://www.ptt.cc/bbs/iOS/M.1512146950.A.18E.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Iphone 6 plus突然黑屏轉圈圈&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;很多人會疑惑：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;為什麼蘋果會犯這種不可原諒的錯誤？&lt;/li&gt;
+&lt;li&gt;難道 Apple 沒有 QA 了？&lt;/li&gt;
+&lt;li&gt;有跑 &lt;code&gt;Regression Test (回歸測試, 以下簡稱 RT)&lt;/code&gt; 應該可以發現吧？&lt;/li&gt;
+&lt;li&gt;有人覺得很容易重現，為什麼沒發現？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;但我想的是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;為什麼這會很容易被發現？為什麼大家會這樣覺得？&lt;/li&gt;
+&lt;li&gt;為什麼跑 RT 就一定能 Release？&lt;/li&gt;
+&lt;li&gt;實際上很多人不知道 RT 是什麼，還有其重要性，很多公司根本就沒這關卡，能動就上。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;從這件事情，簡單分析，同時討論軟體的測試階段：&lt;code&gt;Regression Test (回歸測試)&lt;/code&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="軟體測試" scheme="http://rickhw.github.io/categories/%E8%BB%9F%E9%AB%94%E6%B8%AC%E8%A9%A6/"/>
+    
+    
+      <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
+    
+      <category term="Software Test" scheme="http://rickhw.github.io/tags/Software-Test/"/>
+    
+      <category term="Regression Test" scheme="http://rickhw.github.io/tags/Regression-Test/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>系統維運的精神</title>
+    <link href="http://rickhw.github.io/2017/12/02/DevOps/Spirit-In-SysOps/"/>
+    <id>http://rickhw.github.io/2017/12/02/DevOps/Spirit-In-SysOps/</id>
+    <published>2017-12-02T15:04:00.000Z</published>
+    <updated>2018-01-23T04:24:12.990Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;這 Slide 簡單整理我對於系統上線後，面對異常處理的態度以及心法。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="DevOps" scheme="http://rickhw.github.io/categories/DevOps/"/>
+    
+    
+      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
+    
+      <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一些個人的領悟</title>
+    <link href="http://rickhw.github.io/2017/12/02/About/Short-Words/"/>
+    <id>http://rickhw.github.io/2017/12/02/About/Short-Words/</id>
+    <published>2017-12-02T02:58:00.000Z</published>
+    <updated>2017-12-13T04:27:37.998Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;整理一些我自己常說的話，算是一種領悟吧，也可以說是 &lt;code&gt;練肖話&lt;/code&gt; 啦 XD&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="About" scheme="http://rickhw.github.io/categories/About/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Compare GCP Load Balancing with AWS</title>
+    <link href="http://rickhw.github.io/2017/11/30/GCP/Compare-GCP-Load-Balancing-with-AWS/"/>
+    <id>http://rickhw.github.io/2017/11/30/GCP/Compare-GCP-Load-Balancing-with-AWS/</id>
+    <published>2017-11-30T11:41:58.000Z</published>
+    <updated>2018-01-23T04:24:12.992Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;整理 &lt;a href=&quot;https://cloud.google.com/compute/docs/load-balancing/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GCP Cloud Load Balancing&lt;/a&gt; 和 &lt;a href=&quot;https://aws.amazon.com/documentation/elastic-load-balancing/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;AWS Elastic Load Balancing&lt;/a&gt; 的比較，功能比較的面相如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Global or Regional&lt;/li&gt;
+&lt;li&gt;Internal or external&lt;/li&gt;
+&lt;li&gt;Protocol Type&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;整理這三個面向的比較。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="GCP" scheme="http://rickhw.github.io/categories/GCP/"/>
+    
+    
+      <category term="ELB" scheme="http://rickhw.github.io/tags/ELB/"/>
+    
+      <category term="Auto Scaling Group" scheme="http://rickhw.github.io/tags/Auto-Scaling-Group/"/>
+    
+      <category term="Load Balancing" scheme="http://rickhw.github.io/tags/Load-Balancing/"/>
+    
+      <category term="AWS VS GCP" scheme="http://rickhw.github.io/tags/AWS-VS-GCP/"/>
+    
+      <category term="Cloud Load Balancing" scheme="http://rickhw.github.io/tags/Cloud-Load-Balancing/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AWS reInvent 2017 News</title>
+    <link href="http://rickhw.github.io/2017/11/29/AWS/News_AWS-reInvent-2017/"/>
+    <id>http://rickhw.github.io/2017/11/29/AWS/News_AWS-reInvent-2017/</id>
+    <published>2017-11-29T03:27:00.000Z</published>
+    <updated>2017-12-13T04:27:37.982Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;整理 AWS re:Invent 2017 發佈的新東西！&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="AWS" scheme="http://rickhw.github.io/categories/AWS/"/>
+    
+    
+      <category term="re:Invent" scheme="http://rickhw.github.io/tags/re-Invent/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>What is Ops？</title>
+    <link href="http://rickhw.github.io/2017/11/27/DevOps/What-is-Ops/"/>
+    <id>http://rickhw.github.io/2017/11/27/DevOps/What-is-Ops/</id>
+    <published>2017-11-27T11:41:58.000Z</published>
+    <updated>2018-01-23T04:24:12.992Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;現在啥鬼都要跟 &lt;code&gt;Ops&lt;/code&gt; 扯上關係？或者要消滅 Ops 變成 &lt;code&gt;NoOps&lt;/code&gt;，用人工智慧&lt;del&gt;智障&lt;/del&gt;來取代叫做 &lt;code&gt;AIOps&lt;/code&gt;，到底啥是 &lt;code&gt;Ops&lt;/code&gt;?&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="DevOps" scheme="http://rickhw.github.io/categories/DevOps/"/>
+    
+    
+      <category term="DevOps" scheme="http://rickhw.github.io/tags/DevOps/"/>
+    
+      <category term="System Operations" scheme="http://rickhw.github.io/tags/System-Operations/"/>
+    
+      <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
+    
+      <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
+    
+      <category term="AI" scheme="http://rickhw.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>置頂 - 思考本質、實踐、想像力、教育</title>
+    <link href="http://rickhw.github.io/2017/11/26/Thinking-in-Nature/"/>
+    <id>http://rickhw.github.io/2017/11/26/Thinking-in-Nature/</id>
+    <published>2017-11-26T02:30:00.000Z</published>
+    <updated>2018-01-23T04:24:13.001Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一直很想找一些人，這些人有個特質：喜歡思考事物的本質性、背後的故事、問題、原理、抽象化、延伸、想像，像是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用 Slack 的時候，可能的系統架構是什麼？&lt;/li&gt;
+&lt;li&gt;使用 iPhone 的時候，他對人類的貢獻是？你會思考他是如何生產的？有多少公司提供零件給他？怎麼整合這些資訊？iPhone 最後如何銷毀？&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.facebook.com/greenpeace.org.tw/videos/1582705515094601/?hc_ref=ARSin48g31Ew9Viq3lgAFcoLz1V7pb6PWQLWRIifrLodmDn98mo3N4_xJk_2ZeYzrPk&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;智慧型手機十年進化史，有一些事情必須要知道&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;電商帶給消費者方便，他背後的系統是如何運作的？如何面對巨大的交易？電商帶來的社會問題你注意到了？便利另外一面是什麼？人類交易的本質是什麼？&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://technews.tw/2017/11/18/china-online-shopping-garbage-double-11/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;中國電商污染，5 千萬噸垃圾誰來買單&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.stevecutts.com/illustration.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Steve Cutts&lt;/a&gt; - 諷刺漫畫&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.gvm.com.tw/article.html?id=41356&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;過度包裝的迷思：你只是買了更多垃圾&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;聽演唱會的時候，你會注意演唱會整體想表現的情緒？你會注意演唱會主角以外的人事物？最後組成的整體性？&lt;/li&gt;
+&lt;li&gt;看電影時，你會注意每個鏡頭想要表達的是什麼？鏡頭是如何取的？有多少個鏡頭？拍攝現場要怎麼準備？演員走位。。。&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=zzWIj-a5Zdo&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;體育賽場如戰場 攝影師拍攝…跟在後面跑&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;看小說時，為什麼會寫出這麼精彩的故事？為什麼會想出 &lt;code&gt;星艦企業號&lt;/code&gt; 這樣的劇情？&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="About" scheme="http://rickhw.github.io/categories/About/"/>
+    
+    
+      <category term="Architecture" scheme="http://rickhw.github.io/tags/Architecture/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Go Live</title>
+    <link href="http://rickhw.github.io/2017/11/14/DevOps/Go-Live/"/>
+    <id>http://rickhw.github.io/2017/11/14/DevOps/Go-Live/</id>
+    <published>2017-11-14T14:20:00.000Z</published>
+    <updated>2018-01-23T04:24:12.989Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近我開始用 &lt;code&gt;Go Live&lt;/code&gt; 取代 &lt;code&gt;Production&lt;/code&gt; 這個詞。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="DevOps" scheme="http://rickhw.github.io/categories/DevOps/"/>
+    
+    
+      <category term="Provisioning" scheme="http://rickhw.github.io/tags/Provisioning/"/>
+    
+      <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自動化帶來的問題</title>
+    <link href="http://rickhw.github.io/2017/11/12/DevOps/Gossip-Automation/"/>
+    <id>http://rickhw.github.io/2017/11/12/DevOps/Gossip-Automation/</id>
+    <published>2017-11-12T14:20:00.000Z</published>
+    <updated>2018-01-23T04:24:12.990Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;現在啥都要 &lt;code&gt;自動化&lt;/code&gt;、 &lt;code&gt;ZYX as Code&lt;/code&gt;，實際上，我覺得做了這些之後問題才剛開始。&lt;/p&gt;
+&lt;p&gt;整理跟朋友聊天的想法，因為我對 &lt;code&gt;自動化&lt;/code&gt; 這個詞其實很感冒。。。表面上是一種先進的方法，但實際上卻是一種駝鳥心態。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="DevOps" scheme="http://rickhw.github.io/categories/DevOps/"/>
+    
+    
+      <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
+    
+      <category term="Process" scheme="http://rickhw.github.io/tags/Process/"/>
+    
+      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
+    
+      <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>重構與組織重整</title>
+    <link href="http://rickhw.github.io/2017/11/04/Management/Re-org/"/>
+    <id>http://rickhw.github.io/2017/11/04/Management/Re-org/</id>
+    <published>2017-11-04T15:21:00.000Z</published>
+    <updated>2017-12-13T04:27:38.016Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;重構 (Refactoring) 是軟體工程重要的過程，主要目的是 &lt;strong&gt;改善既有程式的設計&lt;/strong&gt;，用白話文就是：大掃除。程式需要重構，那組織呢？&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="經營管理" scheme="http://rickhw.github.io/categories/%E7%B6%93%E7%87%9F%E7%AE%A1%E7%90%86/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Study Notes - SRE Opening and Chapter 1</title>
+    <link href="http://rickhw.github.io/2017/11/04/DevOps/Study-Notes-SRE-Opening-Ch1/"/>
+    <id>http://rickhw.github.io/2017/11/04/DevOps/Study-Notes-SRE-Opening-Ch1/</id>
+    <published>2017-11-04T14:20:00.000Z</published>
+    <updated>2017-12-13T04:27:38.007Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今年七月在公司內部發起的 &lt;a href=&quot;https://landing.google.com/sre/book.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SRE: Site Reliability Engineering&lt;/a&gt; 讀書會，同時在十一月也參與 &lt;a href=&quot;http://fb.sre.tw&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;社群&lt;/a&gt; 讀書會，整理當時的 Slide 分享。&lt;/p&gt;
+&lt;p&gt;這個 slide 整理為什麼我選讀 SRE 這本書的原因以及給同事的一些想法，還有第一章的內容。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="DevOps" scheme="http://rickhw.github.io/categories/DevOps/"/>
+    
+    
+      <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
+    
+      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
+    
+      <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
+    
+  </entry>
+  
+</feed>
