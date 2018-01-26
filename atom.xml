@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rickhw.github.io/"/>
-  <updated>2018-01-26T02:23:45.000Z</updated>
+  <updated>2018-01-26T02:26:07.742Z</updated>
   <id>http://rickhw.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://rickhw.github.io/2018/01/24/AWS/Study-Notes-Overview-API-Gateway/"/>
     <id>http://rickhw.github.io/2018/01/24/AWS/Study-Notes-Overview-API-Gateway/</id>
     <published>2018-01-24T06:35:00.000Z</published>
-    <updated>2018-01-26T02:23:45.000Z</updated>
+    <updated>2018-01-26T02:26:07.742Z</updated>
     
     <summary type="html">
     
@@ -37,9 +37,9 @@
     
       <category term="CloudWatch" scheme="http://rickhw.github.io/tags/CloudWatch/"/>
     
-      <category term="Lambda" scheme="http://rickhw.github.io/tags/Lambda/"/>
-    
       <category term="Serverless" scheme="http://rickhw.github.io/tags/Serverless/"/>
+    
+      <category term="Lambda" scheme="http://rickhw.github.io/tags/Lambda/"/>
     
       <category term="CloudWatch Logs" scheme="http://rickhw.github.io/tags/CloudWatch-Logs/"/>
     
