@@ -101,7 +101,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 		            	<ul class='dropdown-menu' role='menu'>
 		            	
 						
-							<li><a href="/categories/AWS/">AWS <sup>53</sup></a></li>
+							<li><a href="/categories/AWS/">AWS <sup>54</sup></a></li>
 						
 							<li><a href="/categories/AWS/AWS-Certified/">AWS Certified <sup>4</sup></a></li>
 						
@@ -254,9 +254,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/11/26/Thinking-in-Nature/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/11/26/Thinking-in-Nature/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/11/26/Thinking-in-Nature/">... Read More </a> -->
+	<!-- <a href="/2017/11/26/Thinking-in-Nature/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -318,9 +318,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/07/01/Management-Index/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/07/01/Management-Index/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/07/01/Management-Index/">... Read More </a> -->
+	<!-- <a href="/2017/07/01/Management-Index/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -376,9 +376,125 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2016/10/01/AWS-Study-Roadmap/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2016/10/01/AWS-Study-Roadmap/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2016/10/01/AWS-Study-Roadmap/">... Read More </a> -->
+	<!-- <a href="/2016/10/01/AWS-Study-Roadmap/">... 閱讀本文 </a> -->
+</div>
+
+<br />
+
+		
+			
+	
+		<!-- title in index page -->
+		<!--
+		<h3 class="title">
+			<a href="/2018/01/26/AWS/Study-Notes-Network-Load-Balancing/" >Study Notes - Network Load Balancing</a>
+			<span class="date"> 2018-01-26 </span>
+		</h3>
+		-->
+
+		<div class="panel panel-default article_title_in_index_page">
+			<div class="panel-heading">
+        <i class="fa fa-book"></i>
+				<a href="/2018/01/26/AWS/Study-Notes-Network-Load-Balancing/" >Study Notes - Network Load Balancing</a>
+				<span class="badge article_title_date"> 2018-01-26 14:35:00 </span>
+  		</div>
+		</div>
+
+	
+
+
+			
+	<!-- Facebook -->
+	<!--
+	<div
+	  class="fb-like"
+	  data-share="true"
+	  data-width="450"
+	  data-show-faces="true">
+	</div>
+	-->
+
+<div class="entry">
+
+  <div class="row">
+  
+	<div class="col-md-12">
+	  
+	
+	  <a id="more"></a>
+<h1 id="應用場景"><a href="#應用場景" class="headerlink" title="應用場景"></a>應用場景</h1><h1 id="ELB-Network-Load-Balancing"><a href="#ELB-Network-Load-Balancing" class="headerlink" title="ELB: Network Load Balancing"></a>ELB: Network Load Balancing</h1><h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><h2 id="相關-AWS-Services"><a href="#相關-AWS-Services" class="headerlink" title="相關 AWS Services"></a>相關 AWS Services</h2><ul>
+<li><a href="/tags/EC2/">EC2</a></li>
+<li><a href="/tags/Lambda/">Lambda</a></li>
+<li><a href="/tags/API-Gateway">API Gateway</a></li>
+<li><a href="/tags/VPC/">VPC</a></li>
+<li><a href="/tags/CloudFront/">CloudFront</a></li>
+<li>ACM</li>
+<li><a href="/tags/Route53/">Route53</a></li>
+<li><a href="/tags/CloudWatch/">CloudWatch</a></li>
+</ul>
+<h2 id="不足與潛在需求-許願池"><a href="#不足與潛在需求-許願池" class="headerlink" title="不足與潛在需求 (許願池)"></a>不足與潛在需求 (許願池)</h2><ul>
+<li>Infra / Security / Network<ul>
+<li>目前沒有純的 Internal API Gateway，所以內部服務對串要自己蓋。</li>
+<li>沒有辦法整合 WAF，但是有變通方式，例如在 API Gateway 前面再放一個 CloudFront, see: <a href="https://www.codeengine.com/articles/process-form-aws-api-gateway-lambda/" target="_blank" rel="noopener">placing Cloudfront in front of API Gateway</a></li>
+</ul>
+</li>
+<li>Functions<ul>
+<li>API Key 的使用率管理功能太陽春，只能顯示一天的用量。現在要透過 CloudWatch Logs 自己幹。</li>
+<li>API Key 不支援 Expiration 功能</li>
+</ul>
+</li>
+</ul>
+<!--
+## AWS Blog 相關文章
+
+* [Using Amazon API Gateway with microservices deployed on Amazon ECS][41]
+
+[41]: https://aws.amazon.com/blogs/compute/using-amazon-api-gateway-with-microservices-deployed-on-amazon-ecs/
+-->
+<h2 id="老問題：被綁死還是自幹？"><a href="#老問題：被綁死還是自幹？" class="headerlink" title="老問題：被綁死還是自幹？"></a>老問題：被綁死還是自幹？</h2><p>這個問題我在 Survey Monitoring System 的時候糾結了快兩年，最後在 <a href="/2017/03/02/AWS/Study-Notes-CloudWatch/">Study Notes - CloudWatch</a> 找到答案。</p>
+<p>而 Cloud Native 的時代來臨，與其擔心被綁死，倒不如好好的 <code>面對它、學習它、駕馭它、活用它</code>。</p>
+<blockquote>
+<p>這跟以前在買吉他效果器是一樣的問題，與其去質疑設備本身好不好，倒不如質疑自己能否 <code>面對它、學習它、駕馭它、活用它</code>。後來設備的採購我都是先 Ｋ 完手冊之後，把裡面不懂的東西都搞懂了之後，才真的去採購。底下是當時的心得：</p>
+<ul>
+<li><a href="http://rickmidi.blogspot.com/2011/05/blog-post.html" target="_blank" rel="noopener">如何選擇適合的數位設備 - 以吉他綜合效果器為例</a></li>
+<li><a href="http://rickmidi.blogspot.com/2008/11/blog-post.html" target="_blank" rel="noopener">前級、後級、單體</a></li>
+<li><a href="http://rickmidi.blogspot.com/2006/11/new-gear-digitech-gnx4-guitar.html" target="_blank" rel="noopener">New Gear - DigiTech GNX4 Guitar Workstation</a></li>
+</ul>
+</blockquote>
+<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>接下來陸續整理 AWS API Gateway 實際上應用的筆記。</p>
+<h1 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h1><ul>
+<li><a href="/2016/03/21/AWS/Whitepaper-Architecting-for-the-Cloud-AWS-Best-Practices/">Whitepaper - Architecting for the Cloud (AWS Best Practices)</a></li>
+<li><a href="/2017/07/07/AWS/Plan-And-Deisgn-Multiple-VPCs-in-Different-Regions/">Plan and Design Multiple VPCs in Different Regions</a></li>
+<li><a href="/2017/06/21/AWS/Stategies-System-Monitor_and_CloudWatch/">淺談系統監控與 CloudWatch 的應用</a>, <a href="/2017/03/02/AWS/Study-Notes-CloudWatch/">Study Notes - CloudWatch</a></li>
+</ul>
+<h1 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h1><ul>
+<li><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html" target="_blank" rel="noopener">Amazon API Gateway</a></li>
+<li><a href="http://microservices.io/patterns/apigateway.html" target="_blank" rel="noopener">Pattern: API Gateway / Backend for Front-End</a></li>
+<li><a href="http://dockone.io/article/482" target="_blank" rel="noopener">微服务实战（二）：使用API Gateway</a></li>
+<li><a href="https://www.nginx.com/blog/building-microservices-using-an-api-gateway/" target="_blank" rel="noopener">Building Microservices: Using an API Gateway</a> - Nginx</li>
+<li><a href="https://medium.com/@pablo.iorio/synchronous-and-asynchronous-aws-decoupling-solutions-1bbe74697db9" target="_blank" rel="noopener">Synchronous and Asynchronous AWS Decoupling Solutions</a></li>
+</ul>
+<!--
+* [Reactive Programming in the Netflix API with RxJava][22]
+* [架構師觀點 - 轉移到微服務架構的經驗分享 (Part 1)](http://columns.chicken-house.net/2017/04/15/microservice8-case-study/)
+* [Architecting for the Cloud: Best Practice](https://d1.awsstatic.com/whitepapers/AWS_Cloud_Best_Practices.pdf)
+* [AWS Well-Architected Framework](https://d0.awsstatic.com/whitepapers/architecture/AWS_Well-Architected_Framework.pdf)
+* [Building Microservices](http://shop.oreilly.com/product/0636920033158.do)
+
+-->
+
+	
+	</div>
+	
+	
+  
+</div>
+	
+	<a type="button" href="/2018/01/26/AWS/Study-Notes-Network-Load-Balancing/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
+	
+	<!-- <a href="/2018/01/26/AWS/Study-Notes-Network-Load-Balancing/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -432,9 +548,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2018/01/24/AWS/Study-Notes-Overview-API-Gateway/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2018/01/24/AWS/Study-Notes-Overview-API-Gateway/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2018/01/24/AWS/Study-Notes-Overview-API-Gateway/">... Read More </a> -->
+	<!-- <a href="/2018/01/24/AWS/Study-Notes-Overview-API-Gateway/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -488,9 +604,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2018/01/22/Misc/Slack-as-RSS-Reader/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2018/01/22/Misc/Slack-as-RSS-Reader/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2018/01/22/Misc/Slack-as-RSS-Reader/">... Read More </a> -->
+	<!-- <a href="/2018/01/22/Misc/Slack-as-RSS-Reader/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -543,9 +659,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2018/01/07/DevOps/Emergency-Response/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2018/01/07/DevOps/Emergency-Response/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2018/01/07/DevOps/Emergency-Response/">... Read More </a> -->
+	<!-- <a href="/2018/01/07/DevOps/Emergency-Response/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -604,9 +720,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/12/29/About/Blog-Subject/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/12/29/About/Blog-Subject/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/12/29/About/Blog-Subject/">... Read More </a> -->
+	<!-- <a href="/2017/12/29/About/Blog-Subject/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -659,9 +775,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/12/22/DevOps/What-is-Monitoring/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/12/22/DevOps/What-is-Monitoring/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/12/22/DevOps/What-is-Monitoring/">... Read More </a> -->
+	<!-- <a href="/2017/12/22/DevOps/What-is-Monitoring/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -721,9 +837,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/12/21/Management/Introduce-Kanban/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/12/21/Management/Introduce-Kanban/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/12/21/Management/Introduce-Kanban/">... Read More </a> -->
+	<!-- <a href="/2017/12/21/Management/Introduce-Kanban/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -776,9 +892,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/12/21/DevOps/What-is-Automation/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/12/21/DevOps/What-is-Automation/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/12/21/DevOps/What-is-Automation/">... Read More </a> -->
+	<!-- <a href="/2017/12/21/DevOps/What-is-Automation/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -831,9 +947,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/12/12/DevOps/Slogan-in-SRE/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/12/12/DevOps/Slogan-in-SRE/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/12/12/DevOps/Slogan-in-SRE/">... Read More </a> -->
+	<!-- <a href="/2017/12/12/DevOps/Slogan-in-SRE/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -886,9 +1002,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/12/10/GCP/Transfer-Data-From-S3-To-Cloud-Storage/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/12/10/GCP/Transfer-Data-From-S3-To-Cloud-Storage/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/12/10/GCP/Transfer-Data-From-S3-To-Cloud-Storage/">... Read More </a> -->
+	<!-- <a href="/2017/12/10/GCP/Transfer-Data-From-S3-To-Cloud-Storage/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -957,9 +1073,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/12/03/SQA/Regression-Test-Is-Tough/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/12/03/SQA/Regression-Test-Is-Tough/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/12/03/SQA/Regression-Test-Is-Tough/">... Read More </a> -->
+	<!-- <a href="/2017/12/03/SQA/Regression-Test-Is-Tough/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -1012,9 +1128,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/12/02/DevOps/Spirit-In-SysOps/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/12/02/DevOps/Spirit-In-SysOps/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/12/02/DevOps/Spirit-In-SysOps/">... Read More </a> -->
+	<!-- <a href="/2017/12/02/DevOps/Spirit-In-SysOps/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -1067,9 +1183,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/12/02/About/Short-Words/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/12/02/About/Short-Words/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/12/02/About/Short-Words/">... Read More </a> -->
+	<!-- <a href="/2017/12/02/About/Short-Words/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -1128,9 +1244,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/11/30/GCP/Compare-GCP-Load-Balancing-with-AWS/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/11/30/GCP/Compare-GCP-Load-Balancing-with-AWS/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/11/30/GCP/Compare-GCP-Load-Balancing-with-AWS/">... Read More </a> -->
+	<!-- <a href="/2017/11/30/GCP/Compare-GCP-Load-Balancing-with-AWS/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -1183,9 +1299,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/11/29/AWS/News_AWS-reInvent-2017/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/11/29/AWS/News_AWS-reInvent-2017/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/11/29/AWS/News_AWS-reInvent-2017/">... Read More </a> -->
+	<!-- <a href="/2017/11/29/AWS/News_AWS-reInvent-2017/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -1238,9 +1354,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/11/27/DevOps/What-is-Ops/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/11/27/DevOps/What-is-Ops/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/11/27/DevOps/What-is-Ops/">... Read More </a> -->
+	<!-- <a href="/2017/11/27/DevOps/What-is-Ops/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -1293,9 +1409,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/11/14/DevOps/Go-Live/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/11/14/DevOps/Go-Live/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/11/14/DevOps/Go-Live/">... Read More </a> -->
+	<!-- <a href="/2017/11/14/DevOps/Go-Live/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -1349,9 +1465,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/11/12/DevOps/Gossip-Automation/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/11/12/DevOps/Gossip-Automation/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/11/12/DevOps/Gossip-Automation/">... Read More </a> -->
+	<!-- <a href="/2017/11/12/DevOps/Gossip-Automation/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -1404,9 +1520,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/11/04/Management/Re-org/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/11/04/Management/Re-org/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/11/04/Management/Re-org/">... Read More </a> -->
+	<!-- <a href="/2017/11/04/Management/Re-org/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -1460,9 +1576,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/11/04/DevOps/Study-Notes-SRE-Opening-Ch1/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/11/04/DevOps/Study-Notes-SRE-Opening-Ch1/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/11/04/DevOps/Study-Notes-SRE-Opening-Ch1/">... Read More </a> -->
+	<!-- <a href="/2017/11/04/DevOps/Study-Notes-SRE-Opening-Ch1/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -1515,9 +1631,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/10/18/Management/Requirement-and-Goal/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/10/18/Management/Requirement-and-Goal/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/10/18/Management/Requirement-and-Goal/">... Read More </a> -->
+	<!-- <a href="/2017/10/18/Management/Requirement-and-Goal/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -1570,9 +1686,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/10/07/DevOps/Monitoring-vs-Observability/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/10/07/DevOps/Monitoring-vs-Observability/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/10/07/DevOps/Monitoring-vs-Observability/">... Read More </a> -->
+	<!-- <a href="/2017/10/07/DevOps/Monitoring-vs-Observability/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -1625,9 +1741,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/09/23/Linux/iTerm2/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/09/23/Linux/iTerm2/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/09/23/Linux/iTerm2/">... Read More </a> -->
+	<!-- <a href="/2017/09/23/Linux/iTerm2/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -1680,9 +1796,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/09/20/About/Learning-Approaches/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/09/20/About/Learning-Approaches/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/09/20/About/Learning-Approaches/">... Read More </a> -->
+	<!-- <a href="/2017/09/20/About/Learning-Approaches/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -1740,9 +1856,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/09/14/SoftwareEngineering/Software-Development-Lifecycle/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/09/14/SoftwareEngineering/Software-Development-Lifecycle/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/09/14/SoftwareEngineering/Software-Development-Lifecycle/">... Read More </a> -->
+	<!-- <a href="/2017/09/14/SoftwareEngineering/Software-Development-Lifecycle/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -1796,9 +1912,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/09/03/Management/Phases-in-Startup/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/09/03/Management/Phases-in-Startup/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/09/03/Management/Phases-in-Startup/">... Read More </a> -->
+	<!-- <a href="/2017/09/03/Management/Phases-in-Startup/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -1851,9 +1967,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/09/03/AWS/News_2017Q3/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/09/03/AWS/News_2017Q3/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/09/03/AWS/News_2017Q3/">... Read More </a> -->
+	<!-- <a href="/2017/09/03/AWS/News_2017Q3/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -1917,9 +2033,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/08/30/DevOps/Automation-or-Process/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/08/30/DevOps/Automation-or-Process/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/08/30/DevOps/Automation-or-Process/">... Read More </a> -->
+	<!-- <a href="/2017/08/30/DevOps/Automation-or-Process/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -1972,9 +2088,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/08/19/Redmine/Issue-Tracking_in_Redmine/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/08/19/Redmine/Issue-Tracking_in_Redmine/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/08/19/Redmine/Issue-Tracking_in_Redmine/">... Read More </a> -->
+	<!-- <a href="/2017/08/19/Redmine/Issue-Tracking_in_Redmine/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -2028,9 +2144,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/08/13/AWS/Study-Notes-CodeDeploy-Preparation/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/08/13/AWS/Study-Notes-CodeDeploy-Preparation/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/08/13/AWS/Study-Notes-CodeDeploy-Preparation/">... Read More </a> -->
+	<!-- <a href="/2017/08/13/AWS/Study-Notes-CodeDeploy-Preparation/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -2085,9 +2201,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/07/29/GCP/Architecting_with_GCP_Infrastructure/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/07/29/GCP/Architecting_with_GCP_Infrastructure/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/07/29/GCP/Architecting_with_GCP_Infrastructure/">... Read More </a> -->
+	<!-- <a href="/2017/07/29/GCP/Architecting_with_GCP_Infrastructure/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -2140,66 +2256,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   
 </div>
 	
-	<a type="button" href="/2017/07/22/AWS/Study-Notes-Deploy-NodeJS-App-using-EBCLI/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
+	<a type="button" href="/2017/07/22/AWS/Study-Notes-Deploy-NodeJS-App-using-EBCLI/" class="btn btn-default more"><i class="fa fa-expand"></i> 閱讀本文 </a>
 	
-	<!-- <a href="/2017/07/22/AWS/Study-Notes-Deploy-NodeJS-App-using-EBCLI/">... Read More </a> -->
-</div>
-
-<br />
-
-		
-			
-	
-		<!-- title in index page -->
-		<!--
-		<h3 class="title">
-			<a href="/2017/07/20/Management/台灣的軟體產業/" >台灣軟體產業的經營</a>
-			<span class="date"> 2017-07-20 </span>
-		</h3>
-		-->
-
-		<div class="panel panel-default article_title_in_index_page">
-			<div class="panel-heading">
-        <i class="fa fa-book"></i>
-				<a href="/2017/07/20/Management/台灣的軟體產業/" >台灣軟體產業的經營</a>
-				<span class="badge article_title_date"> 2017-07-20 23:33:00 </span>
-  		</div>
-		</div>
-
-	
-
-
-			
-	<!-- Facebook -->
-	<!--
-	<div
-	  class="fb-like"
-	  data-share="true"
-	  data-width="450"
-	  data-show-faces="true">
-	</div>
-	-->
-
-<div class="entry">
-
-  <div class="row">
-  
-	<div class="col-md-12">
-	  
-	
-	  <p>看完 <a href="https://www.facebook.com/PTT.TU/videos/vb.710966136/10155059282456137/?type=2&amp;theater" target="_blank" rel="noopener">這段</a> 有感而發。。。</p>
-<p>原始影片：</p>
-<iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/zR3Q-eM_qEM?showinfo=0?ecver=1" frameborder="0" allowfullscreen></iframe>
-	
-	</div>
-	
-	
-  
-</div>
-	
-	<a type="button" href="/2017/07/20/Management/台灣的軟體產業/" class="btn btn-default more"><i class="fa fa-expand"></i> Read More </a>
-	
-	<!-- <a href="/2017/07/20/Management/台灣的軟體產業/">... Read More </a> -->
+	<!-- <a href="/2017/07/22/AWS/Study-Notes-Deploy-NodeJS-App-using-EBCLI/">... 閱讀本文 </a> -->
 </div>
 
 <br />
@@ -2215,13 +2274,13 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <ul class="pagination">
 	 
 		
-          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一頁</a></li>
         
 
         <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
 
 		
-		   <li class="next"> <a href="/page/2/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a> </li>          
+		   <li class="next"> <a href="/page/2/" class="alignright next">下一頁<i class="fa fa-arrow-circle-o-right"></i></a> </li>          
         
 	
 </ul>
@@ -2256,7 +2315,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 		
 			<div class="form-group has-success has-feedback">
   <form action="//google.com/search" method="get" accept-charset="utf-8" >
-    <input type="search" name="q" results="0" placeholder="Search" class="form-control">
+    <input type="search" name="q" results="0" placeholder="搜尋" class="form-control">
     <input type="hidden" name="q" value="site:rickhw.github.io">	
   </form>
 </div>
@@ -2264,10 +2323,10 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 		
 			
 	<div class="widget">
-		<h4>Categories</h4>
+		<h4>分類</h4>
 		<ul class="tag_box inline list-unstyled">
 		
-			<li><a href="/categories/AWS/">AWS <span>53</span></a></li>
+			<li><a href="/categories/AWS/">AWS <span>54</span></a></li>
 		
 			<li><a href="/categories/AWS/AWS-Certified/">AWS Certified <span>4</span></a></li>
 		
@@ -2310,8 +2369,12 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 		
 			
 <div class="widget">
-  <h4>Recent Posts</h4>
+  <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2018/01/26/AWS/Study-Notes-Network-Load-Balancing/" ><i class="fa fa-file-o"></i>Study Notes - Network Load ...</a>
+      </li>
     
       <li>
         <a href="/2018/01/24/AWS/Study-Notes-Overview-API-Gateway/" ><i class="fa fa-file-o"></i>Study Notes - Overview API ...</a>
@@ -2369,10 +2432,6 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
         <a href="/2017/11/29/AWS/News_AWS-reInvent-2017/" ><i class="fa fa-file-o"></i>AWS reInvent 2017 News</a>
       </li>
     
-      <li>
-        <a href="/2017/11/27/DevOps/What-is-Ops/" ><i class="fa fa-file-o"></i>What is Ops？</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -2381,421 +2440,423 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
 		
 			
 	<div class="widget">
-		<h4>Tag Cloud</h4>
+		<h4>標籤雲</h4>
 		<ul class="tag_box inline list-unstyled">		
-		
-			<li><a href="/tags/S3/">S3<span>7</span></a></li>
-		
-			<li><a href="/tags/Hadoop/">Hadoop<span>3</span></a></li>
-		
-			<li><a href="/tags/API-Gateway/">API Gateway<span>2</span></a></li>
-		
-			<li><a href="/tags/DevOps/">DevOps<span>15</span></a></li>
-		
-			<li><a href="/tags/Architecting/">Architecting<span>3</span></a></li>
-		
-			<li><a href="/tags/NoSQL/">NoSQL<span>1</span></a></li>
-		
-			<li><a href="/tags/Dashboard/">Dashboard<span>1</span></a></li>
-		
-			<li><a href="/tags/CloudWatch-Alarms/">CloudWatch Alarms<span>1</span></a></li>
-		
-			<li><a href="/tags/SCM/">SCM<span>2</span></a></li>
-		
-			<li><a href="/tags/Architecture/">Architecture<span>1</span></a></li>
-		
-			<li><a href="/tags/Prometheus/">Prometheus<span>1</span></a></li>
-		
-			<li><a href="/tags/Telegraf/">Telegraf<span>1</span></a></li>
-		
-			<li><a href="/tags/HTTP/">HTTP<span>1</span></a></li>
-		
-			<li><a href="/tags/Route-Table/">Route Table<span>1</span></a></li>
-		
-			<li><a href="/tags/Aurora/">Aurora<span>1</span></a></li>
-		
-			<li><a href="/tags/Documentation/">Documentation<span>1</span></a></li>
-		
-			<li><a href="/tags/Microservice/">Microservice<span>1</span></a></li>
-		
-			<li><a href="/tags/創新/">創新<span>2</span></a></li>
-		
-			<li><a href="/tags/phpmyadmin/">phpmyadmin<span>1</span></a></li>
-		
-			<li><a href="/tags/Maintainable/">Maintainable<span>1</span></a></li>
-		
-			<li><a href="/tags/SDLC/">SDLC<span>3</span></a></li>
-		
-			<li><a href="/tags/ELB/">ELB<span>11</span></a></li>
-		
-			<li><a href="/tags/API-Management/">API Management<span>1</span></a></li>
-		
-			<li><a href="/tags/RPi/">RPi<span>1</span></a></li>
-		
-			<li><a href="/tags/SRE/">SRE<span>10</span></a></li>
-		
-			<li><a href="/tags/github/">github<span>1</span></a></li>
-		
-			<li><a href="/tags/Process/">Process<span>3</span></a></li>
-		
-			<li><a href="/tags/專案管理/">專案管理<span>8</span></a></li>
-		
-			<li><a href="/tags/DCOS/">DCOS<span>1</span></a></li>
-		
-			<li><a href="/tags/Public-Subnet/">Public Subnet<span>2</span></a></li>
-		
-			<li><a href="/tags/Software-Test/">Software Test<span>5</span></a></li>
-		
-			<li><a href="/tags/expect/">expect<span>1</span></a></li>
-		
-			<li><a href="/tags/Minikube/">Minikube<span>1</span></a></li>
-		
-			<li><a href="/tags/RESTful/">RESTful<span>1</span></a></li>
-		
-			<li><a href="/tags/Version-Control/">Version Control<span>2</span></a></li>
-		
-			<li><a href="/tags/Grafana/">Grafana<span>1</span></a></li>
-		
-			<li><a href="/tags/VM/">VM<span>1</span></a></li>
-		
-			<li><a href="/tags/Parser/">Parser<span>1</span></a></li>
-		
-			<li><a href="/tags/Kanban/">Kanban<span>1</span></a></li>
-		
-			<li><a href="/tags/Subnet/">Subnet<span>1</span></a></li>
-		
-			<li><a href="/tags/System-Design/">System Design<span>1</span></a></li>
-		
-			<li><a href="/tags/Docker/">Docker<span>9</span></a></li>
-		
-			<li><a href="/tags/NAT-Gateway/">NAT Gateway<span>4</span></a></li>
-		
-			<li><a href="/tags/EC2/">EC2<span>12</span></a></li>
-		
-			<li><a href="/tags/EBS/">EBS<span>5</span></a></li>
-		
-			<li><a href="/tags/Launch-Configurations/">Launch Configurations<span>2</span></a></li>
-		
-			<li><a href="/tags/VPC-Peering/">VPC Peering<span>3</span></a></li>
-		
-			<li><a href="/tags/Microservices/">Microservices<span>2</span></a></li>
-		
-			<li><a href="/tags/Slack/">Slack<span>2</span></a></li>
-		
-			<li><a href="/tags/Functional-Test/">Functional Test<span>1</span></a></li>
-		
-			<li><a href="/tags/CloudWatch/">CloudWatch<span>15</span></a></li>
-		
-			<li><a href="/tags/CloudWatch-Events/">CloudWatch Events<span>1</span></a></li>
-		
-			<li><a href="/tags/Redmine-Plugins/">Redmine Plugins<span>1</span></a></li>
 		
 			<li><a href="/tags/Integration-Test/">Integration Test<span>1</span></a></li>
 		
-			<li><a href="/tags/CloudWatch-Log/">CloudWatch Log<span>1</span></a></li>
-		
-			<li><a href="/tags/CloudFront/">CloudFront<span>1</span></a></li>
-		
-			<li><a href="/tags/Deep-Dive/">Deep Dive<span>3</span></a></li>
-		
-			<li><a href="/tags/Project-Management/">Project Management<span>3</span></a></li>
-		
-			<li><a href="/tags/iTerms/">iTerms<span>1</span></a></li>
-		
-			<li><a href="/tags/CloudWatch-Logs/">CloudWatch Logs<span>3</span></a></li>
-		
-			<li><a href="/tags/Observability/">Observability<span>2</span></a></li>
-		
-			<li><a href="/tags/Elastic-Beanstalk/">Elastic Beanstalk<span>3</span></a></li>
-		
-			<li><a href="/tags/Vim/">Vim<span>3</span></a></li>
-		
-			<li><a href="/tags/re-Invent/">re:Invent<span>1</span></a></li>
-		
-			<li><a href="/tags/Transit-VPC/">Transit VPC<span>1</span></a></li>
-		
-			<li><a href="/tags/Engineer/">Engineer<span>2</span></a></li>
-		
-			<li><a href="/tags/IPv6/">IPv6<span>2</span></a></li>
-		
-			<li><a href="/tags/溝通/">溝通<span>1</span></a></li>
-		
-			<li><a href="/tags/Security-Groups/">Security Groups<span>5</span></a></li>
-		
-			<li><a href="/tags/Load-Balancing/">Load Balancing<span>1</span></a></li>
-		
-			<li><a href="/tags/JIRA/">JIRA<span>1</span></a></li>
-		
-			<li><a href="/tags/Test-Strategy/">Test Strategy<span>1</span></a></li>
-		
-			<li><a href="/tags/CloudFormation/">CloudFormation<span>9</span></a></li>
-		
-			<li><a href="/tags/Wordpress/">Wordpress<span>1</span></a></li>
-		
-			<li><a href="/tags/User-Acceptance-Test/">User Acceptance Test<span>1</span></a></li>
-		
-			<li><a href="/tags/IAM-Role/">IAM Role<span>1</span></a></li>
-		
-			<li><a href="/tags/encoding/">encoding<span>1</span></a></li>
-		
-			<li><a href="/tags/cURL/">cURL<span>1</span></a></li>
-		
-			<li><a href="/tags/BGP/">BGP<span>1</span></a></li>
-		
-			<li><a href="/tags/Cloud-Storage/">Cloud Storage<span>2</span></a></li>
-		
-			<li><a href="/tags/AWS-Certified/">AWS Certified<span>2</span></a></li>
-		
-			<li><a href="/tags/Network-Traffic/">Network Traffic<span>1</span></a></li>
-		
-			<li><a href="/tags/Network-ACLs/">Network ACLs<span>2</span></a></li>
-		
-			<li><a href="/tags/Security-Group/">Security Group<span>1</span></a></li>
-		
-			<li><a href="/tags/Lambda/">Lambda<span>4</span></a></li>
-		
-			<li><a href="/tags/AWS-SDK/">AWS SDK<span>2</span></a></li>
-		
-			<li><a href="/tags/STS/">STS<span>1</span></a></li>
-		
-			<li><a href="/tags/Security/">Security<span>1</span></a></li>
-		
-			<li><a href="/tags/SSH/">SSH<span>2</span></a></li>
-		
-			<li><a href="/tags/CloudWatch-Metrics/">CloudWatch Metrics<span>2</span></a></li>
-		
-			<li><a href="/tags/SSM/">SSM<span>2</span></a></li>
-		
-			<li><a href="/tags/GCP/">GCP<span>1</span></a></li>
-		
-			<li><a href="/tags/Ops/">Ops<span>9</span></a></li>
-		
-			<li><a href="/tags/Serverless/">Serverless<span>2</span></a></li>
-		
-			<li><a href="/tags/Scrum/">Scrum<span>1</span></a></li>
-		
-			<li><a href="/tags/Synergy/">Synergy<span>1</span></a></li>
-		
-			<li><a href="/tags/Elasticsarch/">Elasticsarch<span>1</span></a></li>
-		
-			<li><a href="/tags/Management/">Management<span>1</span></a></li>
-		
-			<li><a href="/tags/crontab/">crontab<span>1</span></a></li>
-		
-			<li><a href="/tags/WhitePaper/">WhitePaper<span>2</span></a></li>
-		
-			<li><a href="/tags/LLVM/">LLVM<span>1</span></a></li>
-		
-			<li><a href="/tags/IAM/">IAM<span>4</span></a></li>
-		
-			<li><a href="/tags/OpenStack/">OpenStack<span>1</span></a></li>
-		
-			<li><a href="/tags/Telegram/">Telegram<span>1</span></a></li>
-		
-			<li><a href="/tags/CloudTrail/">CloudTrail<span>3</span></a></li>
-		
-			<li><a href="/tags/MySQL/">MySQL<span>2</span></a></li>
-		
-			<li><a href="/tags/RSS-Reader/">RSS Reader<span>1</span></a></li>
-		
-			<li><a href="/tags/AI/">AI<span>1</span></a></li>
-		
-			<li><a href="/tags/時間管理/">時間管理<span>1</span></a></li>
-		
-			<li><a href="/tags/Console/">Console<span>1</span></a></li>
-		
-			<li><a href="/tags/Macie/">Macie<span>1</span></a></li>
-		
-			<li><a href="/tags/i18n/">i18n<span>1</span></a></li>
-		
-			<li><a href="/tags/bash/">bash<span>1</span></a></li>
-		
-			<li><a href="/tags/Windows-Server/">Windows Server<span>1</span></a></li>
-		
-			<li><a href="/tags/VPC/">VPC<span>15</span></a></li>
-		
-			<li><a href="/tags/Developer/">Developer<span>2</span></a></li>
-		
-			<li><a href="/tags/Cloud-Load-Balancing/">Cloud Load Balancing<span>3</span></a></li>
-		
-			<li><a href="/tags/EC2-Run-Command/">EC2 Run Command<span>1</span></a></li>
-		
-			<li><a href="/tags/IaaS/">IaaS<span>1</span></a></li>
-		
-			<li><a href="/tags/PCI-DSS/">PCI DSS<span>1</span></a></li>
-		
-			<li><a href="/tags/JEMSPath/">JEMSPath<span>1</span></a></li>
-		
-			<li><a href="/tags/Hybrid-Cloud/">Hybrid Cloud<span>1</span></a></li>
-		
-			<li><a href="/tags/ENI/">ENI<span>2</span></a></li>
-		
-			<li><a href="/tags/Private-Subnet/">Private Subnet<span>1</span></a></li>
-		
-			<li><a href="/tags/Unit-Test/">Unit Test<span>1</span></a></li>
-		
-			<li><a href="/tags/OS-X/">OS X<span>1</span></a></li>
-		
-			<li><a href="/tags/VirtulBox/">VirtulBox<span>2</span></a></li>
-		
-			<li><a href="/tags/Networking/">Networking<span>3</span></a></li>
-		
-			<li><a href="/tags/ResourceTag/">ResourceTag<span>1</span></a></li>
-		
-			<li><a href="/tags/JSON/">JSON<span>2</span></a></li>
-		
-			<li><a href="/tags/Fluentd/">Fluentd<span>1</span></a></li>
-		
-			<li><a href="/tags/Linux/">Linux<span>5</span></a></li>
-		
-			<li><a href="/tags/Agile/">Agile<span>1</span></a></li>
-		
-			<li><a href="/tags/InfluxDB/">InfluxDB<span>1</span></a></li>
-		
-			<li><a href="/tags/ALB/">ALB<span>2</span></a></li>
-		
-			<li><a href="/tags/hexo/">hexo<span>4</span></a></li>
-		
-			<li><a href="/tags/Performance-Test/">Performance Test<span>1</span></a></li>
-		
-			<li><a href="/tags/Log/">Log<span>1</span></a></li>
-		
-			<li><a href="/tags/Node-js/">Node.js<span>2</span></a></li>
+			<li><a href="/tags/HTTP/">HTTP<span>1</span></a></li>
 		
 			<li><a href="/tags/Arduino/">Arduino<span>1</span></a></li>
 		
-			<li><a href="/tags/Route53/">Route53<span>7</span></a></li>
-		
-			<li><a href="/tags/Scheduler/">Scheduler<span>1</span></a></li>
-		
-			<li><a href="/tags/VPC-Endpoint/">VPC Endpoint<span>3</span></a></li>
-		
-			<li><a href="/tags/IAM-Policy/">IAM Policy<span>2</span></a></li>
-		
-			<li><a href="/tags/用人之道/">用人之道<span>3</span></a></li>
-		
-			<li><a href="/tags/AMI/">AMI<span>3</span></a></li>
-		
-			<li><a href="/tags/VMWare/">VMWare<span>1</span></a></li>
-		
-			<li><a href="/tags/TDD/">TDD<span>1</span></a></li>
-		
 			<li><a href="/tags/PaaS/">PaaS<span>1</span></a></li>
-		
-			<li><a href="/tags/bootstrap/">bootstrap<span>2</span></a></li>
-		
-			<li><a href="/tags/SMTP/">SMTP<span>1</span></a></li>
-		
-			<li><a href="/tags/Monitoring/">Monitoring<span>2</span></a></li>
 		
 			<li><a href="/tags/Continuous-Deployment/">Continuous Deployment<span>1</span></a></li>
 		
+			<li><a href="/tags/Agile/">Agile<span>1</span></a></li>
+		
+			<li><a href="/tags/Hadoop/">Hadoop<span>3</span></a></li>
+		
+			<li><a href="/tags/Kanban/">Kanban<span>1</span></a></li>
+		
+			<li><a href="/tags/Linux/">Linux<span>5</span></a></li>
+		
+			<li><a href="/tags/WhitePaper/">WhitePaper<span>2</span></a></li>
+		
+			<li><a href="/tags/AWS-Certified/">AWS Certified<span>2</span></a></li>
+		
 			<li><a href="/tags/DynamoDB/">DynamoDB<span>3</span></a></li>
 		
-			<li><a href="/tags/AWS-CLI/">AWS CLI<span>7</span></a></li>
-		
-			<li><a href="/tags/Ops-as-Code/">Ops as Code<span>6</span></a></li>
-		
-			<li><a href="/tags/Direct-Connect/">Direct Connect<span>1</span></a></li>
-		
-			<li><a href="/tags/FlowLog/">FlowLog<span>1</span></a></li>
-		
-			<li><a href="/tags/GPU/">GPU<span>1</span></a></li>
-		
-			<li><a href="/tags/Firewall/">Firewall<span>1</span></a></li>
-		
-			<li><a href="/tags/DSL/">DSL<span>1</span></a></li>
-		
-			<li><a href="/tags/Infrastructure/">Infrastructure<span>1</span></a></li>
-		
-			<li><a href="/tags/AWS-VS-GCP/">AWS VS GCP<span>2</span></a></li>
-		
-			<li><a href="/tags/Continuous-Delivery/">Continuous Delivery<span>1</span></a></li>
-		
-			<li><a href="/tags/Git/">Git<span>4</span></a></li>
-		
-			<li><a href="/tags/Blue-Green-Deployment/">Blue-Green Deployment<span>1</span></a></li>
+			<li><a href="/tags/Functional-Test/">Functional Test<span>1</span></a></li>
 		
 			<li><a href="/tags/System-Test/">System Test<span>1</span></a></li>
 		
-			<li><a href="/tags/Container-Orchestration-Framework/">Container Orchestration Framework<span>1</span></a></li>
+			<li><a href="/tags/AWS-CLI/">AWS CLI<span>7</span></a></li>
 		
-			<li><a href="/tags/Ubuntu/">Ubuntu<span>3</span></a></li>
+			<li><a href="/tags/用人之道/">用人之道<span>3</span></a></li>
 		
-			<li><a href="/tags/Issue-Tracking/">Issue Tracking<span>1</span></a></li>
+			<li><a href="/tags/OpenStack/">OpenStack<span>1</span></a></li>
 		
-			<li><a href="/tags/Source-Control/">Source Control<span>4</span></a></li>
+			<li><a href="/tags/Subnet/">Subnet<span>1</span></a></li>
 		
-			<li><a href="/tags/Resource-Management/">Resource Management<span>1</span></a></li>
+			<li><a href="/tags/Cloud-Load-Balancing/">Cloud Load Balancing<span>3</span></a></li>
 		
-			<li><a href="/tags/Automation/">Automation<span>11</span></a></li>
+			<li><a href="/tags/ALB/">ALB<span>2</span></a></li>
 		
-			<li><a href="/tags/NAT/">NAT<span>1</span></a></li>
+			<li><a href="/tags/RPi/">RPi<span>1</span></a></li>
 		
-			<li><a href="/tags/Virtual-Network/">Virtual Network<span>1</span></a></li>
+			<li><a href="/tags/Deep-Dive/">Deep Dive<span>3</span></a></li>
 		
-			<li><a href="/tags/System-Operations/">System Operations<span>4</span></a></li>
+			<li><a href="/tags/IPv6/">IPv6<span>2</span></a></li>
+		
+			<li><a href="/tags/IAM/">IAM<span>4</span></a></li>
 		
 			<li><a href="/tags/AMI-Linux/">AMI Linux<span>1</span></a></li>
 		
-			<li><a href="/tags/Provisioning/">Provisioning<span>6</span></a></li>
+			<li><a href="/tags/Redmine-Plugins/">Redmine Plugins<span>1</span></a></li>
 		
-			<li><a href="/tags/Java/">Java<span>2</span></a></li>
+			<li><a href="/tags/API-Gateway/">API Gateway<span>2</span></a></li>
+		
+			<li><a href="/tags/Engineer/">Engineer<span>2</span></a></li>
+		
+			<li><a href="/tags/Issue-Tracking/">Issue Tracking<span>1</span></a></li>
 		
 			<li><a href="/tags/Compatible/">Compatible<span>1</span></a></li>
 		
-			<li><a href="/tags/SSL/">SSL<span>1</span></a></li>
+			<li><a href="/tags/encoding/">encoding<span>1</span></a></li>
 		
-			<li><a href="/tags/Operations/">Operations<span>1</span></a></li>
+			<li><a href="/tags/Elastic-Beanstalk/">Elastic Beanstalk<span>3</span></a></li>
 		
-			<li><a href="/tags/Kubernetes/">Kubernetes<span>1</span></a></li>
+			<li><a href="/tags/Scheduler/">Scheduler<span>1</span></a></li>
 		
-			<li><a href="/tags/Infra-as-Code/">Infra as Code<span>4</span></a></li>
+			<li><a href="/tags/ENI/">ENI<span>2</span></a></li>
 		
-			<li><a href="/tags/CodeDeploy/">CodeDeploy<span>2</span></a></li>
+			<li><a href="/tags/API-Management/">API Management<span>1</span></a></li>
 		
-			<li><a href="/tags/RDS/">RDS<span>2</span></a></li>
+			<li><a href="/tags/CloudWatch-Logs/">CloudWatch Logs<span>3</span></a></li>
 		
-			<li><a href="/tags/Best-Practices/">Best Practices<span>1</span></a></li>
+			<li><a href="/tags/Prometheus/">Prometheus<span>1</span></a></li>
 		
-			<li><a href="/tags/SQS/">SQS<span>1</span></a></li>
-		
-			<li><a href="/tags/Big-Data/">Big Data<span>1</span></a></li>
-		
-			<li><a href="/tags/SNS/">SNS<span>1</span></a></li>
-		
-			<li><a href="/tags/SES/">SES<span>3</span></a></li>
-		
-			<li><a href="/tags/Cluster-Manager/">Cluster Manager<span>1</span></a></li>
+			<li><a href="/tags/Parser/">Parser<span>1</span></a></li>
 		
 			<li><a href="/tags/IAM-Access-Key/">IAM Access Key<span>1</span></a></li>
 		
-			<li><a href="/tags/Regression-Test/">Regression Test<span>2</span></a></li>
+			<li><a href="/tags/AWS-VS-GCP/">AWS VS GCP<span>2</span></a></li>
 		
-			<li><a href="/tags/YAML/">YAML<span>2</span></a></li>
-		
-			<li><a href="/tags/DNS/">DNS<span>1</span></a></li>
-		
-			<li><a href="/tags/EFS/">EFS<span>1</span></a></li>
+			<li><a href="/tags/NoSQL/">NoSQL<span>1</span></a></li>
 		
 			<li><a href="/tags/Apache/">Apache<span>1</span></a></li>
 		
-			<li><a href="/tags/Auto-Scaling-Group/">Auto Scaling Group<span>9</span></a></li>
+			<li><a href="/tags/Dashboard/">Dashboard<span>1</span></a></li>
 		
-			<li><a href="/tags/markdown/">markdown<span>1</span></a></li>
+			<li><a href="/tags/Scrum/">Scrum<span>1</span></a></li>
 		
-			<li><a href="/tags/Distributed-System/">Distributed System<span>1</span></a></li>
+			<li><a href="/tags/CloudWatch-Events/">CloudWatch Events<span>1</span></a></li>
+		
+			<li><a href="/tags/EC2/">EC2<span>12</span></a></li>
+		
+			<li><a href="/tags/Aurora/">Aurora<span>1</span></a></li>
+		
+			<li><a href="/tags/SQS/">SQS<span>1</span></a></li>
+		
+			<li><a href="/tags/JEMSPath/">JEMSPath<span>1</span></a></li>
+		
+			<li><a href="/tags/Macie/">Macie<span>1</span></a></li>
+		
+			<li><a href="/tags/Cloud-Storage/">Cloud Storage<span>2</span></a></li>
 		
 			<li><a href="/tags/Task-Queue/">Task Queue<span>1</span></a></li>
 		
+			<li><a href="/tags/i18n/">i18n<span>1</span></a></li>
+		
+			<li><a href="/tags/Network-Traffic/">Network Traffic<span>1</span></a></li>
+		
+			<li><a href="/tags/VPC-Peering/">VPC Peering<span>3</span></a></li>
+		
+			<li><a href="/tags/System-Operations/">System Operations<span>4</span></a></li>
+		
+			<li><a href="/tags/FlowLog/">FlowLog<span>1</span></a></li>
+		
+			<li><a href="/tags/Container-Orchestration-Framework/">Container Orchestration Framework<span>1</span></a></li>
+		
+			<li><a href="/tags/EBS/">EBS<span>5</span></a></li>
+		
+			<li><a href="/tags/CloudWatch-Log/">CloudWatch Log<span>1</span></a></li>
+		
+			<li><a href="/tags/SSH/">SSH<span>2</span></a></li>
+		
+			<li><a href="/tags/Virtual-Network/">Virtual Network<span>1</span></a></li>
+		
+			<li><a href="/tags/Security-Groups/">Security Groups<span>5</span></a></li>
+		
+			<li><a href="/tags/Observability/">Observability<span>2</span></a></li>
+		
+			<li><a href="/tags/Elasticsarch/">Elasticsarch<span>1</span></a></li>
+		
+			<li><a href="/tags/Blue-Green-Deployment/">Blue-Green Deployment<span>1</span></a></li>
+		
+			<li><a href="/tags/User-Acceptance-Test/">User Acceptance Test<span>1</span></a></li>
+		
+			<li><a href="/tags/Serverless/">Serverless<span>2</span></a></li>
+		
+			<li><a href="/tags/GCP/">GCP<span>1</span></a></li>
+		
+			<li><a href="/tags/Security/">Security<span>1</span></a></li>
+		
+			<li><a href="/tags/NAT/">NAT<span>1</span></a></li>
+		
+			<li><a href="/tags/re-Invent/">re:Invent<span>1</span></a></li>
+		
+			<li><a href="/tags/Ubuntu/">Ubuntu<span>3</span></a></li>
+		
 			<li><a href="/tags/Redmine/">Redmine<span>10</span></a></li>
+		
+			<li><a href="/tags/Management/">Management<span>1</span></a></li>
+		
+			<li><a href="/tags/MySQL/">MySQL<span>2</span></a></li>
+		
+			<li><a href="/tags/Route-Table/">Route Table<span>1</span></a></li>
+		
+			<li><a href="/tags/Hybrid-Cloud/">Hybrid Cloud<span>1</span></a></li>
+		
+			<li><a href="/tags/Automation/">Automation<span>11</span></a></li>
+		
+			<li><a href="/tags/System-Design/">System Design<span>1</span></a></li>
+		
+			<li><a href="/tags/IaaS/">IaaS<span>1</span></a></li>
+		
+			<li><a href="/tags/Continuous-Delivery/">Continuous Delivery<span>1</span></a></li>
+		
+			<li><a href="/tags/SNS/">SNS<span>1</span></a></li>
+		
+			<li><a href="/tags/Load-Balancing/">Load Balancing<span>1</span></a></li>
+		
+			<li><a href="/tags/Public-Subnet/">Public Subnet<span>2</span></a></li>
+		
+			<li><a href="/tags/CloudWatch/">CloudWatch<span>16</span></a></li>
+		
+			<li><a href="/tags/InfluxDB/">InfluxDB<span>1</span></a></li>
+		
+			<li><a href="/tags/cURL/">cURL<span>1</span></a></li>
+		
+			<li><a href="/tags/Maintainable/">Maintainable<span>1</span></a></li>
+		
+			<li><a href="/tags/JSON/">JSON<span>2</span></a></li>
+		
+			<li><a href="/tags/Slack/">Slack<span>2</span></a></li>
+		
+			<li><a href="/tags/SRE/">SRE<span>10</span></a></li>
+		
+			<li><a href="/tags/Minikube/">Minikube<span>1</span></a></li>
+		
+			<li><a href="/tags/Launch-Configurations/">Launch Configurations<span>2</span></a></li>
+		
+			<li><a href="/tags/Telegram/">Telegram<span>1</span></a></li>
+		
+			<li><a href="/tags/iTerms/">iTerms<span>1</span></a></li>
+		
+			<li><a href="/tags/SDLC/">SDLC<span>3</span></a></li>
+		
+			<li><a href="/tags/CodeDeploy/">CodeDeploy<span>2</span></a></li>
+		
+			<li><a href="/tags/DNS/">DNS<span>1</span></a></li>
+		
+			<li><a href="/tags/CloudFront/">CloudFront<span>1</span></a></li>
+		
+			<li><a href="/tags/Node-js/">Node.js<span>2</span></a></li>
+		
+			<li><a href="/tags/Microservice/">Microservice<span>2</span></a></li>
+		
+			<li><a href="/tags/CloudWatch-Metrics/">CloudWatch Metrics<span>2</span></a></li>
+		
+			<li><a href="/tags/Network-ACLs/">Network ACLs<span>2</span></a></li>
+		
+			<li><a href="/tags/專案管理/">專案管理<span>8</span></a></li>
+		
+			<li><a href="/tags/Auto-Scaling-Group/">Auto Scaling Group<span>9</span></a></li>
+		
+			<li><a href="/tags/CloudFormation/">CloudFormation<span>9</span></a></li>
+		
+			<li><a href="/tags/Log/">Log<span>1</span></a></li>
+		
+			<li><a href="/tags/Firewall/">Firewall<span>1</span></a></li>
+		
+			<li><a href="/tags/PCI-DSS/">PCI DSS<span>1</span></a></li>
+		
+			<li><a href="/tags/TDD/">TDD<span>1</span></a></li>
+		
+			<li><a href="/tags/AMI/">AMI<span>3</span></a></li>
+		
+			<li><a href="/tags/Kubernetes/">Kubernetes<span>1</span></a></li>
+		
+			<li><a href="/tags/Ops-as-Code/">Ops as Code<span>6</span></a></li>
+		
+			<li><a href="/tags/phpmyadmin/">phpmyadmin<span>1</span></a></li>
+		
+			<li><a href="/tags/Architecture/">Architecture<span>1</span></a></li>
+		
+			<li><a href="/tags/Route53/">Route53<span>7</span></a></li>
+		
+			<li><a href="/tags/VPC-Endpoint/">VPC Endpoint<span>3</span></a></li>
+		
+			<li><a href="/tags/Documentation/">Documentation<span>1</span></a></li>
+		
+			<li><a href="/tags/Regression-Test/">Regression Test<span>2</span></a></li>
+		
+			<li><a href="/tags/BGP/">BGP<span>1</span></a></li>
+		
+			<li><a href="/tags/Unit-Test/">Unit Test<span>1</span></a></li>
+		
+			<li><a href="/tags/RDS/">RDS<span>2</span></a></li>
+		
+			<li><a href="/tags/Security-Group/">Security Group<span>1</span></a></li>
+		
+			<li><a href="/tags/SSL/">SSL<span>1</span></a></li>
+		
+			<li><a href="/tags/Fluentd/">Fluentd<span>1</span></a></li>
+		
+			<li><a href="/tags/IAM-Policy/">IAM Policy<span>2</span></a></li>
+		
+			<li><a href="/tags/SES/">SES<span>3</span></a></li>
+		
+			<li><a href="/tags/Git/">Git<span>4</span></a></li>
+		
+			<li><a href="/tags/Resource-Management/">Resource Management<span>1</span></a></li>
+		
+			<li><a href="/tags/VPC/">VPC<span>15</span></a></li>
+		
+			<li><a href="/tags/IAM-Role/">IAM Role<span>1</span></a></li>
+		
+			<li><a href="/tags/Provisioning/">Provisioning<span>6</span></a></li>
+		
+			<li><a href="/tags/github/">github<span>1</span></a></li>
+		
+			<li><a href="/tags/crontab/">crontab<span>1</span></a></li>
+		
+			<li><a href="/tags/Big-Data/">Big Data<span>1</span></a></li>
+		
+			<li><a href="/tags/Docker/">Docker<span>9</span></a></li>
+		
+			<li><a href="/tags/Infrastructure/">Infrastructure<span>1</span></a></li>
+		
+			<li><a href="/tags/ResourceTag/">ResourceTag<span>1</span></a></li>
+		
+			<li><a href="/tags/RESTful/">RESTful<span>1</span></a></li>
+		
+			<li><a href="/tags/S3/">S3<span>7</span></a></li>
+		
+			<li><a href="/tags/VMWare/">VMWare<span>1</span></a></li>
+		
+			<li><a href="/tags/VM/">VM<span>1</span></a></li>
+		
+			<li><a href="/tags/Cluster-Manager/">Cluster Manager<span>1</span></a></li>
+		
+			<li><a href="/tags/Operations/">Operations<span>1</span></a></li>
+		
+			<li><a href="/tags/Infra-as-Code/">Infra as Code<span>4</span></a></li>
+		
+			<li><a href="/tags/DevOps/">DevOps<span>15</span></a></li>
+		
+			<li><a href="/tags/EC2-Run-Command/">EC2 Run Command<span>1</span></a></li>
+		
+			<li><a href="/tags/時間管理/">時間管理<span>1</span></a></li>
+		
+			<li><a href="/tags/Version-Control/">Version Control<span>2</span></a></li>
+		
+			<li><a href="/tags/SCM/">SCM<span>2</span></a></li>
+		
+			<li><a href="/tags/Direct-Connect/">Direct Connect<span>1</span></a></li>
+		
+			<li><a href="/tags/GPU/">GPU<span>1</span></a></li>
+		
+			<li><a href="/tags/Vim/">Vim<span>3</span></a></li>
+		
+			<li><a href="/tags/Network-Load-Balancing/">Network Load Balancing<span>1</span></a></li>
+		
+			<li><a href="/tags/bash/">bash<span>1</span></a></li>
+		
+			<li><a href="/tags/Transit-VPC/">Transit VPC<span>1</span></a></li>
+		
+			<li><a href="/tags/SMTP/">SMTP<span>1</span></a></li>
+		
+			<li><a href="/tags/Telegraf/">Telegraf<span>1</span></a></li>
+		
+			<li><a href="/tags/AWS-SDK/">AWS SDK<span>2</span></a></li>
+		
+			<li><a href="/tags/Software-Test/">Software Test<span>5</span></a></li>
+		
+			<li><a href="/tags/Lambda/">Lambda<span>4</span></a></li>
+		
+			<li><a href="/tags/OS-X/">OS X<span>1</span></a></li>
+		
+			<li><a href="/tags/expect/">expect<span>1</span></a></li>
+		
+			<li><a href="/tags/Monitoring/">Monitoring<span>2</span></a></li>
+		
+			<li><a href="/tags/Best-Practices/">Best Practices<span>1</span></a></li>
+		
+			<li><a href="/tags/Project-Management/">Project Management<span>3</span></a></li>
+		
+			<li><a href="/tags/bootstrap/">bootstrap<span>2</span></a></li>
+		
+			<li><a href="/tags/溝通/">溝通<span>1</span></a></li>
+		
+			<li><a href="/tags/LLVM/">LLVM<span>1</span></a></li>
+		
+			<li><a href="/tags/Process/">Process<span>3</span></a></li>
+		
+			<li><a href="/tags/NAT-Gateway/">NAT Gateway<span>4</span></a></li>
+		
+			<li><a href="/tags/Synergy/">Synergy<span>1</span></a></li>
+		
+			<li><a href="/tags/VirtulBox/">VirtulBox<span>2</span></a></li>
+		
+			<li><a href="/tags/Source-Control/">Source Control<span>4</span></a></li>
+		
+			<li><a href="/tags/SSM/">SSM<span>2</span></a></li>
+		
+			<li><a href="/tags/Private-Subnet/">Private Subnet<span>1</span></a></li>
+		
+			<li><a href="/tags/Ops/">Ops<span>9</span></a></li>
+		
+			<li><a href="/tags/DSL/">DSL<span>1</span></a></li>
+		
+			<li><a href="/tags/Java/">Java<span>2</span></a></li>
+		
+			<li><a href="/tags/Distributed-System/">Distributed System<span>1</span></a></li>
+		
+			<li><a href="/tags/Test-Strategy/">Test Strategy<span>1</span></a></li>
+		
+			<li><a href="/tags/ELB/">ELB<span>12</span></a></li>
+		
+			<li><a href="/tags/Architecting/">Architecting<span>3</span></a></li>
+		
+			<li><a href="/tags/Windows-Server/">Windows Server<span>1</span></a></li>
+		
+			<li><a href="/tags/AI/">AI<span>1</span></a></li>
+		
+			<li><a href="/tags/Console/">Console<span>1</span></a></li>
+		
+			<li><a href="/tags/markdown/">markdown<span>1</span></a></li>
+		
+			<li><a href="/tags/YAML/">YAML<span>2</span></a></li>
+		
+			<li><a href="/tags/創新/">創新<span>2</span></a></li>
+		
+			<li><a href="/tags/Developer/">Developer<span>2</span></a></li>
+		
+			<li><a href="/tags/Performance-Test/">Performance Test<span>1</span></a></li>
+		
+			<li><a href="/tags/Microservices/">Microservices<span>2</span></a></li>
+		
+			<li><a href="/tags/hexo/">hexo<span>4</span></a></li>
+		
+			<li><a href="/tags/CloudWatch-Alarms/">CloudWatch Alarms<span>1</span></a></li>
+		
+			<li><a href="/tags/Networking/">Networking<span>3</span></a></li>
+		
+			<li><a href="/tags/JIRA/">JIRA<span>1</span></a></li>
+		
+			<li><a href="/tags/Grafana/">Grafana<span>1</span></a></li>
+		
+			<li><a href="/tags/DCOS/">DCOS<span>1</span></a></li>
+		
+			<li><a href="/tags/Wordpress/">Wordpress<span>1</span></a></li>
+		
+			<li><a href="/tags/STS/">STS<span>1</span></a></li>
+		
+			<li><a href="/tags/CloudTrail/">CloudTrail<span>3</span></a></li>
+		
+			<li><a href="/tags/RSS-Reader/">RSS Reader<span>1</span></a></li>
+		
+			<li><a href="/tags/EFS/">EFS<span>1</span></a></li>
 		
 		</ul>
 	</div>

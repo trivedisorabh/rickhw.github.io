@@ -105,7 +105,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 		            	<ul class='dropdown-menu' role='menu'>
 		            	
 						
-							<li><a href="/categories/AWS/">AWS <sup>53</sup></a></li>
+							<li><a href="/categories/AWS/">AWS <sup>54</sup></a></li>
 						
 							<li><a href="/categories/AWS/AWS-Certified/">AWS Certified <sup>4</sup></a></li>
 						
@@ -238,7 +238,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 </ul>
 </blockquote>
 <p><code>商務應用</code> 著重的是靈活度議題，如何透過 API Gateway 靈活調度背後的系統，滿足商業需求與改變。面對廣域網路，連帶的就要面對安全、效能、容錯、擴展、開發、維運 … 等議題了。</p>
-<p>API Gatewy 在 <code>架構可視性 (Visibility)</code> 是第一個要考慮的議題，他就像是網路的節點，就像規劃高速公路的交流道與查到一樣重要，如果規劃得不好，很容易就塞車，嚴重的話很容易形成肇事路口。</p>
+<p>API Gateway 在 <code>架構可視性 (Visibility)</code> 是第一個要考慮的議題，他就像是網路的節點，就像規劃高速公路的交流道與查到一樣重要，如果規劃得不好，很容易就塞車，嚴重的話很容易形成肇事路口。</p>
 <h2 id="Endpoint-Planning"><a href="#Endpoint-Planning" class="headerlink" title="Endpoint Planning"></a>Endpoint Planning</h2><p>規劃架構之前，要考慮實際的 <code>Endpoint</code> 應該怎麼配置與識別：</p>
 <ul>
 <li>DNS Planing</li>
@@ -370,6 +370,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <li>Infra / Network<ul>
 <li>整合 CloudFront (CDN)，但是無法設定 CloudFront 參數</li>
 <li>支援 Edge or Regional CDN</li>
+<li>可以透過 VPC Links 存取 VPC 內部服務，實作是透過 NLB -&gt; Target Group -&gt; EC2</li>
 </ul>
 </li>
 <li>Operation<ul>
@@ -416,8 +417,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 
 [41]: https://aws.amazon.com/blogs/compute/using-amazon-api-gateway-with-microservices-deployed-on-amazon-ecs/
 -->
-<h2 id="老問題：被綁死還是自幹？"><a href="#老問題：被綁死還是自幹？" class="headerlink" title="老問題：被綁死還是自幹？"></a>老問題：被綁死還是自幹？</h2><p>這個問題我在 Survey Monitoring System 的時候糾結了快兩年，最後在 <a href="/2017/03/02/AWS/Study-Notes-CloudWatch/">Study Notes - CloudWatch</a> 找到答案。</p>
-<p>而 Cloud Native 的時代來臨，與其擔心被綁死，倒不如好好的 <code>面對它、學習它、駕馭它、活用它</code>。</p>
+<h2 id="老問題：被綁死還是自幹？"><a href="#老問題：被綁死還是自幹？" class="headerlink" title="老問題：被綁死還是自幹？"></a>老問題：被綁死還是自幹？</h2><p>這個問題我在 Survey Monitoring System 的時候糾結了快兩年，最後在 <a href="/2017/03/02/AWS/Study-Notes-CloudWatch/">Study Notes - CloudWatch</a> 找到答案。而 Cloud Native 的時代來臨，與其擔心被綁死，倒不如好好的 <code>面對它、學習它、駕馭它、活用它</code>。</p>
 <blockquote>
 <p>這跟以前在買吉他效果器是一樣的問題，與其去質疑設備本身好不好，倒不如質疑自己能否 <code>面對它、學習它、駕馭它、活用它</code>。後來設備的採購我都是先 Ｋ 完手冊之後，把裡面不懂的東西都搞懂了之後，才真的去採購。底下是當時的心得：</p>
 <ul>
@@ -425,6 +425,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <li><a href="http://rickmidi.blogspot.com/2008/11/blog-post.html" target="_blank" rel="noopener">前級、後級、單體</a></li>
 <li><a href="http://rickmidi.blogspot.com/2006/11/new-gear-digitech-gnx4-guitar.html" target="_blank" rel="noopener">New Gear - DigiTech GNX4 Guitar Workstation</a></li>
 </ul>
+<p>當然，不練琴，手指頭、腦袋跟不上，再好的設備，都只是很貴的裝飾品。</p>
 </blockquote>
 <h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>接下來陸續整理 AWS API Gateway 實際上應用的筆記。</p>
 <h1 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h1><ul>
@@ -467,14 +468,14 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <div class="pagination">
 <ul class="pagination">
 	 
-		
-          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
-        
+				
+    	<li class="prev"><a href="/2018/01/26/AWS/Study-Notes-Network-Load-Balancing/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一頁</a></li>
+  		
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2018/01/22/Misc/Slack-as-RSS-Reader/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+		   <li class="next"><a href="/2018/01/22/Misc/Slack-as-RSS-Reader/" class="alignright next">下一頁<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
@@ -487,7 +488,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 	<!-- comment -->
 	
 <section id="comment">
-  <h2 class="title">Comments</h2>
+  <h2 class="title">留言</h2>
 
 	<!-- @rick add for facebook -->
 	<div class='fb-comments' data-num-posts='10' data-width='100%' expr:href='data:post.url'/>
@@ -537,7 +538,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
     <!--<ul id="categorys" class="tag_box list-unstyled collapse in">-->
       <div>
   <!--<li>-->
-    <span class="label label-info"><a href="/categories/AWS/" style="color: white">AWS <span class="badge">53</span></a></span>
+    <span class="label label-info"><a href="/categories/AWS/" style="color: white">AWS <span class="badge">54</span></a></span>
   <!--</li>-->
 </div>
     <!--</ul>-->
@@ -553,7 +554,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
     <!--<ul id="tags" class="tag_box list-unstyled collapse in">-->
     <div>
 	  	
-  <span class="label label-success"><a href="/tags/API-Gateway/" style="color: white">API Gateway <span class="badge">2</span></a></span> <span class="label label-success"><a href="/tags/CloudWatch/" style="color: white">CloudWatch <span class="badge">15</span></a></span> <span class="label label-success"><a href="/tags/Serverless/" style="color: white">Serverless <span class="badge">2</span></a></span> <span class="label label-success"><a href="/tags/Lambda/" style="color: white">Lambda <span class="badge">4</span></a></span> <span class="label label-success"><a href="/tags/CloudWatch-Logs/" style="color: white">CloudWatch Logs <span class="badge">3</span></a></span> <span class="label label-success"><a href="/tags/Distributed-System/" style="color: white">Distributed System <span class="badge">1</span></a></span> <span class="label label-success"><a href="/tags/Microservice/" style="color: white">Microservice <span class="badge">1</span></a></span> <span class="label label-success"><a href="/tags/CloudFront/" style="color: white">CloudFront <span class="badge">1</span></a></span>
+  <span class="label label-success"><a href="/tags/API-Gateway/" style="color: white">API Gateway <span class="badge">2</span></a></span> <span class="label label-success"><a href="/tags/CloudWatch/" style="color: white">CloudWatch <span class="badge">16</span></a></span> <span class="label label-success"><a href="/tags/Serverless/" style="color: white">Serverless <span class="badge">2</span></a></span> <span class="label label-success"><a href="/tags/Lambda/" style="color: white">Lambda <span class="badge">4</span></a></span> <span class="label label-success"><a href="/tags/CloudWatch-Logs/" style="color: white">CloudWatch Logs <span class="badge">3</span></a></span> <span class="label label-success"><a href="/tags/Microservice/" style="color: white">Microservice <span class="badge">2</span></a></span> <span class="label label-success"><a href="/tags/Distributed-System/" style="color: white">Distributed System <span class="badge">1</span></a></span> <span class="label label-success"><a href="/tags/CloudFront/" style="color: white">CloudFront <span class="badge">1</span></a></span>
 	  </div>
     <!--</ul>-->
 	</div>
