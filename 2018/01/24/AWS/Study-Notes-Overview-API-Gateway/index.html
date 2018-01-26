@@ -105,7 +105,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 		            	<ul class='dropdown-menu' role='menu'>
 		            	
 						
-							<li><a href="/categories/AWS/">AWS <sup>54</sup></a></li>
+							<li><a href="/categories/AWS/">AWS <sup>53</sup></a></li>
 						
 							<li><a href="/categories/AWS/AWS-Certified/">AWS Certified <sup>4</sup></a></li>
 						
@@ -387,6 +387,35 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 </ul>
 </li>
 </ul>
+<h2 id="一些想到的問題與找到的資源"><a href="#一些想到的問題與找到的資源" class="headerlink" title="一些想到的問題與找到的資源"></a>一些想到的問題與找到的資源</h2><p>整理一些我想到、遇到的問題，有一些可以在 <a href="https://aws.amazon.com/api-gateway/faqs/?nc1=h_ls" target="_blank" rel="noopener">API Gateway FAQ</a> 找到。</p>
+<p>Q1: 內部服務對串，可以用 API Gateway？</p>
+<blockquote>
+<p>可以，但不適合。因為 AWS API Gateway 還不支援 VPC 內部，流量會走出 WAN。所以想要 Decoupling Service 只能先透過 ELB 了。</p>
+</blockquote>
+<p>Q2: API Gateway 支援防火牆？</p>
+<blockquote>
+<p>網路層目前沒有，只能夠過應用層管控，像是 <code>API Key</code>、<code>Authorizer</code>、<code>IAM Policy</code></p>
+</blockquote>
+<p>Q3: Usage Plan 上限只有 300 不夠怎麼辦？</p>
+<blockquote>
+<p>這是 Soft limit，發 ticket 調整。</p>
+</blockquote>
+<p>Q4: 可以整合 WAF？</p>
+<blockquote>
+<p>目前無法，變通方式是在 API Gateway 前面再放一個 CloudFront, see: <a href="https://www.codeengine.com/articles/process-form-aws-api-gateway-lambda/" target="_blank" rel="noopener">placing Cloudfront in front of API Gateway</a></p>
+</blockquote>
+<p>Q5: 部署如果發現有問題，可以 Rollback?</p>
+<blockquote>
+<p>可以。</p>
+</blockquote>
+<p>Q6: 如果請求數目超過 Rate Limit 會怎樣？</p>
+<blockquote>
+<p>會收到 HTTP 429 的回應。</p>
+</blockquote>
+<p>Q7: 為什麼要有 Throttling, Rate Limit？</p>
+<blockquote>
+<p>確保後端服務一定的服務品質與可靠性。參考 <a href="https://www.slideshare.net/rickhwang/sre-ch27-reliable-product-launches-at-scale" target="_blank" rel="noopener">SRE CH27 - Reliable Product Launches at Scale</a></p>
+</blockquote>
 <h2 id="相關-AWS-Services"><a href="#相關-AWS-Services" class="headerlink" title="相關 AWS Services"></a>相關 AWS Services</h2><ul>
 <li><a href="/tags/IAM/">IAM</a></li>
 <li>Cognito</li>
@@ -468,14 +497,14 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <div class="pagination">
 <ul class="pagination">
 	 
-				
-    	<li class="prev"><a href="/2018/01/26/AWS/Study-Notes-Network-Load-Balancing/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一頁</a></li>
-  		
+		
+          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+        
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2018/01/22/Misc/Slack-as-RSS-Reader/" class="alignright next">下一頁<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+		   <li class="next"><a href="/2018/01/22/Misc/Slack-as-RSS-Reader/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
@@ -488,7 +517,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 	<!-- comment -->
 	
 <section id="comment">
-  <h2 class="title">留言</h2>
+  <h2 class="title">Comments</h2>
 
 	<!-- @rick add for facebook -->
 	<div class='fb-comments' data-num-posts='10' data-width='100%' expr:href='data:post.url'/>
@@ -524,7 +553,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 	
 	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i> Table of Content</a>
 	   <div id="toc" class="toc collapse in">
-				<ol class="toc-article"><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#應用場景"><span class="toc-article-text">應用場景</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#架構的可視性"><span class="toc-article-text">架構的可視性</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#Endpoint-Planning"><span class="toc-article-text">Endpoint Planning</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#Key-Features"><span class="toc-article-text">Key Features</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#相關-Solutions"><span class="toc-article-text">相關 Solutions</span></a></li></ol></li><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#Amazon-API-Gateway"><span class="toc-article-text">Amazon API Gateway</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#功能"><span class="toc-article-text">功能</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#相關-AWS-Services"><span class="toc-article-text">相關 AWS Services</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#不足與潛在需求-許願池"><span class="toc-article-text">不足與潛在需求 (許願池)</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#老問題：被綁死還是自幹？"><span class="toc-article-text">老問題：被綁死還是自幹？</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#結論"><span class="toc-article-text">結論</span></a></li></ol></li><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#延伸閱讀"><span class="toc-article-text">延伸閱讀</span></a></li><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#參考資料"><span class="toc-article-text">參考資料</span></a></li></ol>
+				<ol class="toc-article"><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#應用場景"><span class="toc-article-text">應用場景</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#架構的可視性"><span class="toc-article-text">架構的可視性</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#Endpoint-Planning"><span class="toc-article-text">Endpoint Planning</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#Key-Features"><span class="toc-article-text">Key Features</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#相關-Solutions"><span class="toc-article-text">相關 Solutions</span></a></li></ol></li><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#Amazon-API-Gateway"><span class="toc-article-text">Amazon API Gateway</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#功能"><span class="toc-article-text">功能</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#一些想到的問題與找到的資源"><span class="toc-article-text">一些想到的問題與找到的資源</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#相關-AWS-Services"><span class="toc-article-text">相關 AWS Services</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#不足與潛在需求-許願池"><span class="toc-article-text">不足與潛在需求 (許願池)</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#老問題：被綁死還是自幹？"><span class="toc-article-text">老問題：被綁死還是自幹？</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#結論"><span class="toc-article-text">結論</span></a></li></ol></li><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#延伸閱讀"><span class="toc-article-text">延伸閱讀</span></a></li><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#參考資料"><span class="toc-article-text">參考資料</span></a></li></ol>
 		</div>
 	
 	</div>
@@ -538,7 +567,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
     <!--<ul id="categorys" class="tag_box list-unstyled collapse in">-->
       <div>
   <!--<li>-->
-    <span class="label label-info"><a href="/categories/AWS/" style="color: white">AWS <span class="badge">54</span></a></span>
+    <span class="label label-info"><a href="/categories/AWS/" style="color: white">AWS <span class="badge">53</span></a></span>
   <!--</li>-->
 </div>
     <!--</ul>-->
@@ -554,7 +583,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
     <!--<ul id="tags" class="tag_box list-unstyled collapse in">-->
     <div>
 	  	
-  <span class="label label-success"><a href="/tags/API-Gateway/" style="color: white">API Gateway <span class="badge">2</span></a></span> <span class="label label-success"><a href="/tags/CloudWatch/" style="color: white">CloudWatch <span class="badge">16</span></a></span> <span class="label label-success"><a href="/tags/Serverless/" style="color: white">Serverless <span class="badge">2</span></a></span> <span class="label label-success"><a href="/tags/Lambda/" style="color: white">Lambda <span class="badge">4</span></a></span> <span class="label label-success"><a href="/tags/CloudWatch-Logs/" style="color: white">CloudWatch Logs <span class="badge">3</span></a></span> <span class="label label-success"><a href="/tags/Microservice/" style="color: white">Microservice <span class="badge">2</span></a></span> <span class="label label-success"><a href="/tags/Distributed-System/" style="color: white">Distributed System <span class="badge">1</span></a></span> <span class="label label-success"><a href="/tags/CloudFront/" style="color: white">CloudFront <span class="badge">1</span></a></span>
+  <span class="label label-success"><a href="/tags/API-Gateway/" style="color: white">API Gateway <span class="badge">2</span></a></span> <span class="label label-success"><a href="/tags/ELB/" style="color: white">ELB <span class="badge">12</span></a></span> <span class="label label-success"><a href="/tags/CloudWatch/" style="color: white">CloudWatch <span class="badge">15</span></a></span> <span class="label label-success"><a href="/tags/Serverless/" style="color: white">Serverless <span class="badge">2</span></a></span> <span class="label label-success"><a href="/tags/Lambda/" style="color: white">Lambda <span class="badge">4</span></a></span> <span class="label label-success"><a href="/tags/CloudWatch-Logs/" style="color: white">CloudWatch Logs <span class="badge">3</span></a></span> <span class="label label-success"><a href="/tags/Distributed-System/" style="color: white">Distributed System <span class="badge">1</span></a></span> <span class="label label-success"><a href="/tags/Microservice/" style="color: white">Microservice <span class="badge">1</span></a></span> <span class="label label-success"><a href="/tags/CloudFront/" style="color: white">CloudFront <span class="badge">1</span></a></span> <span class="label label-success"><a href="/tags/Network-Load-Balancing/" style="color: white">Network Load Balancing <span class="badge">1</span></a></span> <span class="label label-success"><a href="/tags/SRE/" style="color: white">SRE <span class="badge">11</span></a></span>
 	  </div>
     <!--</ul>-->
 	</div>

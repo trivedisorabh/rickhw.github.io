@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rickhw.github.io/"/>
-  <updated>2018-01-26T02:53:08.057Z</updated>
+  <updated>2018-01-26T04:53:48.527Z</updated>
   <id>http://rickhw.github.io/</id>
   
   <author>
@@ -17,41 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Study Notes - Network Load Balancing</title>
-    <link href="http://rickhw.github.io/2018/01/26/AWS/Study-Notes-Network-Load-Balancing/"/>
-    <id>http://rickhw.github.io/2018/01/26/AWS/Study-Notes-Network-Load-Balancing/</id>
-    <published>2018-01-26T06:35:00.000Z</published>
-    <updated>2018-01-26T02:53:08.057Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h1 id=&quot;應用場景&quot;&gt;&lt;a href=&quot;#應用場景&quot; class=&quot;headerlink&quot; title=&quot;應用場景&quot;&gt;&lt;/a&gt;應用場景&lt;/h1&gt;&lt;h1 id=&quot;ELB-Network-Load-Balancing&quot;&gt;&lt;a href=&quot;#E
-      
-    
-    </summary>
-    
-      <category term="AWS" scheme="http://rickhw.github.io/categories/AWS/"/>
-    
-    
-      <category term="ELB" scheme="http://rickhw.github.io/tags/ELB/"/>
-    
-      <category term="CloudWatch" scheme="http://rickhw.github.io/tags/CloudWatch/"/>
-    
-      <category term="Network Load Balancing" scheme="http://rickhw.github.io/tags/Network-Load-Balancing/"/>
-    
-      <category term="Microservice" scheme="http://rickhw.github.io/tags/Microservice/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Study Notes - Overview API Gateway</title>
     <link href="http://rickhw.github.io/2018/01/24/AWS/Study-Notes-Overview-API-Gateway/"/>
     <id>http://rickhw.github.io/2018/01/24/AWS/Study-Notes-Overview-API-Gateway/</id>
     <published>2018-01-24T06:35:00.000Z</published>
-    <updated>2018-01-26T03:44:23.719Z</updated>
+    <updated>2018-01-26T04:53:48.527Z</updated>
     
     <summary type="html">
     
@@ -65,6 +35,8 @@
     
       <category term="API Gateway" scheme="http://rickhw.github.io/tags/API-Gateway/"/>
     
+      <category term="ELB" scheme="http://rickhw.github.io/tags/ELB/"/>
+    
       <category term="CloudWatch" scheme="http://rickhw.github.io/tags/CloudWatch/"/>
     
       <category term="Serverless" scheme="http://rickhw.github.io/tags/Serverless/"/>
@@ -73,11 +45,15 @@
     
       <category term="CloudWatch Logs" scheme="http://rickhw.github.io/tags/CloudWatch-Logs/"/>
     
-      <category term="Microservice" scheme="http://rickhw.github.io/tags/Microservice/"/>
-    
       <category term="Distributed System" scheme="http://rickhw.github.io/tags/Distributed-System/"/>
     
+      <category term="Microservice" scheme="http://rickhw.github.io/tags/Microservice/"/>
+    
       <category term="CloudFront" scheme="http://rickhw.github.io/tags/CloudFront/"/>
+    
+      <category term="Network Load Balancing" scheme="http://rickhw.github.io/tags/Network-Load-Balancing/"/>
+    
+      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
     
   </entry>
   
@@ -169,9 +145,9 @@
     
       <category term="CloudWatch" scheme="http://rickhw.github.io/tags/CloudWatch/"/>
     
-      <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
-    
       <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
+    
+      <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
     
       <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
     
@@ -236,11 +212,11 @@
     
       <category term="CloudWatch" scheme="http://rickhw.github.io/tags/CloudWatch/"/>
     
+      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
+    
       <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
     
       <category term="Process" scheme="http://rickhw.github.io/tags/Process/"/>
-    
-      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
     
       <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
     
@@ -284,9 +260,9 @@
     
       <category term="S3" scheme="http://rickhw.github.io/tags/S3/"/>
     
-      <category term="AWS VS GCP" scheme="http://rickhw.github.io/tags/AWS-VS-GCP/"/>
-    
       <category term="Cloud Storage" scheme="http://rickhw.github.io/tags/Cloud-Storage/"/>
+    
+      <category term="AWS VS GCP" scheme="http://rickhw.github.io/tags/AWS-VS-GCP/"/>
     
   </entry>
   
@@ -396,11 +372,11 @@
     
       <category term="Auto Scaling Group" scheme="http://rickhw.github.io/tags/Auto-Scaling-Group/"/>
     
+      <category term="Cloud Load Balancing" scheme="http://rickhw.github.io/tags/Cloud-Load-Balancing/"/>
+    
       <category term="Load Balancing" scheme="http://rickhw.github.io/tags/Load-Balancing/"/>
     
       <category term="AWS VS GCP" scheme="http://rickhw.github.io/tags/AWS-VS-GCP/"/>
-    
-      <category term="Cloud Load Balancing" scheme="http://rickhw.github.io/tags/Cloud-Load-Balancing/"/>
     
   </entry>
   
@@ -530,11 +506,11 @@
       <category term="DevOps" scheme="http://rickhw.github.io/categories/DevOps/"/>
     
     
+      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
+    
       <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
     
       <category term="Process" scheme="http://rickhw.github.io/tags/Process/"/>
-    
-      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
     
       <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
     
@@ -555,6 +531,31 @@
     
       <category term="經營管理" scheme="http://rickhw.github.io/categories/%E7%B6%93%E7%87%9F%E7%AE%A1%E7%90%86/"/>
     
+    
+  </entry>
+  
+  <entry>
+    <title>Study Notes - SRE Opening and Chapter 1</title>
+    <link href="http://rickhw.github.io/2017/11/04/DevOps/Study-Notes-SRE-Opening-Ch1/"/>
+    <id>http://rickhw.github.io/2017/11/04/DevOps/Study-Notes-SRE-Opening-Ch1/</id>
+    <published>2017-11-04T14:20:00.000Z</published>
+    <updated>2017-12-13T04:27:38.007Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今年七月在公司內部發起的 &lt;a href=&quot;https://landing.google.com/sre/book.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SRE: Site Reliability Engineering&lt;/a&gt; 讀書會，同時在十一月也參與 &lt;a href=&quot;http://fb.sre.tw&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;社群&lt;/a&gt; 讀書會，整理當時的 Slide 分享。&lt;/p&gt;
+&lt;p&gt;這個 slide 整理為什麼我選讀 SRE 這本書的原因以及給同事的一些想法，還有第一章的內容。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="DevOps" scheme="http://rickhw.github.io/categories/DevOps/"/>
+    
+    
+      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
+    
+      <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
+    
+      <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
     
   </entry>
   
