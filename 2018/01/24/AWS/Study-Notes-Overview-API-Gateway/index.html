@@ -105,7 +105,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 		            	<ul class='dropdown-menu' role='menu'>
 		            	
 						
-							<li><a href="/categories/AWS/">AWS <sup>53</sup></a></li>
+							<li><a href="/categories/AWS/">AWS <sup>54</sup></a></li>
 						
 							<li><a href="/categories/AWS/AWS-Certified/">AWS Certified <sup>4</sup></a></li>
 						
@@ -121,7 +121,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 						
 							<li><a href="/categories/Embedded/">Embedded <sup>1</sup></a></li>
 						
-							<li><a href="/categories/GCP/">GCP <sup>6</sup></a></li>
+							<li><a href="/categories/GCP/">GCP <sup>7</sup></a></li>
 						
 							<li><a href="/categories/Linux/">Linux <sup>9</sup></a></li>
 						
@@ -134,6 +134,8 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 							<li><a href="/categories/Redmine/">Redmine <sup>4</sup></a></li>
 						
 							<li><a href="/categories/Software-Engineering/">Software Engineering <sup>4</sup></a></li>
+						
+							<li><a href="/categories/Terms/">Terms <sup>1</sup></a></li>
 						
 							<li><a href="/categories/Tools/">Tools <sup>1</sup></a></li>
 						
@@ -218,14 +220,14 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <ul>
 <li><code>商務應用</code>: 從架構來看通常是對外服務的接口，但還是有例外。<ul>
 <li>Public: 面對 Business User，通常是開放到廣域網路，像是 Mobile APP 的 API、Web API … 等</li>
-<li>Public and Protected: 面對 3rd party 的串接，像是 FB / Google SSO 的 callback、或者第三放應用程式串接的 callback.</li>
+<li>Public to Protected: 面對 3rd party 的串接，像是 FB / Google SSO 的 callback、或者第三放應用程式串接的 callback.</li>
 <li>Private: 這種通常是透過特殊的網路架構，像是 MPLS、Federation 等方式。</li>
 </ul>
 </li>
-<li><code>分散式系統</code> (像是 <code>Microservices</code>): 面對的是服務跟服務之間的溝通，架構上的可視性組合:<ul>
+<li><code>分散式系統</code> (像是 <code>Microservices</code>): 使用的情境是 服務跟服務 之間的溝通，架構上的可視性組合:<ul>
 <li>Private to Private: 都在內部，內部網路之間的服務相互溝通</li>
-<li>Private to Public: 內部跟外部對串, 內部跟外部對串, 像是跨雲, AWS to GCP …</li>
-<li>Public to Public: 都在外部, 直接走 Public Network</li>
+<li>Private to Public: 內部跟外部對串，內部跟外部對串，像是跨雲：AWS to GCP、On-Prem to AWS …</li>
+<li>Public to Public: 都在外部，直接走 Public Network</li>
 </ul>
 </li>
 </ul>
@@ -237,8 +239,11 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <li>Asynchronous: 常用的是透過 Queue，形成 <code>Pull Mode</code></li>
 </ul>
 </blockquote>
-<p><code>商務應用</code> 著重的是靈活度議題，如何透過 API Gateway 靈活調度背後的系統，滿足商業需求與改變。面對廣域網路，連帶的就要面對安全、效能、容錯、擴展、開發、維運 … 等議題了。</p>
+<p><code>商務應用</code> 著重的是靈活度議題，如何透過 API Gateway 靈活調度背後的系統，滿足 <code>商業需求</code> 的改變與 <code>系統架構</code> 的異動。不管是商業需求還是系統架構，放到 <code>現場</code> 就是要能面對廣域網路，連帶的就要面對安全、效能、容錯、擴展、開發、維運 … 等議題了。</p>
 <p>API Gateway 在 <code>架構可視性 (Visibility)</code> 是第一個要考慮的議題，他就像是網路的節點，就像規劃高速公路的交流道與查到一樣重要，如果規劃得不好，很容易就塞車，嚴重的話很容易形成肇事路口。</p>
+<blockquote>
+<p>想像一個很聰明的人，如果血管都阻塞了，他能夠做出什麼偉大的貢獻或者作品？</p>
+</blockquote>
 <h2 id="Endpoint-Planning"><a href="#Endpoint-Planning" class="headerlink" title="Endpoint Planning"></a>Endpoint Planning</h2><p>規劃架構之前，要考慮實際的 <code>Endpoint</code> 應該怎麼配置與識別：</p>
 <ul>
 <li>DNS Planing</li>
@@ -265,7 +270,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <p>另外也可以用 URL Path 規劃 <code>Visibility</code>, 大家有共識就可以。</p>
 <h2 id="Design-Pattern-Facade"><a href="#Design-Pattern-Facade" class="headerlink" title="Design Pattern - Facade"></a>Design Pattern - Facade</h2><p>API Gateway 相當於 Design Pattern 的 <a href="https://en.wikipedia.org/wiki/Facade_pattern" target="_blank" rel="noopener">Facade pattern</a>。</p>
 <p>想像把一些東西，經過重新包裝後，然後只提供需要的接口可以存取、使用。</p>
-<h2 id="Key-Features"><a href="#Key-Features" class="headerlink" title="Key Features"></a>Key Features</h2><p>整理 API Gateway 各個面向應該具備的特性，分成核心需求、架構性 (網路、資安、基礎)、</p>
+<h2 id="Key-Features"><a href="#Key-Features" class="headerlink" title="Key Features"></a>Key Features</h2><p>整理 API Gateway 各個面向應該具備的特性，分成 <code>核心需求</code>、<code>架構 (網路、資安、基礎)</code>、<code>開發測試</code>、<code>維運</code>：</p>
 <ul>
 <li>核心需求<ul>
 <li><code>Auth</code>: 認證 (Authentication) 與授權 (Authorization)<ul>
@@ -274,7 +279,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 </ul>
 </li>
 <li><code>URL Route</code>: 配置 URL Path 與 HTTP Method 的 Routing</li>
-<li><code>Traffic Control</code>: Rate Limit, Proxy, Response Limit, TTL,</li>
+<li><code>Traffic Control</code>: Rate Limit, Proxy, Response Limit, TTL</li>
 </ul>
 </li>
 <li>Architecture: Network / Infra / Security<ul>
@@ -310,7 +315,10 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <ol>
 <li><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html" target="_blank" rel="noopener">Amazon API Gateway</a></li>
 <li><a href="https://www.nginx.com/solutions/api-gateway/" target="_blank" rel="noopener">Nginx</a></li>
-<li><a href="https://getkong.org/" target="_blank" rel="noopener">Kong</a> - Openresty (nginx + lua) base</li>
+<li><a href="https://getkong.org/" target="_blank" rel="noopener">Kong</a> - Openresty (nginx + lua) base<ul>
+<li><a href="https://github.com/Kong/kong" target="_blank" rel="noopener">https://github.com/Kong/kong</a></li>
+</ul>
+</li>
 <li>Google: <a href="https://cloud.google.com/endpoints/" target="_blank" rel="noopener">CLOUD ENDPOINTS</a></li>
 <li><a href="https://tyk.io/features/" target="_blank" rel="noopener">Tyk</a> - Golang base</li>
 <li>Azure: <a href="https://azure.microsoft.com/zh-tw/services/api-management/" target="_blank" rel="noopener">API Management</a></li>
@@ -322,9 +330,6 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 * [Amazon API Gateway vs. Kong vs. Tyk Cloud](https://stackshare.io/stackups/amazon-api-gateway-vs-kong-vs-tyk-cloud)
 * [API Gateways: Kong vs. Tyk](http://www.4-traders.com/BANCO-BILBAO-VIZCAYA-ARGE-69719/news/API-Gateways-Kong-vs-Tyk-25590337/)
 * [Google Trend](https://trends.google.com.tw/trends/explore?date=today%205-y&q=AWS%20API%20Gateway,Cloud%20Endpoint)
-
-
-
 
 -->
 <h1 id="Amazon-API-Gateway"><a href="#Amazon-API-Gateway" class="headerlink" title="Amazon API Gateway"></a>Amazon API Gateway</h1><p><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html" target="_blank" rel="noopener">Amazon API Gateway</a> 是我主要的選擇，從前述 <code>應用場景</code> 提到的可視性與 Key Features 來看，可以滿足大部分。以下先整理結論：基本功能、不足的地方。</p>
@@ -395,7 +400,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <h2 id="一些想到的問題與找到的資源"><a href="#一些想到的問題與找到的資源" class="headerlink" title="一些想到的問題與找到的資源"></a>一些想到的問題與找到的資源</h2><p>整理一些我想到、遇到的問題，有一些可以在 <a href="https://aws.amazon.com/api-gateway/faqs/?nc1=h_ls" target="_blank" rel="noopener">API Gateway FAQ</a> 找到。</p>
 <p>Q1: 內部服務對串，可以用 API Gateway？</p>
 <blockquote>
-<p>可以，但不適合。因為 AWS API Gateway 還不支援 VPC 內部，流量會走出 WAN。所以想要 Decoupling Service 只能先透過 ELB 了。</p>
+<p>可以，但不適合。因為 AWS API Gateway 還不支援 VPC 內部，流量會走出 WAN。所以想要 Decoupling Service 只能先透過 ELB 了。內部服務對串跟 <code>Service Mesh</code> 有關係，可以參閱：<a href="https://buoyant.io/2017/04/25/whats-a-service-mesh-and-why-do-i-need-one/" target="_blank" rel="noopener">What’s a service mesh? And why do I need one?</a></p>
 </blockquote>
 <p>Q2: API Gateway 支援防火牆？</p>
 <blockquote>
@@ -461,7 +466,22 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 </ul>
 <p>當然，不練琴，手指頭、腦袋跟不上，再好的設備，都只是很貴的裝飾品。</p>
 </blockquote>
-<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>接下來陸續整理 AWS API Gateway 實際上應用的筆記。</p>
+<h2 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h2><p>接下來陸續整理 AWS API Gateway 實際上應用的筆記，以下是目前想到的課題：</p>
+<ol>
+<li><a href="/2018/02/04/AWS/Study-Notes-API-Gateway-Custom-Authorizer-using-Lambda/">Custom Authorizers using Lambda</a></li>
+<li>如何利用 CloudWatch Logs 做 API Gateway Request 的 Debug</li>
+<li>如何為 API Gateway 設定 DNS 與 SSL</li>
+<li>串接 VPC 內部服務 - VPC Link</li>
+<li>Wildcard Resource</li>
+<li>部署流程 - Canary</li>
+<li>開發流程</li>
+<li>監控</li>
+<li>如何管理 Usage Plan 與 API Key</li>
+<li>如何客製化錯誤訊息 (JSON Model)</li>
+<li>文件管理</li>
+<li>Request and Response Method</li>
+</ol>
+<p>東西有點多，有空就陸續整理。</p>
 <h1 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h1><ul>
 <li><a href="/2016/03/21/AWS/Whitepaper-Architecting-for-the-Cloud-AWS-Best-Practices/">Whitepaper - Architecting for the Cloud (AWS Best Practices)</a></li>
 <li><a href="/2017/07/07/AWS/Plan-And-Deisgn-Multiple-VPCs-in-Different-Regions/">Plan and Design Multiple VPCs in Different Regions</a></li>
@@ -473,12 +493,12 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <li><a href="http://dockone.io/article/482" target="_blank" rel="noopener">微服务实战（二）：使用API Gateway</a></li>
 <li><a href="https://www.nginx.com/blog/building-microservices-using-an-api-gateway/" target="_blank" rel="noopener">Building Microservices: Using an API Gateway</a> - Nginx</li>
 <li><a href="https://medium.com/@pablo.iorio/synchronous-and-asynchronous-aws-decoupling-solutions-1bbe74697db9" target="_blank" rel="noopener">Synchronous and Asynchronous AWS Decoupling Solutions</a></li>
+<li><a href="https://buoyant.io/2017/04/25/whats-a-service-mesh-and-why-do-i-need-one/" target="_blank" rel="noopener">What’s a service mesh? And why do I need one?</a></li>
 </ul>
 <!--
 * [Reactive Programming in the Netflix API with RxJava][22]
 * [架構師觀點 - 轉移到微服務架構的經驗分享 (Part 1)](http://columns.chicken-house.net/2017/04/15/microservice8-case-study/)
 * [Architecting for the Cloud: Best Practice](https://d1.awsstatic.com/whitepapers/AWS_Cloud_Best_Practices.pdf)
-* [AWS Well-Architected Framework](https://d0.awsstatic.com/whitepapers/architecture/AWS_Well-Architected_Framework.pdf)
 * [Building Microservices](http://shop.oreilly.com/product/0636920033158.do)
 
 -->
@@ -502,9 +522,9 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <div class="pagination">
 <ul class="pagination">
 	 
-		
-          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一頁</a></li>
-        
+				
+    	<li class="prev"><a href="/2018/02/03/GCP/Compare-GCP-VPC-Network-with-AWS/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一頁</a></li>
+  		
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
@@ -572,7 +592,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
     <!--<ul id="categorys" class="tag_box list-unstyled collapse in">-->
       <div>
   <!--<li>-->
-    <span class="label label-info"><a href="/categories/AWS/" style="color: white">AWS <span class="badge">53</span></a></span>
+    <span class="label label-info"><a href="/categories/AWS/" style="color: white">AWS <span class="badge">54</span></a></span>
   <!--</li>-->
 </div>
     <!--</ul>-->
@@ -588,7 +608,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
     <!--<ul id="tags" class="tag_box list-unstyled collapse in">-->
     <div>
 	  	
-  <span class="label label-success"><a href="/tags/API-Gateway/" style="color: white">API Gateway <span class="badge">2</span></a></span> <span class="label label-success"><a href="/tags/ELB/" style="color: white">ELB <span class="badge">12</span></a></span> <span class="label label-success"><a href="/tags/CloudWatch/" style="color: white">CloudWatch <span class="badge">15</span></a></span> <span class="label label-success"><a href="/tags/SRE/" style="color: white">SRE <span class="badge">11</span></a></span> <span class="label label-success"><a href="/tags/Serverless/" style="color: white">Serverless <span class="badge">2</span></a></span> <span class="label label-success"><a href="/tags/Lambda/" style="color: white">Lambda <span class="badge">4</span></a></span> <span class="label label-success"><a href="/tags/CloudWatch-Logs/" style="color: white">CloudWatch Logs <span class="badge">3</span></a></span> <span class="label label-success"><a href="/tags/Distributed-System/" style="color: white">Distributed System <span class="badge">1</span></a></span> <span class="label label-success"><a href="/tags/Microservice/" style="color: white">Microservice <span class="badge">1</span></a></span> <span class="label label-success"><a href="/tags/CloudFront/" style="color: white">CloudFront <span class="badge">1</span></a></span> <span class="label label-success"><a href="/tags/Network-Load-Balancing/" style="color: white">Network Load Balancing <span class="badge">1</span></a></span>
+  <span class="label label-success"><a href="/tags/API-Gateway/" style="color: white">API Gateway <span class="badge">4</span></a></span> <span class="label label-success"><a href="/tags/VPC/" style="color: white">VPC <span class="badge">17</span></a></span> <span class="label label-success"><a href="/tags/ELB/" style="color: white">ELB <span class="badge">12</span></a></span> <span class="label label-success"><a href="/tags/CloudWatch/" style="color: white">CloudWatch <span class="badge">15</span></a></span> <span class="label label-success"><a href="/tags/Serverless/" style="color: white">Serverless <span class="badge">3</span></a></span> <span class="label label-success"><a href="/tags/Lambda/" style="color: white">Lambda <span class="badge">5</span></a></span> <span class="label label-success"><a href="/tags/CloudWatch-Logs/" style="color: white">CloudWatch Logs <span class="badge">3</span></a></span> <span class="label label-success"><a href="/tags/Distributed-System/" style="color: white">Distributed System <span class="badge">1</span></a></span> <span class="label label-success"><a href="/tags/Microservice/" style="color: white">Microservice <span class="badge">2</span></a></span> <span class="label label-success"><a href="/tags/CloudFront/" style="color: white">CloudFront <span class="badge">1</span></a></span> <span class="label label-success"><a href="/tags/Network-Load-Balancing/" style="color: white">Network Load Balancing <span class="badge">1</span></a></span> <span class="label label-success"><a href="/tags/SRE/" style="color: white">SRE <span class="badge">11</span></a></span> <span class="label label-success"><a href="/tags/Nginx/" style="color: white">Nginx <span class="badge">1</span></a></span> <span class="label label-success"><a href="/tags/Openresty/" style="color: white">Openresty <span class="badge">1</span></a></span> <span class="label label-success"><a href="/tags/Cloud-Endpoint/" style="color: white">Cloud Endpoint <span class="badge">1</span></a></span> <span class="label label-success"><a href="/tags/Service-Mesh/" style="color: white">Service Mesh <span class="badge">2</span></a></span>
 	  </div>
     <!--</ul>-->
 	</div>
@@ -598,15 +618,16 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   <hr />
 
 	<div class="meta-widget">
-		<h4>About Me</h4>
-		Software Developer, SQA Manager, System Operation Manager, Guitarist
+			<h4>About Me</h4>
+			<li>Software Developer</li>
+			<li><a href="/categories/軟體測試/">SQA Manager</a></li>
+			<li>System Operation Manager</li>
+			<li><a href="http://rickmidi.blogspot.com/">Musician and Guitarist</a></li>
 
-
-		<h4>AWS Certifications</h4>
-		<a href="/2016/04/22/AWS/AWS-Certified-Solutions-Architect_Associate/"><img src="/images/About/Solutions_Architect-Associate.jpg"></a>
-		<a href="/2016/07/29/AWS/AWS-Certified-SysOps-Administrator/"><img src="/images/About/SysOps-Administrator-Associate.png"></a>
-		<a href="/2016/08/20/AWS/AWS-Certified-Developer/"><img src="/images/About/Developer-Associate.png"></a>
-
+			<h4>AWS Certifications</h4>
+			<a href="/2016/04/22/AWS/AWS-Certified-Solutions-Architect_Associate/"><img src="/images/About/Solutions_Architect-Associate.jpg"></a>
+			<a href="/2016/07/29/AWS/AWS-Certified-SysOps-Administrator/"><img src="/images/About/SysOps-Administrator-Associate.png"></a>
+			<a href="/2016/08/20/AWS/AWS-Certified-Developer/"><img src="/images/About/Developer-Associate.png"></a>
 	</div>
 
 	<hr />

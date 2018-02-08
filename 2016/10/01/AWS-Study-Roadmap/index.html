@@ -102,7 +102,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 		            	<ul class='dropdown-menu' role='menu'>
 		            	
 						
-							<li><a href="/categories/AWS/">AWS <sup>53</sup></a></li>
+							<li><a href="/categories/AWS/">AWS <sup>54</sup></a></li>
 						
 							<li><a href="/categories/AWS/AWS-Certified/">AWS Certified <sup>4</sup></a></li>
 						
@@ -118,7 +118,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 						
 							<li><a href="/categories/Embedded/">Embedded <sup>1</sup></a></li>
 						
-							<li><a href="/categories/GCP/">GCP <sup>6</sup></a></li>
+							<li><a href="/categories/GCP/">GCP <sup>7</sup></a></li>
 						
 							<li><a href="/categories/Linux/">Linux <sup>9</sup></a></li>
 						
@@ -131,6 +131,8 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 							<li><a href="/categories/Redmine/">Redmine <sup>4</sup></a></li>
 						
 							<li><a href="/categories/Software-Engineering/">Software Engineering <sup>4</sup></a></li>
+						
+							<li><a href="/categories/Terms/">Terms <sup>1</sup></a></li>
 						
 							<li><a href="/categories/Tools/">Tools <sup>1</sup></a></li>
 						
@@ -247,7 +249,8 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <h2 id="Development"><a href="#Development" class="headerlink" title="Development"></a>Development</h2><ul>
 <li>2017/08/13: <a href="/2017/08/13/AWS/Study-Notes-CodeDeploy-Preparation/">Study Notes - CodeDeploy Preparation</a></li>
 </ul>
-<h2 id="Networking-and-Content"><a href="#Networking-and-Content" class="headerlink" title="Networking and Content"></a>Networking and Content</h2><ul>
+<h2 id="Networking-and-Content-Delivery"><a href="#Networking-and-Content-Delivery" class="headerlink" title="Networking and Content Delivery"></a>Networking and Content Delivery</h2><ul>
+<li>2018/01/24: <a href="/2018/02/04/AWS/Study-Notes-API-Gateway-Custom-Authorizer-using-Lambda/">API Gateway - Custom Authorizer using Lambda</a></li>
 <li>2018/01/24: <a href="/2018/01/24/AWS/Study-Notes-Overview-API-Gateway/">Study Notes - Overview API Gateway</a></li>
 <li>2016/05/25: <a href="/2016/05/25/AWS/How-Elastic-Load-Balancing-Implement/">How Elastic Load Balancing (ELB) Implement?</a></li>
 <li>2016/03/14: <a href="/2016/03/14/AWS/Study-Notes-Route53/">Study Notes - AWS Route53</a></li>
@@ -365,7 +368,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 	
 	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i> Table of Content</a>
 	   <div id="toc" class="toc collapse in">
-				<ol class="toc-article"><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#AWS-Certifications"><span class="toc-article-text">AWS Certifications</span></a></li><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#Whitepapers"><span class="toc-article-text">Whitepapers</span></a></li><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#AWS-Services-by-Categories"><span class="toc-article-text">AWS Services by Categories</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#Compute"><span class="toc-article-text">Compute</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#Storage"><span class="toc-article-text">Storage</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#Database"><span class="toc-article-text">Database</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#Development"><span class="toc-article-text">Development</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#Networking-and-Content"><span class="toc-article-text">Networking and Content</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#Security-amp-Identity"><span class="toc-article-text">Security &amp; Identity</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#Management"><span class="toc-article-text">Management</span></a></li></ol></li><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#Solutions"><span class="toc-article-text">Solutions</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#System-Operations"><span class="toc-article-text">System Operations</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#Network-and-VPC"><span class="toc-article-text">Network and VPC</span></a></li></ol></li><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#參考資料"><span class="toc-article-text">參考資料</span></a></li></ol>
+				<ol class="toc-article"><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#AWS-Certifications"><span class="toc-article-text">AWS Certifications</span></a></li><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#Whitepapers"><span class="toc-article-text">Whitepapers</span></a></li><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#AWS-Services-by-Categories"><span class="toc-article-text">AWS Services by Categories</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#Compute"><span class="toc-article-text">Compute</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#Storage"><span class="toc-article-text">Storage</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#Database"><span class="toc-article-text">Database</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#Development"><span class="toc-article-text">Development</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#Networking-and-Content-Delivery"><span class="toc-article-text">Networking and Content Delivery</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#Security-amp-Identity"><span class="toc-article-text">Security &amp; Identity</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#Management"><span class="toc-article-text">Management</span></a></li></ol></li><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#Solutions"><span class="toc-article-text">Solutions</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#System-Operations"><span class="toc-article-text">System Operations</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#Network-and-VPC"><span class="toc-article-text">Network and VPC</span></a></li></ol></li><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#參考資料"><span class="toc-article-text">參考資料</span></a></li></ol>
 		</div>
 	
 	</div>
@@ -379,7 +382,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
     <!--<ul id="categorys" class="tag_box list-unstyled collapse in">-->
       <div>
   <!--<li>-->
-    <span class="label label-info"><a href="/categories/AWS/" style="color: white">AWS <span class="badge">53</span></a></span> <span class="label label-info"><a href="/categories/AWS/AWS-Certified/" style="color: white">AWS Certified <span class="badge">4</span></a></span>
+    <span class="label label-info"><a href="/categories/AWS/" style="color: white">AWS <span class="badge">54</span></a></span> <span class="label label-info"><a href="/categories/AWS/AWS-Certified/" style="color: white">AWS Certified <span class="badge">4</span></a></span>
   <!--</li>-->
 </div>
     <!--</ul>-->
@@ -395,7 +398,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
     <!--<ul id="tags" class="tag_box list-unstyled collapse in">-->
     <div>
 	  	
-  <span class="label label-success"><a href="/tags/API-Gateway/" style="color: white">API Gateway <span class="badge">2</span></a></span> <span class="label label-success"><a href="/tags/EC2/" style="color: white">EC2 <span class="badge">12</span></a></span> <span class="label label-success"><a href="/tags/Elastic-Beanstalk/" style="color: white">Elastic Beanstalk <span class="badge">3</span></a></span> <span class="label label-success"><a href="/tags/S3/" style="color: white">S3 <span class="badge">7</span></a></span> <span class="label label-success"><a href="/tags/Route53/" style="color: white">Route53 <span class="badge">7</span></a></span> <span class="label label-success"><a href="/tags/VPC/" style="color: white">VPC <span class="badge">15</span></a></span> <span class="label label-success"><a href="/tags/SES/" style="color: white">SES <span class="badge">3</span></a></span> <span class="label label-success"><a href="/tags/ELB/" style="color: white">ELB <span class="badge">12</span></a></span> <span class="label label-success"><a href="/tags/IAM/" style="color: white">IAM <span class="badge">4</span></a></span> <span class="label label-success"><a href="/tags/EBS/" style="color: white">EBS <span class="badge">5</span></a></span> <span class="label label-success"><a href="/tags/CloudWatch/" style="color: white">CloudWatch <span class="badge">15</span></a></span> <span class="label label-success"><a href="/tags/CloudTrail/" style="color: white">CloudTrail <span class="badge">3</span></a></span> <span class="label label-success"><a href="/tags/AWS-CLI/" style="color: white">AWS CLI <span class="badge">7</span></a></span> <span class="label label-success"><a href="/tags/Security-Groups/" style="color: white">Security Groups <span class="badge">5</span></a></span> <span class="label label-success"><a href="/tags/DynamoDB/" style="color: white">DynamoDB <span class="badge">3</span></a></span> <span class="label label-success"><a href="/tags/CloudFormation/" style="color: white">CloudFormation <span class="badge">9</span></a></span> <span class="label label-success"><a href="/tags/Auto-Scaling-Group/" style="color: white">Auto Scaling Group <span class="badge">9</span></a></span> <span class="label label-success"><a href="/tags/Provisioning/" style="color: white">Provisioning <span class="badge">6</span></a></span> <span class="label label-success"><a href="/tags/DevOps/" style="color: white">DevOps <span class="badge">15</span></a></span>
+  <span class="label label-success"><a href="/tags/API-Gateway/" style="color: white">API Gateway <span class="badge">4</span></a></span> <span class="label label-success"><a href="/tags/EC2/" style="color: white">EC2 <span class="badge">12</span></a></span> <span class="label label-success"><a href="/tags/Elastic-Beanstalk/" style="color: white">Elastic Beanstalk <span class="badge">3</span></a></span> <span class="label label-success"><a href="/tags/S3/" style="color: white">S3 <span class="badge">7</span></a></span> <span class="label label-success"><a href="/tags/Route53/" style="color: white">Route53 <span class="badge">7</span></a></span> <span class="label label-success"><a href="/tags/VPC/" style="color: white">VPC <span class="badge">17</span></a></span> <span class="label label-success"><a href="/tags/SES/" style="color: white">SES <span class="badge">3</span></a></span> <span class="label label-success"><a href="/tags/ELB/" style="color: white">ELB <span class="badge">12</span></a></span> <span class="label label-success"><a href="/tags/IAM/" style="color: white">IAM <span class="badge">4</span></a></span> <span class="label label-success"><a href="/tags/EBS/" style="color: white">EBS <span class="badge">5</span></a></span> <span class="label label-success"><a href="/tags/CloudWatch/" style="color: white">CloudWatch <span class="badge">15</span></a></span> <span class="label label-success"><a href="/tags/CloudTrail/" style="color: white">CloudTrail <span class="badge">3</span></a></span> <span class="label label-success"><a href="/tags/AWS-CLI/" style="color: white">AWS CLI <span class="badge">7</span></a></span> <span class="label label-success"><a href="/tags/Security-Groups/" style="color: white">Security Groups <span class="badge">5</span></a></span> <span class="label label-success"><a href="/tags/DynamoDB/" style="color: white">DynamoDB <span class="badge">3</span></a></span> <span class="label label-success"><a href="/tags/CloudFormation/" style="color: white">CloudFormation <span class="badge">9</span></a></span> <span class="label label-success"><a href="/tags/Auto-Scaling-Group/" style="color: white">Auto Scaling Group <span class="badge">9</span></a></span> <span class="label label-success"><a href="/tags/Provisioning/" style="color: white">Provisioning <span class="badge">6</span></a></span> <span class="label label-success"><a href="/tags/DevOps/" style="color: white">DevOps <span class="badge">15</span></a></span>
 	  </div>
     <!--</ul>-->
 	</div>
@@ -405,15 +408,16 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
   <hr />
 
 	<div class="meta-widget">
-		<h4>About Me</h4>
-		Software Developer, SQA Manager, System Operation Manager, Guitarist
+			<h4>About Me</h4>
+			<li>Software Developer</li>
+			<li><a href="/categories/軟體測試/">SQA Manager</a></li>
+			<li>System Operation Manager</li>
+			<li><a href="http://rickmidi.blogspot.com/">Musician and Guitarist</a></li>
 
-
-		<h4>AWS Certifications</h4>
-		<a href="/2016/04/22/AWS/AWS-Certified-Solutions-Architect_Associate/"><img src="/images/About/Solutions_Architect-Associate.jpg"></a>
-		<a href="/2016/07/29/AWS/AWS-Certified-SysOps-Administrator/"><img src="/images/About/SysOps-Administrator-Associate.png"></a>
-		<a href="/2016/08/20/AWS/AWS-Certified-Developer/"><img src="/images/About/Developer-Associate.png"></a>
-
+			<h4>AWS Certifications</h4>
+			<a href="/2016/04/22/AWS/AWS-Certified-Solutions-Architect_Associate/"><img src="/images/About/Solutions_Architect-Associate.jpg"></a>
+			<a href="/2016/07/29/AWS/AWS-Certified-SysOps-Administrator/"><img src="/images/About/SysOps-Administrator-Associate.png"></a>
+			<a href="/2016/08/20/AWS/AWS-Certified-Developer/"><img src="/images/About/Developer-Associate.png"></a>
 	</div>
 
 	<hr />

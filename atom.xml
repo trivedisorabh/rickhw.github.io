@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rickhw.github.io/"/>
-  <updated>2018-01-26T05:31:02.000Z</updated>
+  <updated>2018-02-08T04:04:13.086Z</updated>
   <id>http://rickhw.github.io/</id>
   
   <author>
@@ -17,11 +17,92 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Service Mesh</title>
+    <link href="http://rickhw.github.io/2018/02/06/Terms/Service-Mesh/"/>
+    <id>http://rickhw.github.io/2018/02/06/Terms/Service-Mesh/</id>
+    <published>2018-02-06T05:30:00.000Z</published>
+    <updated>2018-02-08T04:04:13.086Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近很常看到這個詞：&lt;a href=&quot;https://www.google.com/search?q=Service+Mesh&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Service Mesh&lt;/a&gt;，源自於 &lt;a href=&quot;https://buoyant.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Buoyant&lt;/a&gt; - CEO Willian Morgan 在 APRIL 25, 2017 發表的文章：&lt;a href=&quot;https://buoyant.io/2017/04/25/whats-a-service-mesh-and-why-do-i-need-one/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;What’s a service mesh? And why do I need one?&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;Mesh&lt;/code&gt; 可以翻譯為：網、網狀物&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Terms" scheme="http://rickhw.github.io/categories/Terms/"/>
+    
+    
+      <category term="API Gateway" scheme="http://rickhw.github.io/tags/API-Gateway/"/>
+    
+      <category term="Microservice" scheme="http://rickhw.github.io/tags/Microservice/"/>
+    
+      <category term="Service Mesh" scheme="http://rickhw.github.io/tags/Service-Mesh/"/>
+    
+      <category term="Kubernetes" scheme="http://rickhw.github.io/tags/Kubernetes/"/>
+    
+      <category term="Reverse Proxy" scheme="http://rickhw.github.io/tags/Reverse-Proxy/"/>
+    
+      <category term="CNCF" scheme="http://rickhw.github.io/tags/CNCF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>API Gateway - Custom Authorizer using Lambda</title>
+    <link href="http://rickhw.github.io/2018/02/04/AWS/Study-Notes-API-Gateway-Custom-Authorizer-using-Lambda/"/>
+    <id>http://rickhw.github.io/2018/02/04/AWS/Study-Notes-API-Gateway-Custom-Authorizer-using-Lambda/</id>
+    <published>2018-02-04T06:35:00.000Z</published>
+    <updated>2018-02-08T04:01:37.170Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;整理在 &lt;a href=&quot;https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Amazon API Gateway&lt;/a&gt; 中，如何使用 Lambda 做 Custom Authorizers。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="AWS" scheme="http://rickhw.github.io/categories/AWS/"/>
+    
+    
+      <category term="API Gateway" scheme="http://rickhw.github.io/tags/API-Gateway/"/>
+    
+      <category term="Serverless" scheme="http://rickhw.github.io/tags/Serverless/"/>
+    
+      <category term="Lambda" scheme="http://rickhw.github.io/tags/Lambda/"/>
+    
+      <category term="Cognito" scheme="http://rickhw.github.io/tags/Cognito/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Compare GCP VPC Network with AWS</title>
+    <link href="http://rickhw.github.io/2018/02/03/GCP/Compare-GCP-VPC-Network-with-AWS/"/>
+    <id>http://rickhw.github.io/2018/02/03/GCP/Compare-GCP-VPC-Network-with-AWS/</id>
+    <published>2018-02-03T11:41:58.000Z</published>
+    <updated>2018-02-08T04:01:37.171Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;整理 GCP 的 Virtual Private Cloud (VPC) 的筆記，重點在 VPC Network、Shared VPC (XPN)，同時跟 AWS VPC 的設計比較。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="GCP" scheme="http://rickhw.github.io/categories/GCP/"/>
+    
+    
+      <category term="VPC" scheme="http://rickhw.github.io/tags/VPC/"/>
+    
+      <category term="Networking" scheme="http://rickhw.github.io/tags/Networking/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Study Notes - Overview API Gateway</title>
     <link href="http://rickhw.github.io/2018/01/24/AWS/Study-Notes-Overview-API-Gateway/"/>
     <id>http://rickhw.github.io/2018/01/24/AWS/Study-Notes-Overview-API-Gateway/</id>
     <published>2018-01-24T06:35:00.000Z</published>
-    <updated>2018-01-26T05:31:02.000Z</updated>
+    <updated>2018-02-08T04:01:37.170Z</updated>
     
     <summary type="html">
     
@@ -35,11 +116,11 @@
     
       <category term="API Gateway" scheme="http://rickhw.github.io/tags/API-Gateway/"/>
     
+      <category term="VPC" scheme="http://rickhw.github.io/tags/VPC/"/>
+    
       <category term="ELB" scheme="http://rickhw.github.io/tags/ELB/"/>
     
       <category term="CloudWatch" scheme="http://rickhw.github.io/tags/CloudWatch/"/>
-    
-      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
     
       <category term="Serverless" scheme="http://rickhw.github.io/tags/Serverless/"/>
     
@@ -54,6 +135,16 @@
       <category term="CloudFront" scheme="http://rickhw.github.io/tags/CloudFront/"/>
     
       <category term="Network Load Balancing" scheme="http://rickhw.github.io/tags/Network-Load-Balancing/"/>
+    
+      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
+    
+      <category term="Nginx" scheme="http://rickhw.github.io/tags/Nginx/"/>
+    
+      <category term="Openresty" scheme="http://rickhw.github.io/tags/Openresty/"/>
+    
+      <category term="Cloud Endpoint" scheme="http://rickhw.github.io/tags/Cloud-Endpoint/"/>
+    
+      <category term="Service Mesh" scheme="http://rickhw.github.io/tags/Service-Mesh/"/>
     
   </entry>
   
@@ -145,9 +236,9 @@
     
       <category term="CloudWatch" scheme="http://rickhw.github.io/tags/CloudWatch/"/>
     
-      <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
-    
       <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
+    
+      <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
     
       <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
     
@@ -212,11 +303,11 @@
     
       <category term="CloudWatch" scheme="http://rickhw.github.io/tags/CloudWatch/"/>
     
+      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
+    
       <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
     
       <category term="Process" scheme="http://rickhw.github.io/tags/Process/"/>
-    
-      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
     
       <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
     
@@ -418,11 +509,11 @@
     
       <category term="DevOps" scheme="http://rickhw.github.io/tags/DevOps/"/>
     
+      <category term="System Operations" scheme="http://rickhw.github.io/tags/System-Operations/"/>
+    
       <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
     
       <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
-    
-      <category term="System Operations" scheme="http://rickhw.github.io/tags/System-Operations/"/>
     
       <category term="AI" scheme="http://rickhw.github.io/tags/AI/"/>
     
@@ -486,76 +577,6 @@
       <category term="Provisioning" scheme="http://rickhw.github.io/tags/Provisioning/"/>
     
       <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自動化帶來的問題</title>
-    <link href="http://rickhw.github.io/2017/11/12/DevOps/Gossip-Automation/"/>
-    <id>http://rickhw.github.io/2017/11/12/DevOps/Gossip-Automation/</id>
-    <published>2017-11-12T14:20:00.000Z</published>
-    <updated>2018-01-23T04:24:12.990Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;現在啥都要 &lt;code&gt;自動化&lt;/code&gt;、 &lt;code&gt;ZYX as Code&lt;/code&gt;，實際上，我覺得做了這些之後問題才剛開始。&lt;/p&gt;
-&lt;p&gt;整理跟朋友聊天的想法，因為我對 &lt;code&gt;自動化&lt;/code&gt; 這個詞其實很感冒。。。表面上是一種先進的方法，但實際上卻是一種駝鳥心態。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="DevOps" scheme="http://rickhw.github.io/categories/DevOps/"/>
-    
-    
-      <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
-    
-      <category term="Process" scheme="http://rickhw.github.io/tags/Process/"/>
-    
-      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
-    
-      <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>重構與組織重整</title>
-    <link href="http://rickhw.github.io/2017/11/04/Management/Re-org/"/>
-    <id>http://rickhw.github.io/2017/11/04/Management/Re-org/</id>
-    <published>2017-11-04T15:21:00.000Z</published>
-    <updated>2017-12-13T04:27:38.016Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;重構 (Refactoring) 是軟體工程重要的過程，主要目的是 &lt;strong&gt;改善既有程式的設計&lt;/strong&gt;，用白話文就是：大掃除。程式需要重構，那組織呢？&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="經營管理" scheme="http://rickhw.github.io/categories/%E7%B6%93%E7%87%9F%E7%AE%A1%E7%90%86/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Study Notes - SRE Opening and Chapter 1</title>
-    <link href="http://rickhw.github.io/2017/11/04/DevOps/Study-Notes-SRE-Opening-Ch1/"/>
-    <id>http://rickhw.github.io/2017/11/04/DevOps/Study-Notes-SRE-Opening-Ch1/</id>
-    <published>2017-11-04T14:20:00.000Z</published>
-    <updated>2017-12-13T04:27:38.007Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;今年七月在公司內部發起的 &lt;a href=&quot;https://landing.google.com/sre/book.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;SRE: Site Reliability Engineering&lt;/a&gt; 讀書會，同時在十一月也參與 &lt;a href=&quot;http://fb.sre.tw&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;社群&lt;/a&gt; 讀書會，整理當時的 Slide 分享。&lt;/p&gt;
-&lt;p&gt;這個 slide 整理為什麼我選讀 SRE 這本書的原因以及給同事的一些想法，還有第一章的內容。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="DevOps" scheme="http://rickhw.github.io/categories/DevOps/"/>
-    
-    
-      <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
-    
-      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
-    
-      <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
     
   </entry>
   
