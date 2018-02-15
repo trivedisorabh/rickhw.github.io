@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rickhw.github.io/"/>
-  <updated>2018-02-08T04:04:13.086Z</updated>
+  <updated>2018-02-15T01:47:00.703Z</updated>
   <id>http://rickhw.github.io/</id>
   
   <author>
@@ -17,33 +17,71 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>AWS SAA-001 Update (Feb, 2018)</title>
+    <link href="http://rickhw.github.io/2018/02/15/AWS/AWS-Certified-SAA001-Update/"/>
+    <id>http://rickhw.github.io/2018/02/15/AWS/AWS-Certified-SAA001-Update/</id>
+    <published>2018-02-15T10:30:00.000Z</published>
+    <updated>2018-02-15T01:47:00.703Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;code&gt;AWS Certified Solutions Architect&lt;/code&gt; 更版，來自 AWS Blog 的訊息: &lt;a href=&quot;https://aws.amazon.com/blogs/architecture/new-aws-certified-solutions-architect-associate-exam-now-in-general-availability/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;New AWS Certified Solutions Architect – Associate Exam: Now in General Availability&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;正在準備考試的、或者有參考 &lt;a href=&quot;/2016/04/22/AWS/AWS-Certified-Solutions-Architect_Associate/&quot;&gt;我的筆記&lt;/a&gt; 的人，要注意此資訊。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="AWS" scheme="http://rickhw.github.io/categories/AWS/"/>
+    
+      <category term="AWS Certified" scheme="http://rickhw.github.io/categories/AWS/AWS-Certified/"/>
+    
+    
+      <category term="EC2" scheme="http://rickhw.github.io/tags/EC2/"/>
+    
+      <category term="S3" scheme="http://rickhw.github.io/tags/S3/"/>
+    
+      <category term="Route53" scheme="http://rickhw.github.io/tags/Route53/"/>
+    
+      <category term="VPC" scheme="http://rickhw.github.io/tags/VPC/"/>
+    
+      <category term="ELB" scheme="http://rickhw.github.io/tags/ELB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Service Mesh</title>
-    <link href="http://rickhw.github.io/2018/02/06/Terms/Service-Mesh/"/>
-    <id>http://rickhw.github.io/2018/02/06/Terms/Service-Mesh/</id>
+    <link href="http://rickhw.github.io/2018/02/06/Architecture/Service-Mesh/"/>
+    <id>http://rickhw.github.io/2018/02/06/Architecture/Service-Mesh/</id>
     <published>2018-02-06T05:30:00.000Z</published>
-    <updated>2018-02-08T04:04:13.086Z</updated>
+    <updated>2018-02-13T09:34:04.823Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;最近很常看到這個詞：&lt;a href=&quot;https://www.google.com/search?q=Service+Mesh&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Service Mesh&lt;/a&gt;，源自於 &lt;a href=&quot;https://buoyant.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Buoyant&lt;/a&gt; - CEO Willian Morgan 在 APRIL 25, 2017 發表的文章：&lt;a href=&quot;https://buoyant.io/2017/04/25/whats-a-service-mesh-and-why-do-i-need-one/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;What’s a service mesh? And why do I need one?&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;Mesh&lt;/code&gt; 可以翻譯為：網、網狀物&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Mesh&lt;/code&gt; 可以翻譯為：網、網狀物&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Service Mesh&lt;/code&gt; 第一次出現是 Buoyant 內部的會議，然後 2016/09/29 公開&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/blockquote&gt;
     
     </summary>
     
-      <category term="Terms" scheme="http://rickhw.github.io/categories/Terms/"/>
+      <category term="Architecture" scheme="http://rickhw.github.io/categories/Architecture/"/>
     
     
       <category term="API Gateway" scheme="http://rickhw.github.io/tags/API-Gateway/"/>
     
+      <category term="Distributed Systems" scheme="http://rickhw.github.io/tags/Distributed-Systems/"/>
+    
       <category term="Microservice" scheme="http://rickhw.github.io/tags/Microservice/"/>
+    
+      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
     
       <category term="Service Mesh" scheme="http://rickhw.github.io/tags/Service-Mesh/"/>
     
-      <category term="Kubernetes" scheme="http://rickhw.github.io/tags/Kubernetes/"/>
-    
       <category term="Reverse Proxy" scheme="http://rickhw.github.io/tags/Reverse-Proxy/"/>
+    
+      <category term="Kubernetes" scheme="http://rickhw.github.io/tags/Kubernetes/"/>
     
       <category term="CNCF" scheme="http://rickhw.github.io/tags/CNCF/"/>
     
@@ -80,7 +118,7 @@
     <link href="http://rickhw.github.io/2018/02/03/GCP/Compare-GCP-VPC-Network-with-AWS/"/>
     <id>http://rickhw.github.io/2018/02/03/GCP/Compare-GCP-VPC-Network-with-AWS/</id>
     <published>2018-02-03T11:41:58.000Z</published>
-    <updated>2018-02-08T04:01:37.171Z</updated>
+    <updated>2018-02-13T09:34:04.823Z</updated>
     
     <summary type="html">
     
@@ -102,7 +140,7 @@
     <link href="http://rickhw.github.io/2018/01/24/AWS/Study-Notes-Overview-API-Gateway/"/>
     <id>http://rickhw.github.io/2018/01/24/AWS/Study-Notes-Overview-API-Gateway/</id>
     <published>2018-01-24T06:35:00.000Z</published>
-    <updated>2018-02-08T04:01:37.170Z</updated>
+    <updated>2018-02-13T09:34:04.822Z</updated>
     
     <summary type="html">
     
@@ -128,7 +166,7 @@
     
       <category term="CloudWatch Logs" scheme="http://rickhw.github.io/tags/CloudWatch-Logs/"/>
     
-      <category term="Distributed System" scheme="http://rickhw.github.io/tags/Distributed-System/"/>
+      <category term="Distributed Systems" scheme="http://rickhw.github.io/tags/Distributed-Systems/"/>
     
       <category term="Microservice" scheme="http://rickhw.github.io/tags/Microservice/"/>
     
@@ -555,28 +593,6 @@
     
     
       <category term="Architecture" scheme="http://rickhw.github.io/tags/Architecture/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Go Live</title>
-    <link href="http://rickhw.github.io/2017/11/14/DevOps/Go-Live/"/>
-    <id>http://rickhw.github.io/2017/11/14/DevOps/Go-Live/</id>
-    <published>2017-11-14T14:20:00.000Z</published>
-    <updated>2018-01-23T04:24:12.989Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近我開始用 &lt;code&gt;Go Live&lt;/code&gt; 取代 &lt;code&gt;Production&lt;/code&gt; 這個詞。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="DevOps" scheme="http://rickhw.github.io/categories/DevOps/"/>
-    
-    
-      <category term="Provisioning" scheme="http://rickhw.github.io/tags/Provisioning/"/>
-    
-      <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
     
   </entry>
   

@@ -3,20 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Service Mesh | Complete Think</title>
+  <title>AWS SAA-001 Update (Feb, 2018) | Complete Think</title>
   <meta name="author" content="Rick Hwang">
   
-  <meta name="description" content="最近很常看到這個詞：Service Mesh，源自於 Buoyant - CEO Willian Morgan 在 APRIL 25, 2017 發表的文章：What’s a service mesh? And why do I need one?
-
-Mesh 可以翻譯為：網、網狀物
-
-
-Servi">
+  <meta name="description" content="AWS Certified Solutions Architect 更版，來自 AWS Blog 的訊息: New AWS Certified Solutions Architect – Associate Exam: Now in General Availability.
+正在準備考試的、或者有">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Service Mesh"/>
+  <meta property="og:title" content="AWS SAA-001 Update (Feb, 2018)"/>
   <meta property="og:site_name" content="Complete Think"/>
 
   
@@ -106,11 +102,13 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 		            	<ul class='dropdown-menu' role='menu'>
 		            	
 						
-							<li><a href="/categories/AWS/">AWS <sup>54</sup></a></li>
+							<li><a href="/categories/AWS/">AWS <sup>55</sup></a></li>
 						
-							<li><a href="/categories/AWS/AWS-Certified/">AWS Certified <sup>4</sup></a></li>
+							<li><a href="/categories/AWS/AWS-Certified/">AWS Certified <sup>5</sup></a></li>
 						
 							<li><a href="/categories/About/">About <sup>5</sup></a></li>
+						
+							<li><a href="/categories/Architecture/">Architecture <sup>1</sup></a></li>
 						
 							<li><a href="/categories/Blog/">Blog <sup>4</sup></a></li>
 						
@@ -135,8 +133,6 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 							<li><a href="/categories/Redmine/">Redmine <sup>4</sup></a></li>
 						
 							<li><a href="/categories/Software-Engineering/">Software Engineering <sup>4</sup></a></li>
-						
-							<li><a href="/categories/Terms/">Terms <sup>1</sup></a></li>
 						
 							<li><a href="/categories/Tools/">Tools <sup>1</sup></a></li>
 						
@@ -177,13 +173,13 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 		<!-- @rick, header of article -->
 		<!-- original
 		<div class="page-header">
-			<h1> Service Mesh</h1>
+			<h1> AWS SAA-001 Update (Feb, 2018)</h1>
 		</div>
 		-->
 
 		<div class="panel article_title">
 			<div class="panel-heading">
-    		<h1> Service Mesh</h1>
+    		<h1> AWS SAA-001 Update (Feb, 2018)</h1>
   		</div>
 		</div>
 
@@ -212,49 +208,61 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 
 			<hr />
 
-		    <p>最近很常看到這個詞：<a href="https://www.google.com/search?q=Service+Mesh" target="_blank" rel="noopener">Service Mesh</a>，源自於 <a href="https://buoyant.io/" target="_blank" rel="noopener">Buoyant</a> - CEO Willian Morgan 在 APRIL 25, 2017 發表的文章：<a href="https://buoyant.io/2017/04/25/whats-a-service-mesh-and-why-do-i-need-one/" target="_blank" rel="noopener">What’s a service mesh? And why do I need one?</a></p>
-<blockquote>
-<p><code>Mesh</code> 可以翻譯為：網、網狀物</p>
-</blockquote>
+		    <p><code>AWS Certified Solutions Architect</code> 更版，來自 AWS Blog 的訊息: <a href="https://aws.amazon.com/blogs/architecture/new-aws-certified-solutions-architect-associate-exam-now-in-general-availability/" target="_blank" rel="noopener">New AWS Certified Solutions Architect – Associate Exam: Now in General Availability</a>.</p>
+<p>正在準備考試的、或者有參考 <a href="/2016/04/22/AWS/AWS-Certified-Solutions-Architect_Associate/">我的筆記</a> 的人，要注意此資訊。</p>
 <a id="more"></a>
-<p><code>Service Mesh</code> 中文翻譯成 <code>服務網格</code>，可以這樣解釋：</p>
+<h2 id="考試基本資訊"><a href="#考試基本資訊" class="headerlink" title="考試基本資訊"></a>考試基本資訊</h2><p>考試要知道的資訊整理如下：</p>
 <ul>
-<li>一種基礎架構 (infrastructure layer) 的服務，負責處理的是 Service 跟 Service 之間通訊的安全、可靠、速度。</li>
-<li>現代網路的基礎協議是 TCP/IP，Microservice 的通訊就是 Service Mesh</li>
+<li><a href="https://d1.awsstatic.com/training-and-certification/docs-sa-assoc/AWS_Certified_Solutions_Architect_Associate_Feb_2018_%20Exam_Guide_v1.5.pdf" target="_blank" rel="noopener">exam guide</a>: 考試說明</li>
+<li><a href="https://d1.awsstatic.com/training-and-certification/docs-sa-assoc/AWS_Certified_Solutions%20Architect_Associate_Feb_2018_Sample%20Questions_v1.0.pdf" target="_blank" rel="noopener">sample exam questions</a>: 範例考題 (PDF)</li>
+<li><a href="https://www.aws.training/certification?src=arc-assoc" target="_blank" rel="noopener">practice exam</a>: 線上試考</li>
 </ul>
-<p>Microservice 雖然聽起來很美好、很流行、很夯、很潮，實踐上都會用語言重新造輪子，像是認證、Discover、可靠機制 … 等，像是 Java 的 <a href="http://projects.spring.io/spring-cloud/" target="_blank" rel="noopener">Spring Cloud</a>。但微服務實際上只是一種方法、手段，技術是要解決問題，滿足商業目標。</p>
-<p>技術上來講，跟這些類似：</p>
+<p>這跟過往都差不多，但是可以掌握整個考試方向。</p>
+<h2 id="版差差異"><a href="#版差差異" class="headerlink" title="版差差異"></a>版差差異</h2><p>AWS SAA 更版，考試編號為 (SAA-01)。考試的方向也更改了，主要以 <a href="/2016/11/27/AWS/Whitepaper-AWS-Well-Architect-Framework/">Well-Architected</a> 五個 Pillars 為考試主軸，項目以及比重如下：</p>
 <ul>
-<li><a href="/2018/01/24/AWS/Study-Notes-Overview-API-Gateway/">API Gateway</a></li>
-<li>Reverse Proxy</li>
-<li>Enterprise Service Bus (ESB)</li>
+<li>Designing resilient architectures - 34%</li>
+<li>Defining performant architectures - 24%</li>
+<li>Specifying secure applications and architectures - 26%</li>
+<li>Designing cost-optimized architectures - 10%</li>
+<li>Defining operationally excellent architectures - 6%</li>
 </ul>
-<p>但實際上，概念卻是不一樣的。寫 Web App ，實際上只要知道 HTTP，卻不需要知道 TCP 概念是一樣的。演進過程，出現過 <code>Sidecar</code> 這樣的名稱，負責類似的事情，最後出現了 <code>Service Mesh</code>。</p>
-<p>目前比較有名的實作有：</p>
+<p>比重以 resilient 的最高、Security 和 Performant 次之。</p>
+<p>Whitepaper 數量變少了，建議閱讀從原本九篇變成以下兩個部分：</p>
 <ul>
-<li><a href="https://linkerd.io/" target="_blank" rel="noopener">Linkerd</a>: 來自 Buoyant, written Scala (JVM), 已加入 <code>CNCF</code></li>
-<li><a href="https://github.com/istio/istio" target="_blank" rel="noopener">Istio</a>: 來自 Goolgle、IBM、Lyft 共同協作 (富爸爸)。支援 k8s</li>
-<li><a href="https://www.envoyproxy.io/" target="_blank" rel="noopener">Envoy</a>: 來自 Lyft, written by C++, 已加入 <code>CNCF</code></li>
-<li><a href="https://github.com/nginmesh/nginmesh" target="_blank" rel="noopener">nginmesh</a>: Nginx 的實作</li>
+<li><a href="/2016/03/21/AWS/Whitepaper-Architecting-for-the-Cloud-AWS-Best-Practices/">Architecting on the Cloud - Best Practice</a> - 以 Feb 2016 版為主<ul>
+<li>同樣標題，還有另一個 <a href="https://media.amazonwebservices.com/AWS_Cloud_Best_Practices.pdf" target="_blank" rel="noopener">Jan 2012</a> 年版的</li>
 </ul>
-<p>小節 Service Mesh:</p>
+</li>
+<li><a href="https://aws.amazon.com/architecture/well-architected/" target="_blank" rel="noopener">AWS Well-Architected</a>: 這是 2016 re:Revent 加入第五個 Pillar 之後，新增的官方架構頁面，深度提供每個 Pillar 的資訊以及實務案例。</li>
+</ul>
+<p>實際上的數量，光是 Well-Architected 頁面是多到不行，所以表面上數量變少了 …</p>
+<blockquote>
+<p>剛好不久前，我在公司內部教育訓練，導讀過這兩篇 Whitepaper.</p>
+</blockquote>
+<h2 id="正在準備的人"><a href="#正在準備的人" class="headerlink" title="正在準備的人"></a>正在準備的人</h2><p>整體來說，跟我考的時候，<code>表面上</code> 範圍變小了，但是實際上是更大 + 深度更深。</p>
+<p>建議把準備方向：</p>
 <ul>
-<li>Service Mesh 是通用組件</li>
-<li>解決 Microservice 之間通訊的問題，包含 Discover, Security, Reliability, Traffic Control</li>
-<li>Service Mesh 跟 API Gateway 是不一樣的。前者是內部服務溝通，後者是外部溝通節點。詳細參考：<a href="https://medium.com/microservices-in-practice/service-mesh-vs-api-gateway-a6d814b9bf56" target="_blank" rel="noopener">Service Mesh vs API Gateway</a><ul>
-<li>兩者個功能面有些重疊，都有 observability, logging, traffic control, auth … 等功能</li>
+<li>熟讀 Whitepapers: <ul>
+<li><a href="/2016/03/21/AWS/Whitepaper-Architecting-for-the-Cloud-AWS-Best-Practices/">Whitepaper - Architecting on the Cloud - Best Practice</a></li>
+<li><a href="https://aws.amazon.com/architecture/well-architected/" target="_blank" rel="noopener">AWS Well-Architected</a>: 五個 Pillar 都要熟讀，以及找到對應的 AWS Services，考量的 Design Priciples, Best Practice … 等 </li>
+</ul>
+</li>
+<li>多做 Lab: 這是一定的，沒 Lab 考試絕對不會過</li>
+<li>Youtube 要多看得系列：<ul>
+<li>Deep Dive</li>
+<li><a href="https://www.youtube.com/watch?v=yjXdDZ1kltI&amp;list=PLhr1KZpdzukdeX8mQ2qO73bg6UKQHYsHb" target="_blank" rel="noopener">This is my architecture</a></li>
 </ul>
 </li>
 </ul>
-<p>幾篇相關文章：</p>
-<ul>
-<li><a href="https://buoyant.io/2017/04/25/whats-a-service-mesh-and-why-do-i-need-one/" target="_blank" rel="noopener">What’s a service mesh? And why do I need one?</a></li>
-<li><a href="http://dockone.io/article/2801" target="_blank" rel="noopener">Qcon2017实录|Service Mesh：下一代微服务</a></li>
-<li><a href="https://medium.com/microservices-in-practice/service-mesh-vs-api-gateway-a6d814b9bf56" target="_blank" rel="noopener">Service Mesh vs API Gateway</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/28794062" target="_blank" rel="noopener">Service Mesh——Kubernetes中的微服务管理中间件</a></li>
-<li><a href="http://philcalcado.com/2017/08/03/pattern_service_mesh.html" target="_blank" rel="noopener">Pattern: Service Mesh</a> - 深度說 Service Mesh 的原理以及 Microservice 架構的應用</li>
-<li><a href="http://dockone.io/article/2485" target="_blank" rel="noopener">DockOne微信分享（一二九）：聊聊Service Mesh：linkerd</a></li>
-<li><a href="https://itw01.com/Q2W2EQD.html" target="_blank" rel="noopener">為什麼說 Service Mesh 是微服務發展到今天的必然產物？</a></li>
+<p><a href="/2016/04/22/AWS/AWS-Certified-Solutions-Architect_Associate/">我的準備心得</a> 應該還是有參考價值，但如果只是為了 pass 考試，有些 whitepaper 可以不用讀。</p>
+<p>公告上有提到，到今年八月 (Aug, 2018) 都還可以考前一個版本。</p>
+<h1 id="延伸閱讀-站內"><a href="#延伸閱讀-站內" class="headerlink" title="延伸閱讀 (站內)"></a>延伸閱讀 (站內)</h1><ul>
+<li><a href="/2016/04/22/AWS/AWS-Certified-Solutions-Architect_Associate/">AWS Certified Solutions Architect - Associate 準備心得</a> (2016/04/22)</li>
+<li><a href="/2016/03/21/AWS/Whitepaper-Architecting-for-the-Cloud-AWS-Best-Practices/">Whitepaper - Architecting on the Cloud - Best Practice</a></li>
+<li><a href="/2016/11/27/AWS/Whitepaper-AWS-Well-Architect-Framework/">Whitepaper - AWS Well-Architected Framework (Nov 2016)</a></li>
+</ul>
+<h1 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h1><ul>
+<li><a href="https://aws.amazon.com/blogs/architecture/new-aws-certified-solutions-architect-associate-exam-now-in-general-availability/" target="_blank" rel="noopener">New AWS Certified Solutions Architect – Associate Exam: Now in General Availability</a></li>
 </ul>
 
 
@@ -277,13 +285,13 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <ul class="pagination">
 	 
 		
-          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一頁</a></li>
+          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
         
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2018/02/04/AWS/Study-Notes-API-Gateway-Custom-Authorizer-using-Lambda/" class="alignright next">下一頁<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+		   <li class="next"><a href="/2018/02/06/Architecture/Service-Mesh/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
@@ -296,7 +304,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 	<!-- comment -->
 	
 <section id="comment">
-  <h2 class="title">留言</h2>
+  <h2 class="title">Comments</h2>
 
 	<!-- @rick add for facebook -->
 	<div class='fb-comments' data-num-posts='10' data-width='100%' expr:href='data:post.url'/>
@@ -321,7 +329,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 	
 	<div class="meta-widget">
 		<i class="fa fa-clock-o"></i>
-		2018-02-06 13:30:00
+		2018-02-15 18:30:00
 	</div>
 	
 
@@ -332,7 +340,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 	
 	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i> Table of Content</a>
 	   <div id="toc" class="toc collapse in">
-				
+				<ol class="toc-article"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#考試基本資訊"><span class="toc-article-text">考試基本資訊</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#版差差異"><span class="toc-article-text">版差差異</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#正在準備的人"><span class="toc-article-text">正在準備的人</span></a></li></ol></li><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#延伸閱讀-站內"><span class="toc-article-text">延伸閱讀 (站內)</span></a></li><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#參考資料"><span class="toc-article-text">參考資料</span></a>
 		</div>
 	
 	</div>
@@ -346,7 +354,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
     <!--<ul id="categorys" class="tag_box list-unstyled collapse in">-->
       <div>
   <!--<li>-->
-    <span class="label label-info"><a href="/categories/Terms/" style="color: white">Terms <span class="badge">1</span></a></span>
+    <span class="label label-info"><a href="/categories/AWS/" style="color: white">AWS <span class="badge">55</span></a></span> <span class="label label-info"><a href="/categories/AWS/AWS-Certified/" style="color: white">AWS Certified <span class="badge">5</span></a></span>
   <!--</li>-->
 </div>
     <!--</ul>-->
@@ -362,7 +370,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
     <!--<ul id="tags" class="tag_box list-unstyled collapse in">-->
     <div>
 	  	
-  <span class="label label-success"><a href="/tags/API-Gateway/" style="color: white">API Gateway <span class="badge">4</span></a></span> <span class="label label-success"><a href="/tags/Microservice/" style="color: white">Microservice <span class="badge">2</span></a></span> <span class="label label-success"><a href="/tags/Service-Mesh/" style="color: white">Service Mesh <span class="badge">2</span></a></span> <span class="label label-success"><a href="/tags/Kubernetes/" style="color: white">Kubernetes <span class="badge">2</span></a></span> <span class="label label-success"><a href="/tags/Reverse-Proxy/" style="color: white">Reverse Proxy <span class="badge">1</span></a></span> <span class="label label-success"><a href="/tags/CNCF/" style="color: white">CNCF <span class="badge">1</span></a></span>
+  <span class="label label-success"><a href="/tags/EC2/" style="color: white">EC2 <span class="badge">13</span></a></span> <span class="label label-success"><a href="/tags/S3/" style="color: white">S3 <span class="badge">8</span></a></span> <span class="label label-success"><a href="/tags/Route53/" style="color: white">Route53 <span class="badge">8</span></a></span> <span class="label label-success"><a href="/tags/VPC/" style="color: white">VPC <span class="badge">18</span></a></span> <span class="label label-success"><a href="/tags/ELB/" style="color: white">ELB <span class="badge">13</span></a></span>
 	  </div>
     <!--</ul>-->
 	</div>
