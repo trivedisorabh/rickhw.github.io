@@ -232,17 +232,17 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <li>同樣標題，還有另一個 <a href="https://media.amazonwebservices.com/AWS_Cloud_Best_Practices.pdf" target="_blank" rel="noopener">Jan 2012</a> 年版的</li>
 </ul>
 </li>
-<li><a href="https://aws.amazon.com/architecture/well-architected/" target="_blank" rel="noopener">AWS Well-Architected</a>: 這是 2016 re:Revent 加入第五個 Pillar 之後，新增的官方架構頁面，深度提供每個 Pillar 的資訊以及實務案例。</li>
+<li><a href="https://aws.amazon.com/architecture/well-architected/" target="_blank" rel="noopener">AWS Well-Architected</a>: 這是 2016 re:Invent 加入第五個 Pillar 之後，新增的官方架構頁面，深度提供每個 Pillar 的資訊以及實務案例。</li>
 </ul>
 <p>實際上的數量，光是 Well-Architected 頁面是多到不行，所以表面上數量變少了 …</p>
 <blockquote>
 <p>剛好不久前，我在公司內部教育訓練，導讀過這兩篇 Whitepaper。其中一篇請參閱： <a href="https://www.slideshare.net/rickhwang/study-notes-architecting-for-the-cloud-aws-best-practices-feb-2016" target="_blank" rel="noopener">Study Notes - Architecting for the cloud </a></p>
 </blockquote>
-<h2 id="正在準備的人"><a href="#正在準備的人" class="headerlink" title="正在準備的人"></a>正在準備的人</h2><p>整體來說，跟我考的時候，<code>表面上</code> 範圍變小了，但是實際上是更大 + 深度更深。</p>
+<h2 id="正在準備的人"><a href="#正在準備的人" class="headerlink" title="正在準備的人"></a>正在準備的人</h2><p>整體來說，比前一個版本，範圍更大 + 深度更深。</p>
 <p>建議把準備方向：</p>
 <ul>
 <li>熟讀 <a href="/2016/03/21/AWS/Whitepaper-Architecting-for-the-Cloud-AWS-Best-Practices/">Whitepaper: Architecting on the Cloud - Best Practice</a></li>
-<li>閱讀 <a href="https://aws.amazon.com/architecture/well-architected/" target="_blank" rel="noopener">AWS Well-Architected</a>: <ul>
+<li>閱讀 [AWS Well-Architected Framework][22] 的資料: <ul>
 <li>五個 Pillar 都要熟讀，每個都要考量 Design Priciples, Best Practice … 等</li>
 <li>Whitepaper 裡都有描述對應的 AWS Services，以此做 Lab，整理自己的心得 (寫 Blog 是不錯的方法)</li>
 </ul>
@@ -254,8 +254,25 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 </ul>
 </li>
 </ul>
-<p><a href="/2016/04/22/AWS/AWS-Certified-Solutions-Architect_Associate/">我的準備心得</a> 應該還是有參考價值，但如果只是為了 pass 考試，有些 whitepaper 可以不用讀。</p>
-<p>公告上有提到，到今年八月 (Aug, 2018) 都還可以考前一個版本。</p>
+<!--
+## AWS Services in Well-Architected Framework
+
+以下簡單整理 [AWS Well-Architected Framework][22] 五個 Pillar 的 Whitepaper 以及對應的 AWS Services
+
+1. [Operational Excellence](https://d1.awsstatic.com/whitepapers/architecture/AWS-Operational-Excellence-Pillar.pdf)
+  * CloudFormation, Develoepr Tools (Code[XXX], such as CodeDeploy, CodeBuild ..), AWS X-Ray
+  * AWS Config, SSM
+  * CloudWatch Logs, Amazon ES, Health Dashboard, SNS, Auto Scaling
+  * QuickSight, Athena, S3
+  * Trusted Advisor
+  * Support Plan: Business / Enterprise Support 
+1. [Security](https://d1.awsstatic.com/whitepapers/architecture/AWS-Security-Pillar.pdf)
+1. [Reliability](https://d1.awsstatic.com/whitepapers/architecture/AWS-Reliability-Pillar.pdf)
+1. [Performance Efficiency](https://d1.awsstatic.com/whitepapers/architecture/AWS-Performance-Efficiency-Pillar.pdf)
+1. [Cost Optimization](https://d1.awsstatic.com/whitepapers/architecture/AWS-Cost-Optimization-Pillar.pdf)
+-->
+<h2 id="正在準備的怎麼辦？"><a href="#正在準備的怎麼辦？" class="headerlink" title="正在準備的怎麼辦？"></a>正在準備的怎麼辦？</h2><p>公告上有提到，到今年八月 (Aug, 2018) 都還可以考前一個版本。</p>
+<p><a href="/2016/04/22/AWS/AWS-Certified-Solutions-Architect_Associate/">我的準備心得</a> 應該還是有參考價值 XD</p>
 <h1 id="延伸閱讀-站內"><a href="#延伸閱讀-站內" class="headerlink" title="延伸閱讀 (站內)"></a>延伸閱讀 (站內)</h1><ul>
 <li><a href="/2016/04/22/AWS/AWS-Certified-Solutions-Architect_Associate/">AWS Certified Solutions Architect - Associate 準備心得</a> (2016/04/22)</li>
 <li><a href="/2016/03/21/AWS/Whitepaper-Architecting-for-the-Cloud-AWS-Best-Practices/">Whitepaper - Architecting on the Cloud - Best Practice</a></li>
@@ -264,6 +281,10 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 </ul>
 <h1 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h1><ul>
 <li><a href="https://aws.amazon.com/blogs/architecture/new-aws-certified-solutions-architect-associate-exam-now-in-general-availability/" target="_blank" rel="noopener">New AWS Certified Solutions Architect – Associate Exam: Now in General Availability</a></li>
+<li>[AWS Well-Architected Framework][22]</li>
+</ul>
+<ul>
+<li>[22]: <a href="https://aws.amazon.com/architecture/well-architected/" target="_blank" rel="noopener">https://aws.amazon.com/architecture/well-architected/</a></li>
 </ul>
 
 
@@ -341,7 +362,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 	
 	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i> Table of Content</a>
 	   <div id="toc" class="toc collapse in">
-				<ol class="toc-article"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#考試基本資訊"><span class="toc-article-text">考試基本資訊</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#版差差異"><span class="toc-article-text">版差差異</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#正在準備的人"><span class="toc-article-text">正在準備的人</span></a></li></ol></li><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#延伸閱讀-站內"><span class="toc-article-text">延伸閱讀 (站內)</span></a></li><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#參考資料"><span class="toc-article-text">參考資料</span></a>
+				<ol class="toc-article"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#考試基本資訊"><span class="toc-article-text">考試基本資訊</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#版差差異"><span class="toc-article-text">版差差異</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#正在準備的人"><span class="toc-article-text">正在準備的人</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#正在準備的怎麼辦？"><span class="toc-article-text">正在準備的怎麼辦？</span></a></li></ol></li><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#延伸閱讀-站內"><span class="toc-article-text">延伸閱讀 (站內)</span></a></li><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#參考資料"><span class="toc-article-text">參考資料</span></a>
 		</div>
 	
 	</div>
