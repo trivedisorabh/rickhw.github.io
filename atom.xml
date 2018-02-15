@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rickhw.github.io/"/>
-  <updated>2018-02-15T02:51:51.922Z</updated>
+  <updated>2018-02-15T02:58:52.000Z</updated>
   <id>http://rickhw.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://rickhw.github.io/2018/02/15/AWS/AWS-Certified-SAA001-Update/"/>
     <id>http://rickhw.github.io/2018/02/15/AWS/AWS-Certified-SAA001-Update/</id>
     <published>2018-02-15T10:30:00.000Z</published>
-    <updated>2018-02-15T02:51:51.922Z</updated>
+    <updated>2018-02-15T02:58:52.000Z</updated>
     
     <summary type="html">
     
@@ -276,9 +276,9 @@
     
       <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
     
-      <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
-    
       <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
+    
+      <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
     
       <category term="Monitoring" scheme="http://rickhw.github.io/tags/Monitoring/"/>
     
@@ -343,11 +343,11 @@
     
       <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
     
+      <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
+    
       <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
     
       <category term="Process" scheme="http://rickhw.github.io/tags/Process/"/>
-    
-      <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
     
   </entry>
   
@@ -549,9 +549,9 @@
     
       <category term="System Operations" scheme="http://rickhw.github.io/tags/System-Operations/"/>
     
-      <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
-    
       <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
+    
+      <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
     
       <category term="AI" scheme="http://rickhw.github.io/tags/AI/"/>
     
