@@ -46,7 +46,7 @@
     <link href="http://rickhw.github.io/2018/02/06/Architecture/Service-Mesh/"/>
     <id>http://rickhw.github.io/2018/02/06/Architecture/Service-Mesh/</id>
     <published>2018-02-06T05:30:00.000Z</published>
-    <updated>2018-02-15T04:47:06.679Z</updated>
+    <updated>2018-02-15T05:30:08.831Z</updated>
     
     <summary type="html">
     
@@ -67,19 +67,19 @@
     
       <category term="Architecture" scheme="http://rickhw.github.io/tags/Architecture/"/>
     
-      <category term="Distributed Systems" scheme="http://rickhw.github.io/tags/Distributed-Systems/"/>
-    
       <category term="Microservice" scheme="http://rickhw.github.io/tags/Microservice/"/>
-    
-      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
-    
-      <category term="Service Mesh" scheme="http://rickhw.github.io/tags/Service-Mesh/"/>
     
       <category term="Reverse Proxy" scheme="http://rickhw.github.io/tags/Reverse-Proxy/"/>
     
       <category term="Kubernetes" scheme="http://rickhw.github.io/tags/Kubernetes/"/>
     
+      <category term="Service Mesh" scheme="http://rickhw.github.io/tags/Service-Mesh/"/>
+    
       <category term="CNCF" scheme="http://rickhw.github.io/tags/CNCF/"/>
+    
+      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
+    
+      <category term="Distributed Systems" scheme="http://rickhw.github.io/tags/Distributed-Systems/"/>
     
   </entry>
   
@@ -158,29 +158,29 @@
     
       <category term="Architecture" scheme="http://rickhw.github.io/tags/Architecture/"/>
     
+      <category term="Microservice" scheme="http://rickhw.github.io/tags/Microservice/"/>
+    
+      <category term="Service Mesh" scheme="http://rickhw.github.io/tags/Service-Mesh/"/>
+    
+      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
+    
+      <category term="Distributed Systems" scheme="http://rickhw.github.io/tags/Distributed-Systems/"/>
+    
       <category term="Serverless" scheme="http://rickhw.github.io/tags/Serverless/"/>
     
       <category term="Lambda" scheme="http://rickhw.github.io/tags/Lambda/"/>
     
       <category term="CloudWatch Logs" scheme="http://rickhw.github.io/tags/CloudWatch-Logs/"/>
     
-      <category term="Distributed Systems" scheme="http://rickhw.github.io/tags/Distributed-Systems/"/>
-    
-      <category term="Microservice" scheme="http://rickhw.github.io/tags/Microservice/"/>
-    
       <category term="CloudFront" scheme="http://rickhw.github.io/tags/CloudFront/"/>
     
       <category term="Network Load Balancing" scheme="http://rickhw.github.io/tags/Network-Load-Balancing/"/>
-    
-      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
     
       <category term="Nginx" scheme="http://rickhw.github.io/tags/Nginx/"/>
     
       <category term="Openresty" scheme="http://rickhw.github.io/tags/Openresty/"/>
     
       <category term="Cloud Endpoint" scheme="http://rickhw.github.io/tags/Cloud-Endpoint/"/>
-    
-      <category term="Service Mesh" scheme="http://rickhw.github.io/tags/Service-Mesh/"/>
     
   </entry>
   
@@ -274,9 +274,9 @@
     
       <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
     
-      <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
-    
       <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
+    
+      <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
     
       <category term="Monitoring" scheme="http://rickhw.github.io/tags/Monitoring/"/>
     
@@ -341,11 +341,11 @@
     
       <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
     
-      <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
-    
       <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
     
       <category term="Process" scheme="http://rickhw.github.io/tags/Process/"/>
+    
+      <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
     
   </entry>
   
@@ -547,9 +547,9 @@
     
       <category term="System Operations" scheme="http://rickhw.github.io/tags/System-Operations/"/>
     
-      <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
-    
       <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
+    
+      <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
     
       <category term="AI" scheme="http://rickhw.github.io/tags/AI/"/>
     

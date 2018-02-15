@@ -247,7 +247,10 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <li>Logging</li>
 <li>Observability</li>
 </ul>
-<p>在 Microservice 的架構裡，Service Mesh 的目的就是像是寫 Web Application，實際上只要知道 HTTP，卻不需要知道 TCP 概念是一樣的。微服務演進過程，大多用 Reservse Proxy, API Gateway 解決類似的問題，中間也出現過 <code>Sidecar Proxy</code> 這樣的名稱，負責類似的事情，最後才變成了 <code>Service Mesh</code>。</p>
+<p>在 Microservice 的架構裡，Service Mesh 的目的就是像是寫 Web Application，實際上只要知道 HTTP，卻不需要知道 TCP 概念是一樣的。微服務演進過程，大多用 Reservse Proxy, API Gateway 解決類似的問題，中間也出現過 <code>Sidecar</code> 這樣的模式，負責類似的事情，最後才變成了 <code>Service Mesh</code>。</p>
+<blockquote>
+<p><a href="https://docs.microsoft.com/zh-tw/azure/architecture/patterns/sidecar" target="_blank" rel="noopener">Sidecar</a> 中文翻成 <code>側車模式</code>. 連結是 <a href="https://docs.microsoft.com/zh-tw/azure/architecture/" target="_blank" rel="noopener">微軟架構中心</a> 的說明</p>
+</blockquote>
 <p>Service Mesh 目前比較有名的實作有：</p>
 <ul>
 <li><a href="https://linkerd.io/" target="_blank" rel="noopener">Linkerd</a>: 來自 Buoyant, written by Scala (JVM), 已加入 <code>CNCF</code></li>
@@ -284,8 +287,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 </ul>
 </li>
 </ul>
-<p>幾篇相關文章：</p>
-<ul>
+<h2 id="相關文章"><a href="#相關文章" class="headerlink" title="相關文章"></a>相關文章</h2><ul>
 <li><a href="https://buoyant.io/2017/04/25/whats-a-service-mesh-and-why-do-i-need-one/" target="_blank" rel="noopener">What’s a service mesh? And why do I need one?</a></li>
 <li><a href="http://dockone.io/article/2801" target="_blank" rel="noopener">Qcon2017实录|Service Mesh：下一代微服务</a></li>
 <li><a href="https://medium.com/microservices-in-practice/service-mesh-vs-api-gateway-a6d814b9bf56" target="_blank" rel="noopener">Service Mesh vs API Gateway</a></li>
@@ -295,6 +297,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <li><a href="https://itw01.com/Q2W2EQD.html" target="_blank" rel="noopener">為什麼說 Service Mesh 是微服務發展到今天的必然產物？</a></li>
 <li><a href="https://www.infoq.com/presentations/istio-service-mesh" target="_blank" rel="noopener">Istio - Weaving the Service Mesh</a></li>
 <li><a href="https://www.slideshare.net/ChiaChunShih/service-mesh-from-linkerd-to-conduit-cloud-native-taiwan-meetup" target="_blank" rel="noopener">Service mesh from linkerd to conduit (cloud native taiwan meetup)</a></li>
+<li><a href="https://docs.microsoft.com/zh-tw/azure/architecture/patterns/sidecar" target="_blank" rel="noopener">側車模式</a></li>
 </ul>
 
 
@@ -317,13 +320,13 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <ul class="pagination">
 	 
 				
-    	<li class="prev"><a href="/2018/02/15/AWS/AWS-Certified-SAA001-Update/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+    	<li class="prev"><a href="/2018/02/15/AWS/AWS-Certified-SAA001-Update/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一頁</a></li>
   		
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2018/02/04/AWS/Study-Notes-API-Gateway-Custom-Authorizer-using-Lambda/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+		   <li class="next"><a href="/2018/02/04/AWS/Study-Notes-API-Gateway-Custom-Authorizer-using-Lambda/" class="alignright next">下一頁<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
@@ -336,7 +339,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 	<!-- comment -->
 	
 <section id="comment">
-  <h2 class="title">Comments</h2>
+  <h2 class="title">留言</h2>
 
 	<!-- @rick add for facebook -->
 	<div class='fb-comments' data-num-posts='10' data-width='100%' expr:href='data:post.url'/>
@@ -372,7 +375,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 	
 	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i> Table of Content</a>
 	   <div id="toc" class="toc collapse in">
-				<ol class="toc-article"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#Concepts-in-Site-Reliability-Engineering"><span class="toc-article-text">Concepts in Site Reliability Engineering</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#小結-Service-Mesh"><span class="toc-article-text">小結 Service Mesh</span></a></li></ol>
+				<ol class="toc-article"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#Concepts-in-Site-Reliability-Engineering"><span class="toc-article-text">Concepts in Site Reliability Engineering</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#小結-Service-Mesh"><span class="toc-article-text">小結 Service Mesh</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#相關文章"><span class="toc-article-text">相關文章</span></a></li></ol>
 		</div>
 	
 	</div>
@@ -402,7 +405,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
     <!--<ul id="tags" class="tag_box list-unstyled collapse in">-->
     <div>
 	  	
-  <span class="label label-success"><a href="/tags/API-Gateway/" style="color: white">API Gateway <span class="badge">4</span></a></span> <span class="label label-success"><a href="/tags/Architecture/" style="color: white">Architecture <span class="badge">5</span></a></span> <span class="label label-success"><a href="/tags/Distributed-Systems/" style="color: white">Distributed Systems <span class="badge">2</span></a></span> <span class="label label-success"><a href="/tags/Microservice/" style="color: white">Microservice <span class="badge">2</span></a></span> <span class="label label-success"><a href="/tags/SRE/" style="color: white">SRE <span class="badge">12</span></a></span> <span class="label label-success"><a href="/tags/Service-Mesh/" style="color: white">Service Mesh <span class="badge">2</span></a></span> <span class="label label-success"><a href="/tags/Reverse-Proxy/" style="color: white">Reverse Proxy <span class="badge">1</span></a></span> <span class="label label-success"><a href="/tags/Kubernetes/" style="color: white">Kubernetes <span class="badge">2</span></a></span> <span class="label label-success"><a href="/tags/CNCF/" style="color: white">CNCF <span class="badge">1</span></a></span>
+  <span class="label label-success"><a href="/tags/API-Gateway/" style="color: white">API Gateway <span class="badge">4</span></a></span> <span class="label label-success"><a href="/tags/Architecture/" style="color: white">Architecture <span class="badge">5</span></a></span> <span class="label label-success"><a href="/tags/Microservice/" style="color: white">Microservice <span class="badge">2</span></a></span> <span class="label label-success"><a href="/tags/Reverse-Proxy/" style="color: white">Reverse Proxy <span class="badge">1</span></a></span> <span class="label label-success"><a href="/tags/Kubernetes/" style="color: white">Kubernetes <span class="badge">2</span></a></span> <span class="label label-success"><a href="/tags/Service-Mesh/" style="color: white">Service Mesh <span class="badge">2</span></a></span> <span class="label label-success"><a href="/tags/CNCF/" style="color: white">CNCF <span class="badge">1</span></a></span> <span class="label label-success"><a href="/tags/SRE/" style="color: white">SRE <span class="badge">12</span></a></span> <span class="label label-success"><a href="/tags/Distributed-Systems/" style="color: white">Distributed Systems <span class="badge">2</span></a></span>
 	  </div>
     <!--</ul>-->
 	</div>
