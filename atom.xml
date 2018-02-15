@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rickhw.github.io/"/>
-  <updated>2018-02-15T05:03:38.875Z</updated>
+  <updated>2018-02-15T06:54:09.000Z</updated>
   <id>http://rickhw.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://rickhw.github.io/2018/02/15/AWS/AWS-Certified-SAA001-Update/"/>
     <id>http://rickhw.github.io/2018/02/15/AWS/AWS-Certified-SAA001-Update/</id>
     <published>2018-02-15T10:30:00.000Z</published>
-    <updated>2018-02-15T05:03:38.875Z</updated>
+    <updated>2018-02-15T06:54:09.000Z</updated>
     
     <summary type="html">
     
@@ -67,19 +67,19 @@
     
       <category term="Architecture" scheme="http://rickhw.github.io/tags/Architecture/"/>
     
+      <category term="Distributed Systems" scheme="http://rickhw.github.io/tags/Distributed-Systems/"/>
+    
       <category term="Microservice" scheme="http://rickhw.github.io/tags/Microservice/"/>
+    
+      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
+    
+      <category term="Service Mesh" scheme="http://rickhw.github.io/tags/Service-Mesh/"/>
     
       <category term="Reverse Proxy" scheme="http://rickhw.github.io/tags/Reverse-Proxy/"/>
     
       <category term="Kubernetes" scheme="http://rickhw.github.io/tags/Kubernetes/"/>
     
-      <category term="Service Mesh" scheme="http://rickhw.github.io/tags/Service-Mesh/"/>
-    
       <category term="CNCF" scheme="http://rickhw.github.io/tags/CNCF/"/>
-    
-      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
-    
-      <category term="Distributed Systems" scheme="http://rickhw.github.io/tags/Distributed-Systems/"/>
     
   </entry>
   
@@ -158,29 +158,29 @@
     
       <category term="Architecture" scheme="http://rickhw.github.io/tags/Architecture/"/>
     
-      <category term="Microservice" scheme="http://rickhw.github.io/tags/Microservice/"/>
-    
-      <category term="Service Mesh" scheme="http://rickhw.github.io/tags/Service-Mesh/"/>
-    
-      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
-    
-      <category term="Distributed Systems" scheme="http://rickhw.github.io/tags/Distributed-Systems/"/>
-    
       <category term="Serverless" scheme="http://rickhw.github.io/tags/Serverless/"/>
     
       <category term="Lambda" scheme="http://rickhw.github.io/tags/Lambda/"/>
     
       <category term="CloudWatch Logs" scheme="http://rickhw.github.io/tags/CloudWatch-Logs/"/>
     
+      <category term="Distributed Systems" scheme="http://rickhw.github.io/tags/Distributed-Systems/"/>
+    
+      <category term="Microservice" scheme="http://rickhw.github.io/tags/Microservice/"/>
+    
       <category term="CloudFront" scheme="http://rickhw.github.io/tags/CloudFront/"/>
     
       <category term="Network Load Balancing" scheme="http://rickhw.github.io/tags/Network-Load-Balancing/"/>
+    
+      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
     
       <category term="Nginx" scheme="http://rickhw.github.io/tags/Nginx/"/>
     
       <category term="Openresty" scheme="http://rickhw.github.io/tags/Openresty/"/>
     
       <category term="Cloud Endpoint" scheme="http://rickhw.github.io/tags/Cloud-Endpoint/"/>
+    
+      <category term="Service Mesh" scheme="http://rickhw.github.io/tags/Service-Mesh/"/>
     
   </entry>
   
