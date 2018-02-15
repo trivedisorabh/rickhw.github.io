@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rickhw.github.io/"/>
-  <updated>2018-02-15T04:34:37.565Z</updated>
+  <updated>2018-02-15T04:50:25.942Z</updated>
   <id>http://rickhw.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://rickhw.github.io/2018/02/15/AWS/AWS-Certified-SAA001-Update/"/>
     <id>http://rickhw.github.io/2018/02/15/AWS/AWS-Certified-SAA001-Update/</id>
     <published>2018-02-15T10:30:00.000Z</published>
-    <updated>2018-02-15T04:34:37.565Z</updated>
+    <updated>2018-02-15T04:50:25.942Z</updated>
     
     <summary type="html">
     
@@ -46,7 +46,7 @@
     <link href="http://rickhw.github.io/2018/02/06/Architecture/Service-Mesh/"/>
     <id>http://rickhw.github.io/2018/02/06/Architecture/Service-Mesh/</id>
     <published>2018-02-06T05:30:00.000Z</published>
-    <updated>2018-02-13T09:34:04.823Z</updated>
+    <updated>2018-02-15T04:47:06.679Z</updated>
     
     <summary type="html">
     
@@ -64,6 +64,8 @@
     
     
       <category term="API Gateway" scheme="http://rickhw.github.io/tags/API-Gateway/"/>
+    
+      <category term="Architecture" scheme="http://rickhw.github.io/tags/Architecture/"/>
     
       <category term="Distributed Systems" scheme="http://rickhw.github.io/tags/Distributed-Systems/"/>
     
@@ -134,7 +136,7 @@
     <link href="http://rickhw.github.io/2018/01/24/AWS/Study-Notes-Overview-API-Gateway/"/>
     <id>http://rickhw.github.io/2018/01/24/AWS/Study-Notes-Overview-API-Gateway/</id>
     <published>2018-01-24T06:35:00.000Z</published>
-    <updated>2018-02-13T09:34:04.822Z</updated>
+    <updated>2018-02-15T04:47:35.094Z</updated>
     
     <summary type="html">
     
@@ -153,6 +155,8 @@
       <category term="ELB" scheme="http://rickhw.github.io/tags/ELB/"/>
     
       <category term="CloudWatch" scheme="http://rickhw.github.io/tags/CloudWatch/"/>
+    
+      <category term="Architecture" scheme="http://rickhw.github.io/tags/Architecture/"/>
     
       <category term="Serverless" scheme="http://rickhw.github.io/tags/Serverless/"/>
     
