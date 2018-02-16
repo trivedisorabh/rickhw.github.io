@@ -114,7 +114,7 @@
     <link href="http://rickhw.github.io/2018/02/03/GCP/Compare-GCP-VPC-Network-with-AWS/"/>
     <id>http://rickhw.github.io/2018/02/03/GCP/Compare-GCP-VPC-Network-with-AWS/</id>
     <published>2018-02-03T11:41:58.000Z</published>
-    <updated>2018-02-13T09:34:04.823Z</updated>
+    <updated>2018-02-16T07:30:29.357Z</updated>
     
     <summary type="html">
     
@@ -126,6 +126,8 @@
     
     
       <category term="VPC" scheme="http://rickhw.github.io/tags/VPC/"/>
+    
+      <category term="AWS VS GCP" scheme="http://rickhw.github.io/tags/AWS-VS-GCP/"/>
     
       <category term="Networking" scheme="http://rickhw.github.io/tags/Networking/"/>
     
@@ -478,7 +480,7 @@
     <link href="http://rickhw.github.io/2017/11/30/GCP/Compare-GCP-Load-Balancing-with-AWS/"/>
     <id>http://rickhw.github.io/2017/11/30/GCP/Compare-GCP-Load-Balancing-with-AWS/</id>
     <published>2017-11-30T11:41:58.000Z</published>
-    <updated>2018-01-23T04:24:12.992Z</updated>
+    <updated>2018-02-16T07:30:19.843Z</updated>
     
     <summary type="html">
     
@@ -498,8 +500,6 @@
       <category term="ELB" scheme="http://rickhw.github.io/tags/ELB/"/>
     
       <category term="Auto Scaling Group" scheme="http://rickhw.github.io/tags/Auto-Scaling-Group/"/>
-    
-      <category term="Cloud Load Balancing" scheme="http://rickhw.github.io/tags/Cloud-Load-Balancing/"/>
     
       <category term="Load Balancing" scheme="http://rickhw.github.io/tags/Load-Balancing/"/>
     
