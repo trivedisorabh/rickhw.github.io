@@ -127,9 +127,9 @@
     
       <category term="VPC" scheme="http://rickhw.github.io/tags/VPC/"/>
     
-      <category term="AWS VS GCP" scheme="http://rickhw.github.io/tags/AWS-VS-GCP/"/>
-    
       <category term="Networking" scheme="http://rickhw.github.io/tags/Networking/"/>
+    
+      <category term="AWS VS GCP" scheme="http://rickhw.github.io/tags/AWS-VS-GCP/"/>
     
   </entry>
   
@@ -216,7 +216,7 @@
     <link href="http://rickhw.github.io/2018/01/07/DevOps/Emergency-Response/"/>
     <id>http://rickhw.github.io/2018/01/07/DevOps/Emergency-Response/</id>
     <published>2018-01-07T04:43:00.000Z</published>
-    <updated>2018-01-23T04:24:12.989Z</updated>
+    <updated>2018-02-16T07:51:19.394Z</updated>
     
     <summary type="html">
     
@@ -230,6 +230,8 @@
       <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
     
       <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
+    
+      <category term="Monitoring" scheme="http://rickhw.github.io/tags/Monitoring/"/>
     
   </entry>
   
@@ -261,7 +263,7 @@
     <link href="http://rickhw.github.io/2017/12/22/DevOps/What-is-Monitoring/"/>
     <id>http://rickhw.github.io/2017/12/22/DevOps/What-is-Monitoring/</id>
     <published>2017-12-22T14:20:00.000Z</published>
-    <updated>2018-01-23T04:24:12.991Z</updated>
+    <updated>2018-02-16T07:52:18.252Z</updated>
     
     <summary type="html">
     
@@ -276,11 +278,11 @@
     
       <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
     
-      <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
-    
       <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
     
       <category term="Monitoring" scheme="http://rickhw.github.io/tags/Monitoring/"/>
+    
+      <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
     
       <category term="Observability" scheme="http://rickhw.github.io/tags/Observability/"/>
     
@@ -343,11 +345,11 @@
     
       <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
     
+      <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
+    
       <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
     
       <category term="Process" scheme="http://rickhw.github.io/tags/Process/"/>
-    
-      <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
     
   </entry>
   
@@ -501,9 +503,9 @@
     
       <category term="Auto Scaling Group" scheme="http://rickhw.github.io/tags/Auto-Scaling-Group/"/>
     
-      <category term="Load Balancing" scheme="http://rickhw.github.io/tags/Load-Balancing/"/>
-    
       <category term="AWS VS GCP" scheme="http://rickhw.github.io/tags/AWS-VS-GCP/"/>
+    
+      <category term="Load Balancing" scheme="http://rickhw.github.io/tags/Load-Balancing/"/>
     
   </entry>
   
@@ -547,9 +549,9 @@
     
       <category term="System Operations" scheme="http://rickhw.github.io/tags/System-Operations/"/>
     
-      <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
-    
       <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
+    
+      <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
     
       <category term="AI" scheme="http://rickhw.github.io/tags/AI/"/>
     
