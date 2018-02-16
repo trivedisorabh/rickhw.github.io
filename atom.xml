@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rickhw.github.io/"/>
-  <updated>2018-02-15T07:50:57.000Z</updated>
+  <updated>2018-02-15T07:52:35.111Z</updated>
   <id>http://rickhw.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://rickhw.github.io/2018/02/15/AWS/AWS-Certified-SAA001-Update/"/>
     <id>http://rickhw.github.io/2018/02/15/AWS/AWS-Certified-SAA001-Update/</id>
     <published>2018-02-15T10:30:00.000Z</published>
-    <updated>2018-02-15T07:50:57.000Z</updated>
+    <updated>2018-02-15T07:52:35.111Z</updated>
     
     <summary type="html">
     
@@ -499,11 +499,11 @@
     
       <category term="Auto Scaling Group" scheme="http://rickhw.github.io/tags/Auto-Scaling-Group/"/>
     
+      <category term="Cloud Load Balancing" scheme="http://rickhw.github.io/tags/Cloud-Load-Balancing/"/>
+    
       <category term="Load Balancing" scheme="http://rickhw.github.io/tags/Load-Balancing/"/>
     
       <category term="AWS VS GCP" scheme="http://rickhw.github.io/tags/AWS-VS-GCP/"/>
-    
-      <category term="Cloud Load Balancing" scheme="http://rickhw.github.io/tags/Cloud-Load-Balancing/"/>
     
   </entry>
   
