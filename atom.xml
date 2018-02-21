@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rickhw.github.io/"/>
-  <updated>2018-02-15T07:52:35.111Z</updated>
+  <updated>2018-02-21T02:51:33.460Z</updated>
   <id>http://rickhw.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Inter-Region VPC Peering is Now Available in Nine Additional AWS Regions</title>
+    <link href="http://rickhw.github.io/2018/02/21/AWS/News-Inter-Region-VPC-Peering-GA-in-9Regions/"/>
+    <id>http://rickhw.github.io/2018/02/21/AWS/News-Inter-Region-VPC-Peering-GA-in-9Regions/</id>
+    <published>2018-02-21T01:53:00.000Z</published>
+    <updated>2018-02-21T02:51:33.460Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;來自 &lt;a href=&quot;https://aws.amazon.com/about-aws/whats-new/2018/02/inter-region-vpc-peering-is-now-available-in-nine-additional-aws-regions/&quot;
+      
+    
+    </summary>
+    
+      <category term="AWS" scheme="http://rickhw.github.io/categories/AWS/"/>
+    
+    
+      <category term="VPC Peering" scheme="http://rickhw.github.io/tags/VPC-Peering/"/>
+    
+  </entry>
   
   <entry>
     <title>AWS SAA-001 Update (Feb, 2018)</title>
@@ -127,9 +150,9 @@
     
       <category term="VPC" scheme="http://rickhw.github.io/tags/VPC/"/>
     
-      <category term="Networking" scheme="http://rickhw.github.io/tags/Networking/"/>
-    
       <category term="AWS VS GCP" scheme="http://rickhw.github.io/tags/AWS-VS-GCP/"/>
+    
+      <category term="Networking" scheme="http://rickhw.github.io/tags/Networking/"/>
     
   </entry>
   
@@ -278,11 +301,11 @@
     
       <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
     
+      <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
+    
       <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
     
       <category term="Monitoring" scheme="http://rickhw.github.io/tags/Monitoring/"/>
-    
-      <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
     
       <category term="Observability" scheme="http://rickhw.github.io/tags/Observability/"/>
     
@@ -345,11 +368,11 @@
     
       <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
     
-      <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
-    
       <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
     
       <category term="Process" scheme="http://rickhw.github.io/tags/Process/"/>
+    
+      <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
     
   </entry>
   
@@ -503,9 +526,9 @@
     
       <category term="Auto Scaling Group" scheme="http://rickhw.github.io/tags/Auto-Scaling-Group/"/>
     
-      <category term="AWS VS GCP" scheme="http://rickhw.github.io/tags/AWS-VS-GCP/"/>
-    
       <category term="Load Balancing" scheme="http://rickhw.github.io/tags/Load-Balancing/"/>
+    
+      <category term="AWS VS GCP" scheme="http://rickhw.github.io/tags/AWS-VS-GCP/"/>
     
   </entry>
   
@@ -549,50 +572,11 @@
     
       <category term="System Operations" scheme="http://rickhw.github.io/tags/System-Operations/"/>
     
-      <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
-    
       <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
     
+      <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
+    
       <category term="AI" scheme="http://rickhw.github.io/tags/AI/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>置頂 - 思考本質、實踐、想像力、教育</title>
-    <link href="http://rickhw.github.io/2017/11/26/Thinking-in-Nature/"/>
-    <id>http://rickhw.github.io/2017/11/26/Thinking-in-Nature/</id>
-    <published>2017-11-26T02:30:00.000Z</published>
-    <updated>2018-01-23T04:24:13.001Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一直很想找一些人，這些人有個特質：喜歡思考事物的本質性、背後的故事、問題、原理、抽象化、延伸、想像，像是：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;使用 Slack 的時候，可能的系統架構是什麼？&lt;/li&gt;
-&lt;li&gt;使用 iPhone 的時候，他對人類的貢獻是？你會思考他是如何生產的？有多少公司提供零件給他？怎麼整合這些資訊？iPhone 最後如何銷毀？&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.facebook.com/greenpeace.org.tw/videos/1582705515094601/?hc_ref=ARSin48g31Ew9Viq3lgAFcoLz1V7pb6PWQLWRIifrLodmDn98mo3N4_xJk_2ZeYzrPk&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;智慧型手機十年進化史，有一些事情必須要知道&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;電商帶給消費者方便，他背後的系統是如何運作的？如何面對巨大的交易？電商帶來的社會問題你注意到了？便利另外一面是什麼？人類交易的本質是什麼？&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://technews.tw/2017/11/18/china-online-shopping-garbage-double-11/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;中國電商污染，5 千萬噸垃圾誰來買單&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.stevecutts.com/illustration.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Steve Cutts&lt;/a&gt; - 諷刺漫畫&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.gvm.com.tw/article.html?id=41356&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;過度包裝的迷思：你只是買了更多垃圾&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;聽演唱會的時候，你會注意演唱會整體想表現的情緒？你會注意演唱會主角以外的人事物？最後組成的整體性？&lt;/li&gt;
-&lt;li&gt;看電影時，你會注意每個鏡頭想要表達的是什麼？鏡頭是如何取的？有多少個鏡頭？拍攝現場要怎麼準備？演員走位。。。&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=zzWIj-a5Zdo&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;體育賽場如戰場 攝影師拍攝…跟在後面跑&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;看小說時，為什麼會寫出這麼精彩的故事？為什麼會想出 &lt;code&gt;星艦企業號&lt;/code&gt; 這樣的劇情？&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="About" scheme="http://rickhw.github.io/categories/About/"/>
-    
-    
-      <category term="Architecture" scheme="http://rickhw.github.io/tags/Architecture/"/>
     
   </entry>
   
