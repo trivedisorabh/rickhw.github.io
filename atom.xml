@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rickhw.github.io/"/>
-  <updated>2018-02-21T02:51:33.460Z</updated>
+  <updated>2018-02-21T03:01:27.861Z</updated>
   <id>http://rickhw.github.io/</id>
   
   <author>
@@ -21,14 +21,11 @@
     <link href="http://rickhw.github.io/2018/02/21/AWS/News-Inter-Region-VPC-Peering-GA-in-9Regions/"/>
     <id>http://rickhw.github.io/2018/02/21/AWS/News-Inter-Region-VPC-Peering-GA-in-9Regions/</id>
     <published>2018-02-21T01:53:00.000Z</published>
-    <updated>2018-02-21T02:51:33.460Z</updated>
+    <updated>2018-02-21T03:01:27.861Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;來自 &lt;a href=&quot;https://aws.amazon.com/about-aws/whats-new/2018/02/inter-region-vpc-peering-is-now-available-in-nine-additional-aws-regions/&quot;
-      
+      &lt;p&gt;來自 &lt;a href=&quot;https://aws.amazon.com/about-aws/whats-new/2018/02/inter-region-vpc-peering-is-now-available-in-nine-additional-aws-regions/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;AWS News&lt;/a&gt; 的訊息，Inter-Region VPC Peering 多了九個 Region，而且總算有亞洲了！&lt;/p&gt;
     
     </summary>
     
