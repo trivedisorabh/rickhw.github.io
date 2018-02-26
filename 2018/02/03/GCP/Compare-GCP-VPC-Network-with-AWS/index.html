@@ -106,13 +106,13 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 		            	<ul class='dropdown-menu' role='menu'>
 		            	
 						
-							<li><a href="/categories/AWS/">AWS <sup>56</sup></a></li>
+							<li><a href="/categories/AWS/">AWS <sup>57</sup></a></li>
 						
 							<li><a href="/categories/AWS/AWS-Certified/">AWS Certified <sup>5</sup></a></li>
 						
 							<li><a href="/categories/About/">About <sup>6</sup></a></li>
 						
-							<li><a href="/categories/Architecture/">Architecture <sup>1</sup></a></li>
+							<li><a href="/categories/Architecture/">Architecture <sup>2</sup></a></li>
 						
 							<li><a href="/categories/Blog/">Blog <sup>4</sup></a></li>
 						
@@ -126,7 +126,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 						
 							<li><a href="/categories/GCP/">GCP <sup>7</sup></a></li>
 						
-							<li><a href="/categories/Linux/">Linux <sup>9</sup></a></li>
+							<li><a href="/categories/Linux/">Linux <sup>10</sup></a></li>
 						
 							<li><a href="/categories/Misc/">Misc <sup>3</sup></a></li>
 						
@@ -135,6 +135,8 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 							<li><a href="/categories/OS-X/">OS X <sup>3</sup></a></li>
 						
 							<li><a href="/categories/Redmine/">Redmine <sup>4</sup></a></li>
+						
+							<li><a href="/categories/DevOps/SRE/">SRE <sup>10</sup></a></li>
 						
 							<li><a href="/categories/Software-Engineering/">Software Engineering <sup>4</sup></a></li>
 						
@@ -374,7 +376,7 @@ XPN 要有 `organization`，如果是使用個人的 email 申請 GCP 要另外�
 </ul>
 <h1 id="Compare-GCP-VPC-Network-with-AWS"><a href="#Compare-GCP-VPC-Network-with-AWS" class="headerlink" title="Compare GCP VPC Network with AWS"></a>Compare GCP VPC Network with AWS</h1><p>簡單整理 GCP 跟 AWS 的比較，如下圖：</p>
 <p><img src="/images/GCP/VPC/Compare.png" alt=""></p>
-<p>大家都知道 Google 對於基礎架構投入非常多資源，包含跨洲光纜、資料中心的建置，實體基礎設施如此的強大，想見 Cloud 上的 Infra 不會太令人失望，果然！GCP 的強項就在於 <code>Global</code> 的概念，光這一點的基礎架構，就讓原本以 IaaS 開始的 AWS 加緊推出對應的服務，像是 <code>Endpoint Service / Private Link</code>、<code>inter-region VPC peering connection</code> 等功能。</p>
+<p>大家都知道 Google 對於基礎架構投入非常多資源，包含跨洲光纜、資料中心的建置，實體基礎設施如此的強大，想見 Cloud 上的 Infra 不會太令人失望，果然！GCP 的強項就在於 <code>Global</code> 的概念，光這一點的基礎架構，就讓原本以 IaaS 開始的 AWS 加緊推出對應的服務，像是 <code>Endpoint Service / Private Link</code>、<a href="/2018/02/21/AWS/Inter-Region-VPC-Peering/">Inter-Region VPC peering connection</a> 等功能。</p>
 <p>雖然 GCP VPC 完整性平心而論，還是有一些不足，但是未來依舊是可以期待的！</p>
 <blockquote>
 <p>更多 GCP 加值服務歡迎隨時聯繫 <a href="https://gcp.expert/" target="_blank" rel="noopener">GCP 專門家</a>，也可以至 <a href="https://blog.gcp.expert/" target="_blank" rel="noopener">GCP 技術部落格</a> 查看更多 GCP 最新消息與技術內容！</p>
@@ -383,6 +385,7 @@ XPN 要有 `organization`，如果是使用個人的 email 申請 GCP 要另外�
 <li>GCP: <a href="/2017/04/20/GCP/Experience-GCP/">Experience GCP</a></li>
 <li>AWS: <a href="/2016/02/21/AWS/Study-Notes-VPC/">Study Notes - AWS VPC (Virtual Private Cloud)</a></li>
 <li>AWS: <a href="/2017/07/07/AWS/Plan-And-Deisgn-Multiple-VPCs-in-Different-Regions/">Plan and Design Multiple VPCs in Different Regions</a></li>
+<li>AWS: <a href="/2018/02/21/AWS/Inter-Region-VPC-Peering/">Inter-Region VPC Peering</a></li>
 </ul>
 <h1 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h1><ul>
 <li><a href="https://cloud.google.com/compute/docs/vpc/" target="_blank" rel="noopener">Virtual Private Cloud (VPC) Network Overview</a></li>
@@ -410,13 +413,13 @@ XPN 要有 `organization`，如果是使用個人的 email 申請 GCP 要另外�
 <ul class="pagination">
 	 
 				
-    	<li class="prev"><a href="/2018/02/04/AWS/Study-Notes-API-Gateway-Custom-Authorizer-using-Lambda/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一頁</a></li>
+    	<li class="prev"><a href="/2018/02/04/AWS/Study-Notes-API-Gateway-Custom-Authorizer-using-Lambda/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2018/01/24/AWS/Study-Notes-Overview-API-Gateway/" class="alignright next">下一頁<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+		   <li class="next"><a href="/2018/01/24/AWS/Study-Notes-Overview-API-Gateway/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
@@ -429,7 +432,7 @@ XPN 要有 `organization`，如果是使用個人的 email 申請 GCP 要另外�
 	<!-- comment -->
 	
 <section id="comment">
-  <h2 class="title">留言</h2>
+  <h2 class="title">Comments</h2>
 
 	<!-- @rick add for facebook -->
 	<div class='fb-comments' data-num-posts='10' data-width='100%' expr:href='data:post.url'/>
@@ -495,7 +498,7 @@ XPN 要有 `organization`，如果是使用個人的 email 申請 GCP 要另外�
     <!--<ul id="tags" class="tag_box list-unstyled collapse in">-->
     <div>
 	  	
-  <span class="label label-success"><a href="/tags/VPC/" style="color: white">VPC <span class="badge">17</span></a></span> <span class="label label-success"><a href="/tags/AWS-VS-GCP/" style="color: white">AWS VS GCP <span class="badge">3</span></a></span> <span class="label label-success"><a href="/tags/Networking/" style="color: white">Networking <span class="badge">4</span></a></span>
+  <span class="label label-success"><a href="/tags/VPC/" style="color: white">VPC <span class="badge">18</span></a></span> <span class="label label-success"><a href="/tags/AWS-VS-GCP/" style="color: white">AWS VS GCP <span class="badge">3</span></a></span> <span class="label label-success"><a href="/tags/Networking/" style="color: white">Networking <span class="badge">4</span></a></span>
 	  </div>
     <!--</ul>-->
 	</div>

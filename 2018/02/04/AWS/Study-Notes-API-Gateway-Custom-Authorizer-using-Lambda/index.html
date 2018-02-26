@@ -6,11 +6,7 @@
   <title>API Gateway - Custom Authorizer using Lambda | Complete Think</title>
   <meta name="author" content="Rick Hwang">
   
-  <meta name="description" content="整理在 Amazon API Gateway 中，如何使用 Lambda 做 Custom Authorizers。
-
-Custom Authorizers下圖是 官方文件 描述客製驗證流程：
-
-圖中描述的關鍵在於中間紅色的 Policy is evaluted 要呈現的，實作上來講，透過上面的 L">
+  <meta name="description" content="在 Overview API Gateway 中提到，Amazon API Gateway 提供了客製化驗證的機制，讓我們可以個別設定驗證的方式，使用者認證 (Authentication) 可以使用 OAuth or SAML；授權 (Authorization) 可以使用 JSON Web To">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -105,13 +101,13 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 		            	<ul class='dropdown-menu' role='menu'>
 		            	
 						
-							<li><a href="/categories/AWS/">AWS <sup>56</sup></a></li>
+							<li><a href="/categories/AWS/">AWS <sup>57</sup></a></li>
 						
 							<li><a href="/categories/AWS/AWS-Certified/">AWS Certified <sup>5</sup></a></li>
 						
 							<li><a href="/categories/About/">About <sup>6</sup></a></li>
 						
-							<li><a href="/categories/Architecture/">Architecture <sup>1</sup></a></li>
+							<li><a href="/categories/Architecture/">Architecture <sup>2</sup></a></li>
 						
 							<li><a href="/categories/Blog/">Blog <sup>4</sup></a></li>
 						
@@ -125,7 +121,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 						
 							<li><a href="/categories/GCP/">GCP <sup>7</sup></a></li>
 						
-							<li><a href="/categories/Linux/">Linux <sup>9</sup></a></li>
+							<li><a href="/categories/Linux/">Linux <sup>10</sup></a></li>
 						
 							<li><a href="/categories/Misc/">Misc <sup>3</sup></a></li>
 						
@@ -134,6 +130,8 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 							<li><a href="/categories/OS-X/">OS X <sup>3</sup></a></li>
 						
 							<li><a href="/categories/Redmine/">Redmine <sup>4</sup></a></li>
+						
+							<li><a href="/categories/DevOps/SRE/">SRE <sup>10</sup></a></li>
 						
 							<li><a href="/categories/Software-Engineering/">Software Engineering <sup>4</sup></a></li>
 						
@@ -211,7 +209,8 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 
 			<hr />
 
-		    <p>整理在 <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html" target="_blank" rel="noopener">Amazon API Gateway</a> 中，如何使用 Lambda 做 Custom Authorizers。</p>
+		    <p>在 <a href="/2018/01/24/AWS/Study-Notes-Overview-API-Gateway/">Overview API Gateway</a> 中提到，<a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html" target="_blank" rel="noopener">Amazon API Gateway</a> 提供了客製化驗證的機制，讓我們可以個別設定驗證的方式，使用者認證 (Authentication) 可以使用 OAuth or SAML；授權 (Authorization) 可以使用 JSON Web Token (JWT) 或者 OAuth provider。</p>
+<p>本文整理如何使用 Lambda 做 Custom Authorizers 的基本用法與流程。</p>
 <a id="more"></a>
 <h1 id="Custom-Authorizers"><a href="#Custom-Authorizers" class="headerlink" title="Custom Authorizers"></a>Custom Authorizers</h1><p>下圖是 <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html" target="_blank" rel="noopener">官方文件</a> 描述客製驗證流程：</p>
 <p><img src="/images/AWS/API-Gateway/custom-auth-workflow.png" alt=""></p>
@@ -275,9 +274,10 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <h2 id="5-測試"><a href="#5-測試" class="headerlink" title="5. 測試"></a>5. 測試</h2><p>用 <code>cURL</code> 送出 HTTP POST</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST \</span><br><span class="line">    -H <span class="string">'Content-Type:application/json'</span> \</span><br><span class="line">    -H <span class="string">'x-cauth-token:12345'</span> \</span><br><span class="line">    --data <span class="string">'&#123; "message": "ok"&#125;'</span> \</span><br><span class="line">    https://&#123;API_ENDPOINT&#125;/&#123;STAGE&#125;/slack</span><br></pre></td></tr></table></figure>
 <p>順利的話，會得到正確的結果。</p>
-<h1 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h1><p>本文整理如何在 API Gateway 使用 Lambda 做簡單的認證流程，屆下來繼續整理如何 Debug API Gateway。</p>
+<h1 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h1><p>本文整理如何在 API Gateway 使用 Lambda 做簡單的認證流程，屆下來繼續整理如何 <a href="/2018/02/26/AWS/Study-Notes-API-Gateway-Setup-Logging/">Debug API Gateway</a>。</p>
 <h1 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h1><ul>
 <li><a href="/2018/01/24/AWS/Study-Notes-Overview-API-Gateway/">Study Notes - Overview API Gateway</a></li>
+<li><a href="/2018/02/26/AWS/Study-Notes-API-Gateway-Setup-Logging/">API Gateway - Setup Logging</a></li>
 </ul>
 <h1 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h1><ul>
 <li><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html" target="_blank" rel="noopener">Amazon API Gateway</a></li>
@@ -304,13 +304,13 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <ul class="pagination">
 	 
 				
-    	<li class="prev"><a href="/2018/02/06/Architecture/Service-Mesh/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一頁</a></li>
+    	<li class="prev"><a href="/2018/02/06/Architecture/Service-Mesh/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2018/02/03/GCP/Compare-GCP-VPC-Network-with-AWS/" class="alignright next">下一頁<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+		   <li class="next"><a href="/2018/02/03/GCP/Compare-GCP-VPC-Network-with-AWS/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
@@ -323,7 +323,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 	<!-- comment -->
 	
 <section id="comment">
-  <h2 class="title">留言</h2>
+  <h2 class="title">Comments</h2>
 
 	<!-- @rick add for facebook -->
 	<div class='fb-comments' data-num-posts='10' data-width='100%' expr:href='data:post.url'/>
@@ -373,7 +373,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
     <!--<ul id="categorys" class="tag_box list-unstyled collapse in">-->
       <div>
   <!--<li>-->
-    <span class="label label-info"><a href="/categories/AWS/" style="color: white">AWS <span class="badge">56</span></a></span>
+    <span class="label label-info"><a href="/categories/AWS/" style="color: white">AWS <span class="badge">57</span></a></span>
   <!--</li>-->
 </div>
     <!--</ul>-->
@@ -389,7 +389,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
     <!--<ul id="tags" class="tag_box list-unstyled collapse in">-->
     <div>
 	  	
-  <span class="label label-success"><a href="/tags/API-Gateway/" style="color: white">API Gateway <span class="badge">4</span></a></span> <span class="label label-success"><a href="/tags/Serverless/" style="color: white">Serverless <span class="badge">3</span></a></span> <span class="label label-success"><a href="/tags/Lambda/" style="color: white">Lambda <span class="badge">5</span></a></span> <span class="label label-success"><a href="/tags/Cognito/" style="color: white">Cognito <span class="badge">1</span></a></span>
+  <span class="label label-success"><a href="/tags/API-Gateway/" style="color: white">API Gateway <span class="badge">5</span></a></span> <span class="label label-success"><a href="/tags/Serverless/" style="color: white">Serverless <span class="badge">5</span></a></span> <span class="label label-success"><a href="/tags/Lambda/" style="color: white">Lambda <span class="badge">6</span></a></span> <span class="label label-success"><a href="/tags/Cognito/" style="color: white">Cognito <span class="badge">1</span></a></span> <span class="label label-success"><a href="/tags/JWT/" style="color: white">JWT <span class="badge">1</span></a></span>
 	  </div>
     <!--</ul>-->
 	</div>

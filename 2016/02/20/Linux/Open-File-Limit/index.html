@@ -103,13 +103,13 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 		            	<ul class='dropdown-menu' role='menu'>
 		            	
 						
-							<li><a href="/categories/AWS/">AWS <sup>56</sup></a></li>
+							<li><a href="/categories/AWS/">AWS <sup>57</sup></a></li>
 						
 							<li><a href="/categories/AWS/AWS-Certified/">AWS Certified <sup>5</sup></a></li>
 						
 							<li><a href="/categories/About/">About <sup>6</sup></a></li>
 						
-							<li><a href="/categories/Architecture/">Architecture <sup>1</sup></a></li>
+							<li><a href="/categories/Architecture/">Architecture <sup>2</sup></a></li>
 						
 							<li><a href="/categories/Blog/">Blog <sup>4</sup></a></li>
 						
@@ -123,7 +123,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 						
 							<li><a href="/categories/GCP/">GCP <sup>7</sup></a></li>
 						
-							<li><a href="/categories/Linux/">Linux <sup>9</sup></a></li>
+							<li><a href="/categories/Linux/">Linux <sup>10</sup></a></li>
 						
 							<li><a href="/categories/Misc/">Misc <sup>3</sup></a></li>
 						
@@ -132,6 +132,8 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 							<li><a href="/categories/OS-X/">OS X <sup>3</sup></a></li>
 						
 							<li><a href="/categories/Redmine/">Redmine <sup>4</sup></a></li>
+						
+							<li><a href="/categories/DevOps/SRE/">SRE <sup>10</sup></a></li>
 						
 							<li><a href="/categories/Software-Engineering/">Software Engineering <sup>4</sup></a></li>
 						
@@ -214,15 +216,18 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">INFO: Deployment of web application archive /usr/tomcat/webapps/app.war has finished in 378,373 ms</span><br><span class="line">Sep 2, 2014 10:46:54 AM org.apache.tomcat.util.net.JIoEndpoint$Acceptor run</span><br><span class="line">SEVERE: Socket accept failed</span><br><span class="line">java.net.SocketException: Too many open files</span><br><span class="line">        at java.net.PlainSocketImpl.socketAccept(Native Method)</span><br><span class="line">        at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:375)</span><br><span class="line">        at java.net.ServerSocket.implAccept(ServerSocket.java:478)</span><br><span class="line">        at java.net.ServerSocket.accept(ServerSocket.java:446)</span><br><span class="line">        at org.apache.tomcat.util.net.DefaultServerSocketFactory.acceptSocket(DefaultServerSocketFactory.java:60)</span><br><span class="line">        at org.apache.tomcat.util.net.JIoEndpoint$Acceptor.run(JIoEndpoint.java:220)</span><br><span class="line">        at java.lang.Thread.run(Thread.java:701)</span><br><span class="line">Sep 2, 2014 10:46:55 AM org.apache.tomcat.util.net.JIoEndpoint$Acceptor run</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h1 id="Open-File-Limit-in-User-Level"><a href="#Open-File-Limit-in-User-Level" class="headerlink" title="Open File Limit in User Level"></a>Open File Limit in User Level</h1><p>調整使用者的 Open File Limit, 修改 <code>/etc/security/limits.conf</code> 設定 (AWS AMI Linux), 這是針對每個 user 調整 open file 上限：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># &lt;domain&gt; &lt;type&gt; &lt;item&gt;  &lt;value&gt;</span><br><span class="line">    *       soft  nofile  65535</span><br><span class="line">    *       hard  nofile  65535</span><br><span class="line"></span><br><span class="line"># 登出登入後, 取得使用者開檔限制</span><br><span class="line">$ ulimit -n</span><br><span class="line">65535</span><br></pre></td></tr></table></figure>
-<h2 id="取得相關資訊"><a href="#取得相關資訊" class="headerlink" title="取得相關資訊"></a>取得相關資訊</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 取的目前已開檔的數目</span><br><span class="line">lsof | wc -l</span><br><span class="line"></span><br><span class="line"># 取得最大可以開啟的檔案數</span><br><span class="line">cat /proc/sys/fs/file-max</span><br></pre></td></tr></table></figure>
-<h1 id="Open-File-Limit-in-OS-Level"><a href="#Open-File-Limit-in-OS-Level" class="headerlink" title="Open File Limit in OS Level"></a>Open File Limit in OS Level</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 在 /etc/rc.local 加入以下這段</span><br><span class="line">echo 65536 &gt; /proc/sys/fs/file-max</span><br><span class="line"></span><br><span class="line"># 或是修改 sysctl.conf, 加入以下:</span><br><span class="line">fs.file-max=65536</span><br><span class="line"></span><br><span class="line"># 重開機</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
-<h2 id="AWS-Instance-Open-File-Limit"><a href="#AWS-Instance-Open-File-Limit" class="headerlink" title="AWS Instance Open File Limit"></a>AWS Instance Open File Limit</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># m3.large</span><br><span class="line">$ cat /proc/sys/fs/file-max</span><br><span class="line">759830</span><br><span class="line"></span><br><span class="line"># t2.medium</span><br><span class="line">$ cat /proc/sys/fs/file-max</span><br><span class="line">400716</span><br><span class="line"></span><br><span class="line"># t2.medium</span><br><span class="line">$ cat /proc/sys/fs/file-max</span><br><span class="line">65535</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># &lt;domain&gt; &lt;type&gt; &lt;item&gt;  &lt;value&gt;</span></span><br><span class="line">    *       soft  nofile  65535</span><br><span class="line">    *       hard  nofile  65535</span><br><span class="line"></span><br><span class="line"><span class="comment"># 登出登入後, 取得使用者開檔限制</span></span><br><span class="line">$ <span class="built_in">ulimit</span> -n</span><br><span class="line">65535</span><br></pre></td></tr></table></figure>
+<h2 id="取得相關資訊"><a href="#取得相關資訊" class="headerlink" title="取得相關資訊"></a>取得相關資訊</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 取的目前已開檔的數目</span></span><br><span class="line">lsof | wc -l</span><br><span class="line"></span><br><span class="line"><span class="comment"># 取得最大可以開啟的檔案數</span></span><br><span class="line">cat /proc/sys/fs/file-max</span><br></pre></td></tr></table></figure>
+<h1 id="Open-File-Limit-in-OS-Level"><a href="#Open-File-Limit-in-OS-Level" class="headerlink" title="Open File Limit in OS Level"></a>Open File Limit in OS Level</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在 /etc/rc.local 加入以下這段</span></span><br><span class="line"><span class="built_in">echo</span> 65536 &gt; /proc/sys/fs/file-max</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或是修改 sysctl.conf, 加入以下:</span></span><br><span class="line">fs.file-max=65536</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重開機</span></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+<h2 id="AWS-Instance-Open-File-Limit"><a href="#AWS-Instance-Open-File-Limit" class="headerlink" title="AWS Instance Open File Limit"></a>AWS Instance Open File Limit</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># m3.large</span></span><br><span class="line">$ cat /proc/sys/fs/file-max</span><br><span class="line">759830</span><br><span class="line"></span><br><span class="line"><span class="comment"># t2.medium</span></span><br><span class="line">$ cat /proc/sys/fs/file-max</span><br><span class="line">400716</span><br><span class="line"></span><br><span class="line"><span class="comment"># t2.medium</span></span><br><span class="line">$ cat /proc/sys/fs/file-max</span><br><span class="line">65535</span><br></pre></td></tr></table></figure>
+<h1 id="延伸閱讀"><a href="#延伸閱讀" class="headerlink" title="延伸閱讀"></a>延伸閱讀</h1><ul>
+<li><a href="/2018/02/24/Linux/File-Descriptor_and_Open-Files/">File Descriptor</a></li>
+</ul>
 <h1 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h1><ul>
 <li><a href="http://stackoverflow.com/questions/11342167/how-to-increase-ulimit-on-amazon-ec2-instance" target="_blank" rel="noopener">How to increase ulimit on Amazon EC2 instance?</a></li>
 <li><a href="http://unix.stackexchange.com/questions/36841/why-is-number-of-open-files-limited-in-linux" target="_blank" rel="noopener">Why is number of open files limited in Linux?</a></li>
-<li><a href="http://hungic.blogspot.tw/2009/12/linux-too-many-open-files.html" target="_blank" rel="noopener">http://hungic.blogspot.tw/2009/12/linux-too-many-open-files.html</a></li>
 <li><a href="http://serverfault.com/questions/249477/windows-server-2008-r2-max-open-files-limit" target="_blank" rel="noopener">Windows Server 2008 R2 max open files limit</a></li>
+<li><a href="https://blogs.technet.microsoft.com/markrussinovich/2009/09/29/pushing-the-limits-of-windows-handles/" target="_blank" rel="noopener">Pushing the Limits of Windows: Handles</a></li>
 </ul>
 
 
@@ -245,13 +250,13 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <ul class="pagination">
 	 
 				
-    	<li class="prev"><a href="/2016/02/21/AWS/Study-Notes-VPC/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一頁</a></li>
+    	<li class="prev"><a href="/2016/02/21/AWS/Study-Notes-VPC/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
   		
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
 		
-		   <li class="next"><a href="/2016/02/20/AWS/Unknown-ENI-Delete-Action-in-CloudTrail/" class="alignright next">下一頁<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+		   <li class="next"><a href="/2016/02/20/AWS/Unknown-ENI-Delete-Action-in-CloudTrail/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
@@ -264,7 +269,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 	<!-- comment -->
 	
 <section id="comment">
-  <h2 class="title">留言</h2>
+  <h2 class="title">Comments</h2>
 
 	<!-- @rick add for facebook -->
 	<div class='fb-comments' data-num-posts='10' data-width='100%' expr:href='data:post.url'/>
@@ -300,7 +305,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 	
 	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i> Table of Content</a>
 	   <div id="toc" class="toc collapse in">
-				<ol class="toc-article"><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#Open-File-Limit-in-User-Level"><span class="toc-article-text">Open File Limit in User Level</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#取得相關資訊"><span class="toc-article-text">取得相關資訊</span></a></li></ol></li><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#Open-File-Limit-in-OS-Level"><span class="toc-article-text">Open File Limit in OS Level</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#AWS-Instance-Open-File-Limit"><span class="toc-article-text">AWS Instance Open File Limit</span></a></li></ol></li><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#參考資料"><span class="toc-article-text">參考資料</span></a></li></ol>
+				<ol class="toc-article"><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#Open-File-Limit-in-User-Level"><span class="toc-article-text">Open File Limit in User Level</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#取得相關資訊"><span class="toc-article-text">取得相關資訊</span></a></li></ol></li><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#Open-File-Limit-in-OS-Level"><span class="toc-article-text">Open File Limit in OS Level</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#AWS-Instance-Open-File-Limit"><span class="toc-article-text">AWS Instance Open File Limit</span></a></li></ol></li><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#延伸閱讀"><span class="toc-article-text">延伸閱讀</span></a></li><li class="toc-article-item toc-article-level-1"><a class="toc-article-link" href="#參考資料"><span class="toc-article-text">參考資料</span></a></li></ol>
 		</div>
 	
 	</div>
@@ -314,7 +319,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
     <!--<ul id="categorys" class="tag_box list-unstyled collapse in">-->
       <div>
   <!--<li>-->
-    <span class="label label-info"><a href="/categories/Linux/" style="color: white">Linux <span class="badge">9</span></a></span>
+    <span class="label label-info"><a href="/categories/Linux/" style="color: white">Linux <span class="badge">10</span></a></span>
   <!--</li>-->
 </div>
     <!--</ul>-->
@@ -330,7 +335,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
     <!--<ul id="tags" class="tag_box list-unstyled collapse in">-->
     <div>
 	  	
-  <span class="label label-success"><a href="/tags/AMI-Linux/" style="color: white">AMI Linux <span class="badge">1</span></a></span>
+  <span class="label label-success"><a href="/tags/File-Descriptor/" style="color: white">File Descriptor <span class="badge">2</span></a></span>
 	  </div>
     <!--</ul>-->
 	</div>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://rickhw.github.io/"/>
-  <updated>2018-02-21T03:01:27.861Z</updated>
+  <updated>2018-02-26T04:31:32.286Z</updated>
   <id>http://rickhw.github.io/</id>
   
   <author>
@@ -17,22 +17,140 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Inter-Region VPC Peering is Now Available in Nine Additional AWS Regions</title>
-    <link href="http://rickhw.github.io/2018/02/21/AWS/News-Inter-Region-VPC-Peering-GA-in-9Regions/"/>
-    <id>http://rickhw.github.io/2018/02/21/AWS/News-Inter-Region-VPC-Peering-GA-in-9Regions/</id>
-    <published>2018-02-21T01:53:00.000Z</published>
-    <updated>2018-02-21T03:01:27.861Z</updated>
+    <title>API Gateway - Setup Logging</title>
+    <link href="http://rickhw.github.io/2018/02/26/AWS/Study-Notes-API-Gateway-Setup-Logging/"/>
+    <id>http://rickhw.github.io/2018/02/26/AWS/Study-Notes-API-Gateway-Setup-Logging/</id>
+    <published>2018-02-25T18:35:00.000Z</published>
+    <updated>2018-02-26T04:31:32.286Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;來自 &lt;a href=&quot;https://aws.amazon.com/about-aws/whats-new/2018/02/inter-region-vpc-peering-is-now-available-in-nine-additional-aws-regions/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;AWS News&lt;/a&gt; 的訊息，Inter-Region VPC Peering 多了九個 Region，而且總算有亞洲了！&lt;/p&gt;
+      &lt;p&gt;本文延續 &lt;a href=&quot;/2018/01/24/AWS/Study-Notes-Overview-API-Gateway/&quot;&gt;Overview API Gateway&lt;/a&gt; 相關筆記，整理在 &lt;a href=&quot;https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Amazon API Gateway&lt;/a&gt; 中， 如何使用 &lt;a href=&quot;/2017/03/02/AWS/Study-Notes-CloudWatch/&quot;&gt;CloudWatch Logs&lt;/a&gt; (以下縮寫 CWL) 找問題、Debugging，設定包含以下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Enable CloudWatch Logs for API Gateway&lt;/li&gt;
+&lt;li&gt;Enable API Logging for Stage&lt;/li&gt;
+&lt;li&gt;Custom Access Logging&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
       <category term="AWS" scheme="http://rickhw.github.io/categories/AWS/"/>
     
     
+      <category term="API Gateway" scheme="http://rickhw.github.io/tags/API-Gateway/"/>
+    
+      <category term="CloudWatch" scheme="http://rickhw.github.io/tags/CloudWatch/"/>
+    
+      <category term="Serverless" scheme="http://rickhw.github.io/tags/Serverless/"/>
+    
+      <category term="Lambda" scheme="http://rickhw.github.io/tags/Lambda/"/>
+    
+      <category term="CloudWatch Logs" scheme="http://rickhw.github.io/tags/CloudWatch-Logs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>File Descriptor and Open File</title>
+    <link href="http://rickhw.github.io/2018/02/24/Linux/File-Descriptor_and_Open-Files/"/>
+    <id>http://rickhw.github.io/2018/02/24/Linux/File-Descriptor_and_Open-Files/</id>
+    <published>2018-02-23T19:08:00.000Z</published>
+    <updated>2018-02-26T03:16:15.087Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;春節前一週個週末，因為一個服務系統異常，讓我又重新 review 關於 &lt;code&gt;File Descriptor&lt;/code&gt; (以下簡稱 FD) 的概念。&lt;a href=&quot;/2016/02/20/Linux/Open-File-Limit/&quot;&gt;上次整理&lt;/a&gt; 已經是兩年前的，再重新讀了相關資料，整理以下部分：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;FD 基本概念&lt;/li&gt;
+&lt;li&gt;設定層級，以及各個層級的詳細設定方法和關係&lt;/li&gt;
+&lt;li&gt;FD 應用場景與問題&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://rickhw.github.io/categories/Linux/"/>
+    
+    
+      <category term="File Descriptor" scheme="http://rickhw.github.io/tags/File-Descriptor/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Guide to Microservices</title>
+    <link href="http://rickhw.github.io/2018/02/22/Architecture/Guide-to-Microservices/"/>
+    <id>http://rickhw.github.io/2018/02/22/Architecture/Guide-to-Microservices/</id>
+    <published>2018-02-22T05:30:00.000Z</published>
+    <updated>2018-02-26T03:16:15.079Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;code&gt;Microservice Architecture&lt;/code&gt; 是新一代架構顯學，他聽起來是『高尚大』的技術，實際上呢？新技術會帶來好的優勢，同時也會帶來新問題，整理一些常問的問題如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Microservice&lt;/code&gt; 是有多 &lt;code&gt;Micro&lt;/code&gt;？怎樣定義一個 &lt;code&gt;Service&lt;/code&gt;？&lt;/li&gt;
+&lt;li&gt;如何把既有的架構導入？可能會面臨什麼問題？&lt;/li&gt;
+&lt;li&gt;他需要搭配什麼樣的基礎架構？&lt;/li&gt;
+&lt;li&gt;跟 &lt;code&gt;Serverless&lt;/code&gt; 有什麼不一樣？他是 &lt;code&gt;FaaS&lt;/code&gt;？&lt;/li&gt;
+&lt;li&gt;有哪一些用法 (Patterns)？&lt;/li&gt;
+&lt;li&gt;當 &lt;code&gt;Service&lt;/code&gt; 很多的時候，要怎麼管理？會面對哪一些挑戰？&lt;/li&gt;
+&lt;li&gt;組織如何因應這樣的變革？&lt;/li&gt;
+&lt;li&gt;原本的開發測試流程將如何調整？&lt;/li&gt;
+&lt;li&gt;有哪一些企業已經使用這樣的架構？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;這些問題應該是常會被問的，也是我正在探索學習的。&lt;/p&gt;
+&lt;p&gt;整理一些我研讀中的資料與書籍，作為紀錄。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Architecture" scheme="http://rickhw.github.io/categories/Architecture/"/>
+    
+    
+      <category term="Serverless" scheme="http://rickhw.github.io/tags/Serverless/"/>
+    
+      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
+    
+      <category term="Distributed Systems" scheme="http://rickhw.github.io/tags/Distributed-Systems/"/>
+    
+      <category term="Microservice" scheme="http://rickhw.github.io/tags/Microservice/"/>
+    
+      <category term="Service Mesh" scheme="http://rickhw.github.io/tags/Service-Mesh/"/>
+    
+      <category term="Reverse Proxy" scheme="http://rickhw.github.io/tags/Reverse-Proxy/"/>
+    
+      <category term="Kubernetes" scheme="http://rickhw.github.io/tags/Kubernetes/"/>
+    
+      <category term="CNCF" scheme="http://rickhw.github.io/tags/CNCF/"/>
+    
+      <category term="AWS" scheme="http://rickhw.github.io/tags/AWS/"/>
+    
+      <category term="FaaS" scheme="http://rickhw.github.io/tags/FaaS/"/>
+    
+      <category term="Containerize" scheme="http://rickhw.github.io/tags/Containerize/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Inter-Region VPC Peering</title>
+    <link href="http://rickhw.github.io/2018/02/21/AWS/Inter-Region-VPC-Peering/"/>
+    <id>http://rickhw.github.io/2018/02/21/AWS/Inter-Region-VPC-Peering/</id>
+    <published>2018-02-21T01:53:00.000Z</published>
+    <updated>2018-02-26T03:16:15.076Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;來自 &lt;a href=&quot;https://aws.amazon.com/about-aws/whats-new/2018/02/inter-region-vpc-peering-is-now-available-in-nine-additional-aws-regions/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;AWS News&lt;/a&gt; 的訊息，&lt;code&gt;Inter-Region VPC Peering&lt;/code&gt; 多了九個 Region，而且總算有亞洲了！不用再自己幹 Site to Site VPN 了！&lt;/p&gt;
+&lt;p&gt;整理基本資訊、實測的數據、規劃上的考量等。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="AWS" scheme="http://rickhw.github.io/categories/AWS/"/>
+    
+    
+      <category term="VPC" scheme="http://rickhw.github.io/tags/VPC/"/>
+    
+      <category term="Security Groups" scheme="http://rickhw.github.io/tags/Security-Groups/"/>
+    
       <category term="VPC Peering" scheme="http://rickhw.github.io/tags/VPC-Peering/"/>
+    
+      <category term="Network ACLs" scheme="http://rickhw.github.io/tags/Network-ACLs/"/>
     
   </entry>
   
@@ -66,7 +184,7 @@
     <link href="http://rickhw.github.io/2018/02/06/Architecture/Service-Mesh/"/>
     <id>http://rickhw.github.io/2018/02/06/Architecture/Service-Mesh/</id>
     <published>2018-02-06T05:30:00.000Z</published>
-    <updated>2018-02-15T05:30:08.831Z</updated>
+    <updated>2018-02-26T03:16:15.080Z</updated>
     
     <summary type="html">
     
@@ -87,11 +205,11 @@
     
       <category term="Architecture" scheme="http://rickhw.github.io/tags/Architecture/"/>
     
+      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
+    
       <category term="Distributed Systems" scheme="http://rickhw.github.io/tags/Distributed-Systems/"/>
     
       <category term="Microservice" scheme="http://rickhw.github.io/tags/Microservice/"/>
-    
-      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
     
       <category term="Service Mesh" scheme="http://rickhw.github.io/tags/Service-Mesh/"/>
     
@@ -108,11 +226,12 @@
     <link href="http://rickhw.github.io/2018/02/04/AWS/Study-Notes-API-Gateway-Custom-Authorizer-using-Lambda/"/>
     <id>http://rickhw.github.io/2018/02/04/AWS/Study-Notes-API-Gateway-Custom-Authorizer-using-Lambda/</id>
     <published>2018-02-04T06:35:00.000Z</published>
-    <updated>2018-02-08T04:01:37.170Z</updated>
+    <updated>2018-02-26T03:16:15.078Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;整理在 &lt;a href=&quot;https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Amazon API Gateway&lt;/a&gt; 中，如何使用 Lambda 做 Custom Authorizers。&lt;/p&gt;
+      &lt;p&gt;在 &lt;a href=&quot;/2018/01/24/AWS/Study-Notes-Overview-API-Gateway/&quot;&gt;Overview API Gateway&lt;/a&gt; 中提到，&lt;a href=&quot;https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Amazon API Gateway&lt;/a&gt; 提供了客製化驗證的機制，讓我們可以個別設定驗證的方式，使用者認證 (Authentication) 可以使用 OAuth or SAML；授權 (Authorization) 可以使用 JSON Web Token (JWT) 或者 OAuth provider。&lt;/p&gt;
+&lt;p&gt;本文整理如何使用 Lambda 做 Custom Authorizers 的基本用法與流程。&lt;/p&gt;
     
     </summary>
     
@@ -127,6 +246,8 @@
     
       <category term="Cognito" scheme="http://rickhw.github.io/tags/Cognito/"/>
     
+      <category term="JWT" scheme="http://rickhw.github.io/tags/JWT/"/>
+    
   </entry>
   
   <entry>
@@ -134,7 +255,7 @@
     <link href="http://rickhw.github.io/2018/02/03/GCP/Compare-GCP-VPC-Network-with-AWS/"/>
     <id>http://rickhw.github.io/2018/02/03/GCP/Compare-GCP-VPC-Network-with-AWS/</id>
     <published>2018-02-03T11:41:58.000Z</published>
-    <updated>2018-02-16T07:30:29.357Z</updated>
+    <updated>2018-02-26T03:16:15.086Z</updated>
     
     <summary type="html">
     
@@ -158,7 +279,7 @@
     <link href="http://rickhw.github.io/2018/01/24/AWS/Study-Notes-Overview-API-Gateway/"/>
     <id>http://rickhw.github.io/2018/01/24/AWS/Study-Notes-Overview-API-Gateway/</id>
     <published>2018-01-24T06:35:00.000Z</published>
-    <updated>2018-02-15T04:47:35.094Z</updated>
+    <updated>2018-02-26T03:16:15.079Z</updated>
     
     <summary type="html">
     
@@ -186,6 +307,8 @@
     
       <category term="CloudWatch Logs" scheme="http://rickhw.github.io/tags/CloudWatch-Logs/"/>
     
+      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
+    
       <category term="Distributed Systems" scheme="http://rickhw.github.io/tags/Distributed-Systems/"/>
     
       <category term="Microservice" scheme="http://rickhw.github.io/tags/Microservice/"/>
@@ -193,8 +316,6 @@
       <category term="CloudFront" scheme="http://rickhw.github.io/tags/CloudFront/"/>
     
       <category term="Network Load Balancing" scheme="http://rickhw.github.io/tags/Network-Load-Balancing/"/>
-    
-      <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
     
       <category term="Nginx" scheme="http://rickhw.github.io/tags/Nginx/"/>
     
@@ -236,7 +357,7 @@
     <link href="http://rickhw.github.io/2018/01/07/DevOps/Emergency-Response/"/>
     <id>http://rickhw.github.io/2018/01/07/DevOps/Emergency-Response/</id>
     <published>2018-01-07T04:43:00.000Z</published>
-    <updated>2018-02-16T07:51:19.394Z</updated>
+    <updated>2018-02-26T03:16:15.081Z</updated>
     
     <summary type="html">
     
@@ -245,6 +366,8 @@
     </summary>
     
       <category term="DevOps" scheme="http://rickhw.github.io/categories/DevOps/"/>
+    
+      <category term="SRE" scheme="http://rickhw.github.io/categories/DevOps/SRE/"/>
     
     
       <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
@@ -283,7 +406,7 @@
     <link href="http://rickhw.github.io/2017/12/22/DevOps/What-is-Monitoring/"/>
     <id>http://rickhw.github.io/2017/12/22/DevOps/What-is-Monitoring/</id>
     <published>2017-12-22T14:20:00.000Z</published>
-    <updated>2018-02-16T07:52:18.252Z</updated>
+    <updated>2018-02-26T03:16:15.085Z</updated>
     
     <summary type="html">
     
@@ -292,6 +415,8 @@
     </summary>
     
       <category term="DevOps" scheme="http://rickhw.github.io/categories/DevOps/"/>
+    
+      <category term="SRE" scheme="http://rickhw.github.io/categories/DevOps/SRE/"/>
     
     
       <category term="CloudWatch" scheme="http://rickhw.github.io/tags/CloudWatch/"/>
@@ -350,7 +475,7 @@
     <link href="http://rickhw.github.io/2017/12/21/DevOps/What-is-Automation/"/>
     <id>http://rickhw.github.io/2017/12/21/DevOps/What-is-Automation/</id>
     <published>2017-12-21T14:20:00.000Z</published>
-    <updated>2018-01-23T04:24:12.991Z</updated>
+    <updated>2018-02-26T03:16:15.085Z</updated>
     
     <summary type="html">
     
@@ -359,6 +484,8 @@
     </summary>
     
       <category term="DevOps" scheme="http://rickhw.github.io/categories/DevOps/"/>
+    
+      <category term="SRE" scheme="http://rickhw.github.io/categories/DevOps/SRE/"/>
     
     
       <category term="CloudWatch" scheme="http://rickhw.github.io/tags/CloudWatch/"/>
@@ -378,7 +505,7 @@
     <link href="http://rickhw.github.io/2017/12/12/DevOps/Slogan-in-SRE/"/>
     <id>http://rickhw.github.io/2017/12/12/DevOps/Slogan-in-SRE/</id>
     <published>2017-12-12T11:41:58.000Z</published>
-    <updated>2017-12-13T04:27:38.007Z</updated>
+    <updated>2018-02-26T03:16:15.083Z</updated>
     
     <summary type="html">
     
@@ -387,6 +514,8 @@
     </summary>
     
       <category term="DevOps" scheme="http://rickhw.github.io/categories/DevOps/"/>
+    
+      <category term="SRE" scheme="http://rickhw.github.io/categories/DevOps/SRE/"/>
     
     
       <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
@@ -462,7 +591,7 @@
     <link href="http://rickhw.github.io/2017/12/02/DevOps/Spirit-In-SysOps/"/>
     <id>http://rickhw.github.io/2017/12/02/DevOps/Spirit-In-SysOps/</id>
     <published>2017-12-02T15:04:00.000Z</published>
-    <updated>2018-01-23T04:24:12.990Z</updated>
+    <updated>2018-02-26T03:16:15.084Z</updated>
     
     <summary type="html">
     
@@ -471,6 +600,8 @@
     </summary>
     
       <category term="DevOps" scheme="http://rickhw.github.io/categories/DevOps/"/>
+    
+      <category term="SRE" scheme="http://rickhw.github.io/categories/DevOps/SRE/"/>
     
     
       <category term="SRE" scheme="http://rickhw.github.io/tags/SRE/"/>
@@ -494,86 +625,6 @@
     
       <category term="About" scheme="http://rickhw.github.io/categories/About/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Compare GCP Load Balancing with AWS</title>
-    <link href="http://rickhw.github.io/2017/11/30/GCP/Compare-GCP-Load-Balancing-with-AWS/"/>
-    <id>http://rickhw.github.io/2017/11/30/GCP/Compare-GCP-Load-Balancing-with-AWS/</id>
-    <published>2017-11-30T11:41:58.000Z</published>
-    <updated>2018-02-16T07:30:19.843Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;整理 &lt;a href=&quot;https://cloud.google.com/compute/docs/load-balancing/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GCP Cloud Load Balancing&lt;/a&gt; 和 &lt;a href=&quot;https://aws.amazon.com/documentation/elastic-load-balancing/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;AWS Elastic Load Balancing&lt;/a&gt; 的比較，功能比較的面相如下：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Global or Regional&lt;/li&gt;
-&lt;li&gt;Internal or external&lt;/li&gt;
-&lt;li&gt;Protocol Type&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;整理這三個面向的比較。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="GCP" scheme="http://rickhw.github.io/categories/GCP/"/>
-    
-    
-      <category term="ELB" scheme="http://rickhw.github.io/tags/ELB/"/>
-    
-      <category term="Auto Scaling Group" scheme="http://rickhw.github.io/tags/Auto-Scaling-Group/"/>
-    
-      <category term="Load Balancing" scheme="http://rickhw.github.io/tags/Load-Balancing/"/>
-    
-      <category term="AWS VS GCP" scheme="http://rickhw.github.io/tags/AWS-VS-GCP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>AWS reInvent 2017 News</title>
-    <link href="http://rickhw.github.io/2017/11/29/AWS/News_AWS-reInvent-2017/"/>
-    <id>http://rickhw.github.io/2017/11/29/AWS/News_AWS-reInvent-2017/</id>
-    <published>2017-11-29T03:27:00.000Z</published>
-    <updated>2017-12-13T04:27:37.982Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;整理 AWS re:Invent 2017 發佈的新東西！&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="AWS" scheme="http://rickhw.github.io/categories/AWS/"/>
-    
-    
-      <category term="re:Invent" scheme="http://rickhw.github.io/tags/re-Invent/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>What is Ops？</title>
-    <link href="http://rickhw.github.io/2017/11/27/DevOps/What-is-Ops/"/>
-    <id>http://rickhw.github.io/2017/11/27/DevOps/What-is-Ops/</id>
-    <published>2017-11-27T11:41:58.000Z</published>
-    <updated>2018-01-23T04:24:12.992Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;現在啥鬼都要跟 &lt;code&gt;Ops&lt;/code&gt; 扯上關係？或者要消滅 Ops 變成 &lt;code&gt;NoOps&lt;/code&gt;，用人工智慧&lt;del&gt;智障&lt;/del&gt;來取代叫做 &lt;code&gt;AIOps&lt;/code&gt;，到底啥是 &lt;code&gt;Ops&lt;/code&gt;?&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="DevOps" scheme="http://rickhw.github.io/categories/DevOps/"/>
-    
-    
-      <category term="DevOps" scheme="http://rickhw.github.io/tags/DevOps/"/>
-    
-      <category term="System Operations" scheme="http://rickhw.github.io/tags/System-Operations/"/>
-    
-      <category term="Automation" scheme="http://rickhw.github.io/tags/Automation/"/>
-    
-      <category term="Ops" scheme="http://rickhw.github.io/tags/Ops/"/>
-    
-      <category term="AI" scheme="http://rickhw.github.io/tags/AI/"/>
     
   </entry>
   
